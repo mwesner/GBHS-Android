@@ -4,5 +4,27 @@
     <string name="app_name">Grand Blanc High School</string>
     <string name="GBHS">GBHS</string>
     <string name="action_settings">Settings</string>
-
+    <string name="News">Newsletter</string>
+    <string name="Admin">Administration</string>
+    <string name="Staff">Staff Listing</string>
+    <string name="Alumni">Alumni</string>
+    <string name="Athletics">Athletics</string>
+    <string name="BAC">BAC/ACC</string>
+    <string name="CRC">Career Resource Center</string>
+    <string name="CSS">CSS</string>
+    <string name="District">District Data</string>
+    <string name="Driver">Driver Education</string>
+    <string name="Early">Early College</string>
+    <string name="ArtCal">Fine Arts Calendar</string>
+    <string name="GBCC">GB Community Connections</string>
+    <string name="Guidance">Guidance</string>
+    <string name="K12CTE">K-12 Career Tech Ed</string>
+    <string name="Library">Library</string>
+    <string name="NHS">NHS</string>
+    <string name="PTO">Parents / PTO</string>
+    <string name="Bully">Report Bullying</string>
+    <string name="Faculty">Faculty Resources</string>
+    <string name="Student">Student Resources</string>
+    <string name="Summer">Summer School</string>
+    <string name="Yearbook">Yearbook</string>
 </resources>
