@@ -6,4 +6,12 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="THIS IS A TEXT BOX THAT WILL HAVE A TWITTER FEED IN IT"
+        android:id="@+id/textView"
+        android:layout_gravity="center"
+        android:height="200dp"
+        android:width="200dp" />
 </FrameLayout>
