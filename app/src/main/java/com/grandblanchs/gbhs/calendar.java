@@ -1,5 +1,6 @@
 package com.grandblanchs.gbhs;
 
+import java.text.Format;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,16 +11,21 @@ import android.view.ViewGroup;
 
 
 
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link gbhsfragment.OnFragmentInteractionListener} interface
+ * {@link calendar.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link gbhsfragment#newInstance} factory method to
+ * Use the {@link calendar#newInstance} factory method to
  * create an instance of this fragment.
  *
  */
-public class gbhsfragment extends Fragment {
+public class calendar extends Fragment {
+    /*Here is the link
+    http://grandblanc.high.schoolfusion.us/modules/calendar/exportICal.php?oc_id%5B%5D=3025
+     */
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -40,15 +46,15 @@ public class gbhsfragment extends Fragment {
      * @return A new instance of fragment calendar.
      */
     // TODO: Rename and change types and number of parameters
-    public static gbhsfragment newInstance(String param1, String param2) {
-        gbhsfragment fragment = new gbhsfragment();
+    public static calendar newInstance(String param1, String param2) {
+        calendar fragment = new calendar();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
-    public gbhsfragment() {
+    public calendar() {
         // Required empty public constructor
     }
 

@@ -1,9 +1,47 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.grandblanchs.gbhs.gbhsfragment">
-
+    tools:context="com.grandblanchs.gbhs.calendar"
+    android:orientation="vertical"
+    android:weightSum="1">
     <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Introducing ICS Calendar"
+        android:gravity="center"
+        android:padding="10dip"/>
 
-</FrameLayout>
+    <CalendarView
+        android:layout_width="match_parent"
+        android:layout_height="253dp"
+        android:id="@+id/calendarView"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.25" />
+
+    <TextView
+        android:id="@+id/data"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dip"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center" >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/previous"
+            android:text="Prev"
+            android:padding="10dip"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/next"
+            android:text="Next"
+            android:padding="10dip"/>
+    </LinearLayout>
+</LinearLayout>
