@@ -2,6 +2,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".GBHS" >
+
+    <!--For debugging purposes only-->
+    <item android:id="@+id/twitter"
+        android:title="@+string/Twitter"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item android:id="@+id/calendar"
+        android:title="@+string/Calendar"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
     <item android:id="@+id/news"
         android:title="@string/News"
         android:orderInCategory="100"

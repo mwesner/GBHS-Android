@@ -27,4 +27,8 @@
     <string name="Student">Student Resources</string>
     <string name="Summer">Summer School</string>
     <string name="Yearbook">Yearbook</string>
+
+    <!--For debugging purposes only-->
+    <string name="Twitter">View Twitter Fragment</string>
+    <string name="Calendar">View Calendar Fragment</string>
 </resources>
