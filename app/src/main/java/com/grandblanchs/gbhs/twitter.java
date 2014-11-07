@@ -8,6 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.IOException;
+
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.auth.AccessToken;
+
 
 
 /**
@@ -24,7 +31,9 @@ public class twitter extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    //This is authentication for the first step of logging into Twitter
+    private final static String CONSUMER_KEY = "0S62lfz7hGX39oZo2jJmrhZ96";
+    private final static String CONSUMER_KEY_SECRET ="Pr1YnBtFU5OErrxhpLNet2S6KolhRm43cfwZuFPCQLOasEPXm7";
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -69,9 +78,25 @@ public class twitter extends Fragment {
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
+    public void onButtonPressed(Uri uri) throws TwitterException, IOException{
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
+
+            Twitter twitter = new TwitterFactory().getInstance();
+            twitter.setOAuthConsumer(CONSUMER_KEY, CONSUMER_KEY_SECRET);
+
+            String accessToken = "2832408273-pvUljzIaVPHm9SgWAqwQXXbBQgA9AYQ8gKI9XEQ";
+            String accessTokenSecret = "0NI1CVcbKCZDWjIqqipN7LZuWuCDAqVaL37Wf6XgAa9Ww";
+
+            AccessToken oathAccessToken = new AccessToken(accessToken, accessTokenSecret);
+            twitter.setOAuthAccessToken(oathAccessToken);
+
+            twitter.updateStatus("Hi, this was updated using android studio.");
+            System.out.println("\nMy Timeline:");
+
+
+
+
         }
     }
 
