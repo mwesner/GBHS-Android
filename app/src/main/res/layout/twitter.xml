@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,12 +6,12 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="THIS IS A TEXT BOX THAT WILL HAVE A TWITTER FEED IN IT"
-        android:id="@+id/textView"
-        android:layout_gravity="center"
-        android:height="200dp"
-        android:width="200dp" />
-</FrameLayout>
+        android:text="Tweet"
+        android:id="@+id/btn_tweet"
+        android:layout_marginBottom="91dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

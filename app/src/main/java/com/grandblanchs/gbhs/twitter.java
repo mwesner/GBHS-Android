@@ -2,11 +2,13 @@ package com.grandblanchs.gbhs;
 
 import android.app.Activity;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.io.IOException;
 
@@ -77,26 +79,24 @@ public class twitter extends Fragment {
         return inflater.inflate(R.layout.twitter, container, false);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        Button btn_tweet = (Button) getView().findViewById(R.id.btn_tweet);
+        btn_tweet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new twitterPost().execute();
+            }
+
+        });
+    }
+
+
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) throws TwitterException, IOException{
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
-
-            Twitter twitter = new TwitterFactory().getInstance();
-            twitter.setOAuthConsumer(CONSUMER_KEY, CONSUMER_KEY_SECRET);
-
-            String accessToken = "2832408273-pvUljzIaVPHm9SgWAqwQXXbBQgA9AYQ8gKI9XEQ";
-            String accessTokenSecret = "0NI1CVcbKCZDWjIqqipN7LZuWuCDAqVaL37Wf6XgAa9Ww";
-
-            AccessToken oathAccessToken = new AccessToken(accessToken, accessTokenSecret);
-            twitter.setOAuthAccessToken(oathAccessToken);
-
-            twitter.updateStatus("Hi, this was updated using android studio.");
-            System.out.println("\nMy Timeline:");
-
-
-
-
         }
     }
 
@@ -130,6 +130,30 @@ public class twitter extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
+    }
+
+
+    private class twitterPost extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            Twitter twitter = new TwitterFactory().getInstance();
+            twitter.setOAuthConsumer(CONSUMER_KEY, CONSUMER_KEY_SECRET);
+
+            String accessToken = "2832408273-pvUljzIaVPHm9SgWAqwQXXbBQgA9AYQ8gKI9XEQ";
+            String accessTokenSecret = "0NI1CVcbKCZDWjIqqipN7LZuWuCDAqVaL37Wf6XgAa9Ww";
+
+            AccessToken oathAccessToken = new AccessToken(accessToken, accessTokenSecret);
+            twitter.setOAuthAccessToken(oathAccessToken);
+
+            try {
+                twitter.updateStatus("Hi, this was updated using android studio.");
+            } catch (TwitterException e) {
+                e.printStackTrace();
+            }
+            System.out.println("\nMy Timeline:");
+            return null;
+        }
     }
 
 }
