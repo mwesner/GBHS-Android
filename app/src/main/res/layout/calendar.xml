@@ -2,12 +2,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.grandblanchs.gbhs.calendar"
-    android:orientation="vertical"
-    android:weightSum="1">
+    tools:context=".GBHS"
+    android:weightSum="1"
+    android:orientation="vertical">
 
-    <CalendarView
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/calendarView" />
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/txtMonth"
+        android:layout_gravity="center"
+        android:enabled="true"
+        android:gravity="center" />
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="436dp"
+        android:id="@+id/gridCal"
+        android:numColumns="7"
+        android:choiceMode="none"
+        android:entries="@array/num"/>
+
+
 </LinearLayout>

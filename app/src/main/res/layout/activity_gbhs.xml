@@ -1,6 +1,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".GBHS"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:contentDescription="@string/GBHS"
+        android:src="@drawable/gblogo" />
 
 <FrameLayout
     android:id="@+id/FragmentContainer"
@@ -8,6 +16,7 @@ android:layout_height="fill_parent">
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ff82180e"
-    tools:context=".GBHS"
+    tools:context="com.grandblanchs.gbhs.GBHS"
     android:orientation="horizontal"/>
+
 </RelativeLayout>

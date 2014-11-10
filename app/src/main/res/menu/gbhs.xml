@@ -1,0 +1,80 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".GBHS" >
+
+    <!--For debugging purposes only-->
+    <item android:id="@+id/twitter"
+        android:title="@+string/Twitter"/>
+    <item android:id="@+id/calendar"
+        android:title="@+string/Calendar"/>
+
+    <item android:id="@+id/news"
+        android:title="@string/News"/>
+
+    <item android:id="@string/Admin"
+        android:title="@string/Admin"/>
+
+    <item android:id="@string/Staff"
+        android:title="@string/Staff"/>
+
+    <item android:id="@string/Alumni"
+        android:title="@string/Alumni"/>
+
+    <item android:id="@string/Athletics"
+        android:title="@string/Athletics"/>
+
+    <item android:id="@string/BAC"
+        android:title="@string/BAC"/>
+
+    <item android:id="@string/CRC"
+        android:title="@string/CRC"/>
+
+    <item android:id="@string/CSS"
+        android:title="@string/CSS"/>
+
+    <item android:id="@string/District"
+        android:title="@string/District"/>
+
+    <item android:id="@string/Driver"
+        android:title="@string/Driver"/>
+
+    <item android:id="@string/Early"
+        android:title="@string/Early"/>
+
+    <item android:id="@string/ArtCal"
+        android:title="@string/ArtCal"/>
+
+    <item android:id="@string/GBCC"
+        android:title="@string/GBCC"/>
+
+    <item android:id="@string/Guidance"
+        android:title="@string/Guidance"/>
+
+    <item android:id="@string/K12CTE"
+        android:title="@string/K12CTE" />
+
+    <item android:id="@string/Library"
+        android:title="@string/Library" />
+
+    <item android:id="@string/NHS"
+        android:title="@string/NHS" />
+
+    <item android:id="@string/PTO"
+        android:title="@string/PTO" />
+
+    <item android:id="@string/Bully"
+        android:title="@string/Bully" />
+
+    <item android:id="@string/Faculty"
+        android:title="@string/Faculty" />
+
+    <item android:id="@string/Student"
+        android:title="@string/Student" />
+
+    <item android:id="@string/Summer"
+        android:title="@string/Summer" />
+
+    <item android:id="@string/Yearbook"
+        android:title="@string/Yearbook" />
+
+</menu>

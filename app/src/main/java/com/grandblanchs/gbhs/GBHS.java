@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.app.Activity;
 
 
-public class GBHS extends Activity implements twitter.OnFragmentInteractionListener {
+public class GBHS extends Activity implements twitter.OnFragmentInteractionListener, calendar.OnFragmentInteractionListener {
     @Override
     public void onFragmentInteraction(Uri uri) {
 
@@ -20,12 +20,7 @@ public class GBHS extends Activity implements twitter.OnFragmentInteractionListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gbhs);
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        calendar calfragment = new calendar();
-        fragmentTransaction.add(R.id.FragmentContainer, calfragment);
-        fragmentTransaction.commit();
-
+        System.out.println("Starting");
     }
 
 
@@ -33,7 +28,7 @@ public class GBHS extends Activity implements twitter.OnFragmentInteractionListe
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         System.out.println("onCreateOptionsMenu");
-        getMenuInflater().inflate(R.menu.gbh, menu);
+        getMenuInflater().inflate(R.menu.gbhs, menu);
         return true;
     }
 
