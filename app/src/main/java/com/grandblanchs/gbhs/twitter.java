@@ -11,7 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import java.io.IOException;
-
+import java.util.List;
+import twitter4j.*;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -146,12 +147,17 @@ public class twitter extends Fragment {
             AccessToken oathAccessToken = new AccessToken(accessToken, accessTokenSecret);
             twitter.setOAuthAccessToken(oathAccessToken);
 
+            List<twitter4j.Status> stati;
+
+
             try {
-                twitter.updateStatus("Hi, this was updated using android studio.");
+               stati  = twitter.getHomeTimeline();
+               System.out.println(stati) ;
+
             } catch (TwitterException e) {
                 e.printStackTrace();
             }
-            System.out.println("\nMy Timeline:");
+
             return null;
         }
     }
