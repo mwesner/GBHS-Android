@@ -9,8 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import twitter4j.*;
 import twitter4j.Twitter;
@@ -91,6 +93,7 @@ public class twitter extends Fragment {
             }
 
         });
+
     }
 
 
@@ -153,6 +156,9 @@ public class twitter extends Fragment {
             try {
                stati  = twitter.getHomeTimeline();
                System.out.println(stati) ;
+               ListView lst_feed = (ListView) getView().findViewById(R.id.lst_feed);
+
+
 
             } catch (TwitterException e) {
                 e.printStackTrace();
