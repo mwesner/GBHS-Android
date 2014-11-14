@@ -28,12 +28,13 @@ import twitter4j.auth.AccessToken;
 
 public class twitter extends Fragment {
 
-    //This is authentication for the first step of logging into Twitter
+    //Setting the consumer key and consumer secret for twitter OAuth
     private final static String CONSUMER_KEY = "0S62lfz7hGX39oZo2jJmrhZ96";
     private final static String CONSUMER_KEY_SECRET ="Pr1YnBtFU5OErrxhpLNet2S6KolhRm43cfwZuFPCQLOasEPXm7";
 
     private OnFragmentInteractionListener mListener;
 
+    //Declaration of ListView lst_feed, so it can be referenced throughout twitter.java
     ListView lst_feed;
 
     public static twitter newInstance() {
@@ -61,7 +62,8 @@ public class twitter extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        new twitterPost().execute();
+        //Since internet dependant tasks cannot be performed on the main method, we execute a new one called twitterTimeline
+        new twitterTimeline().execute();
 
     }
 
@@ -96,10 +98,11 @@ public class twitter extends Fragment {
     }
 
 
-    private class twitterPost extends AsyncTask<Void, Void, Void> {
+    private class twitterTimeline extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... voids) {
+            //Authenticates this app with my specific account codes. This will need to be changed to GBHS twitter account codes.
             Twitter twitter = new TwitterFactory().getInstance();
             twitter.setOAuthConsumer(CONSUMER_KEY, CONSUMER_KEY_SECRET);
 
@@ -112,15 +115,20 @@ public class twitter extends Fragment {
 
 
 
-
+            //Finds the ListView lst_feed on the GUI form
             lst_feed = (ListView) getView().findViewById(R.id.lst_feed);
+
+            //Creates a string array of length 20 for the twenty twitter posts to be stored in.
+            //This is needed because it's a lot easier to populate a ListView with a string array
             final String [] testing = new String[20];
 
-
+            //A try-catch for the twitter4j method, since I can't add 'Throws twitter exception' on this method
             try {
+                //Retrieves the last 20 tweets from the user 'GrandBlancPride' and puts them into a responseList
                 ResponseList<twitter4j.Status> statuses = twitter.getUserTimeline("GrandBlancPride");
+                //This for loop takes the text from every member of this response list and moves it to the string array
                 for(int i = 0; i < statuses.size(); i++) {
-                    System.out.println(i);
+                    //System.out.println(i);
                     testing[i] = statuses.get(i).getText();
                 }
 
@@ -136,10 +144,12 @@ public class twitter extends Fragment {
                 for (int i = 0; i < testing.length; ++i) {
                     list.add(testing[i]);
                 }
+
+            //Since the UI cannot be changed without this,
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-
+                    //Populates lst_feed with string array testing
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                             android.R.layout.simple_list_item_1, testing);
                     lst_feed.setAdapter(adapter);
