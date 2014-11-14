@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import twitter4j.ResponseList;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -60,14 +61,7 @@ public class twitter extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        Button btn_tweet = (Button) getView().findViewById(R.id.btn_tweet);
-        btn_tweet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new twitterPost().execute();
-            }
-
-        });
+        new twitterPost().execute();
 
     }
 
@@ -119,8 +113,24 @@ public class twitter extends Fragment {
 
 
 
-               lst_feed = (ListView) getView().findViewById(R.id.lst_feed);
-               final String [] testing = new String[] { "Number one", "Number two", "Number three", "Number four", "Number five"};
+            lst_feed = (ListView) getView().findViewById(R.id.lst_feed);
+            final String [] testing = new String[20];
+
+
+            try {
+                ResponseList<twitter4j.Status> statuses = twitter.getUserTimeline("GrandBlancPride");
+                for(int i = 0; i < statuses.size(); i++) {
+                    System.out.println(i);
+                    testing[i] = statuses.get(i).getText();
+                }
+
+            } catch (TwitterException e) {
+                e.printStackTrace();
+            }
+
+
+
+
 
             ArrayList<String> list = new ArrayList<String>();
                 for (int i = 0; i < testing.length; ++i) {
