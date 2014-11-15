@@ -1,22 +1,19 @@
 package com.grandblanchs.gbhs;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
 
-
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import twitter4j.ResponseList;
 import twitter4j.Twitter;
@@ -35,6 +32,7 @@ public class twitter extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     ListView lst_feed;
+    GridView grid_feed;
 
     public static twitter newInstance() {
         twitter fragment = new twitter();
@@ -113,15 +111,15 @@ public class twitter extends Fragment {
 
 
 
-            lst_feed = (ListView) getView().findViewById(R.id.lst_feed);
-            final String [] testing = new String[20];
+            lst_feed = (ListView) getView().findViewById(R.id.list);
+            grid_feed = (GridView) getView().findViewById(R.id.grid);
+            final String [] tweets = new String[20];
 
 
             try {
                 ResponseList<twitter4j.Status> statuses = twitter.getUserTimeline("GrandBlancPride");
                 for(int i = 0; i < statuses.size(); i++) {
-                    System.out.println(i);
-                    testing[i] = statuses.get(i).getText();
+                    tweets[i] = statuses.get(i).getText();
                 }
 
             } catch (TwitterException e) {
@@ -133,16 +131,20 @@ public class twitter extends Fragment {
 
 
             ArrayList<String> list = new ArrayList<String>();
-                for (int i = 0; i < testing.length; ++i) {
-                    list.add(testing[i]);
+                for (int i = 0; i < tweets.length; ++i) {
+                    list.add(tweets[i]);
                 }
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
 
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                            android.R.layout.simple_list_item_1, testing);
-                    lst_feed.setAdapter(adapter);
+                            android.R.layout.simple_list_item_1, tweets);
+                    try {
+                        lst_feed.setAdapter(adapter);
+                    }catch (NullPointerException e) {
+                        grid_feed.setAdapter(adapter);
+                    }
 
                 }
             });

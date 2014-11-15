@@ -3,78 +3,78 @@
     tools:context=".GBHS" >
 
     <!--For debugging purposes only-->
-    <item android:id="@+id/twitter"
-        android:title="@+string/Twitter"/>
+    <item android:id="@+id/announce"
+        android:title="@+string/Announce"/>
     <item android:id="@+id/calendar"
         android:title="@+string/Calendar"/>
 
-    <item android:id="@+id/news"
-        android:title="@string/News"/>
+    <item android:id="@+id/twitter"
+        android:title="@+string/Twitter"/>
 
-    <item android:id="@string/Admin"
+    <item android:id="@+id/Admin"
         android:title="@string/Admin"/>
 
-    <item android:id="@string/Staff"
+    <item android:id="@+id/Staff"
         android:title="@string/Staff"/>
 
-    <item android:id="@string/Alumni"
+    <item android:id="@+id/Alumni"
         android:title="@string/Alumni"/>
 
-    <item android:id="@string/Athletics"
+    <item android:id="@+id/Athletics"
         android:title="@string/Athletics"/>
 
-    <item android:id="@string/BAC"
+    <item android:id="@+id/BAC"
         android:title="@string/BAC"/>
 
-    <item android:id="@string/CRC"
+    <item android:id="@+id/CRC"
         android:title="@string/CRC"/>
 
-    <item android:id="@string/CSS"
+    <item android:id="@+id/CSS"
         android:title="@string/CSS"/>
 
-    <item android:id="@string/District"
+    <item android:id="@+id/District"
         android:title="@string/District"/>
 
-    <item android:id="@string/Driver"
+    <item android:id="@+id/Driver"
         android:title="@string/Driver"/>
 
-    <item android:id="@string/Early"
+    <item android:id="@+id/Early"
         android:title="@string/Early"/>
 
-    <item android:id="@string/ArtCal"
+    <item android:id="@+id/ArtCal"
         android:title="@string/ArtCal"/>
 
-    <item android:id="@string/GBCC"
+    <item android:id="@+id/GBCC"
         android:title="@string/GBCC"/>
 
-    <item android:id="@string/Guidance"
+    <item android:id="@+id/Guidance"
         android:title="@string/Guidance"/>
 
-    <item android:id="@string/K12CTE"
+    <item android:id="@+id/K12CTE"
         android:title="@string/K12CTE" />
 
-    <item android:id="@string/Library"
+    <item android:id="@+id/Lib"
         android:title="@string/Library" />
 
-    <item android:id="@string/NHS"
+    <item android:id="@+id/NHS"
         android:title="@string/NHS" />
 
-    <item android:id="@string/PTO"
+    <item android:id="@+id/PTO"
         android:title="@string/PTO" />
 
-    <item android:id="@string/Bully"
+    <item android:id="@+id/Bully"
         android:title="@string/Bully" />
 
-    <item android:id="@string/Faculty"
+    <item android:id="@+id/Faculty"
         android:title="@string/Faculty" />
 
-    <item android:id="@string/Student"
+    <item android:id="@+id/Student"
         android:title="@string/Student" />
 
-    <item android:id="@string/Summer"
+    <item android:id="@+id/Summer"
         android:title="@string/Summer" />
 
-    <item android:id="@string/Yearbook"
+    <item android:id="@+id/Yearbook"
         android:title="@string/Yearbook" />
 
 </menu>

@@ -9,7 +9,9 @@ import android.view.MenuItem;
 import android.app.Activity;
 
 
-public class GBHS extends Activity implements twitter.OnFragmentInteractionListener, calendar.OnFragmentInteractionListener {
+public class GBHS extends Activity implements twitter.OnFragmentInteractionListener,
+        calendar.OnFragmentInteractionListener, announce.OnFragmentInteractionListener, NHS.OnFragmentInteractionListener,
+        Lib.OnFragmentInteractionListener {
     @Override
     public void onFragmentInteraction(Uri uri) {
 
@@ -37,12 +39,14 @@ public class GBHS extends Activity implements twitter.OnFragmentInteractionListe
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        System.out.println("onOptionsItemSelected");
         int id = item.getItemId();
         twitter twitterfragment = new twitter();
         calendar calfragment = new calendar();
+        announce announcefragment = new announce();
+        NHS nhsfragment = new NHS();
+        Lib libfragment = new Lib();
+
         if (id == R.id.twitter) {
-            System.out.println("Switching to Twitter feed");
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.FragmentContainer, twitterfragment);
@@ -50,13 +54,36 @@ public class GBHS extends Activity implements twitter.OnFragmentInteractionListe
             return true;
         }
         if (id == R.id.calendar) {
-            System.out.println("Switching to Calendar");
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.FragmentContainer, calfragment);
             fragmentTransaction.commit();
             return true;
         }
+        if (id == R.id.announce) {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.FragmentContainer, announcefragment);
+            fragmentTransaction.commit();
+            return true;
+        }
+        if (id == R.id.NHS) {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.FragmentContainer, nhsfragment);
+            fragmentTransaction.commit();
+            return true;
+        }
+        if (id == R.id.Lib) {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.FragmentContainer, libfragment);
+            fragmentTransaction.commit();
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
+
+
 }
