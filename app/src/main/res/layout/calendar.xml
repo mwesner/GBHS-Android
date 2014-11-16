@@ -6,19 +6,11 @@
     android:weightSum="1"
     android:orientation="vertical">
 
-    <TextView
+    <CalendarView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/txtMonth"
-        android:layout_gravity="center"
-        android:enabled="true"
-        android:gravity="center" />
-
-    <GridView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="282dp"
         android:id="@+id/gridCal"
+        android:gravity="center"
         android:choiceMode="none"
         android:numColumns="7" />
 

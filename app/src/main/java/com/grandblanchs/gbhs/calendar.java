@@ -8,22 +8,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
+import android.widget.CalendarView;
 import android.widget.TextView;
-
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
 
 
 public class calendar extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    TextView txtMonth;
-    GridView gridCal;
+    CalendarView gridCal;
     TextView txtInfo;
 
     public static calendar newInstance() {
@@ -81,47 +75,43 @@ public class calendar extends Fragment {
         super.onStart();
         System.out.println("onStart");
 
-        txtMonth = (TextView) getView().findViewById(R.id.txtMonth);
-        gridCal = (GridView) getView().findViewById(R.id.gridCal);
+        gridCal = (CalendarView) getView().findViewById(R.id.gridCal);
         txtInfo = (TextView) getView().findViewById(R.id.txtInfo);
-        Calendar cal = Calendar.getInstance();
-        txtMonth.setText(new SimpleDateFormat("MMMM yyyy").format(cal.getTime()));
-        new calGet().execute();
+        //This will display events for a given date
+        txtInfo.setText("Today");
+        gridCal.setShowWeekNumber(false);
+        //new calGet().execute();
+        gridCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView calendarView, int year, int month, int day) {
+                //Add one month because month starts at 0
+                month ++;
+                String newDate = day + "" + month + "" + year;
+                Calendar calendar = Calendar.getInstance();
+                int newweek = calendar.get(Calendar.DAY_OF_MONTH);
+                int newmonth = calendar.get(Calendar.MONTH) + 1;
+                int newyear = calendar.get(Calendar.YEAR);
+                String currentDate = newweek + "" + newmonth + "" + newyear;
+                /*System.out.println("New Date: " + newDate);
+                System.out.println("Current Date: " + currentDate);*/
+                if (newDate.equals(currentDate)) {
+                    txtInfo.setText("Today");
+                }else{
+                    txtInfo.setText("");
+                }
+            }
+
+        });
     }
 
 private class calGet extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... voids) {
-        //This will be corrected based on the month
-        final String[] numArray = new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-        "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25",
-        "26", "27", "28", "29", "30"}; //, "31"};
 
         getActivity().runOnUiThread(new Runnable() {
             public void run() {
-                //This will display events for a given date
-                gridCal.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        if (gridCal.getSelectedItemPosition() == -1) {
-                            txtInfo.setText("<Display Event>");
-                        }
-                    }
 
-                });
-            }
-
-        });
-
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                        android.R.layout.simple_list_item_1, numArray);
-
-                gridCal.setAdapter(adapter);
             }
 
         });
