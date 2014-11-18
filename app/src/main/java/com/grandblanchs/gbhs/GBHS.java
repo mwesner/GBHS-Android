@@ -45,6 +45,7 @@ public class GBHS extends Activity implements twitter.OnFragmentInteractionListe
         announce announcefragment = new announce();
         NHS nhsfragment = new NHS();
         Lib libfragment = new Lib();
+        Admin adminfragment = new Admin();
 
         if (id == R.id.twitter) {
             FragmentManager fragmentManager = getFragmentManager();
@@ -78,6 +79,14 @@ public class GBHS extends Activity implements twitter.OnFragmentInteractionListe
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.FragmentContainer, libfragment);
+            fragmentTransaction.commit();
+            return true;
+        }
+
+        if (id == R.id.Admin) {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.FragmentContainer, adminfragment);
             fragmentTransaction.commit();
             return true;
         }

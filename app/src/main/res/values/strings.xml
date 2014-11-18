@@ -31,5 +31,6 @@
     <!-- For debugging purposes only -->
     <string name="Announce">Announcements</string>
     <string name="Calendar">View Calendar Fragment</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
