@@ -11,7 +11,7 @@ import android.app.Activity;
 
 public class GBHS extends Activity implements twitter.OnFragmentInteractionListener,
         calendar.OnFragmentInteractionListener, announce.OnFragmentInteractionListener, NHS.OnFragmentInteractionListener,
-        Lib.OnFragmentInteractionListener {
+        Lib.OnFragmentInteractionListener, Admin.OnFragmentInteractionListener {
     @Override
     public void onFragmentInteraction(Uri uri) {
 

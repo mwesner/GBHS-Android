@@ -15,7 +15,12 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,6 +34,11 @@ import java.util.logging.Logger;
 public class Admin extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+
+    public static Admin newInstance() {
+        Admin fragment = new Admin();
+        return fragment;
+    }
 
     public Admin() {
         // Required empty public constructor
@@ -87,16 +97,8 @@ public class Admin extends Fragment {
                 for (Element el : img) {
                     //for each element get the srs url
                     String src = el.absUrl("src");
-                    System.out.println("Image Found!");
-                    System.out.println("src attribute is : "+src);
-                    Logger.getLogger(AdminScrape.class.getName()).log(Level.SEVERE, null);
-
+                    getImages(src);
                 }
-
-
-
-
-
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -108,7 +110,22 @@ public class Admin extends Fragment {
 
     }
 
+    private static void getImages(String src) throws IOException {
+        String folder = null;
+
+        int indexname = src.lastIndexOf("/");
+        if (indexname == src.length()){
+            src = src.substring(1, indexname);
+        }
+
+        indexname = src.lastIndexOf("/");
+        String name = src.substring(indexname, src.length());
+
+        URL url = new URL(src);
+        InputStream in = url.openStream();
+        //OutputStream out = new BufferedOutputStream(new FileOutputStream("F:\My Pictures"));
+
+    }
 
 
-
-}
+    }
