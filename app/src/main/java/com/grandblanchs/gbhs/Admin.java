@@ -1,6 +1,8 @@
 package com.grandblanchs.gbhs;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -10,7 +12,11 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -38,7 +44,7 @@ import java.net.URL;
 public class Admin extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-
+    GridView gridview;
     ImageView img_hammond;
     public static Admin newInstance() {
         Admin fragment = new Admin();
@@ -55,6 +61,10 @@ public class Admin extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.admin, container, false);
+        gridview = (GridView) getView().findViewById(R.id.gridview);
+
+        ImageAdapter testAdapt = new ImageAdapter(this, R.layout.admin,  mThumbIds);
+        gridview.setAdapter(new ImageAdapter(this));
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -79,12 +89,13 @@ public class Admin extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+
     }
 
 
     public void onStart() {
         super.onStart();
-        new AdminScrape().execute();
+        new picture().execute();
     }
 
     public interface OnFragmentInteractionListener {
@@ -93,98 +104,93 @@ public class Admin extends Fragment {
     }
 
 
-    public class AdminScrape extends AsyncTask<Void, Void, Void> {
+
+    private class picture extends AsyncTask<Void, Void, Void> {
+
+
         @Override
         protected Void doInBackground(Void... voids) {
 
-            try {
-                URL url = new URL("http://grandblanc.high.schoolfusion.us/modules/groups/homepagefiles/cms/133739/Image/Administrators/Hammond%20J.jpg");
-                HttpGet httpRequest = null;
-                httpRequest = new HttpGet(url.toURI());
-                HttpClient httpclient = new DefaultHttpClient();
-                HttpResponse response = (HttpResponse) httpclient.execute(httpRequest);
-
-                HttpEntity entity = response.getEntity();
-                BufferedHttpEntity b_entity = new BufferedHttpEntity(entity);
-                InputStream input = b_entity.getContent();
-
-                final Bitmap bitmap = BitmapFactory.decodeStream(input);
 
 
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        img_hammond = (ImageView) getView().findViewById(R.id.img_hammond);
-                        img_hammond.setImageBitmap(bitmap);
-                    }
-                });
-
-
-
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
-            } catch (ClientProtocolException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-            /*
-            try {
-                Document doc = Jsoup.connect("http://grandblanc.high.schoolfusion.us/modules/cms/pages.phtml?pageid=299293&sessionid=12dcf41eb0da3e6744803422860188de&sessionid=12dcf41eb0da3e6744803422860188de").get();
-                Elements img = doc.getElementsByTag("img");
-                for (Element el : img) {
-                    //for each element get the srs url
-                    String src = el.absUrl("src");
-                    getImages(src);
+            gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                    //Toast.makeText(Admin.this, "" + position, Toast.LENGTH_SHORT).show();
                 }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            */
+            });
 
             return null;
         }
 
-    }
 
-    /*private static void getImages(String src) throws IOException {
-        String folder = null;
 
-        int indexname = src.lastIndexOf("/");
-        if (indexname == src.length()){
-            src = src.substring(1, indexname);
-        }
-
-        indexname = src.lastIndexOf("/");
-        String name = src.substring(indexname, src.length());
-
-        URL url = new URL(src);
-        InputStream in = url.openStream();
-        OutputStream out = new BufferedOutputStream(new FileOutputStream("F:/My Pictures"));
-
-        for (int b; (b = in.read()) != -1;) {
-            out.write(b);
-        }
-        out.close();
-        in.close();
 
     }
-*/
+
+    public class ImageAdapter extends BaseAdapter {
+        private Context mContext;
+
+        public ImageAdapter(Context c) {
+            mContext = c;
+
+        }
+
+        public int getCount() {
+            return mThumbIds.length;
+        }
+
+        public Object getItem(int position) {
+            return null;
+        }
+
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        // create a new ImageView for each item referenced by the Adapter
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ImageView imageView;
+            if (convertView == null) {  // if it's not recycled, initialize some attributes
+                imageView = new ImageView(mContext);
+                imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                imageView.setPadding(8, 8, 8, 8);
+            } else {
+                imageView = (ImageView) convertView;
+            }
+
+            imageView.setImageResource(mThumbIds[position]);
+            return imageView;
+        }
+
+        // references to our images
+        private Integer[] mThumbIds = {
+                R.drawable.sample_2, R.drawable.sample_3,
+                R.drawable.sample_4, R.drawable.sample_5,
+                R.drawable.sample_6, R.drawable.sample_7,
+                R.drawable.sample_0, R.drawable.sample_1,
+                R.drawable.sample_2, R.drawable.sample_3,
+                R.drawable.sample_4, R.drawable.sample_5,
+                R.drawable.sample_6, R.drawable.sample_7,
+                R.drawable.sample_0, R.drawable.sample_1,
+                R.drawable.sample_2, R.drawable.sample_3,
+                R.drawable.sample_4, R.drawable.sample_5,
+                R.drawable.sample_6, R.drawable.sample_7
+        };
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
