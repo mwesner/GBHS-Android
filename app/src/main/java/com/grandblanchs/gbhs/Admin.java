@@ -61,10 +61,10 @@ public class Admin extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.admin, container, false);
-        gridview = (GridView) getView().findViewById(R.id.gridview);
+        //gridview = (GridView) getView().findViewById(R.id.gridview);
 
-        ImageAdapter testAdapt = new ImageAdapter(this, R.layout.admin,  mThumbIds);
-        gridview.setAdapter(new ImageAdapter(this));
+        //ImageAdapter testAdapt = new ImageAdapter(this, R.layout.admin,  mThumbIds);
+        //gridview.setAdapter(new ImageAdapter(this));
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -126,7 +126,7 @@ public class Admin extends Fragment {
 
 
     }
-
+/*
     public class ImageAdapter extends BaseAdapter {
         private Context mContext;
 
@@ -177,9 +177,10 @@ public class Admin extends Fragment {
                 R.drawable.sample_4, R.drawable.sample_5,
                 R.drawable.sample_6, R.drawable.sample_7
         };
+
     }
 
-
+*/
 
 
 
