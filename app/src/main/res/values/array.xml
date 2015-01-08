@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="admin">
+        <item>@drawable/hammond</item>
+        <item>@drawable/belcher</item>
+        <item>@drawable/gz</item>
+        <item>@drawable/poelke</item>
+        <item>@drawable/knight</item>
+        <item>@drawable/dohm</item>
+    </string-array>
+
+</resources>
