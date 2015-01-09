@@ -66,9 +66,14 @@ public class Admin extends Fragment {
         final ArrayList<ImageItem> imageItems = new ArrayList<ImageItem>();
         // retrieve String drawable array
         TypedArray imgs = getResources().obtainTypedArray(R.array.admin);
+        //Allows for the bitmaps to be displayed without causing an out-of-memory exception
+        BitmapFactory.Options opts = new BitmapFactory.Options();
+        opts.inSampleSize = 4;
+
+        //Runs through a loop, and gets pictures from the drawable folder
         for (int i = 0; i < imgs.length(); i++) {
             Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),
-                    imgs.getResourceId(i, -1));
+                    imgs.getResourceId(i, -1), opts);
             if (i == 0) {
                 imageItems.add(new ImageItem(bitmap, "Dr. Hammond"));
             }else if (i == 1) {
