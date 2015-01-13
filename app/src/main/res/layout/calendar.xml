@@ -14,12 +14,13 @@
         android:choiceMode="none"
         android:numColumns="7" />
 
-    <TextView
+    <ListView
+        android:paddingTop="32dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:gravity="center"
-        android:id="@+id/txtInfo" />
+        android:id="@+id/lstInfo" />
 
 
 </LinearLayout>
