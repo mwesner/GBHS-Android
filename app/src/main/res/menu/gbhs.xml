@@ -14,7 +14,7 @@
     <item android:id="@+id/Admin"
         android:title="@string/Admin"/>
 
-    <item android:id="@+id/Staff"
+    <item android:id="@+id/staff"
         android:title="@string/Staff"/>
 
     <item android:id="@+id/Alumni"

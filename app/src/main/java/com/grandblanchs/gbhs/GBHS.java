@@ -11,7 +11,7 @@ import android.app.Activity;
 
 public class GBHS extends Activity implements twitter.OnFragmentInteractionListener,
         calendar.OnFragmentInteractionListener, announce.OnFragmentInteractionListener, NHS.OnFragmentInteractionListener,
-        Lib.OnFragmentInteractionListener, Admin.OnFragmentInteractionListener {
+        Lib.OnFragmentInteractionListener, Admin.OnFragmentInteractionListener, staff.OnFragmentInteractionListener {
     @Override
     public void onFragmentInteraction(Uri uri) {
 
@@ -46,6 +46,7 @@ public class GBHS extends Activity implements twitter.OnFragmentInteractionListe
         NHS nhsfragment = new NHS();
         Lib libfragment = new Lib();
         Admin adminfragment = new Admin();
+        staff stafffragment = new staff();
 
         if (id == R.id.twitter) {
             FragmentManager fragmentManager = getFragmentManager();
@@ -87,6 +88,14 @@ public class GBHS extends Activity implements twitter.OnFragmentInteractionListe
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.FragmentContainer, adminfragment);
+            fragmentTransaction.commit();
+            return true;
+        }
+
+        if (id == R.id.staff) {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.FragmentContainer, stafffragment);
             fragmentTransaction.commit();
             return true;
         }

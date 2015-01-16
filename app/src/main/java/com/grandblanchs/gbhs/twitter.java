@@ -1,6 +1,7 @@
 package com.grandblanchs.gbhs;
 
 import android.app.Activity;
+import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,12 +9,15 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 import twitter4j.ResponseList;
 import twitter4j.Twitter;
@@ -30,6 +34,8 @@ public class twitter extends Fragment {
     private final static String CONSUMER_KEY_SECRET ="Pr1YnBtFU5OErrxhpLNet2S6KolhRm43cfwZuFPCQLOasEPXm7";
 
     private OnFragmentInteractionListener mListener;
+
+    TwitterAdapter adapter;
 
     //Declaration of ListView lst_feed, so it can be referenced throughout twitter.java
     ListView lst_feed;
@@ -134,11 +140,12 @@ public class twitter extends Fragment {
 
 
 
+            adapter = new TwitterAdapter();
 
-
-            ArrayList<String> list = new ArrayList<String>();
+            ArrayList<String> list = new ArrayList<>();
                 for (int i = 0; i < testing.length; ++i) {
                     list.add(testing[i]);
+                    adapter.addItem(testing[i]);
                 }
 
             //Since the UI cannot be changed without this,
@@ -146,8 +153,7 @@ public class twitter extends Fragment {
                 @Override
                 public void run() {
                     //Populates lst_feed with string array testing
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                            android.R.layout.simple_list_item_1, testing);
+
                     try {
                         lst_feed.setAdapter(adapter);
                     }catch (NullPointerException e) {
@@ -161,6 +167,76 @@ public class twitter extends Fragment {
 
 
             return null;
+        }
+    }
+    //Corey's custom adapter class, which he added because he is amazing.
+    //TwitterAdapter class
+    private class TwitterAdapter extends BaseAdapter {
+        private static final int TYPE_ITEM = 0;
+        private static final int TYPE_SEPARATOR = 1;
+        private static final int TYPE_MAX_COUNT = TYPE_SEPARATOR + 1;
+
+        private ArrayList<String> mData = new ArrayList<String>();
+        private LayoutInflater mInflater;
+
+        private TreeSet<Integer> mSeparatorsSet = new TreeSet<Integer>();
+
+        public TwitterAdapter() {
+            mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        }
+
+        public void addItem(final String item) {
+            mData.add(item);
+            notifyDataSetChanged();
+        }
+
+        public void addSeparatorItem(final String item) {
+            mData.add(item);
+            //Save separator position
+            mSeparatorsSet.add(mData.size() - 1);
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            return mSeparatorsSet.contains(position) ? TYPE_SEPARATOR : TYPE_ITEM;
+        }
+
+        @Override
+        public int getViewTypeCount() {
+            return TYPE_MAX_COUNT;
+        }
+
+        @Override
+        public int getCount() {
+            return mData.size();
+        }
+
+        @Override
+        public String getItem(int position) {
+            return mData.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent) {
+            calendar.ViewHolder holder = null;
+            int type = getItemViewType(position);
+            holder = new calendar.ViewHolder();
+            /*No 'if (convertView == null)' statement to prevent view recycling
+            (views must remain fixed)*/
+            switch (type) {
+                case TYPE_ITEM:
+                    convertView = mInflater.inflate(R.layout.itemtwitter, null);
+                    holder.textView = (TextView) convertView.findViewById(R.id.text);
+                    break;
+            }
+            convertView.setTag(holder);
+            holder.textView.setText(mData.get(position));
+            return convertView;
         }
     }
 

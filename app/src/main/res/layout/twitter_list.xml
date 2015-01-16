@@ -4,9 +4,10 @@
     android:layout_height="match_parent" tools:context="com.grandblanchs.gbhs.twitter">
 
     <ListView android:id="@+id/list" android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
     <TextView android:id="@+id/empty" android:layout_width="match_parent"
-        android:layout_height="match_parent" android:gravity="center" />
+        android:layout_height="match_parent" android:gravity="center"
+        android:autoLink="web"/>
 
 </FrameLayout>
