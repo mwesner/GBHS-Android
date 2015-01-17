@@ -13,6 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -41,6 +42,8 @@ public class twitter extends Fragment {
     ListView lst_feed;
     GridView grid_feed;
 
+    ProgressBar prog;
+
     public static twitter newInstance() {
         twitter fragment = new twitter();
         return fragment;
@@ -66,6 +69,7 @@ public class twitter extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        prog = (ProgressBar) getView().findViewById(R.id.prog);
         //Since internet dependant tasks cannot be performed on the main method, we execute a new one called twitterTimeline
         new twitterTimeline().execute();
 
@@ -167,6 +171,12 @@ public class twitter extends Fragment {
 
 
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            prog.setVisibility(View.GONE);
         }
     }
     //Corey's custom adapter class, which he added because he is amazing.

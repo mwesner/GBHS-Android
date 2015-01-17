@@ -8,6 +8,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.jsoup.nodes.Document;
@@ -19,6 +20,8 @@ import java.io.IOException;
 public class announce extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+
+    ProgressBar prog;
 
     public static announce newInstance() {
         announce fragment = new announce();
@@ -63,6 +66,7 @@ public class announce extends Fragment {
 
     public void onStart() {
         super.onStart();
+        prog = (ProgressBar) getView().findViewById(R.id.prog);
         new AnnounceScrape().execute();
     }
 
@@ -89,6 +93,12 @@ public class announce extends Fragment {
 
             }
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            prog.setVisibility(View.GONE);
         }
     }
 

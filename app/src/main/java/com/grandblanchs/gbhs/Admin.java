@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ProgressBar;
+
 import java.util.ArrayList;
 
 
@@ -25,8 +28,9 @@ import java.util.ArrayList;
 public class Admin extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-    private GridView gridView;
-    private GridViewAdapter customGridAdapter;
+    GridView gridView;
+    GridViewAdapter customGridAdapter;
+    ProgressBar prog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,11 +48,10 @@ public class Admin extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        //new AdminScrape().execute();
-        gridView = (GridView) getActivity().findViewById(R.id.gridView);
-        customGridAdapter = new GridViewAdapter(getActivity(), R.layout.row_grid, getData());
-        gridView.setAdapter(customGridAdapter);
 
+        prog = (ProgressBar) getActivity().findViewById(R.id.prog);
+        gridView = (GridView) getActivity().findViewById(R.id.gridView);
+        new AdminScrape().execute();
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
@@ -60,6 +63,22 @@ public class Admin extends Fragment {
 
     public interface OnFragmentInteractionListener {
         public void onFragmentInteraction(Uri uri);
+    }
+
+    class AdminScrape extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            customGridAdapter = new GridViewAdapter(getActivity(), R.layout.row_grid, getData());
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            gridView.setAdapter(customGridAdapter);
+            prog.setVisibility(View.GONE);
+        }
     }
 
     private ArrayList<ImageItem> getData() {

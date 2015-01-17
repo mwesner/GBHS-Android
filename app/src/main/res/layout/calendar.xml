@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,7 +12,8 @@
         android:id="@+id/gridCal"
         android:gravity="center"
         android:choiceMode="none"
-        android:numColumns="7" />
+        android:numColumns="7"
+        android:visibility="invisible" />
 
     <ListView
         android:paddingTop="32dp"
@@ -20,7 +21,17 @@
         android:layout_height="match_parent"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:gravity="center"
-        android:id="@+id/lstInfo" />
+        android:id="@+id/lstInfo"
+        android:visibility="invisible"
+        android:layout_below="@+id/gridCal" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/prog"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 
-</LinearLayout>
+</RelativeLayout>

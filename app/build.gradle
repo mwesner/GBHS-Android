@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 21
-    buildToolsVersion '21.1.1'
+    buildToolsVersion '21.1.2'
 
     defaultConfig {
         applicationId "com.grandblanchs.gbhs"
@@ -13,7 +13,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled = false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -27,4 +27,5 @@ android {
 dependencies {
     compile 'org.twitter4j:twitter4j-core:4.0.2'
     compile 'org.jsoup:jsoup:1.8.1'
+    compile 'joda-time:joda-time:2.7'
 }

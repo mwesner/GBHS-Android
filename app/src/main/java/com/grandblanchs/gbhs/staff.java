@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.jsoup.nodes.Document;
@@ -21,6 +22,8 @@ import java.io.IOException;
 public class staff extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+
+    ProgressBar prog;
 
     public static staff newInstance() {
         staff fragment = new staff();
@@ -56,8 +59,8 @@ public class staff extends Fragment {
 
     @Override
     public void onStart() {
-
-
+        super.onStart();
+        prog = (ProgressBar) getView().findViewById(R.id.prog);
     }
 
     public interface OnFragmentInteractionListener {
@@ -69,34 +72,27 @@ public class staff extends Fragment {
     public class AnnounceScrape extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
-            final TextView txtAnnounce = (TextView) getView().findViewById(R.id.txtAnnounce);
-            Document announce = null;
+            final TextView txtStaff = (TextView) getView().findViewById(R.id.txtAnnounce);
+            Document staff = null;
             try {
-                announce = Jsoup.connect("http://grandblanc.high.schoolfusion.us/modules/cms/pages.phtml?pageid=120116&sessionid=97950641ed41d0c764dbc8db367cee6a&sessionid=97950641ed41d0c764dbc8db367cee6a").get();
-                Elements announceClass = announce.getElementsByClass("MsoNormal");
-                staffText = announceClass.text();
+                staff = Jsoup.connect("http://grandblanc.high.schoolfusion.us/modules/cms/pages.phtml?pageid=120116").get();
+                Elements staffClass = staff.getElementsByClass("MsoNormal");
+                staffText = staffClass.text();
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
-                        txtAnnounce.setText(staffText);
+                        txtStaff.setText(staffText);
                     }
                 });
             }catch (IOException e) {
                 e.printStackTrace();
-
-
-
             }
             return null;
         }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            prog.setVisibility(View.GONE);
+        }
     }
-
-
-
-
-
-
-
-
-
-
 }

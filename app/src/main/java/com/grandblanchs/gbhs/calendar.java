@@ -12,10 +12,16 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CalendarView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.joda.time.DateTime;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 
@@ -25,8 +31,12 @@ public class calendar extends Fragment {
 
     CalendarView gridCal;
     ListView lstInfo;
+    ProgressBar prog;
     List<String> infoList = new ArrayList<String>();
     int infoCount;
+
+    String[] calArray;
+    List<String> eventList = new ArrayList<String>();
 
     public static calendar newInstance() {
         calendar fragment = new calendar();
@@ -46,7 +56,7 @@ public class calendar extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                              Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.calendar, container, false);
     }
@@ -81,56 +91,12 @@ public class calendar extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        System.out.println("onStart");
-
         gridCal = (CalendarView) getView().findViewById(R.id.gridCal);
         lstInfo = (ListView) getView().findViewById(R.id.lstInfo);
+        prog = (ProgressBar) getView().findViewById(R.id.prog);
         //This will display events for a given date
         gridCal.setShowWeekNumber(false);
-        //new calGet().execute();
-        infoList.add(0, "Today");
-        //Set the content of the ListView
-        CustomAdapter mAdapter = new CustomAdapter();
-        for (int i = 0; i < infoList.size(); i++) {
-            mAdapter.addItem(infoList.get(i));
-        }
-
-        lstInfo.setAdapter(mAdapter);
-        gridCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(CalendarView calendarView, int year, int month, int day) {
-                //Add one month because month starts at 0
-                month++;
-                String newDate = day + "" + month + "" + year;
-                Calendar calendar = Calendar.getInstance();
-                int currentday = calendar.get(Calendar.DAY_OF_MONTH);
-                int currentmonth = calendar.get(Calendar.MONTH) + 1;
-                int currentyear = calendar.get(Calendar.YEAR);
-                String currentDate = currentday + "" + currentmonth + "" + currentyear;
-                infoList.clear();
-                infoCount = 0;
-                /*System.out.println("New Date: " + newDate);
-                System.out.println("Current Date: " + currentDate);*/
-                if (newDate.equals("1612015")) {
-                    infoList.add(infoCount, "End of First Semester");
-                    infoCount++;
-                }else if (newDate.equals(currentDate)) {
-                    infoList.add(0, "Today");
-                }else{
-                    infoList.clear();
-                    infoCount = 0;
-                }
-
-                //Set the content of the ListView
-                CustomAdapter mAdapter = new CustomAdapter();
-                for (int i = 0; i < infoList.size(); i++) {
-                    mAdapter.addItem(infoList.get(i));
-                }
-
-                lstInfo.setAdapter(mAdapter);
-            }
-
-        });
+        new calGet().execute();
     }
 
     //Adapter class
@@ -194,19 +160,94 @@ public class calendar extends Fragment {
         public TextView textView;
     }
 
-private class calGet extends AsyncTask<Void, Void, Void> {
+    private class calGet extends AsyncTask<Void, Void, Void> {
 
-    @Override
-    protected Void doInBackground(Void... voids) {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            //Retrieve iCalendar with Jsoup
+            Document cal = null;
 
-        getActivity().runOnUiThread(new Runnable() {
-            public void run() {
+            try {
+                cal = Jsoup.connect("http://grandblanc.high.schoolfusion.us/modules/calendar/exportICal.php").get();
+                //Split by event
+                calArray = cal.toString().split("BEGIN:VEVENT");
 
+
+            } catch (IOException e) {
+                infoList.add("Connection error.");
             }
 
-        });
-        return null;
+            //CALENDAR PARSER
+            int test = 0;
+            for (int i = 0; i < calArray.length; i++) {
+                //Store the start date (YYYYMMDD)
+                eventList.add(i, calArray[i].substring(8, 17));
+            }
+            System.out.println(eventList.toString());
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            //Populate the calendar
+
+            infoList.add(0, "Today");
+            //Set the content of the ListView
+            CustomAdapter mAdapter = new CustomAdapter();
+            for (int i = 0; i < infoList.size(); i++) {
+                mAdapter.addItem(infoList.get(i));
+            }
+
+            lstInfo.setAdapter(mAdapter);
+
+            gridCal.setVisibility(View.VISIBLE);
+            lstInfo.setVisibility(View.VISIBLE);
+            prog.setVisibility(View.GONE);
+            gridCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+                @Override
+                public void onSelectedDayChange(CalendarView calendarView, int year, int month, int day) {
+
+                    //Add one month because month starts at 0
+                    month++;
+                    String newDate = year + "" + month + "" + day;
+                    DateTime dt = new DateTime();
+                    int currentday = dt.getDayOfMonth();
+                    //Double-digit month
+                    String currentmonthstring = "0" + String.valueOf(dt.getMonthOfYear());
+                    int currentmonth = Integer.parseInt(currentmonthstring);
+                    int currentyear = dt.getYear();
+                    String currentDate = currentyear + "" + currentmonth + "" + currentday;
+                    System.out.println("Current Date: " + currentmonth);
+                    infoList.clear();
+                    infoCount = 0;
+
+                    if (newDate.equals("20150116")) {
+                        infoList.add(infoCount, "End of First Semester");
+                        infoCount++;
+                    }else if (eventList.contains(newDate)) {
+                        infoList.add(0, eventList.get(0));
+                        infoList.add(1, "Event present for " + newDate);
+                    }else if (newDate.equals(currentDate)) {
+                        infoList.add(0, "Today");
+                    }else{
+                        infoList.clear();
+                        infoCount = 0;
+                    }
+
+                    //Set the content of the ListView
+                    CustomAdapter mAdapter = new CustomAdapter();
+                    for (int i = 0; i < infoList.size(); i++) {
+                        mAdapter.addItem(infoList.get(i));
+                    }
+
+                    lstInfo.setAdapter(mAdapter);
+                }
+
+            });
+        }
     }
-}
 }
 
