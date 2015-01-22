@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ListView;
-import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -240,7 +239,7 @@ public class twitter extends Fragment {
             (views must remain fixed)*/
             switch (type) {
                 case TYPE_ITEM:
-                    convertView = mInflater.inflate(R.layout.itemtwitter, null);
+                    convertView = mInflater.inflate(R.layout.itemlist, null);
                     holder.textView = (TextView) convertView.findViewById(R.id.text);
                     break;
             }

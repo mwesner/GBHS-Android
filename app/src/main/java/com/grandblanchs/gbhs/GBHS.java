@@ -7,6 +7,7 @@ import android.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.app.Activity;
+import android.widget.Toast;
 
 
 public class GBHS extends Activity implements twitter.OnFragmentInteractionListener,
@@ -22,6 +23,8 @@ public class GBHS extends Activity implements twitter.OnFragmentInteractionListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gbhs);
+       //Toast
+        Toast.makeText(getApplicationContext(), "Hello GB!", Toast.LENGTH_LONG).show();
     }
 
 
@@ -46,6 +49,9 @@ public class GBHS extends Activity implements twitter.OnFragmentInteractionListe
         Admin adminfragment = new Admin();
         staff stafffragment = new staff();
 
+        if (id == R.id.Home) {
+            recreate();
+        }
         if (id == R.id.twitter) {
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

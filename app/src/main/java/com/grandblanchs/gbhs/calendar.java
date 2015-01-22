@@ -146,7 +146,7 @@ public class calendar extends Fragment {
             holder = new ViewHolder();
             switch (type) {
                 case TYPE_ITEM:
-                    convertView = mInflater.inflate(R.layout.itemlistcenter, null);
+                    convertView = mInflater.inflate(R.layout.itemlist, null);
                     holder.textView = (TextView) convertView.findViewById(R.id.text);
                     break;
             }
