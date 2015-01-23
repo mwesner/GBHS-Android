@@ -1,6 +1,9 @@
 package com.grandblanchs.gbhs;
 
 import android.app.FragmentManager;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.FragmentTransaction;
@@ -11,8 +14,9 @@ import android.widget.Toast;
 
 
 public class GBHS extends Activity implements twitter.OnFragmentInteractionListener,
-        calendar.OnFragmentInteractionListener, announce.OnFragmentInteractionListener, NHS.OnFragmentInteractionListener,
-        Lib.OnFragmentInteractionListener, Admin.OnFragmentInteractionListener, staff.OnFragmentInteractionListener {
+        calendar.OnFragmentInteractionListener, announce.OnFragmentInteractionListener,
+        Admin.OnFragmentInteractionListener, staff.OnFragmentInteractionListener {
+
     @Override
     public void onFragmentInteraction(Uri uri) {
 
@@ -23,7 +27,7 @@ public class GBHS extends Activity implements twitter.OnFragmentInteractionListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gbhs);
-       //Toast
+        //Toast
         Toast.makeText(getApplicationContext(), "Hello GB!", Toast.LENGTH_LONG).show();
     }
 
@@ -44,13 +48,13 @@ public class GBHS extends Activity implements twitter.OnFragmentInteractionListe
         twitter twitterfragment = new twitter();
         calendar calfragment = new calendar();
         announce announcefragment = new announce();
-        NHS nhsfragment = new NHS();
-        Lib libfragment = new Lib();
         Admin adminfragment = new Admin();
         staff stafffragment = new staff();
 
         if (id == R.id.Home) {
-            recreate();
+            finish();
+            Intent start = new Intent(getApplicationContext(), GBHS.class);
+            startActivity(start);
         }
         if (id == R.id.twitter) {
             FragmentManager fragmentManager = getFragmentManager();
@@ -74,18 +78,34 @@ public class GBHS extends Activity implements twitter.OnFragmentInteractionListe
             return true;
         }
         if (id == R.id.NHS) {
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.FragmentContainer, nhsfragment);
-            fragmentTransaction.commit();
-            return true;
+            String url = "http://gbhsnhs.com";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            Uri u = Uri.parse(url);
+            Context context = this;
+
+            try {
+                //Start the activity
+                i.setData(u);
+                startActivity(i);
+            }catch (ActivityNotFoundException e) {
+                //Raise on activity not found
+                Toast.makeText(context, "No browser found.", Toast.LENGTH_SHORT).show();
+            }
         }
         if (id == R.id.Lib) {
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.FragmentContainer, libfragment);
-            fragmentTransaction.commit();
-            return true;
+            String url = "http://gbhslib.weebly.com";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            Uri u = Uri.parse(url);
+            Context context = this;
+
+            try {
+                //Start the activity
+                i.setData(u);
+                startActivity(i);
+            } catch (ActivityNotFoundException e) {
+                //Raise on activity not found
+                Toast.makeText(context, "No browser found.", Toast.LENGTH_SHORT).show();
+            }
         }
 
         if (id == R.id.Admin) {

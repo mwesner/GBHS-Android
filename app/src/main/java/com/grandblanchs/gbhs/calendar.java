@@ -2,18 +2,23 @@ package com.grandblanchs.gbhs;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.joda.time.DateTime;
 
@@ -31,6 +36,9 @@ public class calendar extends Fragment {
 
     CalendarView gridCal;
     ListView lstInfo;
+    WebView webCal;
+    Button btnCalToggle;
+
     ProgressBar prog;
     List<String> infoList = new ArrayList<String>();
     int infoCount;
@@ -88,15 +96,36 @@ public class calendar extends Fragment {
         public void onFragmentInteraction(Uri uri);
     }
 
+    String url = "http://grandblanc.schoolfusion.us/modules/groups/homepagefiles/cms/105549/File/District%20Calendar%202014-2015%208-19.pdf";
+    Intent i = new Intent(Intent.ACTION_VIEW);
+    Uri u = Uri.parse(url);
+    Context context = this.getActivity();
+
     @Override
     public void onStart() {
         super.onStart();
         gridCal = (CalendarView) getView().findViewById(R.id.gridCal);
         lstInfo = (ListView) getView().findViewById(R.id.lstInfo);
+        webCal = (WebView) getView().findViewById(R.id.webCal);
+        btnCalToggle = (Button) getView().findViewById(R.id.btnCalToggle);
         prog = (ProgressBar) getView().findViewById(R.id.prog);
+        getActivity().getActionBar().hide();
         //This will display events for a given date
         gridCal.setShowWeekNumber(false);
         new calGet().execute();
+        btnCalToggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    //Start the activity
+                    i.setData(u);
+                    startActivity(i);
+                }catch (ActivityNotFoundException e) {
+                    //Raise on activity not found
+                    Toast.makeText(context, "No browser found.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     //Adapter class
@@ -167,6 +196,7 @@ public class calendar extends Fragment {
             //Retrieve iCalendar with Jsoup
             Document cal = null;
 
+
             try {
                 cal = Jsoup.connect("http://grandblanc.high.schoolfusion.us/modules/calendar/exportICal.php").get();
                 //Split by event
@@ -206,6 +236,7 @@ public class calendar extends Fragment {
             gridCal.setVisibility(View.VISIBLE);
             lstInfo.setVisibility(View.VISIBLE);
             prog.setVisibility(View.GONE);
+            getActivity().getActionBar().show();
             gridCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                 @Override
                 public void onSelectedDayChange(CalendarView calendarView, int year, int month, int day) {

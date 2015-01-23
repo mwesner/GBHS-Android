@@ -1,7 +1,9 @@
 package com.grandblanchs.gbhs;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,10 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,7 +44,7 @@ public class twitter extends Fragment {
     //Declaration of ListView lst_feed, so it can be referenced throughout twitter.java
     ListView lst_feed;
     GridView grid_feed;
-
+    Button btnTwitter;
     ProgressBar prog;
 
     public static twitter newInstance() {
@@ -69,8 +73,29 @@ public class twitter extends Fragment {
     public void onStart() {
         super.onStart();
         prog = (ProgressBar) getView().findViewById(R.id.prog);
+        getActivity().getActionBar().hide();
+        btnTwitter = (Button) getView().findViewById(R.id.btnTwitter);
         //Since internet dependant tasks cannot be performed on the main method, we execute a new one called twitterTimeline
         new twitterTimeline().execute();
+        btnTwitter.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                String url = "https://twitter.com/GrandBlancPride";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                Uri u = Uri.parse(url);
+                Context context = getActivity().getApplicationContext();
+
+                try {
+                    //Start the activity
+                    i.setData(u);
+                    startActivity(i);
+                } catch (ActivityNotFoundException e) {
+                    //Raise on activity not found
+                    Toast.makeText(context, "No browser found.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 
@@ -119,8 +144,6 @@ public class twitter extends Fragment {
             twitter.setOAuthAccessToken(oathAccessToken);
 
 
-
-
             //Finds the ListView lst_feed on the GUI form
             lst_feed = (ListView) getView().findViewById(R.id.list);
             grid_feed = (GridView) getView().findViewById(R.id.grid);
@@ -140,9 +163,6 @@ public class twitter extends Fragment {
             } catch (TwitterException e) {
                 e.printStackTrace();
             }
-
-
-
             adapter = new TwitterAdapter();
 
             ArrayList<String> list = new ArrayList<>();
@@ -156,19 +176,13 @@ public class twitter extends Fragment {
                 @Override
                 public void run() {
                     //Populates lst_feed with string array testing
-
                     try {
                         lst_feed.setAdapter(adapter);
                     }catch (NullPointerException e) {
                         grid_feed.setAdapter(adapter);
                     }
-
                 }
             });
-
-
-
-
             return null;
         }
 
@@ -176,6 +190,7 @@ public class twitter extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             prog.setVisibility(View.GONE);
+            getActivity().getActionBar().show();
         }
     }
     //Corey's custom adapter class, which he added because he is amazing.

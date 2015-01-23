@@ -2,80 +2,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".GBHS" >
 
-    <!--For debugging purposes only-->
+    <!--Home screen-->
     <item android:id="@+id/Home"
         android:title="@string/GBHS" />
+
+    <!--Daily Announcements-->
     <item android:id="@+id/announce"
         android:title="@string/Announce"/>
+
+    <!--District Calendar-->
     <item android:id="@+id/calendar"
         android:title="@string/Calendar"/>
 
+    <!--School Twitter feed-->
     <item android:id="@+id/twitter"
         android:title="@string/Twitter"/>
 
+    <!--Administration Contact Information-->
     <item android:id="@+id/Admin"
         android:title="@string/Admin"/>
 
+    <!--Staff Listing-->
     <item android:id="@+id/staff"
         android:title="@string/Staff"/>
 
-    <item android:id="@+id/Alumni"
-        android:title="@string/Alumni"/>
-
+    <!--Athletics Schedule and Information-->
     <item android:id="@+id/Athletics"
         android:title="@string/Athletics"/>
 
+    <!--Advisory Curriculum Council (external link)-->
     <item android:id="@+id/BAC"
         android:title="@string/BAC"/>
 
+    <!--Career Resource Center-->
     <item android:id="@+id/CRC"
         android:title="@string/CRC"/>
 
+    <!--Center for Student Success-->
     <item android:id="@+id/CSS"
         android:title="@string/CSS"/>
 
-    <item android:id="@+id/District"
-        android:title="@string/District"/>
-
-    <item android:id="@+id/Driver"
-        android:title="@string/Driver"/>
-
+    <!--Grand Blanc Early College-->
     <item android:id="@+id/Early"
         android:title="@string/Early"/>
 
-    <item android:id="@+id/ArtCal"
-        android:title="@string/ArtCal"/>
-
-    <item android:id="@+id/GBCC"
-        android:title="@string/GBCC"/>
-
+    <!--Counseling / Guidance Office-->
     <item android:id="@+id/Guidance"
         android:title="@string/Guidance"/>
 
-    <item android:id="@+id/K12CTE"
-        android:title="@string/K12CTE" />
+    <!--Career & Technical Education-->
+    <item android:id="@+id/CTE"
+        android:title="@string/CTE" />
 
+    <!--Library (external link)-->
     <item android:id="@+id/Lib"
         android:title="@string/Library" />
 
+    <!--National Honor Society (external link)-->
     <item android:id="@+id/NHS"
         android:title="@string/NHS" />
 
-    <item android:id="@+id/PTO"
-        android:title="@string/PTO" />
-
+    <!--Report Bullying-->
     <item android:id="@+id/Bully"
         android:title="@string/Bully" />
 
-    <item android:id="@+id/Faculty"
-        android:title="@string/Faculty" />
-
+    <!--Student Resources-->
     <item android:id="@+id/Student"
         android:title="@string/Student" />
 
     <item android:id="@+id/Summer"
         android:title="@string/Summer" />
 
+    <!--Yearbook (external link)-->
     <item android:id="@+id/Yearbook"
         android:title="@string/Yearbook" />
 

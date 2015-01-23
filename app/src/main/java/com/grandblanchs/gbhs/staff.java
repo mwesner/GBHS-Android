@@ -66,6 +66,7 @@ public class staff extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        getActivity().getActionBar().hide();
         new StaffScrape().execute();
     }
 
@@ -102,6 +103,7 @@ public class staff extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             prog.setVisibility(View.GONE);
+            getActivity().getActionBar().show();
 
             //Set adapter
             StaffAdapter adapter = new StaffAdapter();

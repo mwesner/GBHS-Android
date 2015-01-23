@@ -67,6 +67,7 @@ public class announce extends Fragment {
     public void onStart() {
         super.onStart();
         prog = (ProgressBar) getView().findViewById(R.id.prog);
+        getActivity().getActionBar().hide();
         new AnnounceScrape().execute();
     }
 
@@ -80,7 +81,8 @@ public class announce extends Fragment {
             try {
                 announce = Jsoup.connect("http://grandblanc.high.schoolfusion.us/modules/cms/pages.phtml?pageid=22922").get();
                 Elements announceClass = announce.getElementsByClass("MsoNormal");
-                announceText = announceClass.text();
+                //Substring-out "Previous Announcements"
+                announceText = announceClass.text().substring(22, announceClass.text().length());
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
                         txtAnnounce.setText(announceText);
@@ -99,6 +101,7 @@ public class announce extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             prog.setVisibility(View.GONE);
+            getActivity().getActionBar().show();
         }
     }
 

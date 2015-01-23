@@ -2,10 +2,15 @@
 <resources>
 
     <string name="app_name">Grand Blanc High School</string>
-    <string name="GBHS">GBHS</string>
+    <string name="GBHS">GBHS Home</string>
     <string name="action_settings">Settings</string>
+    <string name="Announce">Announcements</string>
     <string name="Twitter">GBHS Twitter</string>
+    <string name="TwitterFeed">Open @GrandBlancPride</string>
     <string name="Admin">Administration</string>
+    <string name="Calendar">District Calendar</string>
+    <string name="CalendarWebShow">Download Official School Calendar</string>
+    <string name="CalendarWebHide">Hide Calendar</string>
     <string name="Staff">Staff Listing</string>
     <string name="Alumni">Alumni</string>
     <string name="Athletics">Athletics</string>
@@ -18,7 +23,7 @@
     <string name="ArtCal">Fine Arts Calendar</string>
     <string name="GBCC">GB Community Connections</string>
     <string name="Guidance">Guidance</string>
-    <string name="K12CTE">K-12 Career Tech Ed</string>
+    <string name="CTE">Career &amp; Technical Education</string>
     <string name="Library">Library</string>
     <string name="NHS">NHS</string>
     <string name="PTO">Parents / PTO</string>
@@ -27,10 +32,5 @@
     <string name="Student">Student Resources</string>
     <string name="Summer">Summer School</string>
     <string name="Yearbook">Yearbook</string>
-
-    <!-- For debugging purposes only -->
-    <string name="Announce">Announcements</string>
-    <string name="Calendar">District Calendar</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

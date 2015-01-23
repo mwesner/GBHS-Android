@@ -48,7 +48,7 @@ public class Admin extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
+        getActivity().getActionBar().hide();
         prog = (ProgressBar) getActivity().findViewById(R.id.prog);
         gridView = (GridView) getActivity().findViewById(R.id.gridView);
         new AdminScrape().execute();
@@ -78,6 +78,7 @@ public class Admin extends Fragment {
             super.onPostExecute(aVoid);
             gridView.setAdapter(customGridAdapter);
             prog.setVisibility(View.GONE);
+            getActivity().getActionBar().show();
         }
     }
 
