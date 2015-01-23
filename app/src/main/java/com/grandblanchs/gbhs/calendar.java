@@ -106,7 +106,6 @@ public class calendar extends Fragment {
         super.onStart();
         gridCal = (CalendarView) getView().findViewById(R.id.gridCal);
         lstInfo = (ListView) getView().findViewById(R.id.lstInfo);
-        webCal = (WebView) getView().findViewById(R.id.webCal);
         btnCalToggle = (Button) getView().findViewById(R.id.btnCalToggle);
         prog = (ProgressBar) getView().findViewById(R.id.prog);
         getActivity().getActionBar().hide();
