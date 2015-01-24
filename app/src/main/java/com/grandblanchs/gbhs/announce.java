@@ -1,6 +1,7 @@
 package com.grandblanchs.gbhs;
 
 import android.app.Activity;
+import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.Jsoup;
@@ -88,12 +90,15 @@ public class announce extends Fragment {
                         txtAnnounce.setText(announceText);
                     }
                 });
-                }catch (IOException e) {
-                e.printStackTrace();
-
-
-
+            } catch (IOException e) {
+                final Context context = getActivity().getApplicationContext();
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
+                    }
+                });
             }
+
             return null;
         }
 

@@ -32,5 +32,7 @@
     <string name="Student">Student Resources</string>
     <string name="Summer">Summer School</string>
     <string name="Yearbook">Yearbook</string>
+    <string name="NoConnection">No internet connection.</string>
+    <string name="NoTwitter">Could not connect to Twitter.\n(Error Code:</string>
 
 </resources>

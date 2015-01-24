@@ -14,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.Jsoup;
@@ -94,7 +95,12 @@ public class staff extends Fragment {
                     }
                 }
             }catch (IOException e) {
-                e.printStackTrace();
+                final Context context = getActivity().getApplicationContext();
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
+                    }
+                });
             }
             return null;
         }

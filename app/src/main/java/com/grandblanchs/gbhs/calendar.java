@@ -201,18 +201,35 @@ public class calendar extends Fragment {
                 //Split by event
                 calArray = cal.toString().split("BEGIN:VEVENT");
 
+                //CALENDAR PARSER
+                int test = 0;
+                for (int i = 0; i < calArray.length; i++) {
+                    //Store the start date (YYYYMMDD)
+                    eventList.add(i, calArray[i].substring(8, 17));
+                }
 
-            } catch (IOException e) {
-                infoList.add("Connection error.");
-            }
+                //Populate the calendar
 
-            //CALENDAR PARSER
-            int test = 0;
-            for (int i = 0; i < calArray.length; i++) {
-                //Store the start date (YYYYMMDD)
-                eventList.add(i, calArray[i].substring(8, 17));
+                infoList.add(0, "Today");
+                //Set the content of the ListView
+                CustomAdapter mAdapter = new CustomAdapter();
+                for (int i = 0; i < infoList.size(); i++) {
+                    mAdapter.addItem(infoList.get(i));
+                }
+
+                lstInfo.setAdapter(mAdapter);
+
+                gridCal.setVisibility(View.VISIBLE);
+                lstInfo.setVisibility(View.VISIBLE);
+
+            } catch (final IOException e) {
+                final Context context = getActivity().getApplicationContext();
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
+                    }
+                });
             }
-            System.out.println(eventList.toString());
 
             return null;
         }
@@ -220,20 +237,6 @@ public class calendar extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-
-            //Populate the calendar
-
-            infoList.add(0, "Today");
-            //Set the content of the ListView
-            CustomAdapter mAdapter = new CustomAdapter();
-            for (int i = 0; i < infoList.size(); i++) {
-                mAdapter.addItem(infoList.get(i));
-            }
-
-            lstInfo.setAdapter(mAdapter);
-
-            gridCal.setVisibility(View.VISIBLE);
-            lstInfo.setVisibility(View.VISIBLE);
             prog.setVisibility(View.GONE);
             getActivity().getActionBar().show();
             gridCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {

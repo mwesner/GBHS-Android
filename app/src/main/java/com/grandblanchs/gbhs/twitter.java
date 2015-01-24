@@ -160,29 +160,36 @@ public class twitter extends Fragment {
                     testing[i] = statuses.get(i).getText();
                 }
 
-            } catch (TwitterException e) {
-                e.printStackTrace();
-            }
-            adapter = new TwitterAdapter();
+                adapter = new TwitterAdapter();
 
-            ArrayList<String> list = new ArrayList<>();
+                ArrayList<String> list = new ArrayList<>();
                 for (int i = 0; i < testing.length; ++i) {
                     list.add(testing[i]);
                     adapter.addItem(testing[i]);
                 }
 
-            //Since the UI cannot be changed without this,
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    //Populates lst_feed with string array testing
-                    try {
-                        lst_feed.setAdapter(adapter);
-                    }catch (NullPointerException e) {
-                        grid_feed.setAdapter(adapter);
+                //Since the UI cannot be changed without this,
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        //Populates lst_feed with string array testing
+                        try {
+                            lst_feed.setAdapter(adapter);
+                        }catch (NullPointerException e) {
+                            grid_feed.setAdapter(adapter);
+                        }
                     }
-                }
-            });
+                });
+
+            } catch (final TwitterException e) {
+                final Context context = getActivity().getApplicationContext();
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(context, getString(R.string.NoTwitter) + " " + e.getErrorCode() + ")", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+
             return null;
         }
 
