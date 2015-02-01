@@ -57,8 +57,8 @@ public class Admin extends Fragment {
     public void onStart() {
         super.onStart();
         //getActivity().getActionBar().hide();
-        drawerLayout=(DrawerLayout) getActivity().findViewById(R.id.drawer_layout);
-        listView=(ListView) getActivity().findViewById(R.id.drawer_list);
+
+
         prog = (ProgressBar) getActivity().findViewById(R.id.prog);
         //gridView = (GridView) getActivity().findViewById(R.id.gridView);
         //new AdminScrape().execute();
