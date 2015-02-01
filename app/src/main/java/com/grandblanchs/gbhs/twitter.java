@@ -73,7 +73,7 @@ public class twitter extends Fragment {
     public void onStart() {
         super.onStart();
         prog = (ProgressBar) getView().findViewById(R.id.prog);
-        getActivity().getActionBar().hide();
+        //getActivity().getActionBar().hide();
         btnTwitter = (Button) getView().findViewById(R.id.btnTwitter);
         //Since internet dependant tasks cannot be performed on the main method, we execute a new one called twitterTimeline
         new twitterTimeline().execute();
@@ -197,7 +197,7 @@ public class twitter extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             prog.setVisibility(View.GONE);
-            getActivity().getActionBar().show();
+            //getActivity().getActionBar().show();
         }
     }
     //Corey's custom adapter class, which he added because he is amazing.

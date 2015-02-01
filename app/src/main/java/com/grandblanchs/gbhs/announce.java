@@ -69,7 +69,7 @@ public class announce extends Fragment {
     public void onStart() {
         super.onStart();
         prog = (ProgressBar) getView().findViewById(R.id.prog);
-        getActivity().getActionBar().hide();
+        //getActivity().getActionBar().hide();
         new AnnounceScrape().execute();
     }
 
@@ -106,7 +106,7 @@ public class announce extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             prog.setVisibility(View.GONE);
-            getActivity().getActionBar().show();
+            //getActivity().getActionBar().show();
         }
     }
 

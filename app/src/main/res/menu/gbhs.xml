@@ -6,75 +6,8 @@
     <item android:id="@+id/Home"
         android:title="@string/GBHS" />
 
-    <!--Daily Announcements-->
-    <item android:id="@+id/announce"
-        android:title="@string/Announce"/>
-
-    <!--District Calendar-->
-    <item android:id="@+id/calendar"
-        android:title="@string/Calendar"/>
-
-    <!--School Twitter feed-->
-    <item android:id="@+id/twitter"
-        android:title="@string/Twitter"/>
-
-    <!--Administration Contact Information-->
-    <item android:id="@+id/Admin"
-        android:title="@string/Admin"/>
-
-    <!--Staff Listing-->
-    <item android:id="@+id/staff"
-        android:title="@string/Staff"/>
-
-    <!--Athletics Schedule and Information-->
-    <item android:id="@+id/Athletics"
-        android:title="@string/Athletics"/>
-
-    <!--Advisory Curriculum Council (external link)-->
-    <item android:id="@+id/BAC"
-        android:title="@string/BAC"/>
-
-    <!--Career Resource Center-->
-    <item android:id="@+id/CRC"
-        android:title="@string/CRC"/>
-
-    <!--Center for Student Success-->
-    <item android:id="@+id/CSS"
-        android:title="@string/CSS"/>
-
-    <!--Grand Blanc Early College-->
-    <item android:id="@+id/Early"
-        android:title="@string/Early"/>
-
-    <!--Counseling / Guidance Office-->
-    <item android:id="@+id/Guidance"
-        android:title="@string/Guidance"/>
-
-    <!--Career & Technical Education-->
-    <item android:id="@+id/CTE"
-        android:title="@string/CTE" />
-
-    <!--Library (external link)-->
-    <item android:id="@+id/Lib"
-        android:title="@string/Library" />
-
-    <!--National Honor Society (external link)-->
-    <item android:id="@+id/NHS"
-        android:title="@string/NHS" />
-
-    <!--Report Bullying-->
-    <item android:id="@+id/Bully"
-        android:title="@string/Bully" />
-
-    <!--Student Resources-->
-    <item android:id="@+id/Student"
-        android:title="@string/Student" />
-
-    <item android:id="@+id/Summer"
-        android:title="@string/Summer" />
-
-    <!--Yearbook (external link)-->
-    <item android:id="@+id/Yearbook"
-        android:title="@string/Yearbook" />
+    <!--Settings-->
+    <item android:id="@+id/Settings"
+        android:title="@string/action_settings"/>
 
 </menu>

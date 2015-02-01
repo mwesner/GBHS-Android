@@ -67,7 +67,7 @@ public class staff extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        getActivity().getActionBar().hide();
+        //getActivity().getActionBar().hide();
         new StaffScrape().execute();
     }
 
@@ -90,7 +90,7 @@ public class staff extends Fragment {
                 int staffCount = 0;
                 for (int i = 0; i < staffArray.length; i++) {
                     if (staffArray[i].contains("GRANDBLANCSCHOOLS.ORG")) {
-                        staffList.add(staffCount, staffArray[i].substring(162, staffArray[i].length() - 10));
+                        staffList.add(staffCount, staffArray[i].substring(161, staffArray[i].length() - 10));
                         staffCount++;
                     }
                 }
@@ -109,7 +109,7 @@ public class staff extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             prog.setVisibility(View.GONE);
-            getActivity().getActionBar().show();
+            //getActivity().getActionBar().show();
 
             //Set adapter
             StaffAdapter adapter = new StaffAdapter();

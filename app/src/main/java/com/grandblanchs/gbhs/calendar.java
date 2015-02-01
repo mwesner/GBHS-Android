@@ -108,7 +108,7 @@ public class calendar extends Fragment {
         lstInfo = (ListView) getView().findViewById(R.id.lstInfo);
         btnCalToggle = (Button) getView().findViewById(R.id.btnCalToggle);
         prog = (ProgressBar) getView().findViewById(R.id.prog);
-        getActivity().getActionBar().hide();
+        //getActivity().getActionBar().hide();
         //This will display events for a given date
         gridCal.setShowWeekNumber(false);
         new calGet().execute();
@@ -238,7 +238,7 @@ public class calendar extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             prog.setVisibility(View.GONE);
-            getActivity().getActionBar().show();
+            //getActivity().getActionBar().show();
             gridCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                 @Override
                 public void onSelectedDayChange(CalendarView calendarView, int year, int month, int day) {

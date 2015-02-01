@@ -13,8 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
-
+import android.support.v4.widget.DrawerLayout;
 import java.util.ArrayList;
 
 
@@ -27,6 +28,11 @@ import java.util.ArrayList;
  */
 public class Admin extends Fragment {
 
+
+    private DrawerLayout drawerLayout;
+    private ListView listView;
+
+
     private OnFragmentInteractionListener mListener;
     GridView gridView;
     GridViewAdapter customGridAdapter;
@@ -36,6 +42,7 @@ public class Admin extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
     }
 
     @Override
@@ -43,22 +50,26 @@ public class Admin extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.admin, container, false);
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        getActivity().getActionBar().hide();
+        //getActivity().getActionBar().hide();
+        drawerLayout=(DrawerLayout) getActivity().findViewById(R.id.drawer_layout);
+        listView=(ListView) getActivity().findViewById(R.id.drawer_list);
         prog = (ProgressBar) getActivity().findViewById(R.id.prog);
-        gridView = (GridView) getActivity().findViewById(R.id.gridView);
-        new AdminScrape().execute();
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                System.out.println(position + "#Selected");
-            }
+        //gridView = (GridView) getActivity().findViewById(R.id.gridView);
+        //new AdminScrape().execute();
+        //gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            //public void onItemClick(AdapterView<?> parent, View v,
+            //                        int position, long id) {
+            //    System.out.println(position + "#Selected");
+            //}
 
-        });
+        //}
+
     }
 
     public interface OnFragmentInteractionListener {
@@ -78,7 +89,7 @@ public class Admin extends Fragment {
             super.onPostExecute(aVoid);
             gridView.setAdapter(customGridAdapter);
             prog.setVisibility(View.GONE);
-            getActivity().getActionBar().show();
+            //getActivity().getActionBar().show();
         }
     }
 
