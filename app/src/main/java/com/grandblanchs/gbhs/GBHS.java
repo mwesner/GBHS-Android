@@ -3,7 +3,6 @@ package com.grandblanchs.gbhs;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -78,8 +77,6 @@ public class GBHS extends ActionBarActivity implements twitter.OnFragmentInterac
         switch (number) {
             case 1:
                 mTitle = getString(R.string.GBHS);
-
-
                 break;
             case 2:
                 mTitle = getString(R.string.Announce);
@@ -140,9 +137,33 @@ public class GBHS extends ActionBarActivity implements twitter.OnFragmentInterac
                 break;
             case 14:
                 mTitle = getString(R.string.Library);
+                String liburl = "http://gbhslib.weebly.com";
+                Intent lib = new Intent(Intent.ACTION_VIEW);
+                Uri u1 = Uri.parse(liburl);
+
+                try {
+                    //Start the activity
+                    lib.setData(u1);
+                    startActivity(lib);
+                } catch (ActivityNotFoundException e) {
+                    //Raise on activity not found
+                    Toast.makeText(this, "No browser found.", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case 15:
                 mTitle = getString(R.string.NHS);
+                String nhsurl = "http://gbhsnhs.com";
+                Intent nhs = new Intent(Intent.ACTION_VIEW);
+                Uri u2 = Uri.parse(nhsurl);
+
+                try {
+                    //Start the activity
+                    nhs.setData(u2);
+                    startActivity(nhs);
+                }catch (ActivityNotFoundException e) {
+                    //Raise on activity not found
+                    Toast.makeText(this, "No browser found.", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case 16:
                 mTitle = getString(R.string.Bully);
@@ -186,8 +207,6 @@ public class GBHS extends ActionBarActivity implements twitter.OnFragmentInterac
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-
-
         if (id == R.id.Home) {
             finish();
             Intent start = new Intent(getApplicationContext(), GBHS.class);
@@ -197,7 +216,6 @@ public class GBHS extends ActionBarActivity implements twitter.OnFragmentInterac
             Toast.makeText(getApplicationContext(), "As if.", Toast.LENGTH_SHORT).show();
             return true;
         }
-
 
         return super.onOptionsItemSelected(item);
     }
