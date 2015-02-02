@@ -4,7 +4,7 @@
 
     <!--Home screen-->
     <item android:id="@+id/Home"
-        android:title="@string/GBHS" />
+        android:title="@string/Home" />
 
     <!--Settings-->
     <item android:id="@+id/Settings"

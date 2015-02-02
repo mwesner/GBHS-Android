@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/imageView"
-        android:contentDescription="@string/GBHS"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/gblogo" />
 
 <FrameLayout
@@ -24,7 +24,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff82180e"
+    android:background="@color/bobcatred"
     tools:context="com.grandblanchs.gbhs.GBHS"
     android:orientation="horizontal"/>
 

@@ -76,7 +76,7 @@ public class GBHS extends ActionBarActivity implements twitter.OnFragmentInterac
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         switch (number) {
             case 1:
-                mTitle = getString(R.string.GBHS);
+                mTitle = getString(R.string.Home);
                 break;
             case 2:
                 mTitle = getString(R.string.Announce);
