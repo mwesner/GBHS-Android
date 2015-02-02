@@ -212,15 +212,19 @@ public class calendar extends Fragment {
 
                 infoList.add(0, "Today");
                 //Set the content of the ListView
-                CustomAdapter mAdapter = new CustomAdapter();
+                final CustomAdapter mAdapter = new CustomAdapter();
                 for (int i = 0; i < infoList.size(); i++) {
                     mAdapter.addItem(infoList.get(i));
                 }
 
-                lstInfo.setAdapter(mAdapter);
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                        lstInfo.setAdapter(mAdapter);
 
-                gridCal.setVisibility(View.VISIBLE);
-                lstInfo.setVisibility(View.VISIBLE);
+                        gridCal.setVisibility(View.VISIBLE);
+                        lstInfo.setVisibility(View.VISIBLE);
+                    }
+                });
 
             } catch (final IOException e) {
                 final Context context = getActivity().getApplicationContext();
