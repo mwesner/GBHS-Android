@@ -3,6 +3,7 @@ package com.grandblanchs.gbhs;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,10 +20,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 
-public class GBHS extends ActionBarActivity implements twitter.OnFragmentInteractionListener,
-        calendar.OnFragmentInteractionListener, announce.OnFragmentInteractionListener,
-        Admin.OnFragmentInteractionListener, staff.OnFragmentInteractionListener,
-        NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class GBHS extends ActionBarActivity implements home.OnFragmentInteractionListener,
+        twitter.OnFragmentInteractionListener, calendar.OnFragmentInteractionListener,
+        announce.OnFragmentInteractionListener, Admin.OnFragmentInteractionListener,
+        staff.OnFragmentInteractionListener, NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -44,8 +45,6 @@ public class GBHS extends ActionBarActivity implements twitter.OnFragmentInterac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gbhs);
-        //Toast
-        Toast.makeText(getApplicationContext(), "Hello GB!", Toast.LENGTH_LONG).show();
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -67,6 +66,7 @@ public class GBHS extends ActionBarActivity implements twitter.OnFragmentInterac
     }
 
     public void onSectionAttached(int number) {
+        home homefragment = new home();
         twitter twitterfragment = new twitter();
         calendar calfragment = new calendar();
         announce announcefragment = new announce();
@@ -77,25 +77,25 @@ public class GBHS extends ActionBarActivity implements twitter.OnFragmentInterac
         switch (number) {
             case 1:
                 mTitle = getString(R.string.Home);
+                getFragmentManager();
+                fragmentTransaction.replace(R.id.FragmentContainer, homefragment);
+                fragmentTransaction.commit();
                 break;
             case 2:
                 mTitle = getString(R.string.Announce);
                 getFragmentManager();
-                fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.FragmentContainer, announcefragment);
                 fragmentTransaction.commit();
                 break;
             case 3:
                 mTitle = getString(R.string.Calendar);
                 getFragmentManager();
-                fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.FragmentContainer, calfragment);
                 fragmentTransaction.commit();
                 break;
             case 4:
                 mTitle = getString(R.string.Twitter);
                 getFragmentManager();
-                fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.FragmentContainer, twitterfragment);
                 fragmentTransaction.commit();
 
@@ -103,14 +103,12 @@ public class GBHS extends ActionBarActivity implements twitter.OnFragmentInterac
             case 5:
                 mTitle = getString(R.string.Admin);
                 getFragmentManager();
-                fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.FragmentContainer, adminfragment);
                 fragmentTransaction.commit();
                 break;
             case 6:
                 mTitle = getString(R.string.Staff);
                 getFragmentManager();
-                fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.FragmentContainer, stafffragment);
                 fragmentTransaction.commit();
                 break;
@@ -182,7 +180,6 @@ public class GBHS extends ActionBarActivity implements twitter.OnFragmentInterac
 
     public void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
     }
@@ -213,8 +210,24 @@ public class GBHS extends ActionBarActivity implements twitter.OnFragmentInterac
             startActivity(start);
         }
         if (id == R.id.Settings) {
-            Toast.makeText(getApplicationContext(), "As if.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "No settings yet.", Toast.LENGTH_SHORT).show();
             return true;
+        }
+
+        if (id == R.id.Twitter) {
+            String url = "https://twitter.com/GrandBlancPride";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            Uri u = Uri.parse(url);
+            Context context = getApplicationContext();
+
+            try {
+                //Start the activity
+                i.setData(u);
+                startActivity(i);
+            } catch (ActivityNotFoundException e) {
+                //Raise on activity not found
+                Toast.makeText(context, "No browser found.", Toast.LENGTH_SHORT).show();
+            }
         }
 
         return super.onOptionsItemSelected(item);
@@ -248,8 +261,7 @@ public class GBHS extends ActionBarActivity implements twitter.OnFragmentInterac
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
+            return inflater.inflate(R.layout.fragment_main, container, false);
         }
 
         @Override

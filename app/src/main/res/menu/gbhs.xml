@@ -1,10 +1,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".GBHS" >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".GBHS">
 
     <!--Home screen-->
     <item android:id="@+id/Home"
-        android:title="@string/Home" />
+        android:title="@string/Home"
+        android:icon="@drawable/home"
+        app:showAsAction="always"/>
+
+    <!--Twitter link-->
+    <item android:id="@+id/Twitter"
+        android:title="@string/TwitterFeed"
+        android:icon="@drawable/twitter"
+        app:showAsAction="ifRoom"/>
 
     <!--Settings-->
     <item android:id="@+id/Settings"

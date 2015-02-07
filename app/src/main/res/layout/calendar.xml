@@ -24,13 +24,13 @@
         android:id="@+id/lstInfo"
         android:visibility="invisible"
         android:layout_below="@+id/gridCal"
-        android:layout_above="@+id/btnCalToggle" />
+        android:layout_above="@+id/btnCal" />
 
     <ProgressBar
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/prog"
+        android:id="@+id/progCalendar"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/CalendarWebShow"
-        android:id="@+id/btnCalToggle"
+        android:id="@+id/btnCal"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"

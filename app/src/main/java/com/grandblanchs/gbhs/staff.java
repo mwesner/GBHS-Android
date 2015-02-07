@@ -81,8 +81,8 @@ public class staff extends Fragment {
         @Override
         protected Void doInBackground(Void... params) {
             Document staff;
-            prog = (ProgressBar) getView().findViewById(R.id.prog);
-            lstStaff = (ListView) getView().findViewById(R.id.lstStaff);
+            prog = (ProgressBar) getActivity().findViewById(R.id.prog);
+            lstStaff = (ListView) getActivity().findViewById(R.id.lstStaff);
             try {
                 staff = Jsoup.connect("http://grandblanc.high.schoolfusion.us/modules/cms/pages.phtml?pageid=120116").get();
                 //Parse input

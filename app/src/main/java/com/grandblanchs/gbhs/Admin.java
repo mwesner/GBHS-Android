@@ -13,9 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.support.v4.widget.DrawerLayout;
 import java.util.ArrayList;
 
 
@@ -27,10 +25,6 @@ import java.util.ArrayList;
  * to handle interaction events.
  */
 public class Admin extends Fragment {
-
-
-    private DrawerLayout drawerLayout;
-    private ListView listView;
 
 
     private OnFragmentInteractionListener mListener;
@@ -59,16 +53,16 @@ public class Admin extends Fragment {
         //getActivity().getActionBar().hide();
 
 
-        prog = (ProgressBar) getActivity().findViewById(R.id.prog);
-        //gridView = (GridView) getActivity().findViewById(R.id.gridView);
-        //new AdminScrape().execute();
-        //gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            //public void onItemClick(AdapterView<?> parent, View v,
-            //                        int position, long id) {
-            //    System.out.println(position + "#Selected");
-            //}
+        prog = (ProgressBar) getView().findViewById(R.id.progAdmin);
+        gridView = (GridView) getView().findViewById(R.id.gridView);
+        new AdminScrape().execute();
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                System.out.println(position + "#Selected");
+            }
 
-        //}
+        });
 
     }
 
@@ -89,7 +83,6 @@ public class Admin extends Fragment {
             super.onPostExecute(aVoid);
             gridView.setAdapter(customGridAdapter);
             prog.setVisibility(View.GONE);
-            //getActivity().getActionBar().show();
         }
     }
 

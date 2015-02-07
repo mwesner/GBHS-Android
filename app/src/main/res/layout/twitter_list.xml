@@ -3,26 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" tools:context="com.grandblanchs.gbhs.twitter">
 
-    <Button
-        android:layout_width="420dp"
-        android:layout_height="wrap_content"
-        android:text="@string/TwitterFeed"
-        android:id="@+id/btnTwitter"
-        android:layout_gravity="end|bottom"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <ListView android:id="@+id/list" android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_above="@+id/btnTwitter" />
+        android:layout_alignParentTop="true" />
 
     <ProgressBar
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/prog"
+        android:id="@+id/progTwitter"
         android:layout_gravity="center"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />

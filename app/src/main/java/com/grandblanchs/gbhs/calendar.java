@@ -37,7 +37,7 @@ public class calendar extends Fragment {
     CalendarView gridCal;
     ListView lstInfo;
     WebView webCal;
-    Button btnCalToggle;
+    Button btnCal;
 
     ProgressBar prog;
     List<String> infoList = new ArrayList<String>();
@@ -45,6 +45,8 @@ public class calendar extends Fragment {
 
     String[] calArray;
     List<String> eventList = new ArrayList<String>();
+    
+    private CustomAdapter mAdapter;
 
     public static calendar newInstance() {
         calendar fragment = new calendar();
@@ -106,13 +108,16 @@ public class calendar extends Fragment {
         super.onStart();
         gridCal = (CalendarView) getView().findViewById(R.id.gridCal);
         lstInfo = (ListView) getView().findViewById(R.id.lstInfo);
-        btnCalToggle = (Button) getView().findViewById(R.id.btnCalToggle);
-        prog = (ProgressBar) getView().findViewById(R.id.prog);
-        //getActivity().getActionBar().hide();
+        btnCal = (Button) getView().findViewById(R.id.btnCal);
+        prog = (ProgressBar) getView().findViewById(R.id.progCalendar);
+
+        //Set the icon on btnCal
+        btnCal.setCompoundDrawablesWithIntrinsicBounds(0, 0, android.R.drawable.ic_menu_set_as, 0);
+
         //This will display events for a given date
         gridCal.setShowWeekNumber(false);
         new calGet().execute();
-        btnCalToggle.setOnClickListener(new View.OnClickListener() {
+        btnCal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -209,10 +214,11 @@ public class calendar extends Fragment {
                 }
 
                 //Populate the calendar
-
-                infoList.add(0, "Today");
+                if (infoList.isEmpty()) {
+                    infoList.add(0, "Today");
+                }
                 //Set the content of the ListView
-                final CustomAdapter mAdapter = new CustomAdapter();
+                mAdapter = new CustomAdapter();
                 for (int i = 0; i < infoList.size(); i++) {
                     mAdapter.addItem(infoList.get(i));
                 }
@@ -242,32 +248,36 @@ public class calendar extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             prog.setVisibility(View.GONE);
-            //getActivity().getActionBar().show();
             gridCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                 @Override
                 public void onSelectedDayChange(CalendarView calendarView, int year, int month, int day) {
 
                     //Add one month because month starts at 0
                     month++;
-                    String newDate = year + "" + month + "" + day;
+
+                    String selectedDate = year + "" + month + "" + day;
                     DateTime dt = new DateTime();
                     int currentday = dt.getDayOfMonth();
-                    //Double-digit month
-                    String currentmonthstring = "0" + String.valueOf(dt.getMonthOfYear());
-                    int currentmonth = Integer.parseInt(currentmonthstring);
+                    //Double-digit month - add a zero for months 1-9
+
+                    int currentmonth = dt.getMonthOfYear();
+                    if (currentmonth < 10) {
+                        currentmonth = Integer.parseInt("0") + dt.getMonthOfYear();
+                    }
+
                     int currentyear = dt.getYear();
                     String currentDate = currentyear + "" + currentmonth + "" + currentday;
-                    System.out.println("Current Date: " + currentmonth);
+                    System.out.println("Current Month: " + currentmonth);
                     infoList.clear();
                     infoCount = 0;
 
-                    if (newDate.equals("20150116")) {
+                    if (selectedDate.equals("20150116")) {
                         infoList.add(infoCount, "End of First Semester");
                         infoCount++;
-                    }else if (eventList.contains(newDate)) {
+                    }else if (eventList.contains(selectedDate)) {
                         infoList.add(0, eventList.get(0));
-                        infoList.add(1, "Event present for " + newDate);
-                    }else if (newDate.equals(currentDate)) {
+                        infoList.add(1, "Event present for " + selectedDate);
+                    }else if (selectedDate.equals(currentDate)) {
                         infoList.add(0, "Today");
                     }else{
                         infoList.clear();
