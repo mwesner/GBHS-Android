@@ -7,6 +7,8 @@
         android:layout_height="match_parent"
         android:id="@+id/scrollView"
         android:layout_gravity="start|bottom"
+        android:requiresFadingEdge="vertical"
+        android:fadingEdgeLength="25dp"
         android:fillViewport="false">
 
         <TextView

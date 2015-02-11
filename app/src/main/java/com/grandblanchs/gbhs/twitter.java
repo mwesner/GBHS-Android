@@ -70,6 +70,10 @@ public class twitter extends Fragment {
         super.onStart();
         prog = (ProgressBar) getView().findViewById(R.id.progTwitter);
 
+        //Finds the ListView lst_feed on the GUI form
+        lst_feed = (ListView) getView().findViewById(R.id.list);
+        grid_feed = (GridView) getView().findViewById(R.id.grid);
+
         //Since internet dependant tasks cannot be performed on the main method, we execute a new one called twitterTimeline
         new twitterTimeline().execute();
     }
@@ -118,10 +122,6 @@ public class twitter extends Fragment {
             AccessToken oathAccessToken = new AccessToken(accessToken, accessTokenSecret);
             twitter.setOAuthAccessToken(oathAccessToken);
 
-
-            //Finds the ListView lst_feed on the GUI form
-            lst_feed = (ListView) getView().findViewById(R.id.list);
-            grid_feed = (GridView) getView().findViewById(R.id.grid);
             //Creates a string array of length 20 for the twenty twitter posts to be stored in.
             //This is needed because it's a lot easier to populate a ListView with a string array
             final String [] testing = new String[20];
