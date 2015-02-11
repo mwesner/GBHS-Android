@@ -9,8 +9,9 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.jsoup.nodes.Document;
@@ -24,6 +25,14 @@ public class announce extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     ProgressBar prog;
+    ListView lstAnnounce;
+    ArrayAdapter adapter;
+
+    String announceText;
+    String[] announceTextArray;
+    String[] displayArray;
+
+    Context context;
 
     public static announce newInstance() {
         announce fragment = new announce();
@@ -69,29 +78,28 @@ public class announce extends Fragment {
     public void onStart() {
         super.onStart();
         prog = (ProgressBar) getView().findViewById(R.id.prog);
-        //getActivity().getActionBar().hide();
+        lstAnnounce = (ListView) getView().findViewById(R.id.lstAnnounce);
+
         new AnnounceScrape().execute();
     }
-
-    public String announceText;
 
     public class AnnounceScrape extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
-            final TextView txtAnnounce = (TextView) getView().findViewById(R.id.txtAnnounce);
             Document announce = null;
+            context = getActivity().getApplicationContext();
             try {
                 announce = Jsoup.connect("http://grandblanc.high.schoolfusion.us/modules/cms/pages.phtml?pageid=22922").get();
-                Elements announceClass = announce.getElementsByClass("MsoNormal");
-                //Substring-out "Previous Announcements"
-                announceText = announceClass.text().substring(22, announceClass.text().length());
-                getActivity().runOnUiThread(new Runnable() {
-                    public void run() {
-                        txtAnnounce.setText(announceText);
-                    }
-                });
+                Elements announceClass = announce.getElementsByClass("MsoNormal").tagName("li");
+
+                announceTextArray = announceClass.text().split("</li>");
+                displayArray = new String[announceTextArray.length];
+                for (int i = 0; i < announceTextArray.length; i++) {
+                    displayArray[i] = announceTextArray[i].substring(22, announceTextArray[i].length());
+                }
+                adapter = new ArrayAdapter<String>(context,
+                        android.R.layout.simple_list_item_1, displayArray);
             } catch (IOException e) {
-                final Context context = getActivity().getApplicationContext();
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
                         Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
@@ -105,8 +113,9 @@ public class announce extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+
+            lstAnnounce.setAdapter(adapter);
             prog.setVisibility(View.GONE);
-            //getActivity().getActionBar().show();
         }
     }
 

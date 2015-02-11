@@ -2,22 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" tools:context=".GBHS">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/scrollView"
-        android:layout_gravity="start|bottom"
-        android:requiresFadingEdge="vertical"
-        android:fadingEdgeLength="25dp"
-        android:fillViewport="false">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtAnnounce"
-            android:layout_gravity="center_horizontal|top"
-            android:choiceMode="none" />
-    </ScrollView>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lstAnnounce"
+        android:layout_gravity="center_horizontal|top"
+        android:fadingEdgeLength="25dp"
+        android:choiceMode="none" />
 
     <ProgressBar
         style="?android:attr/progressBarStyleLarge"
