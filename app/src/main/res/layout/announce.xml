@@ -8,6 +8,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/lstAnnounce"
         android:layout_gravity="center_horizontal|top"
+        android:requiresFadingEdge="vertical"
         android:fadingEdgeLength="25dp"
         android:choiceMode="none" />
 
