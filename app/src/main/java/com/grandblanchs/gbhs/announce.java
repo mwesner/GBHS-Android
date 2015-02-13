@@ -115,22 +115,21 @@ public class announce extends Fragment {
 
                         displayArray[i] = announceTextArray[i].substring(85, announceTextArray[i].length());
 
-                        //Overwrite undesired HTML characters
-                        displayArray[i] = displayArray[i].replaceAll("&nbsp;", "");
-                        displayArray[i] = displayArray[i].replaceAll("&amp;", "");
-                        displayArray[i] = displayArray[i].replaceAll("<br>", "");
-                        displayArray[i] = displayArray[i].replaceAll("</strong></span>", "");
-                        displayArray[i] = displayArray[i].replaceAll("ext-align: center;\">  <span style=\"font-size:16px;\"><strong>", "");
+//                        //Overwrite undesired HTML characters
+                        displayArray[i] = displayArray[i].replace("&nbsp;", "");
+                        displayArray[i] = displayArray[i].replace("&amp;", "&");
+                        displayArray[i] = displayArray[i].replace("<br>", "");
+                        displayArray[i] = displayArray[i].replace("</strong></span>", "");
+                        displayArray[i] = displayArray[i].replace("ext-align: center;\">  <span style=\"font-size:16px;\"><strong>", "");
                     }
 
 
                     //Convert to ArrayList for easy item removal
                     list = new ArrayList<String>(Arrays.asList(displayArray));
 
-                    //Remove the first three garbage entries
+                    //Remove the first entry
                     list.remove(0);
-                    list.remove(1);
-                    list.remove(2);
+
                 }
 
                 adapter = new ArrayAdapter<String>(context,
