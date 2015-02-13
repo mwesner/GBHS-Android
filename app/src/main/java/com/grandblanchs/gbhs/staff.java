@@ -27,6 +27,8 @@ import java.util.TreeSet;
 
 public class staff extends Fragment {
 
+    //TODO: (Aaron) Hardcode names and information, sort into table/list
+
     private OnFragmentInteractionListener mListener;
 
     ProgressBar prog;

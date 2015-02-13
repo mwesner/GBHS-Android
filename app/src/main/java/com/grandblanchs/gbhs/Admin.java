@@ -26,6 +26,8 @@ import java.util.ArrayList;
  */
 public class Admin extends Fragment {
 
+    //TODO: (Aaron) Code descriptions (web or hardcoded)
+    //TODO: (Aaron) Show descriptions with image in separate popout fragment
 
     private OnFragmentInteractionListener mListener;
     GridView gridView;

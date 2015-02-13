@@ -4,6 +4,14 @@
     android:background="#ff681008"
     android:weightSum="1">
 
+    <!-- Empty layout (0x0 dp) centered horizontally -->
+    <Space android:id="@+id/dummy"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"/>
+
+
     <TextView
         android:layout_width="248dp"
         android:layout_height="wrap_content"
@@ -15,8 +23,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/imgSeparator"
-        android:layout_toStartOf="@+id/imgSeparator" />
+        android:layout_toLeftOf="@+id/dummy"
+        android:layout_toStartOf="@+id/dummy" />
 
     <TextView
         android:layout_width="254dp"
@@ -30,8 +38,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/imgSeparator"
-        android:layout_toEndOf="@+id/imgSeparator" />
+        android:layout_toRightOf="@+id/dummy"
+        android:layout_toEndOf="@+id/dummy" />
 
     <fragment
         android:layout_width="wrap_content"
@@ -42,8 +50,10 @@
         android:layout_below="@+id/txtAnnounce"
         android:layout_alignLeft="@+id/txtAnnounce"
         android:layout_alignStart="@+id/txtAnnounce"
-        android:layout_toLeftOf="@+id/imgSeparator"
-        android:layout_toStartOf="@+id/imgSeparator" />
+        tools:layout="@layout/announce"
+        android:layout_toStartOf="@+id/twitterfragment"
+        android:layout_alignRight="@+id/dummy"
+        android:layout_alignEnd="@+id/dummy" />
 
     <fragment
         android:layout_width="232dp"
@@ -55,16 +65,8 @@
         android:layout_alignBottom="@+id/announcefragment"
         android:layout_alignRight="@+id/txtTwitter"
         android:layout_alignEnd="@+id/txtTwitter"
-        android:layout_toRightOf="@+id/imgSeparator"
-        android:layout_toEndOf="@+id/imgSeparator" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imgSeparator"
-        android:src="@drawable/gblogo"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/app_name" />
+        tools:layout="@layout/twitter"
+        android:layout_toRightOf="@+id/dummy"
+        android:layout_toEndOf="@+id/dummy" />
 
 </RelativeLayout>

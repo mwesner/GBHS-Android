@@ -5,7 +5,7 @@
     android:weightSum="1">
 
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imgGBHS"
         android:src="@drawable/gbhs"
@@ -25,7 +25,8 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:name="com.grandblanchs.gbhs.announce"
-        android:id="@+id/announcefragment" />
+        android:id="@+id/announcefragment"
+        tools:layout="@layout/announce" />
 
     <TextView
         android:layout_width="match_parent"
@@ -41,6 +42,7 @@
         android:layout_height="0dp"
         android:name="com.grandblanchs.gbhs.twitter"
         android:id="@+id/twitterfragment"
-        android:layout_weight="0.5" />
+        android:layout_weight="0.5"
+        tools:layout="@layout/twitter" />
 
 </LinearLayout>

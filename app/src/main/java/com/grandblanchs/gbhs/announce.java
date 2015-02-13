@@ -25,6 +25,9 @@ import java.util.List;
 
 public class announce extends Fragment {
 
+    //TODO: (Aaron) Properly scrape announcement text
+    //TODO: (Aaron) Work on setting up RSS feed for announcements with GBTV
+
     private OnFragmentInteractionListener mListener;
 
     ProgressBar prog;

@@ -25,6 +25,8 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
         announce.OnFragmentInteractionListener, Admin.OnFragmentInteractionListener,
         staff.OnFragmentInteractionListener, NavigationDrawerFragment.NavigationDrawerCallbacks {
 
+    //TODO: Continue managing fragment transactions, especially detaching
+
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
@@ -34,6 +36,17 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+
+    int prev = 0;
+
+    home homefragment = new home();
+    twitter twitterfragment = new twitter();
+    calendar calfragment = new calendar();
+    announce announcefragment = new announce();
+    Admin adminfragment = new Admin();
+    staff stafffragment = new staff();
 
     @Override
     public void onFragmentInteraction(Uri uri) {
@@ -65,52 +78,73 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
                 .commit();
     }
 
+    public void detachPreviousFragment() {
+        //Detach the previously viewed fragment from the stack to prevent NullPointer issues.
+        if (prev == 1) {
+            fragmentTransaction.detach(homefragment);
+        }else if (prev == 2) {
+            fragmentTransaction.detach(announcefragment);
+        }else if (prev == 3) {
+            fragmentTransaction.detach(calfragment);
+        }else if (prev == 4) {
+            fragmentTransaction.detach(twitterfragment);
+        }else if (prev == 5){
+            fragmentTransaction.detach(adminfragment);
+        }else if (prev == 6) {
+            fragmentTransaction.detach(stafffragment);
+        }
+    }
+
     public void onSectionAttached(int number) {
-        home homefragment = new home();
-        twitter twitterfragment = new twitter();
-        calendar calfragment = new calendar();
-        announce announcefragment = new announce();
-        Admin adminfragment = new Admin();
-        staff stafffragment = new staff();
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentManager = getFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
         switch (number) {
             case 1:
                 mTitle = getString(R.string.Home);
                 getFragmentManager();
                 fragmentTransaction.replace(R.id.FragmentContainer, homefragment);
                 fragmentTransaction.commit();
+                prev = 1;
                 break;
             case 2:
                 mTitle = getString(R.string.Announce);
                 getFragmentManager();
+                detachPreviousFragment();
                 fragmentTransaction.replace(R.id.FragmentContainer, announcefragment);
                 fragmentTransaction.commit();
+                prev = 2;
                 break;
             case 3:
                 mTitle = getString(R.string.Calendar);
                 getFragmentManager();
+                detachPreviousFragment();
                 fragmentTransaction.replace(R.id.FragmentContainer, calfragment);
                 fragmentTransaction.commit();
+                prev = 3;
                 break;
             case 4:
                 mTitle = getString(R.string.Twitter);
                 getFragmentManager();
+                detachPreviousFragment();
                 fragmentTransaction.replace(R.id.FragmentContainer, twitterfragment);
                 fragmentTransaction.commit();
-
+                prev = 4;
                 break;
             case 5:
                 mTitle = getString(R.string.Admin);
                 getFragmentManager();
+                detachPreviousFragment();
                 fragmentTransaction.replace(R.id.FragmentContainer, adminfragment);
                 fragmentTransaction.commit();
+                prev = 5;
                 break;
             case 6:
                 mTitle = getString(R.string.Staff);
                 getFragmentManager();
+                detachPreviousFragment();
                 fragmentTransaction.replace(R.id.FragmentContainer, stafffragment);
                 fragmentTransaction.commit();
+                prev = 6;
                 break;
             case 7:
                 mTitle = getString(R.string.Athletics);

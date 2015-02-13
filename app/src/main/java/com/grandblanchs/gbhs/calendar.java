@@ -32,6 +32,9 @@ import java.util.List;
 
 public class calendar extends Fragment {
 
+    //TODO: (Corey) Properly scrape iCal feed
+    //TODO: (Corey) Add events into a list that shows on date change
+
     private OnFragmentInteractionListener mListener;
 
     CalendarView gridCal;
@@ -117,6 +120,7 @@ public class calendar extends Fragment {
         //This will display events for a given date
         gridCal.setShowWeekNumber(false);
         new calGet().execute();
+
         btnCal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -207,10 +211,20 @@ public class calendar extends Fragment {
                 calArray = cal.toString().split("BEGIN:VEVENT");
 
                 //CALENDAR PARSER
-                int test = 0;
                 for (int i = 0; i < calArray.length; i++) {
+                    //Remove any zeroes in the day or month
+                    if (calArray[i].substring(12).equals("0")) {
+                        //Remove zero in month
+                        calArray[i] = calArray[i].substring(12).replace("0", "");
+                    }else if (calArray[i].substring(15).equals("0")) {
+                        //Remove zero in day
+                        calArray[i] = calArray[i].substring(15).replace("0", "");
+                    }
+
+
+                    System.out.println(calArray[i].substring(9, 17));
                     //Store the start date (YYYYMMDD)
-                    eventList.add(i, calArray[i].substring(8, 17));
+                    eventList.add(i, calArray[i].substring(9, 17));
                 }
 
                 //Populate the calendar
@@ -267,11 +281,11 @@ public class calendar extends Fragment {
 
                     int currentyear = dt.getYear();
                     String currentDate = currentyear + "" + currentmonth + "" + currentday;
-                    System.out.println("Current Month: " + currentmonth);
+
                     infoList.clear();
                     infoCount = 0;
 
-                    if (selectedDate.equals("20150116")) {
+                    if (selectedDate.equals("2015116")) {
                         infoList.add(infoCount, "End of First Semester");
                         infoCount++;
                     }else if (eventList.contains(selectedDate)) {

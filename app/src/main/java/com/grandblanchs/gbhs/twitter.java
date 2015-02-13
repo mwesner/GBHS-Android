@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -30,6 +29,8 @@ import twitter4j.auth.AccessToken;
 
 public class twitter extends Fragment {
 
+    //TODO: (Aaron) Replace these keys with the OAuth for @GrandBlancPride before release.
+
     //Setting the consumer key and consumer secret for twitter OAuth
     private final static String CONSUMER_KEY = "0S62lfz7hGX39oZo2jJmrhZ96";
     private final static String CONSUMER_KEY_SECRET ="Pr1YnBtFU5OErrxhpLNet2S6KolhRm43cfwZuFPCQLOasEPXm7";
@@ -40,7 +41,6 @@ public class twitter extends Fragment {
 
     //Declaration of ListView lst_feed, so it can be referenced throughout twitter.java
     ListView lst_feed;
-    GridView grid_feed;
     ProgressBar prog;
 
     public static twitter newInstance() {
@@ -72,7 +72,6 @@ public class twitter extends Fragment {
 
         //Finds the ListView lst_feed on the GUI form
         lst_feed = (ListView) getView().findViewById(R.id.list);
-        grid_feed = (GridView) getView().findViewById(R.id.grid);
 
         //Since internet dependant tasks cannot be performed on the main method, we execute a new one called twitterTimeline
         new twitterTimeline().execute();
@@ -147,12 +146,8 @@ public class twitter extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        //Populates lst_feed with string array testing
-                        try {
-                            lst_feed.setAdapter(adapter);
-                        }catch (NullPointerException e) {
-                            grid_feed.setAdapter(adapter);
-                        }
+                    //Populates lst_feed with string array testing
+                    lst_feed.setAdapter(adapter);
                     }
                 });
 
