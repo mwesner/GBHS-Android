@@ -20,6 +20,7 @@ android {
 
     packagingOptions {
         exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
     }
 
 }
@@ -29,5 +30,6 @@ dependencies {
     compile 'org.twitter4j:twitter4j-core:4.0.2'
     compile 'org.jsoup:jsoup:1.8.1'
     compile 'joda-time:joda-time:2.7'
+    compile 'org.apache.commons:commons-lang3:3.3.2'
     compile 'com.android.support:support-v4:21.0.3'
 }

@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -25,8 +24,11 @@ import org.joda.time.DateTime;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -39,16 +41,19 @@ public class calendar extends Fragment {
 
     CalendarView gridCal;
     ListView lstInfo;
-    WebView webCal;
     Button btnCal;
 
     ProgressBar prog;
-    List<String> infoList = new ArrayList<String>();
-    int infoCount;
+    List<String> eventList = new ArrayList<String>();
+    int eventCount;
 
     String[] calArray;
-    List<String> eventList = new ArrayList<String>();
-    
+    String[] eventDescription;
+    String[] eventTime;
+
+    String currentDate;
+    String selectedDate;
+
     private CustomAdapter mAdapter;
 
     public static calendar newInstance() {
@@ -128,12 +133,159 @@ public class calendar extends Fragment {
                     //Start the activity
                     i.setData(u);
                     startActivity(i);
-                }catch (ActivityNotFoundException e) {
+                } catch (ActivityNotFoundException e) {
                     //Raise on activity not found
                     Toast.makeText(context, "No browser found.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    private class calGet extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            //Retrieve iCalendar with Jsoup
+            Document cal = null;
+
+
+            try {
+                cal = Jsoup.connect("http://grandblanc.high.schoolfusion.us/modules/calendar/exportICal.php").get();
+                //Split by event
+                calArray = cal.toString().split("BEGIN:VEVENT");
+                eventDescription = cal.toString().split("SUMMARY:");
+                eventTime = cal.toString().split("DTSTART:");
+
+                //CALENDAR PARSER
+                for (int i = 1; i < calArray.length; i++) {
+                    /*Example string format: 20150101 (substring(9, 17))
+                    The leading zero in the day and month must be removed for comparison to work.
+                    Strip the unnecessary portion of the string to make modification simpler.*/
+                    calArray[i] = calArray[i].substring(9, 17);
+                    /*Now 20150101 can be modified using (substring(0, 8))
+                    Day zero is (substring(4, 5)
+                    Month zero is (substring(6, 7)*/
+
+                    if (calArray[i].substring(4, 5).equals("0") && calArray[i].substring(6, 7).equals("0")) {
+                        //Remove zeroes in month and day
+                        calArray[i] = calArray[i].substring(0, 4) + calArray[i].substring(5, 6) + calArray[i].substring(7, 8);
+                    } else if (calArray[i].substring(4, 5).equals("0")) {
+                        //Remove zero in month
+                        calArray[i] = calArray[i].substring(0, 4) + calArray[i].substring(5, 8);
+                    } else if (calArray[i].substring(6, 7).equals("0")) {
+                        //Remove zero in day
+                        calArray[i] = calArray[i].substring(0, 6) + calArray[i].substring(7, 8);
+                    }
+                }
+
+                eventList.clear();
+                eventCount = 0;
+
+                eventList.add(0, "Today");
+                eventCount++;
+
+                for (int i = 1; i < eventDescription.length; i++) {
+                    //Retrieve the event description from the iCal feed.
+                    eventDescription[i] = StringUtils.substringBefore(eventDescription[i], " PRIORITY");
+                    eventList.add(eventCount, eventDescription[i]);
+                    eventCount++;
+
+                    //Replace "&amp;" with "&"
+                    eventDescription[i] = eventDescription[i].replace("&amp;", "&");
+
+                    System.out.println(eventList.get(i));
+                }
+
+                for (int i = 0; i < eventTime.length; i++) {
+                    //Retrieve the event times from the iCal feed.
+                    eventTime[i] = eventTime[i].substring(0, 17);
+                    System.out.println(eventTime[i]);
+
+                    //TODO: Compensate for GMT/EST difference so late events aren't added to the wrong day.
+                }
+
+
+                //Set the current date
+                DateTime dt = new DateTime();
+                int currentday = dt.getDayOfMonth();
+
+                int currentmonth = dt.getMonthOfYear();
+
+                int currentyear = dt.getYear();
+
+                currentDate = currentyear + "" + currentmonth + "" + currentday;
+
+                //Set the content of the ListView
+                mAdapter = new CustomAdapter();
+                for (int i = 0; i < eventList.size(); i++) {
+                    if (calArray[i].equals(selectedDate)) {
+                        eventList.add(eventCount, eventDescription[i]);
+                        eventCount++;
+                    }
+                }
+
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                        lstInfo.setAdapter(mAdapter);
+
+                        gridCal.setVisibility(View.VISIBLE);
+                        lstInfo.setVisibility(View.VISIBLE);
+                    }
+                });
+
+            } catch (final IOException e) {
+                final Context context = getActivity().getApplicationContext();
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            prog.setVisibility(View.GONE);
+            gridCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+                @Override
+                public void onSelectedDayChange(CalendarView calendarView, int year, int month, int day) {
+
+                    //Add one month because month starts at 0
+                    month++;
+
+                    selectedDate = year + "" + month + "" + day;
+
+                    eventList.clear();
+                    eventCount = 0;
+
+                    if (selectedDate.equals(currentDate)) {
+                        eventList.add(eventCount, "Today");
+                        eventCount++;
+                    }
+
+                    for (int i = 1; i < calArray.length; i++) {
+                        if (calArray[i].equals(selectedDate)) {
+                            eventList.add(eventCount, eventDescription[i]);
+                            eventCount++;
+                        }
+                    }
+
+                    //Set the content of the ListView
+                    CustomAdapter mAdapter = new CustomAdapter();
+                    for (int i = 0; i < eventList.size(); i++) {
+                        mAdapter.addItem(eventList.get(i));
+                    }
+
+                    lstInfo.setAdapter(mAdapter);
+                    System.out.println(Arrays.toString(calArray));
+                    System.out.println(Arrays.toString(eventDescription));
+                }
+
+            });
+        }
     }
 
     //Adapter class
@@ -183,7 +335,7 @@ public class calendar extends Fragment {
             holder = new ViewHolder();
             switch (type) {
                 case TYPE_ITEM:
-                    convertView = mInflater.inflate(R.layout.itemlist, null);
+                    convertView = mInflater.inflate(R.layout.bluelist, null);
                     holder.textView = (TextView) convertView.findViewById(R.id.text);
                     break;
             }
@@ -195,120 +347,6 @@ public class calendar extends Fragment {
 
     public static class ViewHolder {
         public TextView textView;
-    }
-
-    private class calGet extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            //Retrieve iCalendar with Jsoup
-            Document cal = null;
-
-
-            try {
-                cal = Jsoup.connect("http://grandblanc.high.schoolfusion.us/modules/calendar/exportICal.php").get();
-                //Split by event
-                calArray = cal.toString().split("BEGIN:VEVENT");
-
-                //CALENDAR PARSER
-                for (int i = 0; i < calArray.length; i++) {
-                    //Remove any zeroes in the day or month
-                    if (calArray[i].substring(12).equals("0")) {
-                        //Remove zero in month
-                        calArray[i] = calArray[i].substring(12).replace("0", "");
-                    }else if (calArray[i].substring(15).equals("0")) {
-                        //Remove zero in day
-                        calArray[i] = calArray[i].substring(15).replace("0", "");
-                    }
-
-
-                    System.out.println(calArray[i].substring(9, 17));
-                    //Store the start date (YYYYMMDD)
-                    eventList.add(i, calArray[i].substring(9, 17));
-                }
-
-                //Populate the calendar
-                if (infoList.isEmpty()) {
-                    infoList.add(0, "Today");
-                }
-                //Set the content of the ListView
-                mAdapter = new CustomAdapter();
-                for (int i = 0; i < infoList.size(); i++) {
-                    mAdapter.addItem(infoList.get(i));
-                }
-
-                getActivity().runOnUiThread(new Runnable() {
-                    public void run() {
-                        lstInfo.setAdapter(mAdapter);
-
-                        gridCal.setVisibility(View.VISIBLE);
-                        lstInfo.setVisibility(View.VISIBLE);
-                    }
-                });
-
-            } catch (final IOException e) {
-                final Context context = getActivity().getApplicationContext();
-                getActivity().runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
-                    }
-                });
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            prog.setVisibility(View.GONE);
-            gridCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-                @Override
-                public void onSelectedDayChange(CalendarView calendarView, int year, int month, int day) {
-
-                    //Add one month because month starts at 0
-                    month++;
-
-                    String selectedDate = year + "" + month + "" + day;
-                    DateTime dt = new DateTime();
-                    int currentday = dt.getDayOfMonth();
-                    //Double-digit month - add a zero for months 1-9
-
-                    int currentmonth = dt.getMonthOfYear();
-                    if (currentmonth < 10) {
-                        currentmonth = Integer.parseInt("0") + dt.getMonthOfYear();
-                    }
-
-                    int currentyear = dt.getYear();
-                    String currentDate = currentyear + "" + currentmonth + "" + currentday;
-
-                    infoList.clear();
-                    infoCount = 0;
-
-                    if (selectedDate.equals("2015116")) {
-                        infoList.add(infoCount, "End of First Semester");
-                        infoCount++;
-                    }else if (eventList.contains(selectedDate)) {
-                        infoList.add(0, eventList.get(0));
-                        infoList.add(1, "Event present for " + selectedDate);
-                    }else if (selectedDate.equals(currentDate)) {
-                        infoList.add(0, "Today");
-                    }else{
-                        infoList.clear();
-                        infoCount = 0;
-                    }
-
-                    //Set the content of the ListView
-                    CustomAdapter mAdapter = new CustomAdapter();
-                    for (int i = 0; i < infoList.size(); i++) {
-                        mAdapter.addItem(infoList.get(i));
-                    }
-
-                    lstInfo.setAdapter(mAdapter);
-                }
-
-            });
-        }
-    }
+}
 }
 
