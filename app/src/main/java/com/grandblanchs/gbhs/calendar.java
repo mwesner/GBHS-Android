@@ -34,8 +34,8 @@ import java.util.List;
 
 public class calendar extends Fragment {
 
-    //TODO: (Corey) Properly scrape iCal feed
-    //TODO: (Corey) Add events into a list that shows on date change
+    //Scrape iCal feed
+    //Add events into a list that shows on date change
 
     private OnFragmentInteractionListener mListener;
 
@@ -196,12 +196,30 @@ public class calendar extends Fragment {
                     System.out.println(eventList.get(i));
                 }
 
-                for (int i = 0; i < eventTime.length; i++) {
-                    //Retrieve the event times from the iCal feed.
-                    eventTime[i] = eventTime[i].substring(0, 17);
+                for (int i = 1; i < eventTime.length; i++) {
+                    //Retrieve the event start times from the iCal feed.
+                    eventTime[i] = eventTime[i].substring(9, 15);
                     System.out.println(eventTime[i]);
 
-                    //TODO: Compensate for GMT/EST difference so late events aren't added to the wrong day.
+                    int time = Integer.parseInt(eventTime[i]);
+
+                    if (time < 050000) {
+                        //Time is before 0500 GMT. Roll back one day.
+
+                        String date = calArray[i];
+                        int dateChange;
+
+                        //Subtract one from the current day.
+                        if (date.length() == 7) {
+                            //Double-digit day.
+                            dateChange = Integer.parseInt(date.substring(5, 7)) - 1;
+                        }else{
+                            //Single-digit day.
+                            dateChange = Integer.parseInt(date.substring(5, 6)) - 1;
+                        }
+
+                        calArray[i] = calArray[i].substring(0, 5) + String.valueOf(dateChange);
+                    }
                 }
 
 
