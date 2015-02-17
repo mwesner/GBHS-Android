@@ -30,7 +30,6 @@
         android:gravity="center"
         android:id="@+id/lstInfo"
         android:visibility="invisible"
-        android:layout_above="@+id/btnCal"
         android:layout_below="@+id/dummy" />
 
     <ProgressBar
@@ -40,17 +39,6 @@
         android:id="@+id/progCalendar"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/CalendarWebShow"
-        android:id="@+id/btnCal"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:enabled="true" />
 
 
 </RelativeLayout>

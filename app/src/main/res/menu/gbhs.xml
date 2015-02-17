@@ -7,13 +7,19 @@
     <item android:id="@+id/Home"
         android:title="@string/Home"
         android:icon="@drawable/home"
-        app:showAsAction="always"/>
+        app:showAsAction="never"/>
 
     <!--Twitter link-->
     <item android:id="@+id/Twitter"
         android:title="@string/TwitterFeed"
         android:icon="@drawable/twitter"
         app:showAsAction="ifRoom"/>
+
+    <!--Calendar link-->
+    <item android:id="@+id/Calendar"
+        android:title="@string/CalendarWeb"
+        android:icon="@android:drawable/ic_menu_today"
+        app:showAsAction="ifRoom" />
 
     <!--Settings-->
     <item android:id="@+id/Settings"

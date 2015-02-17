@@ -2,9 +2,7 @@ package com.grandblanchs.gbhs;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -28,7 +25,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -41,7 +37,6 @@ public class calendar extends Fragment {
 
     CalendarView gridCal;
     ListView lstInfo;
-    Button btnCal;
 
     ProgressBar prog;
     List<String> eventList = new ArrayList<String>();
@@ -55,11 +50,6 @@ public class calendar extends Fragment {
     String selectedDate;
 
     private CustomAdapter mAdapter;
-
-    public static calendar newInstance() {
-        calendar fragment = new calendar();
-        return fragment;
-    }
 
     public calendar() {
         // Required empty public constructor
@@ -77,12 +67,6 @@ public class calendar extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.calendar, container, false);
-    }
-
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
     @Override
@@ -106,39 +90,16 @@ public class calendar extends Fragment {
         public void onFragmentInteraction(Uri uri);
     }
 
-    String url = "http://grandblanc.schoolfusion.us/modules/groups/homepagefiles/cms/105549/File/District%20Calendar%202014-2015%208-19.pdf";
-    Intent i = new Intent(Intent.ACTION_VIEW);
-    Uri u = Uri.parse(url);
-    Context context = this.getActivity();
-
     @Override
     public void onStart() {
         super.onStart();
         gridCal = (CalendarView) getView().findViewById(R.id.gridCal);
         lstInfo = (ListView) getView().findViewById(R.id.lstInfo);
-        btnCal = (Button) getView().findViewById(R.id.btnCal);
         prog = (ProgressBar) getView().findViewById(R.id.progCalendar);
-
-        //Set the icon on btnCal
-        btnCal.setCompoundDrawablesWithIntrinsicBounds(0, 0, android.R.drawable.ic_menu_set_as, 0);
 
         //This will display events for a given date
         gridCal.setShowWeekNumber(false);
         new calGet().execute();
-
-        btnCal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    //Start the activity
-                    i.setData(u);
-                    startActivity(i);
-                } catch (ActivityNotFoundException e) {
-                    //Raise on activity not found
-                    Toast.makeText(context, "No browser found.", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
     }
 
     private class calGet extends AsyncTask<Void, Void, Void> {
@@ -157,6 +118,13 @@ public class calendar extends Fragment {
                 eventTime = cal.toString().split("DTSTART:");
 
                 //CALENDAR PARSER
+
+                eventList.clear();
+                eventCount = 0;
+
+                eventList.add(0, "Today");
+                eventCount++;
+
                 for (int i = 1; i < calArray.length; i++) {
                     /*Example string format: 20150101 (substring(9, 17))
                     The leading zero in the day and month must be removed for comparison to work.
@@ -178,28 +146,16 @@ public class calendar extends Fragment {
                     }
                 }
 
-                eventList.clear();
-                eventCount = 0;
-
-                eventList.add(0, "Today");
-                eventCount++;
-
                 for (int i = 1; i < eventDescription.length; i++) {
                     //Retrieve the event description from the iCal feed.
                     eventDescription[i] = StringUtils.substringBefore(eventDescription[i], " PRIORITY");
-                    eventList.add(eventCount, eventDescription[i]);
-                    eventCount++;
-
                     //Replace "&amp;" with "&"
                     eventDescription[i] = eventDescription[i].replace("&amp;", "&");
-
-                    System.out.println(eventList.get(i));
                 }
 
                 for (int i = 1; i < eventTime.length; i++) {
                     //Retrieve the event start times from the iCal feed.
                     eventTime[i] = eventTime[i].substring(9, 15);
-                    System.out.println(eventTime[i]);
 
                     int time = Integer.parseInt(eventTime[i]);
 
@@ -213,7 +169,7 @@ public class calendar extends Fragment {
                         if (date.length() == 7) {
                             //Double-digit day.
                             dateChange = Integer.parseInt(date.substring(5, 7)) - 1;
-                        }else{
+                        } else {
                             //Single-digit day.
                             dateChange = Integer.parseInt(date.substring(5, 6)) - 1;
                         }
@@ -233,31 +189,38 @@ public class calendar extends Fragment {
 
                 currentDate = currentyear + "" + currentmonth + "" + currentday;
 
-                //Set the content of the ListView
-                mAdapter = new CustomAdapter();
-                for (int i = 0; i < eventList.size(); i++) {
-                    if (calArray[i].equals(selectedDate)) {
+
+                //Search for events that occur on the current date
+                for (int i = 1; i < calArray.length; i++) {
+                    if (calArray[i].equals(currentDate)) {
                         eventList.add(eventCount, eventDescription[i]);
                         eventCount++;
                     }
                 }
 
-                getActivity().runOnUiThread(new Runnable() {
-                    public void run() {
-                        lstInfo.setAdapter(mAdapter);
+                //Set the content of the ListView
+                mAdapter = new CustomAdapter();
+                for (int i = 0; i < eventList.size(); i++) {
+                    mAdapter.addItem(eventList.get(i));
+                }
 
-                        gridCal.setVisibility(View.VISIBLE);
-                        lstInfo.setVisibility(View.VISIBLE);
-                    }
-                });
+                if (getActivity()!=null) {
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            lstInfo.setAdapter(mAdapter);
 
+                        }
+                    });
+                }
             } catch (final IOException e) {
-                final Context context = getActivity().getApplicationContext();
-                getActivity().runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
-                    }
-                });
+                if (getActivity()!=null) {
+                    final Context context = getActivity().getApplicationContext();
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
             }
 
             return null;
@@ -267,6 +230,10 @@ public class calendar extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             prog.setVisibility(View.GONE);
+            lstInfo.setVisibility(View.VISIBLE);
+            gridCal.setVisibility(View.VISIBLE);
+
+            //Change the events displayed when the user selects a new date.
             gridCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                 @Override
                 public void onSelectedDayChange(CalendarView calendarView, int year, int month, int day) {
@@ -276,14 +243,17 @@ public class calendar extends Fragment {
 
                     selectedDate = year + "" + month + "" + day;
 
+                    //Clear the events from the previously selected date
                     eventList.clear();
                     eventCount = 0;
 
+                    //Add "Today" if the selected date is the current date
                     if (selectedDate.equals(currentDate)) {
                         eventList.add(eventCount, "Today");
                         eventCount++;
                     }
 
+                    //Search for events that occur on the selected date
                     for (int i = 1; i < calArray.length; i++) {
                         if (calArray[i].equals(selectedDate)) {
                             eventList.add(eventCount, eventDescription[i]);
@@ -292,14 +262,12 @@ public class calendar extends Fragment {
                     }
 
                     //Set the content of the ListView
-                    CustomAdapter mAdapter = new CustomAdapter();
+                    mAdapter = new CustomAdapter();
                     for (int i = 0; i < eventList.size(); i++) {
                         mAdapter.addItem(eventList.get(i));
                     }
 
                     lstInfo.setAdapter(mAdapter);
-                    System.out.println(Arrays.toString(calArray));
-                    System.out.println(Arrays.toString(eventDescription));
                 }
 
             });
@@ -314,7 +282,9 @@ public class calendar extends Fragment {
         private LayoutInflater mInflater;
 
         public CustomAdapter() {
-            mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            if (getActivity() != null) {
+                mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            }
         }
 
         public void addItem(final String item) {
