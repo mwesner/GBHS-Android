@@ -52,8 +52,6 @@ public class Admin extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        //getActivity().getActionBar().hide();
-
 
         prog = (ProgressBar) getView().findViewById(R.id.progAdmin);
         gridView = (GridView) getView().findViewById(R.id.gridView);
@@ -76,7 +74,9 @@ public class Admin extends Fragment {
 
         @Override
         protected Void doInBackground(Void... params) {
-            customGridAdapter = new GridViewAdapter(getActivity(), R.layout.row_grid, getData());
+            if (getActivity()!=null) {
+                customGridAdapter = new GridViewAdapter(getActivity(), R.layout.row_grid, getData());
+            }
             return null;
         }
 

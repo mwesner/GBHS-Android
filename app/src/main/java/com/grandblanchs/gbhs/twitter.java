@@ -143,21 +143,25 @@ public class twitter extends Fragment {
                 }
 
                 //Since the UI cannot be changed without this,
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                    //Populates lst_feed with string array testing
-                    lst_feed.setAdapter(adapter);
-                    }
-                });
+                if (getActivity()!=null) {
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            //Populates lst_feed with string array testing
+                            lst_feed.setAdapter(adapter);
+                        }
+                    });
+                }
 
             } catch (final TwitterException e) {
-                final Context context = getActivity().getApplicationContext();
-                getActivity().runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(context, getString(R.string.NoTwitter) + " " + e.getErrorCode() + ")", Toast.LENGTH_LONG).show();
-                    }
-                });
+                if (getActivity()!=null) {
+                    final Context context = getActivity().getApplicationContext();
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(context, getString(R.string.NoTwitter) + " " + e.getErrorCode() + ")", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
             }
 
             return null;
@@ -182,7 +186,9 @@ public class twitter extends Fragment {
         private TreeSet<Integer> mSeparatorsSet = new TreeSet<Integer>();
 
         public TwitterAdapter() {
-            mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            if (getActivity() != null) {
+                mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            }
         }
 
         public void addItem(final String item) {

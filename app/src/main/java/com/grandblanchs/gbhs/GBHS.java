@@ -25,7 +25,7 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
         announce.OnFragmentInteractionListener, Admin.OnFragmentInteractionListener,
         staff.OnFragmentInteractionListener, NavigationDrawerFragment.NavigationDrawerCallbacks {
 
-    //TODO: Continue managing fragment transactions, especially detaching
+    //TODO: Continue managing fragment transactions
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -38,8 +38,6 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
     private CharSequence mTitle;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
-
-    int prev = 0;
 
     home homefragment = new home();
     twitter twitterfragment = new twitter();
@@ -78,23 +76,6 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
                 .commit();
     }
 
-    public void detachPreviousFragment() {
-        //Detach the previously viewed fragment from the stack to prevent NullPointer issues.
-        if (prev == 1) {
-            fragmentTransaction.detach(homefragment);
-        }else if (prev == 2) {
-            fragmentTransaction.detach(announcefragment);
-        }else if (prev == 3) {
-            fragmentTransaction.detach(calfragment);
-        }else if (prev == 4) {
-            fragmentTransaction.detach(twitterfragment);
-        }else if (prev == 5){
-            fragmentTransaction.detach(adminfragment);
-        }else if (prev == 6) {
-            fragmentTransaction.detach(stafffragment);
-        }
-    }
-
     public void onSectionAttached(int number) {
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
@@ -104,47 +85,36 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
                 getFragmentManager();
                 fragmentTransaction.replace(R.id.FragmentContainer, homefragment);
                 fragmentTransaction.commit();
-                prev = 1;
                 break;
             case 2:
                 mTitle = getString(R.string.Announce);
                 getFragmentManager();
-                detachPreviousFragment();
                 fragmentTransaction.replace(R.id.FragmentContainer, announcefragment);
                 fragmentTransaction.commit();
-                prev = 2;
                 break;
             case 3:
                 mTitle = getString(R.string.Calendar);
                 getFragmentManager();
-                detachPreviousFragment();
                 fragmentTransaction.replace(R.id.FragmentContainer, calfragment);
                 fragmentTransaction.commit();
-                prev = 3;
                 break;
             case 4:
                 mTitle = getString(R.string.Twitter);
                 getFragmentManager();
-                detachPreviousFragment();
                 fragmentTransaction.replace(R.id.FragmentContainer, twitterfragment);
                 fragmentTransaction.commit();
-                prev = 4;
                 break;
             case 5:
                 mTitle = getString(R.string.Admin);
                 getFragmentManager();
-                detachPreviousFragment();
                 fragmentTransaction.replace(R.id.FragmentContainer, adminfragment);
                 fragmentTransaction.commit();
-                prev = 5;
                 break;
             case 6:
                 mTitle = getString(R.string.Staff);
                 getFragmentManager();
-                detachPreviousFragment();
                 fragmentTransaction.replace(R.id.FragmentContainer, stafffragment);
                 fragmentTransaction.commit();
-                prev = 6;
                 break;
             case 7:
                 mTitle = getString(R.string.Athletics);
@@ -254,6 +224,20 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
             Uri u = Uri.parse(url);
             Context context = getApplicationContext();
 
+            try {
+                //Start the activity
+                i.setData(u);
+                startActivity(i);
+            } catch (ActivityNotFoundException e) {
+                //Raise on activity not found
+                Toast.makeText(context, "No browser found.", Toast.LENGTH_SHORT).show();
+            }
+        }
+        if (id == R.id.Calendar) {
+            String url = "http://grandblanc.schoolfusion.us/modules/groups/homepagefiles/cms/105549/File/District%20Calendar%202014-2015%208-19.pdf";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            Uri u = Uri.parse(url);
+            Context context = getApplicationContext();
             try {
                 //Start the activity
                 i.setData(u);

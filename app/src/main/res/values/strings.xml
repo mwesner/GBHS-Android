@@ -10,8 +10,7 @@
     <string name="TwitterFeed">Open @GrandBlancPride</string>
     <string name="Admin">Administration</string>
     <string name="Calendar">District Calendar</string>
-    <string name="CalendarWebShow">Download Official School Calendar</string>
-    <string name="CalendarWebHide">Hide Calendar</string>
+    <string name="CalendarWeb">Download Official School Calendar</string>
     <string name="Staff">Staff Listing</string>
     <string name="Alumni">Alumni</string>
     <string name="Athletics">Athletics</string>

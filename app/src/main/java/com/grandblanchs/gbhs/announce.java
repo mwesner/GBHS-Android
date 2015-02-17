@@ -95,7 +95,6 @@ public class announce extends Fragment {
             //Scrape the daily announcements into a list.
             Document announce = null;
             Document rss = null;
-            context = getActivity().getApplicationContext();
             List<String> list;
 
             try {
@@ -134,22 +133,24 @@ public class announce extends Fragment {
                     list.remove(0);
 
                 }
-
-                adapter = new ArrayAdapter<String>(context,
-                        android.R.layout.simple_list_item_1, list);
+                if (getActivity() != null) {
+                    context = getActivity().getApplicationContext();
+                    adapter = new ArrayAdapter<String>(context,
+                            android.R.layout.simple_list_item_1, list);
+                }
             } catch (IOException e) {
-                getActivity().runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
-                    }
-                });
+                if (getActivity() != null) {
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
             } catch (NullPointerException e) {
                 list = new ArrayList<String>();
 
                 //Add "No Announcements."
                 list.add(0, "No announcements.");
-
-                Toast.makeText(context, "NullPointer warning", Toast.LENGTH_SHORT).show();
             }
             return null;
         }

@@ -69,7 +69,6 @@ public class staff extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        //getActivity().getActionBar().hide();
         new StaffScrape().execute();
     }
 
@@ -83,8 +82,8 @@ public class staff extends Fragment {
         @Override
         protected Void doInBackground(Void... params) {
             Document staff;
-            prog = (ProgressBar) getActivity().findViewById(R.id.prog);
-            lstStaff = (ListView) getActivity().findViewById(R.id.lstStaff);
+            prog = (ProgressBar) getView().findViewById(R.id.prog);
+            lstStaff = (ListView) getView().findViewById(R.id.lstStaff);
             try {
                 staff = Jsoup.connect("http://grandblanc.high.schoolfusion.us/modules/cms/pages.phtml?pageid=120116").get();
                 //Parse input
@@ -97,12 +96,14 @@ public class staff extends Fragment {
                     }
                 }
             }catch (IOException e) {
-                final Context context = getActivity().getApplicationContext();
-                getActivity().runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
-                    }
-                });
+                if (getActivity()!=null) {
+                    final Context context = getActivity().getApplicationContext();
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
             }
             return null;
         }
@@ -111,7 +112,6 @@ public class staff extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             prog.setVisibility(View.GONE);
-            //getActivity().getActionBar().show();
 
             //Set adapter
             StaffAdapter adapter = new StaffAdapter();
@@ -137,7 +137,9 @@ public class staff extends Fragment {
         private TreeSet<Integer> mSeparatorsSet = new TreeSet<Integer>();
 
         public StaffAdapter() {
-            mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            if (getActivity() != null) {
+                mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            }
         }
 
         public void addItem(final String item) {
