@@ -2,7 +2,6 @@ package com.grandblanchs.gbhs;
 
 import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -34,16 +33,10 @@ public class announce extends Fragment {
     ListView lstAnnounce;
     ArrayAdapter adapter;
 
-    String announceText;
     String[] announceTextArray;
     String[] displayArray;
 
     Context context;
-
-    public static announce newInstance() {
-        announce fragment = new announce();
-        return fragment;
-    }
 
     public announce() {
         // Required empty public constructor
@@ -52,9 +45,6 @@ public class announce extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-
-        }
     }
 
     @Override
@@ -62,12 +52,6 @@ public class announce extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.announce, container, false);
-    }
-
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
     @Override
@@ -83,9 +67,10 @@ public class announce extends Fragment {
 
     public void onStart() {
         super.onStart();
-
-        prog = (ProgressBar) getView().findViewById(R.id.prog);
-        lstAnnounce = (ListView) getView().findViewById(R.id.lstAnnounce);
+        if (getActivity() != null) {
+            prog = (ProgressBar) getView().findViewById(R.id.prog);
+            lstAnnounce = (ListView) getView().findViewById(R.id.lstAnnounce);
+        }
         new AnnounceScrape().execute();
     }
 
@@ -117,7 +102,7 @@ public class announce extends Fragment {
 
                         displayArray[i] = announceTextArray[i].substring(85, announceTextArray[i].length());
 
-//                        //Overwrite undesired HTML characters
+                        //Overwrite undesired HTML characters
                         displayArray[i] = displayArray[i].replace("&nbsp;", "");
                         displayArray[i] = displayArray[i].replace("&amp;", "&");
                         displayArray[i] = displayArray[i].replace("<br>", "");
@@ -157,10 +142,12 @@ public class announce extends Fragment {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
+            if (getActivity() != null) {
+                super.onPostExecute(aVoid);
 
-            lstAnnounce.setAdapter(adapter);
-            prog.setVisibility(View.GONE);
+                lstAnnounce.setAdapter(adapter);
+                prog.setVisibility(View.GONE);
+            }
         }
     }
 
@@ -170,8 +157,6 @@ public class announce extends Fragment {
         mListener = null;
     }
 
-    public interface OnFragmentInteractionListener {
-        public void onFragmentInteraction(Uri uri);
-    }
+    public interface OnFragmentInteractionListener {}
 
 }

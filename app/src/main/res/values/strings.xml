@@ -35,6 +35,17 @@
     <string name="NoConnection">No internet connection.</string>
     <string name="NoTwitter">Could not connect to Twitter.\n(Error Code:</string>
 
+
+    <string name="schedule">1st Hour:    7:20 – 8:19 (59 minutes)
+    \n2nd Hour:    8:25 - 9:23 (58 minutes)
+    \n3rd Hour:    9:29 - 10:32 (63 minutes with announcements)
+    \n\nA Lunch:    10:32 - 11:02 (class starts at 11:08)
+    \nB Lunch:    11:05 - 11:35 (class starts at 11:38)
+    \nC Lunch:    11:38 - 12:08
+    \n\n4th Hour:   10:38 - 12:08
+    \n5th Hour:   12:14 - 1:12 (58 minutes)
+    \n6th Hour:    1:18 - 2:15 (58 minutes)
+    \n\n***There will be a single tone at 8:16, 9:20, 10:29, 12:05 and 1:09 to release travelers to their next class. All non-traveling students must remain in class until the official end of the period.</string>
     <color name="darkred">#ffcc0000</color>
     <color name="bobcatred">#ff82180e</color>
 </resources>

@@ -1,10 +1,8 @@
 package com.grandblanchs.gbhs;
 
 import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +16,7 @@ import android.view.ViewGroup;
  */
 public class home extends Fragment {
 
-    //TODO: Improve 'home' fragment layouts for lanscape and x-large devices
+    //TODO: Improve 'home' fragment layouts for landscape and x-large devices
 
     private OnFragmentInteractionListener mListener;
 
@@ -26,27 +24,11 @@ public class home extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = getView();
-        if (view != null) {
-            ViewGroup parent = (ViewGroup) view.getParent();
-            if (parent != null)
-                parent.removeView(view);
-        }
-        try {
-            view = inflater.inflate(R.layout.home, container, false);
-        } catch (InflateException e) {
-            /* View is already there, just return view as it is */
-        }
-        return view;
-    }
-
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.home, container, false);
     }
 
     @Override
@@ -76,8 +58,6 @@ public class home extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener {
-        public void onFragmentInteraction(Uri uri);
-    }
+    public interface OnFragmentInteractionListener {}
 
 }

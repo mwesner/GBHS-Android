@@ -21,6 +21,12 @@
         android:icon="@android:drawable/ic_menu_today"
         app:showAsAction="ifRoom" />
 
+    <!--Schedule of Times-->
+    <item android:id="@+id/Times"
+        android:title="Daily Schedule"
+        android:icon="@android:drawable/ic_lock_idle_alarm"
+        app:showAsAction="ifRoom" />
+
     <!--Settings-->
     <item android:id="@+id/Settings"
         android:title="@string/action_settings"/>

@@ -46,11 +46,6 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
     Admin adminfragment = new Admin();
     staff stafffragment = new staff();
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
-
     //Create FragmentManager for switching fragments
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -246,6 +241,10 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
                 //Raise on activity not found
                 Toast.makeText(context, "No browser found.", Toast.LENGTH_SHORT).show();
             }
+        }
+
+        if (id == R.id.Times) {
+            new Times(this).show();
         }
 
         return super.onOptionsItemSelected(item);

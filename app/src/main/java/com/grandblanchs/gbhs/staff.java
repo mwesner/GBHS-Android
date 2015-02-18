@@ -4,7 +4,6 @@ package com.grandblanchs.gbhs;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -34,10 +33,6 @@ public class staff extends Fragment {
     ProgressBar prog;
     ListView lstStaff;
 
-    public static staff newInstance() {
-        staff fragment = new staff();
-        return fragment;
-    }
     public staff() {
         // Required empty public constructor
     }
@@ -45,7 +40,6 @@ public class staff extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -69,12 +63,14 @@ public class staff extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        new StaffScrape().execute();
+        if (getActivity() != null) {
+            prog = (ProgressBar) getView().findViewById(R.id.prog);
+            lstStaff = (ListView) getView().findViewById(R.id.lstStaff);
+            new StaffScrape().execute();
+        }
     }
 
-    public interface OnFragmentInteractionListener {
-        public void onFragmentInteraction(Uri uri);
-    }
+    public interface OnFragmentInteractionListener {}
 
     String[] staffArray;
     List<String> staffList = new ArrayList<>();
@@ -82,8 +78,6 @@ public class staff extends Fragment {
         @Override
         protected Void doInBackground(Void... params) {
             Document staff;
-            prog = (ProgressBar) getView().findViewById(R.id.prog);
-            lstStaff = (ListView) getView().findViewById(R.id.lstStaff);
             try {
                 staff = Jsoup.connect("http://grandblanc.high.schoolfusion.us/modules/cms/pages.phtml?pageid=120116").get();
                 //Parse input
@@ -96,7 +90,7 @@ public class staff extends Fragment {
                     }
                 }
             }catch (IOException e) {
-                if (getActivity()!=null) {
+                if (getActivity() != null) {
                     final Context context = getActivity().getApplicationContext();
                     getActivity().runOnUiThread(new Runnable() {
                         public void run() {
@@ -111,16 +105,18 @@ public class staff extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            prog.setVisibility(View.GONE);
+            if (getActivity() != null) {
+                prog.setVisibility(View.GONE);
 
-            //Set adapter
-            StaffAdapter adapter = new StaffAdapter();
+                //Set adapter
+                StaffAdapter adapter = new StaffAdapter();
 
-            for (int i = 0; i < staffList.size(); i++)  {
-                adapter.addItem(staffList.get(i));
+                for (int i = 0; i < staffList.size(); i++) {
+                    adapter.addItem(staffList.get(i));
+                }
+
+                lstStaff.setAdapter(adapter);
             }
-
-            lstStaff.setAdapter(adapter);
 
 
         }

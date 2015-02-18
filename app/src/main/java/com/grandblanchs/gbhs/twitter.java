@@ -2,7 +2,6 @@ package com.grandblanchs.gbhs;
 
 import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -15,7 +14,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.TreeSet;
 
@@ -43,10 +41,6 @@ public class twitter extends Fragment {
     ListView lst_feed;
     ProgressBar prog;
 
-    public static twitter newInstance() {
-        twitter fragment = new twitter();
-        return fragment;
-    }
     public twitter() {
         // Required empty public constructor
     }
@@ -54,8 +48,6 @@ public class twitter extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
     }
 
     @Override
@@ -68,19 +60,14 @@ public class twitter extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        prog = (ProgressBar) getView().findViewById(R.id.progTwitter);
+        if (getActivity() != null) {
+            prog = (ProgressBar) getView().findViewById(R.id.progTwitter);
 
-        //Finds the ListView lst_feed on the GUI form
-        lst_feed = (ListView) getView().findViewById(R.id.list);
+            //Finds the ListView lst_feed on the GUI form
+            lst_feed = (ListView) getView().findViewById(R.id.list);
 
-        //Since internet dependant tasks cannot be performed on the main method, we execute a new one called twitterTimeline
-        new twitterTimeline().execute();
-    }
-
-
-    public void onButtonPressed(Uri uri) throws TwitterException, IOException{
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+            //Since internet dependant tasks cannot be performed on the main method, we execute a new one called twitterTimeline
+            new twitterTimeline().execute();
         }
     }
 
@@ -102,9 +89,7 @@ public class twitter extends Fragment {
     }
 
 
-    public interface OnFragmentInteractionListener {
-        public void onFragmentInteraction(Uri uri);
-    }
+    public interface OnFragmentInteractionListener {}
 
 
     private class twitterTimeline extends AsyncTask<Void, Void, Void> {
@@ -143,7 +128,7 @@ public class twitter extends Fragment {
                 }
 
                 //Since the UI cannot be changed without this,
-                if (getActivity()!=null) {
+                if (getActivity() != null) {
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -154,7 +139,7 @@ public class twitter extends Fragment {
                 }
 
             } catch (final TwitterException e) {
-                if (getActivity()!=null) {
+                if (getActivity() != null) {
                     final Context context = getActivity().getApplicationContext();
                     getActivity().runOnUiThread(new Runnable() {
                         public void run() {
@@ -169,8 +154,10 @@ public class twitter extends Fragment {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            prog.setVisibility(View.GONE);
+            if (getActivity() != null) {
+                super.onPostExecute(aVoid);
+                prog.setVisibility(View.GONE);
+            }
         }
     }
     //Corey's custom adapter class, which he added because he is amazing.

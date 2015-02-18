@@ -4,7 +4,6 @@ package com.grandblanchs.gbhs;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -37,8 +36,6 @@ public class Admin extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
@@ -52,23 +49,21 @@ public class Admin extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        if (getActivity() != null) {
+            prog = (ProgressBar) getView().findViewById(R.id.progAdmin);
+            gridView = (GridView) getView().findViewById(R.id.gridView);
+            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                public void onItemClick(AdapterView<?> parent, View v,
+                                        int position, long id) {
+                    System.out.println(position + "#Selected");
+                }
 
-        prog = (ProgressBar) getView().findViewById(R.id.progAdmin);
-        gridView = (GridView) getView().findViewById(R.id.gridView);
+            });
+        }
         new AdminScrape().execute();
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                System.out.println(position + "#Selected");
-            }
-
-        });
-
     }
 
-    public interface OnFragmentInteractionListener {
-        public void onFragmentInteraction(Uri uri);
-    }
+    public interface OnFragmentInteractionListener {}
 
     class AdminScrape extends AsyncTask<Void, Void, Void> {
 
@@ -83,8 +78,10 @@ public class Admin extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            gridView.setAdapter(customGridAdapter);
-            prog.setVisibility(View.GONE);
+            if (getActivity() != null) {
+                gridView.setAdapter(customGridAdapter);
+                prog.setVisibility(View.GONE);
+            }
         }
     }
 

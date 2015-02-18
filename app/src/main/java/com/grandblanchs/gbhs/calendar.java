@@ -3,7 +3,6 @@ package com.grandblanchs.gbhs;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -58,8 +57,6 @@ public class calendar extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
     }
 
     @Override
@@ -86,20 +83,21 @@ public class calendar extends Fragment {
         mListener = null;
     }
 
-    public interface OnFragmentInteractionListener {
-        public void onFragmentInteraction(Uri uri);
-    }
+    public interface OnFragmentInteractionListener {}
 
     @Override
     public void onStart() {
         super.onStart();
-        gridCal = (CalendarView) getView().findViewById(R.id.gridCal);
-        lstInfo = (ListView) getView().findViewById(R.id.lstInfo);
-        prog = (ProgressBar) getView().findViewById(R.id.progCalendar);
+        if (getActivity() != null) {
 
-        //This will display events for a given date
-        gridCal.setShowWeekNumber(false);
-        new calGet().execute();
+            gridCal = (CalendarView) getView().findViewById(R.id.gridCal);
+            lstInfo = (ListView) getView().findViewById(R.id.lstInfo);
+            prog = (ProgressBar) getView().findViewById(R.id.progCalendar);
+
+            //This will display events for a given date
+            gridCal.setShowWeekNumber(false);
+            new calGet().execute();
+        }
     }
 
     private class calGet extends AsyncTask<Void, Void, Void> {
@@ -204,7 +202,7 @@ public class calendar extends Fragment {
                     mAdapter.addItem(eventList.get(i));
                 }
 
-                if (getActivity()!=null) {
+                if (getActivity() != null) {
                     getActivity().runOnUiThread(new Runnable() {
                         public void run() {
                             lstInfo.setAdapter(mAdapter);
@@ -213,7 +211,7 @@ public class calendar extends Fragment {
                     });
                 }
             } catch (final IOException e) {
-                if (getActivity()!=null) {
+                if (getActivity() != null) {
                     final Context context = getActivity().getApplicationContext();
                     getActivity().runOnUiThread(new Runnable() {
                         public void run() {
