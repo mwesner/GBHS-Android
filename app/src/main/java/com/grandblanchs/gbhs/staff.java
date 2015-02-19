@@ -18,6 +18,8 @@ import android.widget.Toast;
 import org.jsoup.nodes.Document;
 import org.jsoup.Jsoup;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,6 +75,7 @@ public class staff extends Fragment {
     public interface OnFragmentInteractionListener {}
 
     String[] staffArray;
+    String[] emailArray;
     List<String> staffList = new ArrayList<>();
     public class StaffScrape extends AsyncTask<Void, Void, Void> {
         @Override
@@ -82,10 +85,16 @@ public class staff extends Fragment {
                 staff = Jsoup.connect("http://grandblanc.high.schoolfusion.us/modules/cms/pages.phtml?pageid=120116").get();
                 //Parse input
                 staffArray = staff.toString().split("\n");
+                emailArray = staff.toString().split("\n");
                 int staffCount = 0;
                 for (int i = 0; i < staffArray.length; i++) {
                     if (staffArray[i].contains("GRANDBLANCSCHOOLS.ORG")) {
-                        staffList.add(staffCount, staffArray[i].substring(161, staffArray[i].length() - 10));
+                        staffArray[i] = StringUtils.substringAfter(staffArray[i], "ORG");
+                        emailArray[i] = StringUtils.substringAfter(emailArray[i], "mailto:");
+                        emailArray[i] = StringUtils.substringBefore(emailArray[i], ">");
+
+                        staffList.add(staffCount, staffArray[i].substring(2, staffArray[i].length()-10) + " " + emailArray[i].substring(0, emailArray[i].length()-1));
+                        //staffList.add(staffCount, staffArray[i].substring(161, staffArray[i].length() - 10));
                         staffCount++;
                     }
                 }
