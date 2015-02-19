@@ -114,12 +114,10 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.Early),
                         getString(R.string.Guidance),
                         getString(R.string.CTE),
-                        getString(R.string.Library),
-                        getString(R.string.NHS),
                         getString(R.string.Bully),
                         getString(R.string.Student),
                         getString(R.string.Summer),
-                        getString(R.string.Yearbook),
+                        getString(R.string.external),
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;

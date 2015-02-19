@@ -23,7 +23,7 @@ import android.widget.Toast;
 public class GBHS extends ActionBarActivity implements home.OnFragmentInteractionListener,
         twitter.OnFragmentInteractionListener, calendar.OnFragmentInteractionListener,
         announce.OnFragmentInteractionListener, Admin.OnFragmentInteractionListener,
-        staff.OnFragmentInteractionListener, NavigationDrawerFragment.NavigationDrawerCallbacks {
+        staff.OnFragmentInteractionListener, external.OnFragmentInteractionListener, NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     //TODO: Continue managing fragment transactions
 
@@ -45,6 +45,7 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
     announce announcefragment = new announce();
     Admin adminfragment = new Admin();
     staff stafffragment = new staff();
+    external externalfragment = new external();
 
     //Create FragmentManager for switching fragments
     @Override
@@ -133,46 +134,19 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
                 mTitle = getString(R.string.CTE);
                 break;
             case 14:
-                mTitle = getString(R.string.Library);
-                String liburl = "http://gbhslib.weebly.com";
-                Intent lib = new Intent(Intent.ACTION_VIEW);
-                Uri u1 = Uri.parse(liburl);
-
-                try {
-                    //Start the activity
-                    lib.setData(u1);
-                    startActivity(lib);
-                } catch (ActivityNotFoundException e) {
-                    //Raise on activity not found
-                    Toast.makeText(this, "No browser found.", Toast.LENGTH_SHORT).show();
-                }
-                break;
-            case 15:
-                mTitle = getString(R.string.NHS);
-                String nhsurl = "http://gbhsnhs.com";
-                Intent nhs = new Intent(Intent.ACTION_VIEW);
-                Uri u2 = Uri.parse(nhsurl);
-
-                try {
-                    //Start the activity
-                    nhs.setData(u2);
-                    startActivity(nhs);
-                }catch (ActivityNotFoundException e) {
-                    //Raise on activity not found
-                    Toast.makeText(this, "No browser found.", Toast.LENGTH_SHORT).show();
-                }
-                break;
-            case 16:
                 mTitle = getString(R.string.Bully);
                 break;
-            case 17:
+            case 15:
                 mTitle = getString(R.string.Student);
                 break;
-            case 18:
+            case 16:
                 mTitle = getString(R.string.Summer);
                 break;
-            case 19:
-                mTitle = getString(R.string.Yearbook);
+            case 17:
+                mTitle = getString(R.string.external);
+                getFragmentManager();
+                fragmentTransaction.replace(R.id.FragmentContainer, externalfragment);
+                fragmentTransaction.commit();
                 break;
         }
     }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/Library"
+        android:paddingTop="16dp"
+        android:id="@+id/txtLib" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="gbhslib.weebly.com"
+        android:id="@+id/txtLibraryWeb"
+        android:autoLink="web" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/NHS"
+        android:paddingTop="16dp"
+        android:id="@+id/txtNHS" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="gbhsnhs.com"
+        android:id="@+id/txtNHSWeb"
+        android:autoLink="web" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/Yearbook"
+        android:paddingTop="16dp"
+        android:id="@+id/txtYearbook" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="gbyearbook.com"
+        android:id="@+id/txtYearbookWeb"
+        android:autoLink="web" />
+
+</LinearLayout>
