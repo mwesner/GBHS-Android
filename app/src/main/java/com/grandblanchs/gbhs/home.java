@@ -1,11 +1,19 @@
 package com.grandblanchs.gbhs;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
 
 
 /**
@@ -19,6 +27,8 @@ public class home extends Fragment {
     //TODO: Improve 'home' fragment layouts for landscape and x-large devices
 
     private OnFragmentInteractionListener mListener;
+
+    TextView txtNotification;
 
     public home() {
         // Required empty public constructor
@@ -43,9 +53,42 @@ public class home extends Fragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        txtNotification = (TextView) getView().findViewById(R.id.txtNotification);
+        txtNotification.setCompoundDrawablesWithIntrinsicBounds(android.R.drawable.ic_dialog_alert, 0, 0, 0);
+        new checkNotifications().execute();
+    }
+    @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public class checkNotifications extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            //Check for emergency notifications on the website.
+            Document emergNotif;
+            try {
+                emergNotif = Jsoup.connect("http://grandblanc.high.schoolfusion.us").get();
+                final Elements emergNotifBox = emergNotif.getElementsByClass("emergNotifBox");
+                if (getActivity() != null) {
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            txtNotification.setText(emergNotifBox.text());
+                            txtNotification.setVisibility(View.VISIBLE);
+                        }
+                    });
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (NullPointerException e) {
+                //No notifications. Don't do anything.
+            }
+
+            return null;
+        }
     }
 
     /**

@@ -1,8 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.grandblanchs.gbhs.home"
-    android:background="#ff681008"
-    android:weightSum="1">
+    android:layout_height="match_parent" tools:context="com.grandblanchs.gbhs.home">
 
     <!-- Empty layout (0x0 dp) centered horizontally -->
     <Space android:id="@+id/dummy"
@@ -11,23 +9,8 @@
         android:layout_centerHorizontal="true"
         android:visibility="invisible"/>
 
-
     <TextView
-        android:layout_width="248dp"
-        android:layout_height="wrap_content"
-        android:text="@string/Announce"
-        android:id="@+id/txtAnnounce"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/imgSeparator"
-        android:layout_toLeftOf="@+id/txtTwitter"
-        android:layout_toStartOf="@+id/txtTwitter" />
-
-    <TextView
-        android:layout_width="254dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Twitter"
         android:id="@+id/txtTwitter"
@@ -35,27 +18,42 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold"
         android:layout_gravity="right"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/imgSeparator"
+        android:layout_below="@+id/txtNotification"
         android:layout_toRightOf="@+id/announcefragment"
-        android:layout_toEndOf="@+id/announcefragment" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Announce"
+        android:id="@+id/txtAnnounce"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:layout_gravity="right"
+        android:layout_above="@+id/announcefragment"
+        android:layout_below="@+id/txtNotification"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/txtTwitter"
+        android:layout_toStartOf="@+id/txtTwitter" />
 
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="com.grandblanchs.gbhs.announce"
         android:id="@+id/announcefragment"
-        android:layout_below="@+id/txtAnnounce"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/twitterfragment"
         android:layout_toStartOf="@+id/twitterfragment"
-        tools:layout="@layout/announce" />
+        tools:layout="@layout/announce"
+        android:layout_below="@+id/txtTwitter" />
 
     <fragment
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="com.grandblanchs.gbhs.twitter"
         android:id="@+id/twitterfragment"
@@ -79,5 +77,18 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtNotification"
+        android:gravity="center"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:layout_below="@+id/imgSeparator"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

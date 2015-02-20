@@ -1,8 +1,13 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.grandblanchs.gbhs.home"
-    android:background="#ff681008"
-    android:weightSum="1">
+    android:layout_height="match_parent" tools:context="com.grandblanchs.gbhs.home">
+
+    <!-- Empty layout (0x0 dp) centered horizontally -->
+    <Space android:id="@+id/dummy"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -18,31 +23,33 @@
         android:id="@+id/txtAnnounce"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_below="@+id/txtNotification"
+        android:layout_toRightOf="@+id/dummy"
+        android:layout_toEndOf="@+id/dummy" />
 
     <fragment
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"
+        android:layout_height="wrap_content"
         android:name="com.grandblanchs.gbhs.announce"
         android:id="@+id/announcefragment"
-        tools:layout="@layout/announce" />
+        tools:layout="@layout/announce"
+        android:layout_below="@+id/txtAnnounce"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Twitter"
-        android:id="@+id/txtTwitter"
+        android:id="@+id/txtNotification"
         android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold" />
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:visibility="gone"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/imgGBHS"
+        android:layout_centerHorizontal="true" />
 
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:name="com.grandblanchs.gbhs.twitter"
-        android:id="@+id/twitterfragment"
-        android:layout_weight="0.5"
-        tools:layout="@layout/twitter" />
-
-</LinearLayout>
+</RelativeLayout>
