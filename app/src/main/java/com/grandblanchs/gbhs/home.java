@@ -73,7 +73,8 @@ public class home extends Fragment {
             try {
                 emergNotif = Jsoup.connect("http://grandblanc.high.schoolfusion.us").get();
                 final Elements emergNotifBox = emergNotif.getElementsByClass("emergNotifBox");
-                if (getActivity() != null) {
+                if (getActivity() != null && !emergNotifBox.text().equals("")) {
+                    //Emergency notification is present.
                     getActivity().runOnUiThread(new Runnable() {
                         public void run() {
                             txtNotification.setText(emergNotifBox.text());
@@ -81,9 +82,7 @@ public class home extends Fragment {
                         }
                     });
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (NullPointerException e) {
+            } catch (IOException | NullPointerException e) {
                 //No notifications. Don't do anything.
             }
 
