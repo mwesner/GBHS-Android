@@ -23,7 +23,8 @@ import android.widget.Toast;
 public class GBHS extends ActionBarActivity implements home.OnFragmentInteractionListener,
         twitter.OnFragmentInteractionListener, calendar.OnFragmentInteractionListener,
         announce.OnFragmentInteractionListener, Admin.OnFragmentInteractionListener,
-        staff.OnFragmentInteractionListener, external.OnFragmentInteractionListener, NavigationDrawerFragment.NavigationDrawerCallbacks {
+        staff.OnFragmentInteractionListener, external.OnFragmentInteractionListener,
+        guidance.OnFragmentInteractionListener, NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     //TODO: Continue managing fragment transactions
 
@@ -46,6 +47,7 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
     Admin adminfragment = new Admin();
     staff stafffragment = new staff();
     external externalfragment = new external();
+    guidance guidancefragment = new guidance();
 
     //Create FragmentManager for switching fragments
     @Override
@@ -129,20 +131,20 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
                 break;
             case 12:
                 mTitle = getString(R.string.Guidance);
+                getFragmentManager();
+                fragmentTransaction.replace(R.id.FragmentContainer, guidancefragment);
+                fragmentTransaction.commit();
                 break;
             case 13:
                 mTitle = getString(R.string.CTE);
                 break;
             case 14:
-                mTitle = getString(R.string.Bully);
-                break;
-            case 15:
                 mTitle = getString(R.string.Student);
                 break;
-            case 16:
+            case 15:
                 mTitle = getString(R.string.Summer);
                 break;
-            case 17:
+            case 16:
                 mTitle = getString(R.string.external);
                 getFragmentManager();
                 fragmentTransaction.replace(R.id.FragmentContainer, externalfragment);
