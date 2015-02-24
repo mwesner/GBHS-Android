@@ -97,54 +97,57 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
                 fragmentTransaction.commit();
                 break;
             case 4:
+                new Grades(this).show();
+                break;
+            case 5:
                 mTitle = getString(R.string.Twitter);
                 getFragmentManager();
                 fragmentTransaction.replace(R.id.FragmentContainer, twitterfragment);
                 fragmentTransaction.commit();
                 break;
-            case 5:
+            case 6:
                 mTitle = getString(R.string.Admin);
                 getFragmentManager();
                 fragmentTransaction.replace(R.id.FragmentContainer, adminfragment);
                 fragmentTransaction.commit();
                 break;
-            case 6:
+            case 7:
                 mTitle = getString(R.string.Staff);
                 getFragmentManager();
                 fragmentTransaction.replace(R.id.FragmentContainer, stafffragment);
                 fragmentTransaction.commit();
                 break;
-            case 7:
+            case 8:
                 mTitle = getString(R.string.Athletics);
                 break;
-            case 8:
+            case 9:
                 mTitle = getString(R.string.BAC);
                 break;
-            case 9:
+            case 10:
                 mTitle = getString(R.string.CRC);
                 break;
-            case 10:
+            case 11:
                 mTitle = getString(R.string.CSS);
                 break;
-            case 11:
+            case 12:
                 mTitle = getString(R.string.Early);
                 break;
-            case 12:
+            case 13:
                 mTitle = getString(R.string.Guidance);
                 getFragmentManager();
                 fragmentTransaction.replace(R.id.FragmentContainer, guidancefragment);
                 fragmentTransaction.commit();
                 break;
-            case 13:
+            case 14:
                 mTitle = getString(R.string.CTE);
                 break;
-            case 14:
+            case 15:
                 mTitle = getString(R.string.Student);
                 break;
-            case 15:
+            case 16:
                 mTitle = getString(R.string.Summer);
                 break;
-            case 16:
+            case 17:
                 mTitle = getString(R.string.external);
                 getFragmentManager();
                 fragmentTransaction.replace(R.id.FragmentContainer, externalfragment);

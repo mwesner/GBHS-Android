@@ -104,6 +104,7 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.Home),
                         getString(R.string.Announce),
                         getString(R.string.Calendar),
+                        getString(R.string.Grades),
                         getString(R.string.Twitter),
                         getString(R.string.Admin),
                         getString(R.string.Staff),

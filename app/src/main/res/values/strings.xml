@@ -6,6 +6,9 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="Announce">Announcements</string>
+    <string name="Grades">Check Grades</string>
+    <string name="getapp">Get the app</string>
+    <string name="synergy">Open mobile website</string>
     <string name="Twitter">GBHS Twitter</string>
     <string name="TwitterFeed">Open @GrandBlancPride</string>
     <string name="Admin">Administration</string>
