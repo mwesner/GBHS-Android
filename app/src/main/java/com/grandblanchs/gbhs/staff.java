@@ -96,6 +96,7 @@ public class staff extends Fragment {
                         staffList.add(staffCount, staffArray[i].substring(2, staffArray[i].length()-10) + " " + emailArray[i].substring(0, emailArray[i].length()-1));
                         //staffList.add(staffCount, staffArray[i].substring(161, staffArray[i].length() - 10));
                         staffCount++;
+                        
                     }
                 }
             }catch (IOException e) {
