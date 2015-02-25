@@ -97,19 +97,30 @@ public class guidance extends Fragment {
             Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),
                     imgs.getResourceId(i, -1), opts);
             if (i == 0) {
-                imageItems.add(new ImageItem(bitmap, "Mrs. gardner (O-Z)"));
+                imageItems.add(new ImageItem(bitmap, "Mrs. Gardner (O-Z)"));
             }else if (i == 1) {
-                imageItems.add(new ImageItem(bitmap, "Mr. hentes (CSS)"));
+                imageItems.add(new ImageItem(bitmap, "Mr. Hentes (CSS)"));
             }else if (i == 2) {
-                imageItems.add(new ImageItem(bitmap, "Mrs. hall (9th Grade)"));
+                imageItems.add(new ImageItem(bitmap, "Mrs. Hall (9th Grade)"));
             }else if (i == 3) {
-                imageItems.add(new ImageItem(bitmap, "Mrs. kernen (Ge-N)"));
+                imageItems.add(new ImageItem(bitmap, "Mrs. Kernen (Ge-N)"));
             }else if (i == 4) {
-                imageItems.add(new ImageItem(bitmap, "Mrs. mol (A-Ga)"));
+                imageItems.add(new ImageItem(bitmap, "Mrs. Mol (A-Ga)"));
             }else if (i == 5) {
-                imageItems.add(new ImageItem(bitmap, "Mrs. mcleary (Secretary East)"));
+                imageItems.add(new ImageItem(bitmap, "Mrs. McCleary (Secretary East)"));
             }
         }
+
+        //Emails:
+
+        //mgardner@grandblancschools.org
+        //jhentes@grandblancschools.org
+        //phall@grandblancschools.org
+        //nkernen@grandblancschools.org
+        //pmol@grandblancschools.org
+        //lmcclear@grandblancschools.org
+
+        imgs.recycle();
 
         return imageItems;
 

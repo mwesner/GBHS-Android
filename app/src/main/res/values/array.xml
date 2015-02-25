@@ -16,7 +16,16 @@
         <item>@drawable/hall</item>
         <item>@drawable/kernen</item>
         <item>@drawable/mol</item>
-        <item>@drawable/mcleary</item>
+        <item>@drawable/mccleary</item>
+    </string-array>
+
+    <string-array name="guidancenames">
+        <item>"Mrs. Gardner (O-Z)"</item>
+        <item>"Mr. Hentes (CSS)"</item>
+        <item>"Mrs. Hall (9th Grade)"</item>
+        <item>"Mrs. Kernen (Ge-N)"</item>
+        <item>"Mrs. Mol (A-Ga)"</item>
+        <item>"Mrs. McCleary (Secretary East)"</item>
     </string-array>
 
 </resources>
