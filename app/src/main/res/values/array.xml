@@ -10,4 +10,13 @@
         <item>@drawable/dohm</item>
     </string-array>
 
+    <string-array name="guidance">
+        <item>@drawable/gardner</item>
+        <item>@drawable/hentes</item>
+        <item>@drawable/hall</item>
+        <item>@drawable/kernen</item>
+        <item>@drawable/mol</item>
+        <item>@drawable/mcleary</item>
+    </string-array>
+
 </resources>

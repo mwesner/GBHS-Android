@@ -31,8 +31,9 @@ public class Grades {
 
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.FreeLance.StudentVUE"));
-                        mActivity.startActivity(browserIntent);
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse("market://details?id=com.android.example"));
+                        mActivity.startActivity(intent);
                     }
                 })
                 .setNeutralButton(R.string.synergy, new Dialog.OnClickListener() {
