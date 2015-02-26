@@ -3,7 +3,6 @@ package com.grandblanchs.gbhs;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -12,7 +11,6 @@ import android.net.Uri;
 public class Grades {
 
     private Activity mActivity;
-    Context context;
 
     public Grades(Activity context) {
         mActivity = context;
@@ -37,21 +35,6 @@ public class Grades {
                         }else{
                             Intent intent = new Intent(Intent.ACTION_VIEW);
                             intent.setData(Uri.parse("market://details?id=com.FreeLance.StudentVUE"));
-                            mActivity.startActivity(intent);
-                        }
-                    }
-                })
-                .setNeutralButton(R.string.parentvue, new Dialog.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        PackageManager pm = mActivity.getPackageManager();
-                        Intent appStartIntent = pm.getLaunchIntentForPackage("com.FreeLance.ParentVUE");
-                        if (appStartIntent != null) {
-                            mActivity.startActivity(appStartIntent);
-                        }else{
-                            Intent intent = new Intent(Intent.ACTION_VIEW);
-                            intent.setData(Uri.parse("market://details?id=com.FreeLance.ParentVUE"));
                             mActivity.startActivity(intent);
                         }
                     }
