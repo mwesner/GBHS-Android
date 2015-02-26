@@ -2,13 +2,15 @@
 <resources>
     <string name="app_name">Grand Blanc High School</string>
     <string name="Home">Home</string>
+    <string name="GBHSWeb">Open GBHS Website</string>
     <string name="action_settings">Settings</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="Announce">Announcements</string>
     <string name="Grades">Check Grades</string>
-    <string name="getapp">Open StudentVUE</string>
-    <string name="synergy">Open mobile website</string>
+    <string name="studentvue">Open StudentVUE</string>
+    <string name="parentvue">Open ParentVUE</string>
+    <string name="synergy">Open website</string>
     <string name="Twitter">GBHS Twitter</string>
     <string name="TwitterFeed">Open @GrandBlancPride</string>
     <string name="Admin">Administration</string>
@@ -38,7 +40,7 @@
     <string name="NoConnection">No internet connection.</string>
     <string name="NoTwitter">Could not connect to Twitter.\n(Error Code:</string>
 
-
+    <string name="schedulemenu">View Daily Schedule</string>
     <string name="schedule">1st Hour:    7:20 – 8:19 (59 minutes)
     \n2nd Hour:    8:25 - 9:23 (58 minutes)
     \n3rd Hour:    9:29 - 10:32 (63 minutes with announcements)

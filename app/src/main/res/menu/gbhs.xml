@@ -3,11 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".GBHS">
 
-    <!--Home screen-->
-    <item android:id="@+id/Home"
-        android:title="@string/Home"
-        android:icon="@drawable/home"
-        app:showAsAction="never"/>
+    <!--StudentVUE link-->
+    <item android:id="@+id/StudentVUE"
+        android:title="@string/studentvue"
+        android:icon="@drawable/svue"
+        app:showAsAction="ifRoom"/>
+
+    <!--Schedule of Times-->
+    <item android:id="@+id/Times"
+        android:title="@string/schedulemenu"
+        android:icon="@android:drawable/ic_lock_idle_alarm"
+        app:showAsAction="ifRoom" />
 
     <!--Twitter link-->
     <item android:id="@+id/Twitter"
@@ -19,13 +25,13 @@
     <item android:id="@+id/Calendar"
         android:title="@string/CalendarWeb"
         android:icon="@android:drawable/ic_menu_today"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 
-    <!--Schedule of Times-->
-    <item android:id="@+id/Times"
-        android:title="Daily Schedule"
-        android:icon="@android:drawable/ic_lock_idle_alarm"
-        app:showAsAction="ifRoom" />
+    <!--Home screen-->
+    <item android:id="@+id/GBHS"
+        android:title="@string/GBHSWeb"
+        android:icon="@drawable/home"
+        app:showAsAction="ifRoom"/>
 
     <!--Settings-->
     <item android:id="@+id/Settings"

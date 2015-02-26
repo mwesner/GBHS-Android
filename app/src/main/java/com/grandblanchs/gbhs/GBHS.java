@@ -2,8 +2,6 @@ package com.grandblanchs.gbhs;
 
 import android.app.Activity;
 import android.app.FragmentManager;
-import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -182,46 +180,25 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        if (id == R.id.Home) {
-            finish();
-            Intent start = new Intent(getApplicationContext(), GBHS.class);
-            startActivity(start);
+        if (id == R.id.GBHS) {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.high.schoolfusion.us"));
+            startActivity(browserIntent);
         }
         if (id == R.id.Settings) {
             Toast.makeText(getApplicationContext(), "No settings yet.", Toast.LENGTH_SHORT).show();
             return true;
         }
-
+        if (id == R.id.StudentVUE) {
+            new Grades(this).show();
+        }
         if (id == R.id.Twitter) {
-            String url = "https://twitter.com/GrandBlancPride";
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            Uri u = Uri.parse(url);
-            Context context = getApplicationContext();
-
-            try {
-                //Start the activity
-                i.setData(u);
-                startActivity(i);
-            } catch (ActivityNotFoundException e) {
-                //Raise on activity not found
-                Toast.makeText(context, "No browser found.", Toast.LENGTH_SHORT).show();
-            }
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/GrandBlancPride"));
+            startActivity(browserIntent);
         }
         if (id == R.id.Calendar) {
-            String url = "http://grandblanc.schoolfusion.us/modules/groups/homepagefiles/cms/105549/File/District%20Calendar%202014-2015%208-19.pdf";
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            Uri u = Uri.parse(url);
-            Context context = getApplicationContext();
-            try {
-                //Start the activity
-                i.setData(u);
-                startActivity(i);
-            } catch (ActivityNotFoundException e) {
-                //Raise on activity not found
-                Toast.makeText(context, "No browser found.", Toast.LENGTH_SHORT).show();
-            }
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.schoolfusion.us/modules/groups/homepagefiles/cms/105549/File/District%20Calendar%202014-2015%208-19.pdf"));
+            startActivity(browserIntent);
         }
-
         if (id == R.id.Times) {
             new Times(this).show();
         }
