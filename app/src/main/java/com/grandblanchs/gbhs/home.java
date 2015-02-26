@@ -1,6 +1,7 @@
 package com.grandblanchs.gbhs;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -39,6 +40,18 @@ public class home extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.home, container, false);
+    }
+
+    @Override
+    public void onDestroyView() {
+        //Remove the announce and twitter fragments to prevent a crash on return to home.
+        super.onDestroyView();
+        Fragment announce = (getFragmentManager().findFragmentById(R.id.announcefragment));
+        Fragment twitter = (getFragmentManager().findFragmentById(R.id.twitterfragment));
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.remove(announce);
+        ft.remove(twitter);
+        ft.commit();
     }
 
     @Override
