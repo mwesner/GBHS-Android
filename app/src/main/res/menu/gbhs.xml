@@ -6,8 +6,15 @@
     <!--StudentVUE link-->
     <item android:id="@+id/StudentVUE"
         android:title="@string/studentvue"
-        android:icon="@drawable/svue"
+        android:icon="@drawable/svueaction"
         app:showAsAction="ifRoom"/>
+
+    <!--Twitter link-->
+    <item android:id="@+id/Twitter"
+        android:title="@string/TwitterFeed"
+        android:icon="@drawable/twitter"
+        app:showAsAction="ifRoom"/>
+
 
     <!--Schedule of Times-->
     <item android:id="@+id/Times"
@@ -15,11 +22,6 @@
         android:icon="@android:drawable/ic_lock_idle_alarm"
         app:showAsAction="ifRoom" />
 
-    <!--Twitter link-->
-    <item android:id="@+id/Twitter"
-        android:title="@string/TwitterFeed"
-        android:icon="@drawable/twitter"
-        app:showAsAction="ifRoom"/>
 
     <!--Calendar link-->
     <item android:id="@+id/Calendar"
