@@ -2,20 +2,16 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
-    android:layout_width="match_parent">
+    android:layout_width="fill_parent">
     <TextView
         android:id="@+id/text"
+        android:textSize="17sp"
         android:autoLink="all"
-        android:gravity="center"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:visibility="visible"
         android:clickable="false"
-        android:focusable="false"
-        android:background="@android:color/holo_blue_dark"
-        android:textColor="@android:color/white" />
+        android:focusable="false"/>
 </LinearLayout>

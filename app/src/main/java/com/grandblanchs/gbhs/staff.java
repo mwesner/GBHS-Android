@@ -28,7 +28,7 @@ import java.util.TreeSet;
 
 public class staff extends Fragment {
 
-    //TODO: (Aaron) Hardcode names and information, sort into table/list
+    //TODO: (Aaron) Scrape names, emails, and pages, sort into table/list
 
     private OnFragmentInteractionListener mListener;
 

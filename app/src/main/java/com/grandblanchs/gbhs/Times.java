@@ -22,7 +22,7 @@ public class Times {
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity)
                 .setTitle(title)
                 .setMessage(R.string.schedule)
-                .setIcon(R.drawable.ic_launcher)
+                .setIcon(R.drawable.clock)
                 .setNeutralButton("Close", new Dialog.OnClickListener() {
 
                     @Override

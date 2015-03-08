@@ -43,18 +43,6 @@ public class home extends Fragment {
     }
 
     @Override
-    public void onDestroyView() {
-        //Remove the announce and twitter fragments to prevent a crash on return to home.
-        super.onDestroyView();
-        Fragment announce = (getFragmentManager().findFragmentById(R.id.announcefragment));
-        Fragment twitter = (getFragmentManager().findFragmentById(R.id.twitterfragment));
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.remove(announce);
-        ft.remove(twitter);
-        ft.commit();
-    }
-
-    @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {

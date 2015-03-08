@@ -7,11 +7,13 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="Announce">Announcements</string>
+    <string name="Video">Video Announcements</string>
     <string name="Grades">Check Grades</string>
     <string name="studentvue">Open StudentVUE</string>
     <string name="synergy">Open website</string>
     <string name="Twitter">GBHS Twitter</string>
-    <string name="TwitterFeed">Open @GrandBlancPride</string>
+    <string name="Facebook">GBHS Facebook</string>
+    <string name="Newsletter">Newsletter</string>
     <string name="Admin">Administration</string>
     <string name="Calendar">District Calendar</string>
     <string name="CalendarWeb">Download Official School Calendar</string>
@@ -30,14 +32,25 @@
     <string name="CTE">Career &amp; Technical Education</string>
     <string name="external">External Links</string>
     <string name="Library">Library</string>
-    <string name="NHS">NHS</string>
+    <string name="NHS">National Honor Society</string>
     <string name="PTO">Parents / PTO</string>
     <string name="Faculty">Faculty Resources</string>
     <string name="Student">Student Resources</string>
     <string name="Summer">Summer School</string>
     <string name="Yearbook">Yearbook</string>
+    <string name="Banner">Bobcat Banner</string>
+    <string name="Power">Grand Blanc Powerlifting</string>
     <string name="NoConnection">No internet connection.</string>
     <string name="NoTwitter">Could not connect to Twitter.\n(Error Code:</string>
+
+    <string name="FacebookWeb">facebook.com/GrandBlancHighSchool</string>
+    <string name="TwitterWeb">twitter.com/GrandBlancPride</string>
+    <string name="BannerWeb">bobcatbanner.com</string>
+    <string name="LibraryWeb">gbhlib.weebly.com</string>
+    <string name="NewsletterWeb">smore.com/u/peggywray</string>
+    <string name="NHSWeb">gbhsnhs.com</string>
+    <string name="PowerWeb">sites.google.com/a/grandblancschools.org/grand-blanc-powerlifting/home</string>
+    <string name="YearbookWeb">gbyearbook.com</string>
 
     <string name="schedulemenu">View Daily Schedule</string>
     <string name="schedule">1st Hour:    7:20 – 8:19 (59 minutes)
