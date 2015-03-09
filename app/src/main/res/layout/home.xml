@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Announce"
+        android:text="@string/Twitter"
         android:id="@+id/txtAnnounce"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -31,13 +31,13 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="com.grandblanchs.gbhs.announce"
-        android:id="@+id/announcefragment"
-        tools:layout="@layout/announce"
-        android:layout_below="@+id/txtAnnounce"
+        android:name="com.grandblanchs.gbhs.twitter"
+        android:id="@+id/twitterfragment"
+        tools:layout="@layout/twitter"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/txtAnnounce" />
 
     <TextView
         android:layout_width="match_parent"

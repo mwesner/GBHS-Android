@@ -65,7 +65,12 @@
     \n\n***There will be a single tone at 8:16, 9:20, 10:29, 12:05 and 1:09 to release travelers to their next class. All non-traveling students must remain in class until the official end of the period.</string>
     <color name="darkred">#ffcc0000</color>
     <color name="bobcatred">#ff681008</color>
-    
+
+    <string name="facebook_id">1552325678377912</string>
+    <string name="facebook_secret">dbaa58d5266424b6e25d46d1fbd773d0</string>
+
+
+
     <string-array name="nameArray">
         <item>"Allswede, Stacy"</item>
         <item>"Katelyn, Anderson"</item>
