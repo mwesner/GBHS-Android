@@ -67,6 +67,8 @@ public class external extends Fragment {
                     getString(R.string.TwitterWeb),
                     getString(R.string.Banner),
                     getString(R.string.BannerWeb),
+                    getString(R.string.Band),
+                    getString(R.string.BandWeb),
                     getString(R.string.Library),
                     getString(R.string.LibraryWeb),
                     getString(R.string.Newsletter),

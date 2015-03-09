@@ -17,6 +17,7 @@
     <string name="Admin">Administration</string>
     <string name="Calendar">District Calendar</string>
     <string name="CalendarWeb">Download Official School Calendar</string>
+    <string name="Band">Instrumental Music Department</string>
     <string name="Staff">Staff Listing</string>
     <string name="Alumni">Alumni</string>
     <string name="Athletics">Athletics</string>
@@ -46,6 +47,7 @@
     <string name="FacebookWeb">facebook.com/GrandBlancHighSchool</string>
     <string name="TwitterWeb">twitter.com/GrandBlancPride</string>
     <string name="BannerWeb">bobcatbanner.com</string>
+    <string name="BandWeb">gbhsinstrumentalmusicdepartment.weebly.com</string>
     <string name="LibraryWeb">gbhlib.weebly.com</string>
     <string name="NewsletterWeb">smore.com/u/peggywray</string>
     <string name="NHSWeb">gbhsnhs.com</string>
