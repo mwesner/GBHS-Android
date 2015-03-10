@@ -35,5 +35,6 @@
         android:layout_height="match_parent"
         android:id="@+id/lstStaff"
         android:layout_gravity="center_horizontal"
-        android:gravity="center" />
+        android:gravity="center"
+        android:fastScrollEnabled="true"/>
 </RelativeLayout>

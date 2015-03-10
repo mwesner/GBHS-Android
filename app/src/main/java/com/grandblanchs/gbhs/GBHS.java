@@ -20,7 +20,8 @@ import android.widget.Toast;
 
 public class GBHS extends ActionBarActivity implements home.OnFragmentInteractionListener,
         twitter.OnFragmentInteractionListener, calendar.OnFragmentInteractionListener,
-        announce.OnFragmentInteractionListener, Admin.OnFragmentInteractionListener,
+        announce.OnFragmentInteractionListener, Facebook.OnFragmentInteractionListener,
+        Admin.OnFragmentInteractionListener,
         staff.OnFragmentInteractionListener, external.OnFragmentInteractionListener,
         guidance.OnFragmentInteractionListener, athletics.OnFragmentInteractionListener,
         NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -40,6 +41,7 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
     FragmentTransaction fragmentTransaction;
 
     home homefragment = new home();
+    Facebook facebookfragment = new Facebook();
     twitter twitterfragment = new twitter();
     calendar calfragment = new calendar();
     announce announcefragment = new announce();
@@ -101,8 +103,9 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
                 break;
             case 5:
                 mTitle = getString(R.string.Facebook);
-                //TODO: (Aaron) Show Facebook fragment
-                Toast.makeText(getApplicationContext(), "TODO: Show Facebook fragment", Toast.LENGTH_LONG).show();
+                getFragmentManager();
+                fragmentTransaction.replace(R.id.FragmentContainer, facebookfragment);
+                fragmentTransaction.commit();
                 break;
             case 6:
                 mTitle = getString(R.string.Twitter);
