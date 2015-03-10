@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion '21.1.2'
+    compileSdkVersion 22
+    buildToolsVersion '22'
 
     defaultConfig {
         applicationId "com.grandblanchs.gbhs"
         minSdkVersion 14
-        targetSdkVersion 21
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
@@ -22,16 +22,15 @@ android {
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/NOTICE.txt'
     }
-
 }
-repositories { mavenCentral() }
 
 dependencies {
+    //TODO: Update to Support Library 22 as soon as it becomes available.
+    compile 'com.android.support:support-v4:21.0.3'
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'org.twitter4j:twitter4j-core:4.0.2'
+    compile 'com.facebook.android:facebook-android-sdk:3.21.1'
     compile 'org.jsoup:jsoup:1.8.1'
     compile 'joda-time:joda-time:2.7'
     compile 'org.apache.commons:commons-lang3:3.3.2'
-    compile 'com.android.support:support-v4:21.0.3'
-    compile 'com.facebook.android:facebook-android-sdk:3.21.1'
 }
