@@ -93,7 +93,7 @@ public class staff extends Fragment {
                         emailArray[i] = StringUtils.substringAfter(emailArray[i], "mailto:");
                         emailArray[i] = StringUtils.substringBefore(emailArray[i], ">");
 
-                        staffList.add(staffCount, staffArray[i].substring(2, staffArray[i].length()-10) + " " + emailArray[i].substring(0, emailArray[i].length()-1));
+                        staffList.add(staffCount, staffArray[i].substring(2, staffArray[i].length()-10) + "\n" + emailArray[i].substring(0, emailArray[i].length()-1));
                         //staffList.add(staffCount, staffArray[i].substring(161, staffArray[i].length() - 10));
                         staffCount++;
                         
@@ -193,7 +193,7 @@ public class staff extends Fragment {
             (views must remain fixed)*/
             switch (type) {
                 case TYPE_ITEM:
-                    convertView = mInflater.inflate(R.layout.itemlist, null);
+                    convertView = mInflater.inflate(R.layout.stafflist, null);
                     holder.textView = (TextView) convertView.findViewById(R.id.text);
                     break;
             }
