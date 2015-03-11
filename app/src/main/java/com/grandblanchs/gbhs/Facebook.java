@@ -8,8 +8,7 @@ package com.grandblanchs.gbhs;
     import android.view.LayoutInflater;
     import android.view.View;
     import android.view.ViewGroup;
-    import android.widget.ListView;
-    import android.widget.ProgressBar;
+    import com.facebook.AccessToken;
 
 
 
@@ -43,6 +42,7 @@ public class Facebook extends Fragment {
 
     public void onStart() {
         super.onStart();
+        //getToken();
     }
 
 
