@@ -25,9 +25,8 @@ android {
 }
 
 dependencies {
-    //TODO: Update to Support Library 22 as soon as it becomes available.
-    compile 'com.android.support:support-v4:21.0.3'
-    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.android.support:support-v4:22.0.0'
+    compile 'com.android.support:appcompat-v7:22.0.0'
     compile 'org.twitter4j:twitter4j-core:4.0.2'
     compile 'com.facebook.android:facebook-android-sdk:3.21.1'
     compile 'org.jsoup:jsoup:1.8.1'
