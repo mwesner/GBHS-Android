@@ -27,11 +27,7 @@ import twitter4j.auth.AccessToken;
 
 public class twitter extends Fragment {
 
-    //TODO: (Aaron) Replace these keys with the OAuth for @GrandBlancPride before release.
 
-    //Setting the consumer key and consumer secret for twitter OAuth
-    private final static String CONSUMER_KEY = "0S62lfz7hGX39oZo2jJmrhZ96";
-    private final static String CONSUMER_KEY_SECRET ="Pr1YnBtFU5OErrxhpLNet2S6KolhRm43cfwZuFPCQLOasEPXm7";
 
     private OnFragmentInteractionListener mListener;
 
@@ -98,12 +94,9 @@ public class twitter extends Fragment {
         protected Void doInBackground(Void... voids) {
             //Authenticates this app with my specific account codes. This will need to be changed to GBHS twitter account codes.
             Twitter twitter = new TwitterFactory().getInstance();
-            twitter.setOAuthConsumer(CONSUMER_KEY, CONSUMER_KEY_SECRET);
+            twitter.setOAuthConsumer(getString(R.string.CONSUMER_KEY), getString(R.string.CONSUMER_KEY_SECRET));
 
-            String accessToken = "2832408273-pvUljzIaVPHm9SgWAqwQXXbBQgA9AYQ8gKI9XEQ";
-            String accessTokenSecret = "0NI1CVcbKCZDWjIqqipN7LZuWuCDAqVaL37Wf6XgAa9Ww";
-
-            AccessToken oathAccessToken = new AccessToken(accessToken, accessTokenSecret);
+            AccessToken oathAccessToken = new AccessToken(getString(R.string.twitterAccessToken), getString(R.string.twitterAccessTokenSecret));
             twitter.setOAuthAccessToken(oathAccessToken);
 
             //Creates a string array of length 20 for the twenty twitter posts to be stored in.

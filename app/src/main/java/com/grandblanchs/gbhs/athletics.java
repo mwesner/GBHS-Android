@@ -108,18 +108,20 @@ public class athletics extends Fragment {
                 System.out.println(Time.text());
                 final String[] test = Time.toString().split("\n");
 
-                getActivity().runOnUiThread(new Runnable() {
-                   public void run() {
-                       gridCal.setVisibility(View.VISIBLE);
-                       prog.setVisibility(View.GONE);
-                       lstInfo.setVisibility(View.VISIBLE);
-                       ArrayAdapter<String> testing = new ArrayAdapter<String>(getActivity().getApplicationContext(),
-                               android.R.layout.simple_list_item_1, test);
-                       lstInfo.setAdapter(testing);
-                       Toast.makeText(getActivity().getApplicationContext(),
-                               "Content is: " + test[0], Toast.LENGTH_LONG).show();
-                   }
-                });
+                if (getActivity() != null) {
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            gridCal.setVisibility(View.VISIBLE);
+                            prog.setVisibility(View.GONE);
+                            lstInfo.setVisibility(View.VISIBLE);
+                            ArrayAdapter<String> testing = new ArrayAdapter<String>(getActivity().getApplicationContext(),
+                                    android.R.layout.simple_list_item_1, test);
+                            lstInfo.setAdapter(testing);
+                            Toast.makeText(getActivity().getApplicationContext(),
+                                    "Content is: " + test[0], Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
 
             } catch (IOException e) {
                 e.printStackTrace();
