@@ -24,8 +24,6 @@ public class external extends Fragment {
     ListView lstExternal;
     ProgressBar prog;
 
-    String[] external;
-
     public external() {
         // Required empty public constructor
     }
@@ -60,26 +58,8 @@ public class external extends Fragment {
             lstExternal = (ListView) getView().findViewById(R.id.lstExternal);
             prog = (ProgressBar) getView().findViewById(R.id.progExternal);
 
-            external = new String[]{
-                    getString(R.string.Facebook),
-                    getString(R.string.FacebookWeb),
-                    getString(R.string.Twitter),
-                    getString(R.string.TwitterWeb),
-                    getString(R.string.Banner),
-                    getString(R.string.BannerWeb),
-                    getString(R.string.Band),
-                    getString(R.string.BandWeb),
-                    getString(R.string.Library),
-                    getString(R.string.LibraryWeb),
-                    getString(R.string.Newsletter),
-                    getString(R.string.NewsletterWeb),
-                    getString(R.string.NHS),
-                    getString(R.string.NHSWeb),
-                    getString(R.string.Power),
-                    getString(R.string.PowerWeb),
-                    getString(R.string.Yearbook),
-                    getString(R.string.YearbookWeb),
-            };
+            String[] external = getActivity().getResources().getStringArray(R.array.external);
+
             ExternalAdapter adapter = new ExternalAdapter();
             for (int i = 0; i < external.length; i++) {
                 adapter.addItem(external[i]);

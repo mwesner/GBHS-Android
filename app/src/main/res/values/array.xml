@@ -28,4 +28,28 @@
         <item>"Mrs. McCleary (Secretary East)"</item>
     </string-array>
 
+    <string-array name="external">
+        <item>GBHS Facebook</item>
+        <item>facebook.com/GrandBlancHighSchool</item>
+        <item>GBHS Twitter</item>
+        <item>twitter.com/GrandBlancPride</item>
+        <item>BAC/ACC</item>
+        <item>gbhsaccprocess.weebly.com</item>
+        <item>Bobcat Banner</item>
+        <item>bobcatbanner.com</item>
+        <item>Instrumental Music Department</item>
+        <item>gbhsinstrumentalmusicdepartment.weebly.com</item>
+        <item>Library</item>
+        <item>gbhlib.weebly.com</item>
+        <item>Newsletter</item>
+        <item>smore.com/u/peggywray</item>
+        <item>National Honor Society</item>
+        <item>gbhsnhs.com</item>
+        <item>Grand Blanc Powerlifting</item>
+        <item>sites.google.com/a/grandblancschools.org/grand-blanc-powerlifting/home</item>
+        <item>Yearbook</item>
+        <item>gbyearbook.com</item>
+    </string-array>
+    
+
 </resources>

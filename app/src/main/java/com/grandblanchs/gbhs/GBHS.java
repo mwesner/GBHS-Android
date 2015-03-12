@@ -132,33 +132,30 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
                 fragmentTransaction.commit();
                 break;
             case 10:
-                mTitle = getString(R.string.BAC);
-                break;
-            case 11:
                 mTitle = getString(R.string.CRC);
                 break;
-            case 12:
+            case 11:
                 mTitle = getString(R.string.CSS);
                 break;
-            case 13:
+            case 12:
                 mTitle = getString(R.string.Early);
                 break;
-            case 14:
+            case 13:
                 mTitle = getString(R.string.Guidance);
                 getFragmentManager();
                 fragmentTransaction.replace(R.id.FragmentContainer, guidancefragment);
                 fragmentTransaction.commit();
                 break;
-            case 15:
+            case 14:
                 mTitle = getString(R.string.CTE);
                 break;
-            case 16:
+            case 15:
                 mTitle = getString(R.string.Student);
                 break;
-            case 17:
+            case 16:
                 mTitle = getString(R.string.Summer);
                 break;
-            case 18:
+            case 17:
                 mTitle = getString(R.string.external);
                 getFragmentManager();
                 fragmentTransaction.replace(R.id.FragmentContainer, externalfragment);
@@ -202,6 +199,11 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
         }
         if (id == R.id.Settings) {
             Toast.makeText(getApplicationContext(), "No settings yet.", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+        if (id == R.id.About) {
+            new About(this).show();
             return true;
         }
         if (id == R.id.StudentVUE) {

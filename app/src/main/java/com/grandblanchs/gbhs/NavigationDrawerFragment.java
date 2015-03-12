@@ -110,7 +110,6 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.Admin),
                         getString(R.string.Staff),
                         getString(R.string.Athletics),
-                        getString(R.string.BAC),
                         getString(R.string.CRC),
                         getString(R.string.CSS),
                         getString(R.string.Early),
