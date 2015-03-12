@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class announce extends Fragment {
+public class Announce extends Fragment {
 
     //TODO: (Aaron) Properly scrape announcement text
     //TODO: (Aaron) Work on setting up RSS feed for announcements with GBTV
@@ -38,7 +38,7 @@ public class announce extends Fragment {
 
     Context context;
 
-    public announce() {
+    public Announce() {
         // Required empty public constructor
     }
 

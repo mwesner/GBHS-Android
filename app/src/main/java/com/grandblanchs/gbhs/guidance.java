@@ -25,7 +25,7 @@ import java.util.ArrayList;
  * {@link Admin.OnFragmentInteractionListener} interface
  * to handle interaction events.
  */
-public class guidance extends Fragment {
+public class Guidance extends Fragment {
 
     //TODO: (Corey) Add guidance and counseling information
 

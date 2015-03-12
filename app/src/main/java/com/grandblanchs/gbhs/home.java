@@ -1,7 +1,6 @@
 package com.grandblanchs.gbhs;
 
 import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -20,10 +19,10 @@ import java.io.IOException;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link home.OnFragmentInteractionListener} interface
+ * {@link Home.OnFragmentInteractionListener} interface
  * to handle interaction events.
  */
-public class home extends Fragment {
+public class Home extends Fragment {
 
     //TODO: Improve 'home' fragment layouts for landscape and x-large devices
 
@@ -31,7 +30,7 @@ public class home extends Fragment {
 
     TextView txtNotification;
 
-    public home() {
+    public Home() {
         // Required empty public constructor
     }
 
@@ -58,7 +57,7 @@ public class home extends Fragment {
         super.onStart();
         txtNotification = (TextView) getView().findViewById(R.id.txtNotification);
         txtNotification.setCompoundDrawablesWithIntrinsicBounds(android.R.drawable.ic_dialog_alert, 0, 0, 0);
-        new checkNotifications().execute();
+        new CheckNotifications().execute();
     }
     @Override
     public void onDetach() {
@@ -66,7 +65,7 @@ public class home extends Fragment {
         mListener = null;
     }
 
-    public class checkNotifications extends AsyncTask<Void, Void, Void> {
+    public class CheckNotifications extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... params) {
             //Check for emergency notifications on the website.

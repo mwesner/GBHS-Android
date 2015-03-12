@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.grandblanchs.gbhs.home">
+    android:layout_height="match_parent" tools:context="com.grandblanchs.gbhs.Home">
 
     <!-- Empty layout (0x0 dp) centered horizontally -->
     <Space android:id="@+id/dummy"
@@ -31,7 +31,7 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="com.grandblanchs.gbhs.twitter"
+        android:name="com.grandblanchs.gbhs.Twitter"
         android:id="@+id/twitterfragment"
         tools:layout="@layout/twitter"
         android:layout_alignParentLeft="true"

@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class athletics extends Fragment {
+public class Athletics extends Fragment {
 
     //TODO: (Corey) Add athletic events into a list that shows on date change
 
@@ -47,7 +47,7 @@ public class athletics extends Fragment {
 
     private CustomAdapter mAdapter;
 
-    public athletics() {
+    public Athletics() {
         // Required empty public constructor
     }
 

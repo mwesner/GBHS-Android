@@ -17,14 +17,14 @@ import java.util.ArrayList;
 import java.util.TreeSet;
 
 
-public class external extends Fragment {
+public class External extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
     ListView lstExternal;
     ProgressBar prog;
 
-    public external() {
+    public External() {
         // Required empty public constructor
     }
 
@@ -129,9 +129,9 @@ public class external extends Fragment {
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {
-            calendar.ViewHolder holder = null;
+            Calendar.ViewHolder holder = null;
             int type = getItemViewType(position);
-            holder = new calendar.ViewHolder();
+            holder = new Calendar.ViewHolder();
             /*No 'if (convertView == null)' statement to prevent view recycling
             (views must remain fixed)*/
             switch (type) {

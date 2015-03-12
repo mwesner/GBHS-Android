@@ -112,6 +112,8 @@ public class Admin extends Fragment {
             }
         }
 
+        imgs.recycle();
+
         return imageItems;
 
     }

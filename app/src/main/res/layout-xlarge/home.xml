@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.grandblanchs.gbhs.home">
+    android:layout_height="match_parent" tools:context="com.grandblanchs.gbhs.Home">
 
     <!-- Empty layout (0x0 dp) centered horizontally -->
     <Space android:id="@+id/dummy"
@@ -42,7 +42,7 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.grandblanchs.gbhs.announce"
+        android:name="com.grandblanchs.gbhs.Announce"
         android:id="@+id/twitterfragment"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -55,7 +55,7 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.grandblanchs.gbhs.twitter"
+        android:name="com.grandblanchs.gbhs.Twitter"
         android:id="@+id/twitterfragment"
         android:layout_gravity="right"
         android:layout_below="@+id/txtTwitter"

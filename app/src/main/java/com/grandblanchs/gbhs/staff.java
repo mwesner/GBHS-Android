@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.TreeSet;
 
 
-public class staff extends Fragment {
+public class Staff extends Fragment {
 
     //TODO: (Aaron) Scrape names, emails, and pages, sort into table/list
 
@@ -35,7 +35,7 @@ public class staff extends Fragment {
     ProgressBar prog;
     ListView lstStaff;
 
-    public staff() {
+    public Staff() {
         // Required empty public constructor
     }
 
@@ -186,9 +186,9 @@ public class staff extends Fragment {
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {
-            calendar.ViewHolder holder = null;
+            Calendar.ViewHolder holder = null;
             int type = getItemViewType(position);
-            holder = new calendar.ViewHolder();
+            holder = new Calendar.ViewHolder();
             /*No 'if (convertView == null)' statement to prevent view recycling
             (views must remain fixed)*/
             switch (type) {

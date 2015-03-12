@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class calendar extends Fragment {
+public class Calendar extends Fragment {
 
     //Scrape iCal feed
     //Add events into a list that shows on date change
@@ -50,7 +50,7 @@ public class calendar extends Fragment {
 
     private CustomAdapter mAdapter;
 
-    public calendar() {
+    public Calendar() {
         // Required empty public constructor
     }
 
@@ -96,11 +96,11 @@ public class calendar extends Fragment {
 
             //This will display events for a given date
             gridCal.setShowWeekNumber(false);
-            new calGet().execute();
+            new CalGet().execute();
         }
     }
 
-    private class calGet extends AsyncTask<Void, Void, Void> {
+    private class CalGet extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... voids) {

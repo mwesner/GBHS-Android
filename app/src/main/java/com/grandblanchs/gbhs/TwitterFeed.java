@@ -25,7 +25,7 @@ import twitter4j.auth.AccessToken;
 
 
 
-public class twitter extends Fragment {
+public class TwitterFeed extends Fragment {
 
 
 
@@ -37,7 +37,7 @@ public class twitter extends Fragment {
     ListView lst_feed;
     ProgressBar prog;
 
-    public twitter() {
+    public TwitterFeed() {
         // Required empty public constructor
     }
 
@@ -63,7 +63,7 @@ public class twitter extends Fragment {
             lst_feed = (ListView) getView().findViewById(R.id.list);
 
             //Since internet dependant tasks cannot be performed on the main method, we execute a new one called twitterTimeline
-            new twitterTimeline().execute();
+            new TwitterTimeline().execute();
         }
     }
 
@@ -88,12 +88,12 @@ public class twitter extends Fragment {
     public interface OnFragmentInteractionListener {}
 
 
-    private class twitterTimeline extends AsyncTask<Void, Void, Void> {
+    private class TwitterTimeline extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... voids) {
             //Authenticates this app with my specific account codes. This will need to be changed to GBHS twitter account codes.
-            Twitter twitter = new TwitterFactory().getInstance();
+            twitter4j.Twitter twitter = new TwitterFactory().getInstance();
             twitter.setOAuthConsumer(getString(R.string.CONSUMER_KEY), getString(R.string.CONSUMER_KEY_SECRET));
 
             AccessToken oathAccessToken = new AccessToken(getString(R.string.twitterAccessToken), getString(R.string.twitterAccessTokenSecret));
@@ -153,7 +153,7 @@ public class twitter extends Fragment {
             }
         }
     }
-    //Corey's custom adapter class, which he added because he is amazing.
+
     //TwitterAdapter class
     private class TwitterAdapter extends BaseAdapter {
         private static final int TYPE_ITEM = 0;
@@ -209,9 +209,9 @@ public class twitter extends Fragment {
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {
-            calendar.ViewHolder holder = null;
+            Calendar.ViewHolder holder = null;
             int type = getItemViewType(position);
-            holder = new calendar.ViewHolder();
+            holder = new Calendar.ViewHolder();
             /*No 'if (convertView == null)' statement to prevent view recycling
             (views must remain fixed)*/
             switch (type) {
