@@ -43,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="com.grandblanchs.gbhs.Announce"
-        android:id="@+id/twitterfragment"
+        android:id="@+id/announcefragment"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
@@ -55,7 +55,7 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.grandblanchs.gbhs.Twitter"
+        android:name="com.grandblanchs.gbhs.TwitterFeed"
         android:id="@+id/twitterfragment"
         android:layout_gravity="right"
         android:layout_below="@+id/txtTwitter"

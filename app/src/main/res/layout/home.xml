@@ -31,7 +31,7 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="com.grandblanchs.gbhs.Twitter"
+        android:name="com.grandblanchs.gbhs.TwitterFeed"
         android:id="@+id/twitterfragment"
         tools:layout="@layout/twitter"
         android:layout_alignParentLeft="true"
