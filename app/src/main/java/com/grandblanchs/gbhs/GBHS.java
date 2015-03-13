@@ -18,12 +18,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 
-public class GBHS extends ActionBarActivity implements home.OnFragmentInteractionListener,
-        twitter.OnFragmentInteractionListener, calendar.OnFragmentInteractionListener,
-        announce.OnFragmentInteractionListener, Facebook.OnFragmentInteractionListener,
+public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractionListener,
+        TwitterFeed.OnFragmentInteractionListener, Calendar.OnFragmentInteractionListener,
+        Announce.OnFragmentInteractionListener, Facebook.OnFragmentInteractionListener,
         Admin.OnFragmentInteractionListener,
-        staff.OnFragmentInteractionListener, external.OnFragmentInteractionListener,
-        guidance.OnFragmentInteractionListener, athletics.OnFragmentInteractionListener,
+        Staff.OnFragmentInteractionListener, External.OnFragmentInteractionListener,
+        Guidance.OnFragmentInteractionListener, Athletics.OnFragmentInteractionListener,
         NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     //TODO: Continue managing fragment transactions
@@ -40,16 +40,16 @@ public class GBHS extends ActionBarActivity implements home.OnFragmentInteractio
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
 
-    home homefragment = new home();
+    Home homefragment = new Home();
     Facebook facebookfragment = new Facebook();
-    twitter twitterfragment = new twitter();
-    calendar calfragment = new calendar();
-    announce announcefragment = new announce();
+    TwitterFeed twitterfragment = new TwitterFeed();
+    Calendar calfragment = new Calendar();
+    Announce announcefragment = new Announce();
     Admin adminfragment = new Admin();
-    staff stafffragment = new staff();
-    external externalfragment = new external();
-    guidance guidancefragment = new guidance();
-    athletics athleticsfragment = new athletics();
+    Staff stafffragment = new Staff();
+    External externalfragment = new External();
+    Guidance guidancefragment = new Guidance();
+    Athletics athleticsfragment = new Athletics();
 
     //Create FragmentManager for switching fragments
     @Override
