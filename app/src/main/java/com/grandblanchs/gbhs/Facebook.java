@@ -1,26 +1,35 @@
 package com.grandblanchs.gbhs;
 
     import android.app.Activity;
-    import android.content.Context;
-    import android.os.AsyncTask;
+    import android.content.Intent;
     import android.os.Bundle;
     import android.app.Fragment;
     import android.view.LayoutInflater;
     import android.view.View;
     import android.view.ViewGroup;
-    import com.facebook.AccessToken;
+    import android.widget.TextView;
 
-
+    import com.facebook.Session;
+    import com.facebook.*;
+    import com.facebook.model.GraphUser;
 
 
 public class Facebook extends Fragment {
-
+    TextView hello;
     private OnFragmentInteractionListener mListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
+
+   /* @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
+
+    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,7 +51,7 @@ public class Facebook extends Fragment {
 
     public void onStart() {
         super.onStart();
-        //getToken();
+
     }
 
 
@@ -53,5 +62,26 @@ public class Facebook extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {}
+
+    /*public void connect(){
+        Session.openActiveSession(this, true, new Session.StatusCallback(){
+            @Override
+            public void call(Session session, SessionState state, Exception exception){
+                if(session.isOpened()){
+                    //make request to the API
+                    Request.executeMeRequestAsync(session, new Request.GraphUserCallback(){
+                        @Override
+                        public void onCompleted(GraphUser user, Response response){
+                            if (user != null){
+                                hello = (TextView) getView().findViewById(hello);
+                                hello.setText("Hello " + user.getName() + "!");
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    }
+*/
 
 }
