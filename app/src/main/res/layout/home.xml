@@ -3,10 +3,17 @@
     android:layout_height="match_parent" tools:context="com.grandblanchs.gbhs.Home">
 
     <!-- Empty layout (0x0 dp) centered horizontally -->
-    <Space android:id="@+id/dummy"
+    <Space android:id="@+id/dummy1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_centerVertical="true"
+        android:visibility="invisible"/>
+
+    <!-- Empty layout (0x0 dp) centered vertically -->
+    <Space android:id="@+id/dummy2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
         android:visibility="invisible"/>
 
     <ImageView
@@ -15,29 +22,6 @@
         android:id="@+id/imgGBHS"
         android:src="@drawable/gbhs"
         android:contentDescription="@string/app_name" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Twitter"
-        android:id="@+id/txtAnnounce"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold"
-        android:layout_below="@+id/txtNotification"
-        android:layout_toRightOf="@+id/dummy"
-        android:layout_toEndOf="@+id/dummy" />
-
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:name="com.grandblanchs.gbhs.TwitterFeed"
-        android:id="@+id/twitterfragment"
-        tools:layout="@layout/twitter"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/txtAnnounce" />
 
     <TextView
         android:layout_width="match_parent"
@@ -51,5 +35,65 @@
         android:textStyle="bold"
         android:layout_below="@+id/imgGBHS"
         android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnTwitter"
+        android:src="@drawable/twitter"
+        android:contentDescription="@string/Twitter"
+        android:layout_below="@+id/imgGBHS"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/btnTimes"
+        android:layout_toStartOf="@+id/btnTimes"
+        android:cropToPadding="false" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnFacebook"
+        android:src="@drawable/facebook"
+        android:contentDescription="@string/Facebook"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/btnTimes"
+        android:layout_toStartOf="@+id/btnTimes" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnTimes"
+        android:src="@drawable/clock"
+        android:contentDescription="@string/schedule"
+        android:cropToPadding="false"
+        android:layout_alignTop="@+id/btnFacebook"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGrades"
+        android:src="@drawable/svueaction"
+        android:contentDescription="@string/Grades"
+        android:cropToPadding="false"
+        android:layout_alignBottom="@+id/btnTwitter"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/btnTwitter"
+        android:layout_toEndOf="@+id/btnTwitter"
+        android:layout_alignTop="@+id/btnTwitter" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnWeb"
+        android:src="@drawable/home"
+        android:contentDescription="@string/GBHSWeb"
+        android:layout_below="@+id/btnTimes"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

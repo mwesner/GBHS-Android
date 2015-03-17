@@ -203,9 +203,8 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
         }
 
         if (id == R.id.About) {
-            getFragmentManager();
-            fragmentTransaction.replace(R.id.FragmentContainer, externalfragment);
-            fragmentTransaction.commit();
+            new About(this).show();
+            return true;
         }
         if (id == R.id.StudentVUE) {
             new Grades(this).show();

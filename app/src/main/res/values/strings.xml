@@ -36,6 +36,8 @@
     <string name="NoConnection">No internet connection.</string>
     <string name="NoTwitter">Could not connect to Twitter.\n(Error Code:</string>
 
+    <string name="CTEWeb"><a href="http://grandblanc.career.schoolfusion.us/">GBCTE Website</a></string>
+
     <string name="schedulemenu">View Daily Schedule</string>
     <string name="schedule">1st Hour:    7:20 – 8:19 (59 minutes)
     \n2nd Hour:    8:25 - 9:23 (58 minutes)

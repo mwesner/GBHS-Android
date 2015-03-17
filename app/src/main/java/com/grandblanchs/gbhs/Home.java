@@ -1,12 +1,17 @@
 package com.grandblanchs.gbhs;
 
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.jsoup.Jsoup;
@@ -29,6 +34,11 @@ public class Home extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     TextView txtNotification;
+    ImageButton btnFacebook;
+    ImageButton btnTwitter;
+    ImageButton btnTimes;
+    ImageButton btnGrades;
+    ImageButton btnWeb;
 
     public Home() {
         // Required empty public constructor
@@ -55,9 +65,56 @@ public class Home extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        txtNotification = (TextView) getView().findViewById(R.id.txtNotification);
-        txtNotification.setCompoundDrawablesWithIntrinsicBounds(android.R.drawable.ic_dialog_alert, 0, 0, 0);
-        new CheckNotifications().execute();
+        if (getActivity() != null) {
+            txtNotification = (TextView) getView().findViewById(R.id.txtNotification);
+            txtNotification.setCompoundDrawablesWithIntrinsicBounds(android.R.drawable.ic_dialog_alert, 0, 0, 0);
+            btnFacebook = (ImageButton) getView().findViewById(R.id.btnFacebook);
+            btnTwitter = (ImageButton) getView().findViewById(R.id.btnTwitter);
+            btnGrades = (ImageButton) getView().findViewById(R.id.btnGrades);
+            btnTimes = (ImageButton) getView().findViewById(R.id.btnTimes);
+            btnWeb = (ImageButton) getView().findViewById(R.id.btnWeb);
+            new CheckNotifications().execute();
+
+            btnTwitter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    TwitterFeed twitterfragment = new TwitterFeed();
+                    FragmentManager fragmentManager = getActivity().getFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.FragmentContainer, twitterfragment);
+                    fragmentTransaction.commit();
+                }
+            });
+            btnFacebook.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Facebook facebookfragment = new Facebook();
+                    FragmentManager fragmentManager = getActivity().getFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.FragmentContainer, facebookfragment);
+                    fragmentTransaction.commit();
+                }
+            });
+            btnGrades.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new Grades(getActivity()).show();
+                }
+            });
+            btnTimes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new Times(getActivity()).show();
+                }
+            });
+            btnWeb.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.high.schoolfusion.us"));
+                    startActivity(browserIntent);
+                }
+            });
+        }
     }
     @Override
     public void onDetach() {
