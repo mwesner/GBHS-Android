@@ -93,69 +93,54 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
                 fragmentTransaction.commit();
                 break;
             case 3:
-                mTitle = getString(R.string.Calendar);
-                getFragmentManager();
-                fragmentTransaction.replace(R.id.FragmentContainer, calfragment);
-                fragmentTransaction.commit();
-                break;
-            case 4:
                 new Grades(this).show();
                 break;
-            case 5:
+            case 4:
                 mTitle = getString(R.string.Facebook);
                 getFragmentManager();
                 fragmentTransaction.replace(R.id.FragmentContainer, facebookfragment);
                 fragmentTransaction.commit();
                 break;
-            case 6:
+            case 5:
                 mTitle = getString(R.string.Twitter);
                 getFragmentManager();
                 fragmentTransaction.replace(R.id.FragmentContainer, twitterfragment);
                 fragmentTransaction.commit();
                 break;
+            case 6:
+                mTitle = getString(R.string.Calendar);
+                getFragmentManager();
+                fragmentTransaction.replace(R.id.FragmentContainer, calfragment);
+                fragmentTransaction.commit();
+                break;
             case 7:
-                mTitle = getString(R.string.Admin);
-                getFragmentManager();
-                fragmentTransaction.replace(R.id.FragmentContainer, adminfragment);
-                fragmentTransaction.commit();
-                break;
-            case 8:
-                mTitle = getString(R.string.Staff);
-                getFragmentManager();
-                fragmentTransaction.replace(R.id.FragmentContainer, stafffragment);
-                fragmentTransaction.commit();
-                break;
-            case 9:
                 mTitle = getString(R.string.Athletics);
                 getFragmentManager();
                 fragmentTransaction.replace(R.id.FragmentContainer, athleticsfragment);
                 fragmentTransaction.commit();
                 break;
-            case 10:
-                mTitle = getString(R.string.CRC);
-                break;
-            case 11:
-                mTitle = getString(R.string.CSS);
-                break;
-            case 12:
+            case 8:
                 mTitle = getString(R.string.Early);
                 break;
-            case 13:
+            case 9:
+                mTitle = getString(R.string.Staff);
+                getFragmentManager();
+                fragmentTransaction.replace(R.id.FragmentContainer, stafffragment);
+                fragmentTransaction.commit();
+                break;
+            case 10:
                 mTitle = getString(R.string.Guidance);
                 getFragmentManager();
                 fragmentTransaction.replace(R.id.FragmentContainer, guidancefragment);
                 fragmentTransaction.commit();
                 break;
-            case 14:
-                mTitle = getString(R.string.CTE);
+            case 11:
+                mTitle = getString(R.string.Admin);
+                getFragmentManager();
+                fragmentTransaction.replace(R.id.FragmentContainer, adminfragment);
+                fragmentTransaction.commit();
                 break;
-            case 15:
-                mTitle = getString(R.string.Student);
-                break;
-            case 16:
-                mTitle = getString(R.string.Summer);
-                break;
-            case 17:
+            case 12:
                 mTitle = getString(R.string.external);
                 getFragmentManager();
                 fragmentTransaction.replace(R.id.FragmentContainer, externalfragment);
@@ -191,19 +176,13 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
         int id = item.getItemId();
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-
         if (id == R.id.GBHS) {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.high.schoolfusion.us"));
-            startActivity(browserIntent);
+            onSectionAttached(1);
+            restoreActionBar();
             return true;
         }
-        if (id == R.id.Settings) {
-            Toast.makeText(getApplicationContext(), "No settings yet.", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-
-        if (id == R.id.About) {
-            new About(this).show();
+        if (id == R.id.Times) {
+            new Times(this).show();
             return true;
         }
         if (id == R.id.StudentVUE) {
@@ -211,12 +190,12 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
             return true;
         }
         if (id == R.id.Facebook) {
-            onSectionAttached(5);
+            onSectionAttached(4);
             restoreActionBar();
             return true;
         }
         if (id == R.id.Twitter) {
-            onSectionAttached(6);
+            onSectionAttached(5);
             restoreActionBar();
             return true;
         }
@@ -225,9 +204,17 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
             startActivity(browserIntent);
             return true;
         }
-
-        if (id == R.id.Times) {
-            new Times(this).show();
+        if (id == R.id.GBHSWeb) {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.high.schoolfusion.us"));
+            startActivity(browserIntent);
+            return true;
+        }
+        if (id == R.id.Settings) {
+            Toast.makeText(getApplicationContext(), "No settings yet.", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if (id == R.id.About) {
+            new About(this).show();
             return true;
         }
 

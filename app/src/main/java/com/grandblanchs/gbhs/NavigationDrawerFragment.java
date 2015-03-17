@@ -103,20 +103,15 @@ public class NavigationDrawerFragment extends Fragment {
                 new String[]{
                         getString(R.string.Home),
                         getString(R.string.Announce),
-                        getString(R.string.Calendar),
                         getString(R.string.Grades),
                         getString(R.string.Facebook),
                         getString(R.string.Twitter),
-                        getString(R.string.Admin),
-                        getString(R.string.Staff),
+                        getString(R.string.Calendar),
                         getString(R.string.Athletics),
-                        getString(R.string.CRC),
-                        getString(R.string.CSS),
                         getString(R.string.Early),
+                        getString(R.string.Staff),
                         getString(R.string.Guidance),
-                        getString(R.string.CTE),
-                        getString(R.string.Student),
-                        getString(R.string.Summer),
+                        getString(R.string.Admin),
                         getString(R.string.external),
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
