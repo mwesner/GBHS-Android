@@ -5,7 +5,7 @@
 
     <!--Home-->
     <item android:id="@+id/GBHS"
-        android:title="@string/GBHSWeb"
+        android:title="@string/Home"
         android:icon="@drawable/home"
         app:showAsAction="always"/>
 

@@ -23,8 +23,8 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
         Announce.OnFragmentInteractionListener, Facebook.OnFragmentInteractionListener,
         Admin.OnFragmentInteractionListener,
         Staff.OnFragmentInteractionListener, External.OnFragmentInteractionListener,
-        Guidance.OnFragmentInteractionListener, Athletics.OnFragmentInteractionListener,
-        NavigationDrawerFragment.NavigationDrawerCallbacks {
+        College.OnFragmentInteractionListener, Guidance.OnFragmentInteractionListener,
+        Athletics.OnFragmentInteractionListener,NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     //TODO: Continue managing fragment transactions
 
@@ -45,6 +45,7 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
     TwitterFeed twitterfragment = new TwitterFeed();
     Calendar calfragment = new Calendar();
     Announce announcefragment = new Announce();
+    College collegefragment = new College();
     Admin adminfragment = new Admin();
     Staff stafffragment = new Staff();
     External externalfragment = new External();
@@ -121,6 +122,9 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
                 break;
             case 8:
                 mTitle = getString(R.string.Early);
+                getFragmentManager();
+                fragmentTransaction.replace(R.id.FragmentContainer, collegefragment);
+                fragmentTransaction.commit();
                 break;
             case 9:
                 mTitle = getString(R.string.Staff);
