@@ -132,6 +132,7 @@ public class Staff extends Fragment {
         }
     }
 
+    //Adapter class
     private class StaffAdapter extends BaseAdapter {
         private static final int TYPE_ITEM = 0;
         private static final int TYPE_SEPARATOR = 1;
@@ -186,14 +187,14 @@ public class Staff extends Fragment {
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {
-            Calendar.ViewHolder holder = null;
+            ViewHolder holder = null;
             int type = getItemViewType(position);
-            holder = new Calendar.ViewHolder();
+            holder = new ViewHolder();
             /*No 'if (convertView == null)' statement to prevent view recycling
             (views must remain fixed)*/
             switch (type) {
                 case TYPE_ITEM:
-                    convertView = mInflater.inflate(R.layout.stafflist, null);
+                    convertView = mInflater.inflate(R.layout.bluelist, null);
                     holder.textView = (TextView) convertView.findViewById(R.id.text);
                     break;
             }
@@ -201,5 +202,9 @@ public class Staff extends Fragment {
             holder.textView.setText(mData.get(position));
             return convertView;
         }
+    }
+
+    public static class ViewHolder {
+        public TextView textView;
     }
 }

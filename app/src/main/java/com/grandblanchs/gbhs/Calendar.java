@@ -48,7 +48,7 @@ public class Calendar extends Fragment {
     String currentDate;
     String selectedDate;
 
-    private CustomAdapter mAdapter;
+    private CalendarAdapter mAdapter;
 
     public Calendar() {
         // Required empty public constructor
@@ -197,7 +197,7 @@ public class Calendar extends Fragment {
                 }
 
                 //Set the content of the ListView
-                mAdapter = new CustomAdapter();
+                mAdapter = new CalendarAdapter();
                 for (int i = 0; i < eventList.size(); i++) {
                     mAdapter.addItem(eventList.get(i));
                 }
@@ -260,7 +260,7 @@ public class Calendar extends Fragment {
                     }
 
                     //Set the content of the ListView
-                    mAdapter = new CustomAdapter();
+                    mAdapter = new CalendarAdapter();
                     for (int i = 0; i < eventList.size(); i++) {
                         mAdapter.addItem(eventList.get(i));
                     }
@@ -273,13 +273,13 @@ public class Calendar extends Fragment {
     }
 
     //Adapter class
-    private class CustomAdapter extends BaseAdapter {
+    private class CalendarAdapter extends BaseAdapter {
         private static final int TYPE_ITEM = 0;
 
         private ArrayList<String> mData = new ArrayList<String>();
         private LayoutInflater mInflater;
 
-        public CustomAdapter() {
+        public CalendarAdapter() {
             if (getActivity() != null) {
                 mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             }

@@ -17,7 +17,7 @@
 
     <!--StudentVUE link-->
     <item android:id="@+id/StudentVUE"
-        android:title="@string/studentvue"
+        android:title="@string/Grades"
         android:icon="@drawable/svueaction"
         app:showAsAction="ifRoom"/>
 
