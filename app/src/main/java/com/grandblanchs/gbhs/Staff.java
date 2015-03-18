@@ -194,7 +194,7 @@ public class Staff extends Fragment {
             (views must remain fixed)*/
             switch (type) {
                 case TYPE_ITEM:
-                    convertView = mInflater.inflate(R.layout.bluelist, null);
+                    convertView = mInflater.inflate(R.layout.stafflist, null);
                     holder.textView = (TextView) convertView.findViewById(R.id.text);
                     break;
             }
