@@ -15,21 +15,6 @@
         android:layout_gravity="center_horizontal" />
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/scrollView"
-        android:layout_gravity="start|bottom"
-        android:fillViewport="false">
-    <TextView
-        android:id="@+id/txtStaff"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|top"
-        android:choiceMode="none"/>
-
-    </ScrollView>
-
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

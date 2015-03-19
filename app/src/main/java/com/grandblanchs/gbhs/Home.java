@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import org.jsoup.Jsoup;
@@ -33,6 +34,7 @@ public class Home extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
+    ScrollView scrNotification;
     TextView txtNotification;
     Button btnAnnounce;
     Button btnFacebook;
@@ -67,6 +69,7 @@ public class Home extends Fragment {
     public void onStart() {
         super.onStart();
         if (getActivity() != null) {
+            scrNotification = (ScrollView) getView().findViewById(R.id.scrNotification);
             txtNotification = (TextView) getView().findViewById(R.id.txtNotification);
             txtNotification.setCompoundDrawablesWithIntrinsicBounds(android.R.drawable.ic_dialog_alert, 0, 0, 0);
             btnAnnounce = (Button) getView().findViewById(R.id.btnAnnounce);
@@ -88,17 +91,6 @@ public class Home extends Fragment {
                     fragmentTransaction.commit();
                 }
             });
-            btnTwitter.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    TwitterFeed twitterfragment = new TwitterFeed();
-                    getActivity().setTitle(getString(R.string.Twitter));
-                    FragmentManager fragmentManager = getActivity().getFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.FragmentContainer, twitterfragment);
-                    fragmentTransaction.commit();
-                }
-            });
             btnFacebook.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -107,6 +99,17 @@ public class Home extends Fragment {
                     FragmentManager fragmentManager = getActivity().getFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.FragmentContainer, facebookfragment);
+                    fragmentTransaction.commit();
+                }
+            });
+            btnTwitter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    TwitterFeed twitterfragment = new TwitterFeed();
+                    getActivity().setTitle(getString(R.string.Twitter));
+                    FragmentManager fragmentManager = getActivity().getFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.FragmentContainer, twitterfragment);
                     fragmentTransaction.commit();
                 }
             });
@@ -152,6 +155,7 @@ public class Home extends Fragment {
                     getActivity().runOnUiThread(new Runnable() {
                         public void run() {
                             txtNotification.setText(emergNotifBox.text());
+                            scrNotification.setVisibility(View.VISIBLE);
                             txtNotification.setVisibility(View.VISIBLE);
                         }
                     });

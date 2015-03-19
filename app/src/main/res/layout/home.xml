@@ -24,18 +24,26 @@
         android:contentDescription="@string/app_name"
         android:scaleType="fitStart" />
 
-    <TextView
-        android:layout_width="match_parent"
+    <ScrollView
+        android:id="@+id/scrNotification"
         android:layout_height="wrap_content"
-        android:id="@+id/txtNotification"
-        android:gravity="center"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:visibility="gone"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:layout_below="@+id/imgGBEC"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/btnAnnounce"
+        android:layout_below="@+id/imgGBEC">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtNotification"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:visibility="gone"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </ScrollView>
 
     <Button
         android:layout_width="wrap_content"
@@ -45,11 +53,12 @@
         android:text="@string/Twitter"
         android:contentDescription="@string/Twitter"
         android:cropToPadding="false"
-        android:layout_below="@+id/btnFacebook"
-        android:layout_toRightOf="@+id/dummy1"
-        android:layout_alignRight="@+id/btnFacebook"
-        android:layout_alignEnd="@+id/btnFacebook"
-        android:backgroundTint="#ff212121" />
+        android:backgroundTint="#ff212121"
+        android:layout_alignTop="@+id/btnGrades"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/btnTimes"
+        android:layout_toStartOf="@+id/btnTimes" />
 
     <Button
         android:layout_width="wrap_content"
@@ -58,11 +67,12 @@
         android:drawableLeft="@drawable/facebook"
         android:text="@string/Facebook"
         android:contentDescription="@string/Facebook"
-        android:layout_below="@+id/btnAnnounce"
-        android:layout_toRightOf="@+id/dummy1"
-        android:layout_toLeftOf="@+id/dummy2"
-        android:layout_toStartOf="@+id/dummy2"
-        android:backgroundTint="#ff212121" />
+        android:backgroundTint="#ff212121"
+        android:layout_above="@+id/btnTwitter"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/btnTimes"
+        android:layout_toStartOf="@+id/btnTimes" />
 
     <Button
         android:layout_width="wrap_content"
@@ -72,25 +82,28 @@
         android:text="@string/Grades"
         android:contentDescription="@string/Grades"
         android:cropToPadding="false"
-        android:layout_alignBottom="@+id/btnTwitter"
-        android:layout_toRightOf="@+id/dummy2"
-        android:layout_alignRight="@+id/btnTimes"
-        android:layout_alignEnd="@+id/btnTimes"
-        android:layout_alignTop="@+id/btnTwitter"
-        android:backgroundTint="#ff212121" />
+        android:backgroundTint="#ff212121"
+        android:layout_above="@+id/btnWeb"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/btnTwitter"
+        android:layout_toEndOf="@+id/btnTwitter" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnWeb"
-        android:drawableLeft="@drawable/gblogo"
+        android:drawableLeft="@drawable/web"
         android:text="@string/GBHSWeb"
         android:contentDescription="@string/Facebook"
+        android:backgroundTint="#ff212121"
+        style="@android:style/Widget.Button.Small"
+        android:textColor="@android:color/white"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/dummy2"
-        android:backgroundTint="#ff212121" />
+        android:layout_alignRight="@+id/btnGrades"
+        android:layout_alignEnd="@+id/btnGrades"
+        android:layout_toRightOf="@+id/dummy2"
+        android:layout_toEndOf="@+id/dummy2" />
 
     <Button
         android:layout_width="wrap_content"
@@ -99,11 +112,12 @@
         android:drawableLeft="@drawable/announce"
         android:text="@string/Announce"
         android:contentDescription="@string/Facebook"
-        android:layout_below="@+id/imgGBEC"
-        android:layout_toRightOf="@+id/dummy1"
-        android:layout_alignRight="@+id/btnWeb"
-        android:layout_alignEnd="@+id/btnWeb"
-        android:backgroundTint="#ff212121" />
+        android:backgroundTint="#ff212121"
+        android:layout_above="@+id/btnFacebook"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/btnTimes"
+        android:layout_alignEnd="@+id/btnTimes" />
 
     <Button
         android:layout_width="wrap_content"
@@ -112,11 +126,25 @@
         android:drawableLeft="@drawable/clock"
         android:text="@string/schedulemenu"
         android:contentDescription="@string/schedulemenu"
-        android:layout_below="@+id/btnAnnounce"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/dummy2"
-        android:layout_toEndOf="@+id/dummy2"
-        android:backgroundTint="#ff212121" />
+        android:backgroundTint="#ff212121"
+        android:layout_alignTop="@+id/btnFacebook"
+        android:layout_alignLeft="@+id/dummy2"
+        android:layout_alignStart="@+id/dummy2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:drawableLeft="@drawable/calendar"
+        android:text="@string/Calendar"
+        android:contentDescription="@string/Calendar"
+        android:cropToPadding="false"
+        android:backgroundTint="#ff212121"
+        android:layout_toRightOf="@+id/dummy1"
+        android:layout_toLeftOf="@+id/btnGrades"
+        android:layout_toStartOf="@+id/btnGrades"
+        android:clickable="true"
+        android:layout_below="@+id/btnTwitter"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
