@@ -97,7 +97,6 @@
         android:text="@string/GBHSWeb"
         android:contentDescription="@string/Facebook"
         android:backgroundTint="#ff212121"
-        style="@android:style/Widget.Button.Small"
         android:textColor="@android:color/white"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/btnGrades"
