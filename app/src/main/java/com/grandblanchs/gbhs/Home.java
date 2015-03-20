@@ -40,6 +40,7 @@ public class Home extends Fragment {
     Button btnFacebook;
     Button btnTwitter;
     Button btnTimes;
+    Button btnCalendar;
     Button btnGrades;
     Button btnWeb;
 
@@ -76,9 +77,11 @@ public class Home extends Fragment {
             btnFacebook = (Button) getView().findViewById(R.id.btnFacebook);
             btnTwitter = (Button) getView().findViewById(R.id.btnTwitter);
             btnGrades = (Button) getView().findViewById(R.id.btnGrades);
+            btnCalendar = (Button) getView().findViewById(R.id.btnCalendar);
             btnTimes = (Button) getView().findViewById(R.id.btnTimes);
             btnWeb = (Button) getView().findViewById(R.id.btnWeb);
-            new CheckNotifications().execute();
+            //new CheckNotifications().execute();
+            final GBHS gbhsclass = new GBHS();
 
             btnAnnounce.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -120,11 +123,26 @@ public class Home extends Fragment {
                     new Grades(getActivity()).show();
                 }
             });
+            btnCalendar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Calendar timesfragment = new Calendar();
+                    getActivity().setTitle(getString(R.string.Twitter));
+                    FragmentManager fragmentManager = getActivity().getFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.FragmentContainer, timesfragment);
+                    fragmentTransaction.commit();
+                }
+            });
             btnTimes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    getActivity().setTitle(getString(R.string.schedulemenu));
-                    new Times(getActivity()).show();
+                    Times timesfragment = new Times();
+                    getActivity().setTitle(getString(R.string.Twitter));
+                    FragmentManager fragmentManager = getActivity().getFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.FragmentContainer, timesfragment);
+                    fragmentTransaction.commit();
                 }
             });
             btnWeb.setOnClickListener(new View.OnClickListener() {

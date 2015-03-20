@@ -21,7 +21,7 @@ import android.widget.Toast;
 public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractionListener,
         TwitterFeed.OnFragmentInteractionListener, Calendar.OnFragmentInteractionListener,
         Announce.OnFragmentInteractionListener, Facebook.OnFragmentInteractionListener,
-        Admin.OnFragmentInteractionListener,
+        Admin.OnFragmentInteractionListener, Times.OnFragmentInteractionListener,
         Staff.OnFragmentInteractionListener, External.OnFragmentInteractionListener,
         College.OnFragmentInteractionListener, Guidance.OnFragmentInteractionListener,
         Athletics.OnFragmentInteractionListener,NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -43,6 +43,7 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
     Home homefragment = new Home();
     Facebook facebookfragment = new Facebook();
     TwitterFeed twitterfragment = new TwitterFeed();
+    Times timesfragment = new Times();
     Calendar calfragment = new Calendar();
     Announce announcefragment = new Announce();
     College collegefragment = new College();

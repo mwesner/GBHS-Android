@@ -1,36 +1,49 @@
 package com.grandblanchs.gbhs;
 
+
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-public class Times {
 
-    private Activity mActivity;
+public class Times extends Fragment {
 
-    public Times(Activity context) {
-        mActivity = context;
+    private OnFragmentInteractionListener mListener;
+
+    public Times() {
+        // Required empty public constructor
     }
 
-    public void show() {
-
-        // Show the schedule
-        String title = "Daily Schedule of Times";
-
-        //Includes the updates as well so users know what changed.
-        AlertDialog.Builder builder = new AlertDialog.Builder(mActivity)
-                .setTitle(title)
-                .setMessage(R.string.schedule)
-                .setIcon(R.drawable.clock)
-                .setNeutralButton("Close", new Dialog.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        // Close the dialog
-                        dialogInterface.dismiss();
-                    }
-                });
-        builder.create().show();
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mListener = (OnFragmentInteractionListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.times, container, false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    public interface OnFragmentInteractionListener {}
 }

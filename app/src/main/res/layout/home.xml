@@ -134,7 +134,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
+        android:id="@+id/btnCalendar"
         android:drawableLeft="@drawable/calendar"
         android:text="@string/Calendar"
         android:contentDescription="@string/Calendar"
