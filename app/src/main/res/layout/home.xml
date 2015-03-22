@@ -115,20 +115,22 @@
         android:layout_above="@+id/btnFacebook"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/btnTimes"
-        android:layout_alignEnd="@+id/btnTimes" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnTimes"
         android:drawableLeft="@drawable/clock"
-        android:text="@string/schedulemenu"
-        android:contentDescription="@string/schedulemenu"
+        android:text="@string/schedule"
+        android:contentDescription="@string/schedule"
         android:backgroundTint="#ff212121"
         android:layout_alignTop="@+id/btnFacebook"
         android:layout_alignLeft="@+id/dummy2"
-        android:layout_alignStart="@+id/dummy2" />
+        android:layout_alignStart="@+id/dummy2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"

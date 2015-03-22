@@ -40,18 +40,18 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
 
-    Home homefragment = new Home();
-    Facebook facebookfragment = new Facebook();
-    TwitterFeed twitterfragment = new TwitterFeed();
-    Times timesfragment = new Times();
-    Calendar calfragment = new Calendar();
-    Announce announcefragment = new Announce();
-    College collegefragment = new College();
-    Admin adminfragment = new Admin();
-    Staff stafffragment = new Staff();
-    External externalfragment = new External();
-    Guidance guidancefragment = new Guidance();
-    Athletics athleticsfragment = new Athletics();
+    Home homeFrag = new Home();
+    Facebook facebookFrag = new Facebook();
+    TwitterFeed twitterFrag = new TwitterFeed();
+    Times timesFrag = new Times();
+    Calendar calFrag = new Calendar();
+    Announce announceFrag = new Announce();
+    College collegeFrag = new College();
+    Admin adminFrag = new Admin();
+    Staff staffFrag = new Staff();
+    External externalFrag = new External();
+    Guidance guidanceFrag = new Guidance();
+    Athletics athleticsFrag = new Athletics();
 
     //Create FragmentManager for switching fragments
     @Override
@@ -84,78 +84,78 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
         switch (number) {
             case 1:
                 mTitle = getString(R.string.Home);
-                getFragmentManager();
-                fragmentTransaction.replace(R.id.FragmentContainer, homefragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.FragmentContainer, homeFrag)
+                    .addToBackStack(null)
+                    .commit();
                 break;
             case 2:
                 mTitle = getString(R.string.Announce);
-                getFragmentManager();
-                fragmentTransaction.replace(R.id.FragmentContainer, announcefragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.FragmentContainer, announceFrag)
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case 3:
                 new Grades(this).show();
                 break;
             case 4:
-                mTitle = getString(R.string.schedulemenu);
-                getFragmentManager();
-                fragmentTransaction.replace(R.id.FragmentContainer, timesfragment);
-                fragmentTransaction.commit();
+                mTitle = getString(R.string.schedule);
+                fragmentTransaction.replace(R.id.FragmentContainer, timesFrag)
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case 5:
                 mTitle = getString(R.string.Facebook);
-                getFragmentManager();
-                fragmentTransaction.replace(R.id.FragmentContainer, facebookfragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.FragmentContainer, facebookFrag)
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case 6:
                 mTitle = getString(R.string.Twitter);
-                getFragmentManager();
-                fragmentTransaction.replace(R.id.FragmentContainer, twitterfragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.FragmentContainer, twitterFrag)
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case 7:
                 mTitle = getString(R.string.Calendar);
-                getFragmentManager();
-                fragmentTransaction.replace(R.id.FragmentContainer, calfragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.FragmentContainer, calFrag)
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case 8:
                 mTitle = getString(R.string.Athletics);
-                getFragmentManager();
-                fragmentTransaction.replace(R.id.FragmentContainer, athleticsfragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.FragmentContainer, athleticsFrag)
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case 9:
                 mTitle = getString(R.string.Early);
-                getFragmentManager();
-                fragmentTransaction.replace(R.id.FragmentContainer, collegefragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.FragmentContainer, collegeFrag)
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case 10:
                 mTitle = getString(R.string.Staff);
-                getFragmentManager();
-                fragmentTransaction.replace(R.id.FragmentContainer, stafffragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.FragmentContainer, staffFrag)
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case 11:
                 mTitle = getString(R.string.Guidance);
-                getFragmentManager();
-                fragmentTransaction.replace(R.id.FragmentContainer, guidancefragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.FragmentContainer, guidanceFrag)
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case 12:
                 mTitle = getString(R.string.Admin);
-                getFragmentManager();
-                fragmentTransaction.replace(R.id.FragmentContainer, adminfragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.FragmentContainer, adminFrag)
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case 13:
                 mTitle = getString(R.string.external);
-                getFragmentManager();
-                fragmentTransaction.replace(R.id.FragmentContainer, externalfragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.FragmentContainer, externalFrag)
+                        .addToBackStack(null)
+                        .commit();
                 break;
         }
     }
@@ -184,53 +184,48 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        if (id == R.id.GBHS) {
-            onSectionAttached(1);
-            restoreActionBar();
-            return true;
-        }
-        if (id == R.id.Times) {
-            onSectionAttached(4);
-            restoreActionBar();
-            return true;
-        }
-        if (id == R.id.StudentVUE) {
-            new Grades(this).show();
-            return true;
-        }
-        if (id == R.id.Facebook) {
-            onSectionAttached(5);
-            restoreActionBar();
-            return true;
-        }
-        if (id == R.id.Twitter) {
-            onSectionAttached(6);
-            restoreActionBar();
-            return true;
-        }
-        if (id == R.id.Calendar) {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.schoolfusion.us/modules/groups/homepagefiles/cms/105549/File/District%20Calendar%202014-2015%208-19.pdf"));
-            startActivity(browserIntent);
-            return true;
-        }
-        if (id == R.id.GBHSWeb) {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.high.schoolfusion.us"));
-            startActivity(browserIntent);
-            return true;
-        }
-        if (id == R.id.Settings) {
-            Toast.makeText(getApplicationContext(), "No settings yet.", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-        if (id == R.id.About) {
-            new About(this).show();
-            return true;
+        
+        switch (item.getItemId()) {
+            case R.id.Times:
+                onSectionAttached(4);
+                return true;
+            case R.id.StudentVUE:
+                new Grades(this).show();
+                return true;
+            case R.id.Announce:
+                onSectionAttached(2);
+                return true;
+            case R.id.Facebook:
+                onSectionAttached(5);
+                return true;
+            case R.id.Twitter:
+                onSectionAttached(6);
+                return true;
+            case R.id.Calendar:
+                Intent c = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.schoolfusion.us/modules/groups/homepagefiles/cms/105549/File/District%20Calendar%202014-2015%208-19.pdf"));
+                startActivity(c);
+                return true;
+            case R.id.GBHSWeb:
+                Intent w = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.high.schoolfusion.us"));
+                startActivity(w);
+                return true;
+            case R.id.Settings:
+                Toast.makeText(getApplicationContext(), "No settings yet.", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.About:
+                new About(this).show();
+                return true;
         }
 
+        restoreActionBar();
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
     }
 
     /**

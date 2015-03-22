@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TabHost;
 
 
 public class Times extends Fragment {
@@ -43,6 +44,28 @@ public class Times extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+
+        //Create TabHost
+        TabHost tabHost = (TabHost) getView().findViewById(R.id.tabHost);
+        tabHost.setup();
+
+        //Tab 1 - Percent and information
+        TabHost.TabSpec specs = tabHost.newTabSpec("tab1");
+        specs.setContent(R.id.tab1);
+        specs.setIndicator(getString(R.string.fullday));
+        tabHost.addTab(specs);
+
+        //Tab 2 - ABC 12 closings
+        specs = tabHost.newTabSpec("tab2");
+        specs.setContent(R.id.tab2);
+        specs.setIndicator(getString(R.string.halfday));
+        tabHost.addTab(specs);
+
+        //Tab 3 - Weather warnings and radar
+        specs = tabHost.newTabSpec("tab3");
+        specs.setContent(R.id.tab3);
+        specs.setIndicator(getString(R.string.latestart));
+        tabHost.addTab(specs);
     }
 
     public interface OnFragmentInteractionListener {}

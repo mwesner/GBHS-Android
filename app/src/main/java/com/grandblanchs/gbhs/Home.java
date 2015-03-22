@@ -1,8 +1,6 @@
 package com.grandblanchs.gbhs;
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -80,45 +78,42 @@ public class Home extends Fragment {
             btnCalendar = (Button) getView().findViewById(R.id.btnCalendar);
             btnTimes = (Button) getView().findViewById(R.id.btnTimes);
             btnWeb = (Button) getView().findViewById(R.id.btnWeb);
+
+            /*TODO: Enable this before release.
+            Disabled in testing so the website isn't constantly scraped*/
             //new CheckNotifications().execute();
-            final GBHS gbhsclass = new GBHS();
 
             btnAnnounce.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Announce announcefragment = new Announce();
-                    getActivity().setTitle(getString(R.string.Announce));
-                    FragmentManager fragmentManager = getActivity().getFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.FragmentContainer, announcefragment);
-                    fragmentTransaction.commit();
+                    ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Announce));
+                    Announce announceFrag = new Announce();
+                    getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, announceFrag)
+                            .addToBackStack(null).commit();
                 }
             });
             btnFacebook.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Facebook facebookfragment = new Facebook();
-                    getActivity().setTitle(getString(R.string.Facebook));
-                    FragmentManager fragmentManager = getActivity().getFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.FragmentContainer, facebookfragment);
-                    fragmentTransaction.commit();
+                    ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Facebook));
+                    Facebook facebookFrag = new Facebook();
+                    getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, facebookFrag)
+                            .addToBackStack(null).commit();
                 }
             });
             btnTwitter.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    TwitterFeed twitterfragment = new TwitterFeed();
-                    getActivity().setTitle(getString(R.string.Twitter));
-                    FragmentManager fragmentManager = getActivity().getFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.FragmentContainer, twitterfragment);
-                    fragmentTransaction.commit();
+                    ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Twitter));
+                    TwitterFeed twitterFrag = new TwitterFeed();
+                    getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, twitterFrag)
+                            .addToBackStack(null).commit();
                 }
             });
             btnGrades.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Grades));
                     getActivity().setTitle(getString(R.string.Grades));
                     new Grades(getActivity()).show();
                 }
@@ -126,23 +121,19 @@ public class Home extends Fragment {
             btnCalendar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Calendar timesfragment = new Calendar();
-                    getActivity().setTitle(getString(R.string.Twitter));
-                    FragmentManager fragmentManager = getActivity().getFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.FragmentContainer, timesfragment);
-                    fragmentTransaction.commit();
+                    ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Calendar));
+                    Calendar calFrag = new Calendar();
+                    getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, calFrag)
+                            .addToBackStack(null).commit();
                 }
             });
             btnTimes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Times timesfragment = new Times();
-                    getActivity().setTitle(getString(R.string.Twitter));
-                    FragmentManager fragmentManager = getActivity().getFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.FragmentContainer, timesfragment);
-                    fragmentTransaction.commit();
+                    ((GBHS) getActivity()).setActionBarTitle(getString(R.string.schedule));
+                    Times timeFrag = new Times();
+                    getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, timeFrag)
+                            .addToBackStack(null).commit();
                 }
             });
             btnWeb.setOnClickListener(new View.OnClickListener() {

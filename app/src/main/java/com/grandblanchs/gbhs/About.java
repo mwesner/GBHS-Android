@@ -21,7 +21,7 @@ public class About {
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity)
                 .setTitle(R.string.app_name)
                 .setIcon(R.drawable.ic_launcher)
-                .setMessage("Sponsored by Grand Blanc Schools CTE" + "\n\n"
+                .setMessage(mActivity.getString(R.string.CTEDesc) + "\n\n"
                                 + mActivity.getString(R.string.CTEWeb
                         ))
                 .setPositiveButton("Close", new Dialog.OnClickListener() {

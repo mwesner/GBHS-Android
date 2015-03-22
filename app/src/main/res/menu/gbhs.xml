@@ -3,15 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".GBHS">
 
-    <!--Home-->
-    <item android:id="@+id/GBHS"
-        android:title="@string/Home"
-        android:icon="@drawable/home"
-        app:showAsAction="always"/>
-
     <!--Schedule of Times-->
     <item android:id="@+id/Times"
-        android:title="@string/schedulemenu"
+        android:title="@string/schedule"
         android:icon="@drawable/clock"
         app:showAsAction="ifRoom" />
 
@@ -20,6 +14,12 @@
         android:title="@string/Grades"
         android:icon="@drawable/svueaction"
         app:showAsAction="ifRoom"/>
+
+    <!-- Announcements-->
+    <item android:id="@+id/Announce"
+        android:title="@string/Announce"
+        android:icon="@drawable/announce"
+        app:showAsAction="ifRoom" />
 
     <!--Facebook-->
     <item android:id="@+id/Facebook"
