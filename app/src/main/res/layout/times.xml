@@ -38,8 +38,8 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
                             android:text="@string/fulldaytimes"
+                            android:textSize="17sp"
                             android:id="@+id/txtFull"
                             android:padding="16dp"/>
                     </ScrollView>
@@ -59,8 +59,8 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
                             android:text="@string/halfdaytimes"
+                            android:textSize="17sp"
                             android:id="@+id/txtHalf"
                             android:padding="16dp"/>
                     </ScrollView>
@@ -80,8 +80,8 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
                             android:text="@string/latestarttimes"
+                            android:textSize="17sp"
                             android:id="@+id/txtLate"
                             android:padding="16dp"/>
                     </ScrollView>
