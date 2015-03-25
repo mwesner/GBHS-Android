@@ -12,7 +12,15 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:visibility="invisible"
-        />
+        android:textColor="#ffffffff" />
+
+    <com.facebook.widget.LoginButton
+        android:id="@+id/authButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="182dp"
+        android:layout_alignTop="@+id/hello"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

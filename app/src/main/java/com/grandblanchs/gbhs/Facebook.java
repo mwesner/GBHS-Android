@@ -13,29 +13,47 @@ package com.grandblanchs.gbhs;
     import com.facebook.*;
     import com.facebook.model.GraphUser;
 
-
 public class Facebook extends Fragment {
-    TextView hello;
     private OnFragmentInteractionListener mListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Session.openActiveSession(getActivity(), true, new Session.StatusCallback(){
+
+            @Override
+            public void call(Session session, SessionState state, Exception exception){
+                if (session.isOpened()){
+                    Request.executeMeRequestAsync(session, new Request.GraphUserCallback() {
+                        @Override
+                        public void onCompleted(GraphUser User, Response response) {
+                            if (User != null){
+                                TextView hello = (TextView) getView().findViewById(R.id.hello);
+                                hello.setText("Hello " + User.getName() + "!");
+                            }
+                        }
+                    });
+                }
+            }
+        });
+
     }
 
-   /* @Override
+
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
-        Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
+        Session.getActiveSession().onActivityResult(getActivity(), requestCode, resultCode, data);
+    }
 
-    }*/
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.facebook, container, false);
+
     }
 
     @Override
@@ -49,11 +67,10 @@ public class Facebook extends Fragment {
         }
     }
 
+    @Override
     public void onStart() {
         super.onStart();
-
     }
-
 
     @Override
     public void onDetach() {
@@ -63,25 +80,11 @@ public class Facebook extends Fragment {
 
     public interface OnFragmentInteractionListener {}
 
-    /*public void connect(){
-        Session.openActiveSession(this, true, new Session.StatusCallback(){
-            @Override
-            public void call(Session session, SessionState state, Exception exception){
-                if(session.isOpened()){
-                    //make request to the API
-                    Request.executeMeRequestAsync(session, new Request.GraphUserCallback(){
-                        @Override
-                        public void onCompleted(GraphUser user, Response response){
-                            if (user != null){
-                                hello = (TextView) getView().findViewById(hello);
-                                hello.setText("Hello " + user.getName() + "!");
-                            }
-                        }
-                    });
-                }
-            }
-        });
-    }
-*/
 
+    private class SessionStatusCallback implements Session.StatusCallback {
+        @Override
+        public void call(Session session, SessionState state, Exception exception) {
+            // Respond to session state changes, ex: updating the view
+        }
+    }
 }
