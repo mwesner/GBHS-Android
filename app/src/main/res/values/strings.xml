@@ -46,7 +46,8 @@
     <string name="halfday">Half Day</string>
     <string name="latestart">Late Start</string>
 
-    <string name="fulldaytimes">1st Hour:    7:20 – 8:19 (59 minutes)
+    <string name="fulldaytimes">
+    1st Hour:    7:20 – 8:19 (59 minutes)
     \n2nd Hour:    8:25 - 9:23 (58 minutes)
     \n3rd Hour:    9:29 - 10:32 (63 minutes with announcements)
     \n\nA Lunch:    10:32 - 11:02 (class starts at 11:08)
@@ -57,10 +58,8 @@
     \n6th Hour:    1:18 - 2:16 (58 minutes)
     \n\n***There will be a tone at 8:16, 9:20, 10:29, 12:05 and 1:09 to release travelers to their next class. All non-traveling students must remain in class until the official end of the period.</string>
 
-    <!--TODO: Update with half day schedule-->
-    <string name="halfdaytimes">School ends at 10:43</string>
-
-    <string name="latestarttimes">1st Hour:    9:40 – 10:11 (31 minutes)
+    <string name="halfdaytimes">
+    1st Hour:    9:40 – 10:11 (31 minutes)
     \n2nd Hour:    10:17 - 10:48 (31 minutes)
     \n3rd Hour:    10:54 - 11:25 (31 minutes)
     \n\nA Lunch:    11:25 - 11:55 (class starts at 12:01)
@@ -70,6 +69,16 @@
     \n5th Hour:   1:07 - 1:38 (31 minutes)
     \n6th Hour:    1:44 - 2:16 (32 minutes)
     \n\n***There will be a tone at 10:08, 10:45, 11:22, 12:58 and 1:35 to release travelers to their next class. All non-traveling students must remain in class until the official end of the period.</string>
+
+    <string name="latestarttimes">
+    1st Hour:    7:20 – 7:48 (28 minutes)
+    \n2nd Hour:    7:54 - 8:22 (28 minutes)
+    \n3rd Hour:    8:28 - 9:01 (29 minutes)
+    \n\nNo lunch is served on a half day.
+    \n\n4th Hour:   9:07 - 9:35 (28 minutes)
+    \n5th Hour:   9:41 - 10:09 (28 minutes)
+    \n6th Hour:    10:15 - 10:43 (28 minutes)
+    \n\n***There will be a tone at 7:45, 8:19, 8:58, 9:32 and 10:06 to release travelers to their next class. All non-traveling students must remain in class until the official end of the period.</string>
 
     <color name="darkred">#ffcc0000</color>
     <color name="bobcatred">#ff681008</color>

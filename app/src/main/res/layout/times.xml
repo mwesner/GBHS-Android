@@ -39,9 +39,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/fulldaytimes"
-                            android:textSize="17sp"
                             android:id="@+id/txtFull"
-                            android:padding="16dp"/>
+                            android:padding="16dp"
+                            android:textSize="17sp" />
                     </ScrollView>
                 </LinearLayout>
 
@@ -60,9 +60,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/halfdaytimes"
-                            android:textSize="17sp"
                             android:id="@+id/txtHalf"
-                            android:padding="16dp"/>
+                            android:padding="16dp"
+                            android:textSize="17sp" />
                     </ScrollView>
                 </LinearLayout>
 
@@ -83,7 +83,7 @@
                             android:text="@string/latestarttimes"
                             android:textSize="17sp"
                             android:id="@+id/txtLate"
-                            android:padding="16dp"/>
+                            android:padding="17dp" />
                     </ScrollView>
                 </LinearLayout>
             </FrameLayout>
