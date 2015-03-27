@@ -155,7 +155,12 @@ public class Calendar extends Fragment {
                     //Retrieve the event start times from the iCal feed.
                     eventTime[i] = eventTime[i].substring(9, 15);
 
-                    int time = Integer.parseInt(eventTime[i]);
+                    int time = 0;
+
+                    //Remove strings from array of times
+                    if (!eventTime[i].contains("TRANS")) {
+                        time = Integer.parseInt(eventTime[i]);
+                    }
 
                     if (time < 050000) {
                         //Time is before 0500 GMT. Roll back one day.
