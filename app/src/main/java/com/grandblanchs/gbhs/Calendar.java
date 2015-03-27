@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -155,14 +156,14 @@ public class Calendar extends Fragment {
                     //Retrieve the event start times from the iCal feed.
                     eventTime[i] = eventTime[i].substring(9, 15);
 
-                    int time = 0;
+                    int time = -1;
 
                     //Remove strings from array of times
                     if (!eventTime[i].contains("TRANS")) {
                         time = Integer.parseInt(eventTime[i]);
                     }
 
-                    if (time < 050000) {
+                    if (time < 050000 && time != -1) {
                         //Time is before 0500 GMT. Roll back one day.
 
                         String date = calArray[i];
@@ -179,6 +180,11 @@ public class Calendar extends Fragment {
 
                         calArray[i] = calArray[i].substring(0, 5) + String.valueOf(dateChange);
                     }
+
+                    Log.d("CalEvent", calArray[i]);
+                    Log.d("CalDesc", eventDescription[i]);
+                    Log.d("CalTime", eventTime[i]);
+                    Log.d("Separator", "-------------------------------------------");
                 }
 
 
