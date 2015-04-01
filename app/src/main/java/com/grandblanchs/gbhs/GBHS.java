@@ -190,18 +190,22 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
         
         switch (item.getItemId()) {
             case R.id.Times:
+                setActionBarTitle(getString(R.string.schedule));
                 onSectionAttached(4);
                 return true;
             case R.id.StudentVUE:
                 new Grades(this).show();
                 return true;
             case R.id.Announce:
+                setActionBarTitle(getString(R.string.Announce));
                 onSectionAttached(2);
                 return true;
             case R.id.Facebook:
+                setActionBarTitle(getString(R.string.Facebook));
                 onSectionAttached(5);
                 return true;
             case R.id.Twitter:
+                setActionBarTitle(getString(R.string.Twitter));
                 onSectionAttached(6);
                 return true;
             case R.id.Calendar:
