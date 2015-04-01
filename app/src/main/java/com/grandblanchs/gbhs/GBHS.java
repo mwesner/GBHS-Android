@@ -232,6 +232,18 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
         getSupportActionBar().setTitle(title);
     }
 
+    public void onBackPressed()
+    {
+        // Catch back action and pops from backstack
+        // (if you called previously to addToBackStack() in your transaction)
+        if (getFragmentManager().getBackStackEntryCount() > 1){
+            getFragmentManager().popBackStack();
+            restoreActionBar();
+        }
+        // Default action on back pressed
+        else super.onBackPressed();
+    }
+
     /**
      * A placeholder fragment containing a simple view.
      */
