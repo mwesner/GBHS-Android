@@ -21,6 +21,7 @@
     <string name="Athletics">Athletics</string>
     <string name="SportsSchedule">View Season Schedule</string>
     <string name="SportSelect">Select Another Sport</string>
+    <string name="BaseURL">"http://schedules.schedulestar.com/Grand-Blanc-High-School-Grand-Blanc-MI/season"</string>
     <string name="CRC">Career Resource Center</string>
     <string name="CSS">CSS</string>
     <string name="District">District Data</string>

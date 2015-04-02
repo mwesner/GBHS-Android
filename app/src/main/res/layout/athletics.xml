@@ -19,24 +19,22 @@
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="16dp"
         android:id="@+id/lstSport"
+        android:entries="@array/sports"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:entries="@array/sports"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="16dp"
         android:id="@+id/lstLevel"
+        android:entries="@array/sportslevelselect"
         android:layout_below="@+id/lstSport"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:entries="@array/sportslevel"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -44,10 +42,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lstGender"
+        android:entries="@array/sportsgenderselect"
         android:layout_below="@+id/lstLevel"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:entries="@array/sportsgender"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 

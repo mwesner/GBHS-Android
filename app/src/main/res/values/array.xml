@@ -50,17 +50,58 @@
         <item>Wrestling</item>
     </string-array>
 
-    <string-array name="sportslevel">
+    <string-array name="sportslevelselect">
+        <item>Select Level</item>
+    </string-array>
+
+    <string-array name="sportslevelall">
         <item>Select Level</item>
         <item>Varsity</item>
         <item>Junior Varsity</item>
         <item>Freshman</item>
     </string-array>
 
-    <string-array name="sportsgender">
+    <string-array name="sportslevelvarsity">
+        <item>Select Level</item>
+        <item>Varsity</item>
+    </string-array>
+
+    <string-array name="sportsleveljuniorvarsity">
+        <item>Select Level</item>
+        <item>Varsity</item>
+        <item>Junior Varsity</item>
+    </string-array>
+
+    <string-array name="sportsgenderboysgirls">
         <item>Select Gender</item>
         <item>Boys</item>
         <item>Girls</item>
+    </string-array>
+
+    <string-array name="sportsgenderselect">
+        <item>Select Gender</item>
+    </string-array>
+
+    <string-array name="sportsgenderboys">
+        <item>Select Gender</item>
+        <item>Boys</item>
+    </string-array>
+
+    <string-array name="sportsgendergirls">
+        <item>Select Gender</item>
+        <item>Girls</item>
+    </string-array>
+
+    <string-array name="sportsgendercombined">
+        <item>Select Gender</item>
+        <item>Boys and Girls</item>
+    </string-array>
+
+    <string-array name="sportsgenderall">
+        <item>Select Gender</item>
+        <item>Boys</item>
+        <item>Girls</item>
+        <item>Boys and Girls</item>
     </string-array>
 
     <string-array name="external">
