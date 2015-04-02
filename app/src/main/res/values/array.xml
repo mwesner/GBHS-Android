@@ -28,6 +28,41 @@
         <item>"Mrs. McCleary (Secretary East)"</item>
     </string-array>
 
+    <string-array name="sports">
+        <item>Select Sport</item>
+        <item>Baseball</item>
+        <item>Basketball</item>
+        <item>Bowling</item>
+        <item>Cheerleading</item>
+        <item>Cross Country</item>
+        <item>Football</item>
+        <item>Golf</item>
+        <item>Ice Hockey</item>
+        <item>Lacrosse</item>
+        <item>Skiing</item>
+        <item>Soccer</item>
+        <item>Softball</item>
+        <item>Swim and Dive</item>
+        <item>Tennis</item>
+        <item>Track</item>
+        <item>Volleyball</item>
+        <item>Water Polo</item>
+        <item>Wrestling</item>
+    </string-array>
+
+    <string-array name="sportslevel">
+        <item>Select Level</item>
+        <item>Varsity</item>
+        <item>Junior Varsity</item>
+        <item>Freshman</item>
+    </string-array>
+
+    <string-array name="sportsgender">
+        <item>Select Gender</item>
+        <item>Boys</item>
+        <item>Girls</item>
+    </string-array>
+
     <string-array name="external">
         <item>GBHS Facebook</item>
         <item>facebook.com/GrandBlancHighSchool</item>

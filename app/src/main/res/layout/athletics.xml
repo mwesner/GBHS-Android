@@ -4,40 +4,79 @@
     android:layout_height="match_parent"
     tools:context=".GBHS"
     android:weightSum="1"
+    android:padding="16dp"
     android:orientation="vertical">
 
-    <Space
-        android:id="@+id/dummy"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_centerVertical="true" />
-
-    <CalendarView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/dummy"
-        android:id="@+id/gridCal"
-        android:gravity="center"
-        android:choiceMode="none"
-        android:numColumns="7"
-        android:visibility="invisible" />
-
-    <ListView
-        android:paddingTop="32dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:gravity="center"
-        android:id="@+id/lstInfo"
-        android:visibility="invisible"
-        android:layout_below="@+id/dummy" />
-
     <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/progCalendar"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:id="@+id/lstSport"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:entries="@array/sports"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:id="@+id/lstLevel"
+        android:layout_below="@+id/lstSport"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:entries="@array/sportslevel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lstGender"
+        android:layout_below="@+id/lstLevel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:entries="@array/sportsgender"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/SportsSchedule"
+        android:id="@+id/btnSport"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:enabled="false" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:id="@+id/picAthletics"
+        android:layout_alignRight="@+id/lstGender"
+        android:layout_alignEnd="@+id/lstGender"
+        android:layout_alignLeft="@+id/lstGender"
+        android:layout_alignStart="@+id/lstGender"
+        android:layout_above="@+id/btnSport"
+        android:contentDescription="@string/Athletics"
+        android:src="@drawable/athletics"
+        android:layout_below="@+id/lstGender"
+        android:alpha="0.2" />
 
 
 </RelativeLayout>
