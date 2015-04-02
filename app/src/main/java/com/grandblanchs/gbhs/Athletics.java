@@ -2,7 +2,9 @@ package com.grandblanchs.gbhs;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,10 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 
 public class Athletics extends Fragment {
@@ -28,6 +34,8 @@ public class Athletics extends Fragment {
     boolean sportPicked;
     boolean levelPicked;
     boolean genderPicked;
+
+    String baseUrl;
 
     public Athletics() {
         // Required empty public constructor
@@ -139,19 +147,52 @@ public class Athletics extends Fragment {
                             getActivity().getApplicationContext(),
                             getResources().getStringArray(R.array.sportsgender)[lstGender.getSelectedItemPosition()]
                             +" " + getResources().getStringArray(R.array.sportslevel)[lstLevel.getSelectedItemPosition()]
-                            + " " +getResources().getStringArray(R.array.sports)[lstSport.getSelectedItemPosition()],
+                            + " " + getResources().getStringArray(R.array.sports)[lstSport.getSelectedItemPosition()],
                             Toast.LENGTH_LONG)
                             .show();
+                    btnSport.setText(R.string.SportSelect);
+                    lstSport.setVisibility(View.GONE);
+                    lstLevel.setVisibility(View.GONE);
+                    lstGender.setVisibility(View.GONE);
+
+                    prog.setVisibility(View.VISIBLE);
+
+                    new getSeasonSchedule().execute();
                 }
             });
         }
     }
 
-        public void toggleSportButton() {
-            if (sportPicked && levelPicked && genderPicked) {
-                btnSport.setEnabled(true);
-            }else{
-                btnSport.setEnabled(false);
-            }
+    public void toggleSportButton() {
+        if (sportPicked && levelPicked && genderPicked) {
+            btnSport.setEnabled(true);
+        }else{
+            btnSport.setEnabled(false);
+        }
     }
+
+    class getSeasonSchedule extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            /**SCHEDULE SCRAPER**/
+
+            //Get the season event page.
+            baseUrl = "http://schedules.schedulestar.com/Grand-Blanc-High-School-Grand-Blanc-MI/season";
+
+            //Add the current date (MM-DD-YYYY).
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy", Locale.US);
+
+            baseUrl += "/" + sdf.format(cal.getTime());
+            baseUrl += "/" + getResources().getStringArray(R.array.sportsgender)[lstGender.getSelectedItemPosition()];
+            baseUrl += "/" + getResources().getStringArray(R.array.sportslevel)[lstLevel.getSelectedItemPosition()];
+            baseUrl += "/" + getResources().getStringArray(R.array.sports)[lstSport.getSelectedItemPosition()];
+
+            Log.d("URL", baseUrl);
+
+            return null;
+        }
+    }
+
 }
