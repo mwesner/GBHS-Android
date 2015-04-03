@@ -5,15 +5,20 @@ import android.app.Fragment;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
-import android.widget.Toast;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import java.io.IOException;
 
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
@@ -54,6 +59,10 @@ public class Athletics extends Fragment {
     String[] girls;
     String[] boysgirls;
     String[] combined;
+
+    String[] schedule;
+
+    ListView lstSeason;
 
     int levelStatus;
     /*0 = all
@@ -110,11 +119,13 @@ public class Athletics extends Fragment {
         if (getActivity() != null) {
             context = getActivity().getApplicationContext();
 
-            prog = (ProgressBar) getView().findViewById(R.id.progCalendar);
+            prog = (ProgressBar) getView().findViewById(R.id.progAthletics);
             lstSport = (Spinner) getView().findViewById(R.id.lstSport);
             lstLevel = (Spinner) getView().findViewById(R.id.lstLevel);
             lstGender = (Spinner) getView().findViewById(R.id.lstGender);
             btnSport = (Button) getView().findViewById(R.id.btnSport);
+
+            lstSeason = (ListView) getView().findViewById(R.id.lstSeason);
 
             levelselect = getActivity().getResources().getStringArray(R.array.sportslevelselect); //Clears level options
             genderselect = getActivity().getResources().getStringArray(R.array.sportsgenderselect); //Clears gender options
@@ -189,8 +200,24 @@ public class Athletics extends Fragment {
             btnSport.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if (lstSeason.getVisibility() == View.VISIBLE) {
+                        lstSeason.setVisibility(View.GONE);
+                        lstSport.setVisibility(View.VISIBLE);
+                        lstLevel.setVisibility(View.VISIBLE);
+                        lstGender.setVisibility(View.VISIBLE);
 
-                    new getSeasonSchedule().execute();
+                        btnSport.setText(R.string.SportsSchedule);
+                    } else {
+                        lstSport.setVisibility(View.GONE);
+                        lstLevel.setVisibility(View.GONE);
+                        lstGender.setVisibility(View.GONE);
+
+                        btnSport.setText(R.string.SportSelect);
+
+                        prog.setVisibility(View.VISIBLE);
+
+                        new getSeasonSchedule().execute();
+                    }
                 }
             });
         }
@@ -452,20 +479,38 @@ public class Athletics extends Fragment {
             //Remove any spaces in the URL.
             baseUrl = baseUrl.replace(" ", "%20");
 
-            if (getActivity() != null) {
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(
-                                context,
-                                baseUrl,
-                                Toast.LENGTH_LONG)
-                                .show();
-                    }
-                });
-            }
+            Log.d("FULL URL", baseUrl);
 
+            Document s = null;
+            try {
+                s = Jsoup.connect(baseUrl).get();
+                schedule = new String[1];
+
+                //TODO: Parse classes containing locations and times of season games.
+                schedule[0] = "Season schedule will appear here.";
+            }catch (IOException e) {
+                schedule = new String[1];
+                schedule[0] = getString(R.string.NoConnection);
+            }
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            ArrayAdapter<String> seasonAdapter = new ArrayAdapter<>(
+                    context,
+                    android.R.layout.simple_list_item_1,
+                    schedule
+            );
+
+
+            lstSeason.setAdapter(seasonAdapter);
+            lstSeason.setVisibility(View.VISIBLE);
+
+            prog.setVisibility(View.GONE);
+
         }
     }
 
