@@ -89,7 +89,7 @@
     <string name="facebook_app_id">1552325678377912</string>
     <string name="facebook_secret">dbaa58d5266424b6e25d46d1fbd773d0</string>
     <string name="facebook_access_token">CAACEdEose0cBAC6gCoAVUGskqPZBW77KcnwMZC8v5JBdTbyZAxB6UDnZArTcuZBHukaH6hbFt3EgsuvmcNNjbi7OMLKTPJ1pI12mYPbYP8qr4sJGBWI474azZAqWEREnpqoWYZCrOqNRy4jIwdpVqxBuGe5ZCfm1Qw87n2MddwKTE6UKrb7PqoyFUhLgF8a4qMp2lZCHv3Fcem3nmnlq8KPdvFym6pqlnWLUZD</string>
-    <string name="facbeook_app_token">1552325678377912|Uh8QafY5e5mSopY7AYRRNzEsCq0</string>
+    <string name="facebook_app_token">1552325678377912|Uh8QafY5e5mSopY7AYRRNzEsCq0</string>
     <!--TODO: (Aaron) Change to school's facebook ID-->
     <string name="facebook_account_id">1575038112782132</string>
 
