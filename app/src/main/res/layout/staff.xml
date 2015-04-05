@@ -21,5 +21,7 @@
         android:id="@+id/lstStaff"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
-        android:fastScrollEnabled="true"/>
+        android:fastScrollEnabled="true"
+        android:requiresFadingEdge="vertical"
+        android:fadingEdgeLength="25dp"/>
 </RelativeLayout>

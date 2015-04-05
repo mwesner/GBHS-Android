@@ -23,7 +23,6 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeSet;
 
 
 public class Staff extends Fragment {
@@ -135,13 +134,9 @@ public class Staff extends Fragment {
     //Adapter class
     private class StaffAdapter extends BaseAdapter {
         private static final int TYPE_ITEM = 0;
-        private static final int TYPE_SEPARATOR = 1;
-        private static final int TYPE_MAX_COUNT = TYPE_SEPARATOR + 1;
 
         private ArrayList<String> mData = new ArrayList<String>();
         private LayoutInflater mInflater;
-
-        private TreeSet<Integer> mSeparatorsSet = new TreeSet<Integer>();
 
         public StaffAdapter() {
             if (getActivity() != null) {
@@ -154,21 +149,14 @@ public class Staff extends Fragment {
             notifyDataSetChanged();
         }
 
-        public void addSeparatorItem(final String item) {
-            mData.add(item);
-            //Save separator position
-            mSeparatorsSet.add(mData.size() - 1);
-            notifyDataSetChanged();
-        }
-
         @Override
         public int getItemViewType(int position) {
-            return mSeparatorsSet.contains(position) ? TYPE_SEPARATOR : TYPE_ITEM;
+            return TYPE_ITEM;
         }
 
         @Override
         public int getViewTypeCount() {
-            return TYPE_MAX_COUNT;
+            return 1;
         }
 
         @Override
@@ -190,8 +178,6 @@ public class Staff extends Fragment {
             ViewHolder holder = null;
             int type = getItemViewType(position);
             holder = new ViewHolder();
-            /*No 'if (convertView == null)' statement to prevent view recycling
-            (views must remain fixed)*/
             switch (type) {
                 case TYPE_ITEM:
                     convertView = mInflater.inflate(R.layout.stafflist, null);
