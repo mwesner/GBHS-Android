@@ -22,9 +22,10 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
         TwitterFeed.OnFragmentInteractionListener, Calendar.OnFragmentInteractionListener,
         Announce.OnFragmentInteractionListener, Facebook.OnFragmentInteractionListener,
         Admin.OnFragmentInteractionListener, Times.OnFragmentInteractionListener,
-        Staff.OnFragmentInteractionListener, External.OnFragmentInteractionListener,
-        College.OnFragmentInteractionListener, Guidance.OnFragmentInteractionListener,
-        Athletics.OnFragmentInteractionListener,NavigationDrawerFragment.NavigationDrawerCallbacks {
+        Map.OnFragmentInteractionListener, Staff.OnFragmentInteractionListener,
+        External.OnFragmentInteractionListener, College.OnFragmentInteractionListener,
+        Guidance.OnFragmentInteractionListener, Athletics.OnFragmentInteractionListener,
+        NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     //TODO: Continue managing fragment transactions
 
@@ -44,6 +45,7 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
     Facebook facebookFrag = new Facebook();
     TwitterFeed twitterFrag = new TwitterFeed();
     Times timesFrag = new Times();
+    Map mapFrag = new Map();
     Calendar calFrag = new Calendar();
     Announce announceFrag = new Announce();
     College collegeFrag = new College();
@@ -104,54 +106,60 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
                         .commit();
                 break;
             case 5:
+                mTitle = getString(R.string.Map);
+                fragmentTransaction.replace(R.id.FragmentContainer, mapFrag)
+                        .addToBackStack(null)
+                        .commit();
+                break;
+            case 6:
                 mTitle = getString(R.string.Facebook);
                 fragmentTransaction.replace(R.id.FragmentContainer, facebookFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
-            case 6:
+            case 7:
                 mTitle = getString(R.string.Twitter);
                 fragmentTransaction.replace(R.id.FragmentContainer, twitterFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
-            case 7:
+            case 8:
                 mTitle = getString(R.string.Calendar);
                 fragmentTransaction.replace(R.id.FragmentContainer, calFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
-            case 8:
+            case 9:
                 mTitle = getString(R.string.Athletics);
                 fragmentTransaction.replace(R.id.FragmentContainer, athleticsFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
-            case 9:
+            case 10:
                 mTitle = getString(R.string.Early);
                 fragmentTransaction.replace(R.id.FragmentContainer, collegeFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
-            case 10:
+            case 11:
                 mTitle = getString(R.string.Staff);
                 fragmentTransaction.replace(R.id.FragmentContainer, staffFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
-            case 11:
+            case 12:
                 mTitle = getString(R.string.Guidance);
                 fragmentTransaction.replace(R.id.FragmentContainer, guidanceFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
-            case 12:
+            case 13:
                 mTitle = getString(R.string.Admin);
                 fragmentTransaction.replace(R.id.FragmentContainer, adminFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
-            case 13:
+            case 14:
                 mTitle = getString(R.string.external);
                 fragmentTransaction.replace(R.id.FragmentContainer, externalFrag)
                         .addToBackStack(null)
@@ -202,11 +210,11 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
                 return true;
             case R.id.Facebook:
                 setActionBarTitle(getString(R.string.Facebook));
-                onSectionAttached(5);
+                onSectionAttached(6);
                 return true;
             case R.id.Twitter:
                 setActionBarTitle(getString(R.string.Twitter));
-                onSectionAttached(6);
+                onSectionAttached(7);
                 return true;
             case R.id.Calendar:
                 Intent c = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.schoolfusion.us/modules/groups/homepagefiles/cms/105549/File/District%20Calendar%202014-2015%208-19.pdf"));

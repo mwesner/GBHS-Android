@@ -11,6 +11,9 @@
     <string name="Grades">Check Grades</string>
     <string name="studentvue">Open StudentVUE</string>
     <string name="synergy">Open website</string>
+    <string name="Map">Campus Map</string>
+    <string name="East">East Campus</string>
+    <string name="West">West Campus</string>
     <string name="Twitter">GBHS Twitter</string>
     <string name="Facebook">GBHS Facebook</string>
     <string name="Admin">Administration</string>
