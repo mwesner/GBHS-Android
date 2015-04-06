@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GBHS"
+    android:weightSum="1"
+    android:orientation="vertical">
+
+    <Space
+        android:id="@+id/dummy"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true" />
+
+    <CalendarView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/gridCal"
+        android:gravity="center"
+        android:choiceMode="none"
+        android:numColumns="7"
+        android:visibility="invisible"
+        android:layout_alignRight="@+id/dummy"
+        android:layout_alignEnd="@+id/dummy"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true" />
+
+    <ListView
+        android:paddingTop="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:gravity="center"
+        android:id="@+id/lstInfo"
+        android:visibility="invisible"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/dummy"
+        android:layout_toEndOf="@+id/dummy" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progCalendar"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
