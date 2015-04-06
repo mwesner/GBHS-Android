@@ -97,6 +97,7 @@
     <string name="facebook_account_id">1575038112782132</string>
 
     <!--TODO: (Aaron) Change to school's twitter OAuth-->
+    <string name="twitterUser">GrandBlancPride</string>
     <string name="twitterAccessToken">2832408273-pvUljzIaVPHm9SgWAqwQXXbBQgA9AYQ8gKI9XEQ</string>
     <string name="twitterAccessTokenSecret">0NI1CVcbKCZDWjIqqipN7LZuWuCDAqVaL37Wf6XgAa9Ww</string>
     <string name="CONSUMER_KEY">0S62lfz7hGX39oZo2jJmrhZ96</string>

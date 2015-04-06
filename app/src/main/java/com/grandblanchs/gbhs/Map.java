@@ -1,6 +1,5 @@
 package com.grandblanchs.gbhs;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,9 +11,9 @@ import android.widget.TabHost;
 
 public class Map extends Fragment {
 
-    ProgressBar prog;
+    public interface OnFragmentInteractionListener{}
 
-    private OnFragmentInteractionListener mListener;
+    ProgressBar prog;
 
     public Map() {
         // Required empty public constructor
@@ -33,50 +32,26 @@ public class Map extends Fragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        prog = (ProgressBar) view.findViewById(R.id.progMap);
+
+        //Create TabHost
+        TabHost tabHost = (TabHost) view.findViewById(R.id.tabHost);
+
+        tabHost.setup();
+
+        //Tab 1 - Full Day
+        TabHost.TabSpec specs = tabHost.newTabSpec("tab1");
+        specs.setContent(R.id.tab1);
+        specs.setIndicator(getString(R.string.East));
+        tabHost.addTab(specs);
+
+        //Tab 2 - Half Day
+        specs = tabHost.newTabSpec("tab2");
+        specs.setContent(R.id.tab2);
+        specs.setIndicator(getString(R.string.West));
+        tabHost.addTab(specs);
+
         }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    public interface OnFragmentInteractionListener {
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        if (getActivity() != null) {
-            prog = (ProgressBar) getView().findViewById(R.id.progMap);
-
-            //Create TabHost
-            TabHost tabHost = (TabHost) getView().findViewById(R.id.tabHost);
-
-            if (tabHost.getCurrentView() == null) {
-                tabHost.setup();
-
-                //Tab 1 - Full Day
-                TabHost.TabSpec specs = tabHost.newTabSpec("tab1");
-                specs.setContent(R.id.tab1);
-                specs.setIndicator(getString(R.string.East));
-                tabHost.addTab(specs);
-
-                //Tab 2 - Half Day
-                specs = tabHost.newTabSpec("tab2");
-                specs.setContent(R.id.tab2);
-                specs.setIndicator(getString(R.string.West));
-                tabHost.addTab(specs);
-
-            }
-        }
-    }
 }

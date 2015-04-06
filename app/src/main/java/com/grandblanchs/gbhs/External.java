@@ -1,7 +1,6 @@
 package com.grandblanchs.gbhs;
 
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -18,10 +17,12 @@ import java.util.ArrayList;
 
 public class External extends Fragment {
 
-    private OnFragmentInteractionListener mListener;
+    public interface OnFragmentInteractionListener {}
 
     ListView lstExternal;
     ProgressBar prog;
+
+    String[] external;
 
     public External() {
         // Required empty public constructor
@@ -33,14 +34,12 @@ public class External extends Fragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        lstExternal = (ListView) view.findViewById(R.id.lstExternal);
+        prog = (ProgressBar) view.findViewById(R.id.progExternal);
+
+        external = getActivity().getResources().getStringArray(R.array.external);
     }
 
     @Override
@@ -53,37 +52,26 @@ public class External extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        if (getActivity() != null) {
-            lstExternal = (ListView) getView().findViewById(R.id.lstExternal);
-            prog = (ProgressBar) getView().findViewById(R.id.progExternal);
 
-            String[] external = getActivity().getResources().getStringArray(R.array.external);
-
-            ExternalAdapter adapter = new ExternalAdapter();
-            for (int i = 0; i < external.length; i++) {
-                adapter.addItem(external[i]);
-
-            }
-            lstExternal.setAdapter(adapter);
-            prog.setVisibility(View.GONE);
-            lstExternal.setVisibility(View.VISIBLE);
+        ExternalAdapter adapter = new ExternalAdapter();
+        for (String anExternal : external) {
+            adapter.addItem(anExternal);
         }
-    }
+        lstExternal.setAdapter(adapter);
+        prog.setVisibility(View.GONE);
+        lstExternal.setVisibility(View.VISIBLE);
 
-    public interface OnFragmentInteractionListener {
     }
 
     //Adapter class
     private class ExternalAdapter extends BaseAdapter {
         private static final int TYPE_ITEM = 0;
 
-        private ArrayList<String> mData = new ArrayList<String>();
+        private ArrayList<String> mData = new ArrayList<>();
         private LayoutInflater mInflater;
 
         public ExternalAdapter() {
-            if (getActivity() != null) {
-                mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            }
+            mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
 
         public void addItem(final String item) {
@@ -117,16 +105,16 @@ public class External extends Fragment {
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder = null;
+            ViewHolder holder;
             int type = getItemViewType(position);
             holder = new ViewHolder();
             switch (type) {
                 case TYPE_ITEM:
                     if (position %2 == 0) {
-                        convertView = mInflater.inflate(R.layout.largelist, null);
+                        convertView = mInflater.inflate(R.layout.largelist, parent, false);
                         holder.textView = (TextView) convertView.findViewById(R.id.text);
                     }else{
-                        convertView = mInflater.inflate(R.layout.linklist, null);
+                        convertView = mInflater.inflate(R.layout.linklist, parent, false);
                         holder.textView = (TextView) convertView.findViewById(R.id.text);
                     }
                     break;

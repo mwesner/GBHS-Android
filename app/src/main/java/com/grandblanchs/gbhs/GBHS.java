@@ -1,11 +1,12 @@
 package com.grandblanchs.gbhs;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.FragmentTransaction;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -38,8 +39,8 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
-    FragmentManager fragmentManager;
-    FragmentTransaction fragmentTransaction;
+    FragmentManager fm;
+    FragmentTransaction ft;
 
     Home homeFrag = new Home();
     Facebook facebookFrag = new Facebook();
@@ -74,25 +75,26 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
+        android.support.v4.app.FragmentManager sfm = getSupportFragmentManager();
+        sfm.beginTransaction()
                 .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
                 .commit();
     }
 
+    @SuppressLint("CommitTransaction")
     public void onSectionAttached(int number) {
-        fragmentManager = getFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
+        fm = getFragmentManager();
+        ft = fm.beginTransaction();
         switch (number) {
             case 1:
                 mTitle = getString(R.string.Home);
-                fragmentTransaction.replace(R.id.FragmentContainer, homeFrag)
+                ft.replace(R.id.FragmentContainer, homeFrag)
                     .addToBackStack(null)
                     .commit();
                 break;
             case 2:
                 mTitle = getString(R.string.Announce);
-                fragmentTransaction.replace(R.id.FragmentContainer, announceFrag)
+                ft.replace(R.id.FragmentContainer, announceFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
@@ -101,67 +103,67 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
                 break;
             case 4:
                 mTitle = getString(R.string.schedule);
-                fragmentTransaction.replace(R.id.FragmentContainer, timesFrag)
+                ft.replace(R.id.FragmentContainer, timesFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
             case 5:
                 mTitle = getString(R.string.Map);
-                fragmentTransaction.replace(R.id.FragmentContainer, mapFrag)
+                ft.replace(R.id.FragmentContainer, mapFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
             case 6:
                 mTitle = getString(R.string.Facebook);
-                fragmentTransaction.replace(R.id.FragmentContainer, facebookFrag)
+                ft.replace(R.id.FragmentContainer, facebookFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
             case 7:
                 mTitle = getString(R.string.Twitter);
-                fragmentTransaction.replace(R.id.FragmentContainer, twitterFrag)
+                ft.replace(R.id.FragmentContainer, twitterFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
             case 8:
                 mTitle = getString(R.string.Calendar);
-                fragmentTransaction.replace(R.id.FragmentContainer, calFrag)
+                ft.replace(R.id.FragmentContainer, calFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
             case 9:
                 mTitle = getString(R.string.Athletics);
-                fragmentTransaction.replace(R.id.FragmentContainer, athleticsFrag)
+                ft.replace(R.id.FragmentContainer, athleticsFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
             case 10:
                 mTitle = getString(R.string.Early);
-                fragmentTransaction.replace(R.id.FragmentContainer, collegeFrag)
+                ft.replace(R.id.FragmentContainer, collegeFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
             case 11:
                 mTitle = getString(R.string.Staff);
-                fragmentTransaction.replace(R.id.FragmentContainer, staffFrag)
+                ft.replace(R.id.FragmentContainer, staffFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
             case 12:
                 mTitle = getString(R.string.Guidance);
-                fragmentTransaction.replace(R.id.FragmentContainer, guidanceFrag)
+                ft.replace(R.id.FragmentContainer, guidanceFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
             case 13:
                 mTitle = getString(R.string.Admin);
-                fragmentTransaction.replace(R.id.FragmentContainer, adminFrag)
+                ft.replace(R.id.FragmentContainer, adminFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
             case 14:
                 mTitle = getString(R.string.external);
-                fragmentTransaction.replace(R.id.FragmentContainer, externalFrag)
+                ft.replace(R.id.FragmentContainer, externalFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
@@ -193,8 +195,7 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
-        fragmentManager = getFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
+        fm = getFragmentManager();
         
         switch (item.getItemId()) {
             case R.id.Times:
@@ -244,8 +245,8 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
     {
         // Catch back action and pops from backstack
         // (if you called previously to addToBackStack() in your transaction)
-        if (getFragmentManager().getBackStackEntryCount() > 1){
-            getFragmentManager().popBackStack();
+        if (fm.getBackStackEntryCount() > 1){
+            fm.popBackStack();
             restoreActionBar();
         }
         // Default action on back pressed

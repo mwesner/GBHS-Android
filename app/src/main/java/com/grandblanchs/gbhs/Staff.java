@@ -1,7 +1,5 @@
 package com.grandblanchs.gbhs;
 
-
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -15,10 +13,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.jsoup.nodes.Document;
-import org.jsoup.Jsoup;
-
 import org.apache.commons.lang3.StringUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,9 +24,9 @@ import java.util.List;
 
 public class Staff extends Fragment {
 
-    //TODO: (Aaron) Scrape names, emails, and pages, sort into table/list
+    public interface OnFragmentInteractionListener{}
 
-    private OnFragmentInteractionListener mListener;
+    //TODO: (Aaron) Scrape names, emails, and pages, sort into table/list
 
     ProgressBar prog;
     ListView lstStaff;
@@ -44,17 +41,6 @@ public class Staff extends Fragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -62,16 +48,17 @@ public class Staff extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        if (getActivity() != null) {
-            prog = (ProgressBar) getView().findViewById(R.id.prog);
-            lstStaff = (ListView) getView().findViewById(R.id.lstStaff);
-            new StaffScrape().execute();
-        }
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        prog = (ProgressBar) view.findViewById(R.id.prog);
+        lstStaff = (ListView) view.findViewById(R.id.lstStaff);
     }
 
-    public interface OnFragmentInteractionListener {}
+    @Override
+    public void onStart() {
+        super.onStart();
+        new StaffScrape().execute();
+    }
 
     String[] staffArray;
     String[] emailArray;
@@ -99,14 +86,12 @@ public class Staff extends Fragment {
                     }
                 }
             }catch (IOException e) {
-                if (getActivity() != null) {
-                    final Context context = getActivity().getApplicationContext();
-                    getActivity().runOnUiThread(new Runnable() {
-                        public void run() {
-                            Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
-                        }
-                    });
-                }
+                final Context context = getActivity().getApplicationContext();
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
+                    }
+                });
             }
             return null;
         }
@@ -114,7 +99,6 @@ public class Staff extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            if (getActivity() != null) {
                 prog.setVisibility(View.GONE);
 
                 //Set adapter
@@ -129,19 +113,17 @@ public class Staff extends Fragment {
 
 
         }
-    }
+
 
     //Adapter class
     private class StaffAdapter extends BaseAdapter {
         private static final int TYPE_ITEM = 0;
 
-        private ArrayList<String> mData = new ArrayList<String>();
+        private ArrayList<String> mData = new ArrayList<>();
         private LayoutInflater mInflater;
 
         public StaffAdapter() {
-            if (getActivity() != null) {
-                mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            }
+            mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
 
         public void addItem(final String item) {
@@ -175,12 +157,12 @@ public class Staff extends Fragment {
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder = null;
+            ViewHolder holder;
             int type = getItemViewType(position);
             holder = new ViewHolder();
             switch (type) {
                 case TYPE_ITEM:
-                    convertView = mInflater.inflate(R.layout.stafflist, null);
+                    convertView = mInflater.inflate(R.layout.stafflist, parent, false);
                     holder.textView = (TextView) convertView.findViewById(R.id.text);
                     break;
             }

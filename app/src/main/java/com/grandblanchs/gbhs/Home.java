@@ -1,11 +1,10 @@
 package com.grandblanchs.gbhs;
 
-import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +29,7 @@ public class Home extends Fragment {
 
     //TODO: Improve 'home' fragment layouts for landscape and x-large devices
 
-    private OnFragmentInteractionListener mListener;
+    public interface OnFragmentInteractionListener{}
 
     ScrollView scrNotification;
     TextView txtNotification;
@@ -54,103 +53,92 @@ public class Home extends Fragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        scrNotification = (ScrollView) view.findViewById(R.id.scrNotification);
+        txtNotification = (TextView) view.findViewById(R.id.txtNotification);
+        txtNotification.setCompoundDrawablesWithIntrinsicBounds(android.R.drawable.ic_dialog_alert, 0, 0, 0);
+        btnAnnounce = (Button) view.findViewById(R.id.btnAnnounce);
+        btnFacebook = (Button) view.findViewById(R.id.btnFacebook);
+        btnTwitter = (Button) view.findViewById(R.id.btnTwitter);
+        btnGrades = (Button) view.findViewById(R.id.btnGrades);
+        btnCalendar = (Button) view.findViewById(R.id.btnCalendar);
+        btnTimes = (Button) view.findViewById(R.id.btnTimes);
+        btnWeb = (Button) view.findViewById(R.id.btnWeb);
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        if (getActivity() != null) {
-            scrNotification = (ScrollView) getView().findViewById(R.id.scrNotification);
-            txtNotification = (TextView) getView().findViewById(R.id.txtNotification);
-            txtNotification.setCompoundDrawablesWithIntrinsicBounds(android.R.drawable.ic_dialog_alert, 0, 0, 0);
-            btnAnnounce = (Button) getView().findViewById(R.id.btnAnnounce);
-            btnFacebook = (Button) getView().findViewById(R.id.btnFacebook);
-            btnTwitter = (Button) getView().findViewById(R.id.btnTwitter);
-            btnGrades = (Button) getView().findViewById(R.id.btnGrades);
-            btnCalendar = (Button) getView().findViewById(R.id.btnCalendar);
-            btnTimes = (Button) getView().findViewById(R.id.btnTimes);
-            btnWeb = (Button) getView().findViewById(R.id.btnWeb);
 
-            /*TODO: Enable this before release.
-            Disabled in testing so the website isn't constantly scraped*/
-            //new CheckNotifications().execute();
 
-            if (btnAnnounce != null) { //btnAnnounce is not present in landscape layout variant
-                btnAnnounce.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Announce));
-                        Announce announceFrag = new Announce();
-                        getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, announceFrag)
-                                .addToBackStack(null).commit();
-                    }
-                });
-            }
-            btnFacebook.setOnClickListener(new View.OnClickListener() {
+        /*TODO: Enable this before release.
+        Disabled in testing so the website isn't constantly scraped*/
+        //new CheckNotifications().execute();
+
+
+        if (btnAnnounce != null) { //btnAnnounce is not present in landscape layout variant
+            btnAnnounce.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Facebook));
-                    Facebook facebookFrag = new Facebook();
-                    getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, facebookFrag)
+                    ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Announce));
+                    Announce announceFrag = new Announce();
+                    getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, announceFrag)
                             .addToBackStack(null).commit();
-                }
-            });
-            btnTwitter.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Twitter));
-                    TwitterFeed twitterFrag = new TwitterFeed();
-                    getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, twitterFrag)
-                            .addToBackStack(null).commit();
-                }
-            });
-            btnGrades.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Grades));
-                    getActivity().setTitle(getString(R.string.Grades));
-                    new Grades(getActivity()).show();
-                }
-            });
-            btnCalendar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Calendar));
-                    Calendar calFrag = new Calendar();
-                    getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, calFrag)
-                            .addToBackStack(null).commit();
-                }
-            });
-            btnTimes.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ((GBHS) getActivity()).setActionBarTitle(getString(R.string.schedule));
-                    Times timeFrag = new Times();
-                    getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, timeFrag)
-                            .addToBackStack(null).commit();
-                }
-            });
-            btnWeb.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.high.schoolfusion.us"));
-                    startActivity(browserIntent);
                 }
             });
         }
-    }
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
+        btnFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Facebook));
+                Facebook facebookFrag = new Facebook();
+                getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, facebookFrag)
+                        .addToBackStack(null).commit();
+            }
+        });
+        btnTwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Twitter));
+                TwitterFeed twitterFrag = new TwitterFeed();
+                getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, twitterFrag)
+                        .addToBackStack(null).commit();
+            }
+        });
+        btnGrades.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Grades));
+                getActivity().setTitle(getString(R.string.Grades));
+                new Grades(getActivity()).show();
+            }
+        });
+        btnCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Calendar));
+                Calendar calFrag = new Calendar();
+                getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, calFrag)
+                        .addToBackStack(null).commit();
+            }
+        });
+        btnTimes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((GBHS) getActivity()).setActionBarTitle(getString(R.string.schedule));
+                Times timeFrag = new Times();
+                getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, timeFrag)
+                        .addToBackStack(null).commit();
+            }
+        });
+        btnWeb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.high.schoolfusion.us"));
+                startActivity(browserIntent);
+            }
+        });
     }
 
     public class CheckNotifications extends AsyncTask<Void, Void, Void> {
@@ -161,7 +149,7 @@ public class Home extends Fragment {
             try {
                 emergNotif = Jsoup.connect("http://grandblanc.high.schoolfusion.us").get();
                 final Elements emergNotifBox = emergNotif.getElementsByClass("emergNotifBox");
-                if (getActivity() != null && !emergNotifBox.text().equals("")) {
+                if (!emergNotifBox.text().equals("")) {
                     //Emergency notification is present.
                     getActivity().runOnUiThread(new Runnable() {
                         public void run() {
@@ -178,17 +166,4 @@ public class Home extends Fragment {
             return null;
         }
     }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {}
-
 }

@@ -1,11 +1,9 @@
 package com.grandblanchs.gbhs;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +14,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,16 +26,16 @@ import java.util.List;
 
 public class Calendar extends Fragment {
 
+    public interface OnFragmentInteractionListener {}
+
     //Scrape iCal feed
     //Add events into a list that shows on date change
-
-    private OnFragmentInteractionListener mListener;
 
     CalendarView gridCal;
     ListView lstInfo;
 
     ProgressBar prog;
-    List<String> eventList = new ArrayList<String>();
+    List<String> eventList = new ArrayList<>();
     int eventCount;
 
     String[] calArray;
@@ -68,45 +64,30 @@ public class Calendar extends Fragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
+        gridCal = (CalendarView) view.findViewById(R.id.gridCal);
+        lstInfo = (ListView) view.findViewById(R.id.lstInfo);
+        prog = (ProgressBar) view.findViewById(R.id.progCalendar);
     }
-
-    public interface OnFragmentInteractionListener {}
 
     @Override
     public void onStart() {
         super.onStart();
-        if (getActivity() != null) {
-
-            gridCal = (CalendarView) getView().findViewById(R.id.gridCal);
-            lstInfo = (ListView) getView().findViewById(R.id.lstInfo);
-            prog = (ProgressBar) getView().findViewById(R.id.progCalendar);
-
             //This will display events for a given date
             gridCal.setShowWeekNumber(false);
             new CalGet().execute();
-        }
     }
+
+
 
     private class CalGet extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... voids) {
             //Retrieve iCalendar with Jsoup
-            Document cal = null;
+            Document cal;
 
 
             try {
@@ -163,7 +144,8 @@ public class Calendar extends Fragment {
                         time = Integer.parseInt(eventTime[i]);
                     }
 
-                    if (time < 050000 && time != -1) {
+
+                    if (time < 50000 && time != -1) {
                         //Time is before 0500 GMT. Roll back one day.
 
                         String date = calArray[i];
@@ -180,11 +162,6 @@ public class Calendar extends Fragment {
 
                         calArray[i] = calArray[i].substring(0, 5) + String.valueOf(dateChange);
                     }
-
-                    Log.d("CalEvent", calArray[i]);
-                    Log.d("CalDesc", eventDescription[i]);
-                    Log.d("CalTime", eventTime[i]);
-                    Log.d("Separator", "-------------------------------------------");
                 }
 
 
@@ -213,23 +190,19 @@ public class Calendar extends Fragment {
                     mAdapter.addItem(eventList.get(i));
                 }
 
-                if (getActivity() != null) {
-                    getActivity().runOnUiThread(new Runnable() {
-                        public void run() {
-                            lstInfo.setAdapter(mAdapter);
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                    lstInfo.setAdapter(mAdapter);
 
-                        }
-                    });
-                }
-            } catch (final IOException e) {
-                if (getActivity() != null) {
-                    final Context context = getActivity().getApplicationContext();
-                    getActivity().runOnUiThread(new Runnable() {
-                        public void run() {
-                            Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
-                        }
-                    });
-                }
+                    }
+                });
+            } catch (IOException e) {
+                final Context context = getActivity().getApplicationContext();
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
+                    }
+                });
             }
 
             return null;
@@ -287,13 +260,11 @@ public class Calendar extends Fragment {
     private class CalendarAdapter extends BaseAdapter {
         private static final int TYPE_ITEM = 0;
 
-        private ArrayList<String> mData = new ArrayList<String>();
+        private ArrayList<String> mData = new ArrayList<>();
         private LayoutInflater mInflater;
 
         public CalendarAdapter() {
-            if (getActivity() != null) {
-                mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            }
+            mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
 
         public void addItem(final String item) {
@@ -327,12 +298,12 @@ public class Calendar extends Fragment {
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder = null;
+            ViewHolder holder;
             int type = getItemViewType(position);
             holder = new ViewHolder();
             switch (type) {
                 case TYPE_ITEM:
-                    convertView = mInflater.inflate(R.layout.bluelist, null);
+                    convertView = mInflater.inflate(R.layout.bluelist, parent, false);
                     holder.textView = (TextView) convertView.findViewById(R.id.text);
                     break;
             }

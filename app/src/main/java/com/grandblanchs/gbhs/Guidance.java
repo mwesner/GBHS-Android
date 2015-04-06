@@ -1,19 +1,18 @@
 package com.grandblanchs.gbhs;
 
 
+import android.app.Fragment;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -27,9 +26,10 @@ import java.util.ArrayList;
  */
 public class Guidance extends Fragment {
 
+    public interface OnFragmentInteractionListener{}
+
     //TODO: (Corey) Add guidance and counseling information
 
-    private OnFragmentInteractionListener mListener;
     GridView gridView;
     GridViewAdapter customGridAdapter;
     ProgressBar prog;
@@ -48,46 +48,43 @@ public class Guidance extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        if (getActivity() != null) {
-            prog = (ProgressBar) getView().findViewById(R.id.progGuidance);
-            gridView = (GridView) getView().findViewById(R.id.gridView);
-            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                public void onItemClick(AdapterView<?> parent, View v,
-                                        int position, long id) {
-                    System.out.println(position + "#Selected");
-                }
-
-            });
-        }
-        new GuidanceScrape().execute();
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        prog = (ProgressBar) view.findViewById(R.id.progGuidance);
+        gridView = (GridView) view.findViewById(R.id.gridView);
     }
 
-    public interface OnFragmentInteractionListener {}
+    @Override
+    public void onStart() {
+        super.onStart();
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                System.out.println(position + "#Selected");
+            }
+
+        });
+        new GuidanceScrape().execute();
+    }
 
     class GuidanceScrape extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... params) {
-            if (getActivity()!=null) {
-                customGridAdapter = new GridViewAdapter(getActivity(), R.layout.row_grid, getData());
-            }
+            customGridAdapter = new GridViewAdapter(getActivity(), R.layout.row_grid, getData());
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            if (getActivity() != null) {
-                gridView.setAdapter(customGridAdapter);
-                prog.setVisibility(View.GONE);
-            }
+            gridView.setAdapter(customGridAdapter);
+            prog.setVisibility(View.GONE);
         }
     }
 
     private ArrayList<ImageItem> getData() {
-        final ArrayList<ImageItem> imageItems = new ArrayList<ImageItem>();
+        final ArrayList<ImageItem> imageItems = new ArrayList<>();
         // retrieve String drawable array
         TypedArray imgs = getResources().obtainTypedArray(R.array.guidance);
         //Allows for the bitmaps to be displayed without causing an out-of-memory exception

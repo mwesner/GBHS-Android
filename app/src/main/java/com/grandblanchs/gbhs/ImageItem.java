@@ -2,10 +2,6 @@ package com.grandblanchs.gbhs;
 
 import android.graphics.Bitmap;
 
-/**
- * @author javatechig {@link http://javatechig.com}
- *
- */
 public class ImageItem {
     private Bitmap image;
     private String title;
@@ -20,15 +16,7 @@ public class ImageItem {
         return image;
     }
 
-    public void setImage(Bitmap image) {
-        this.image = image;
-    }
-
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 }

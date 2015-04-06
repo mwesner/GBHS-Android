@@ -1,10 +1,9 @@
 package com.grandblanchs.gbhs;
 
-import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +12,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import org.jsoup.nodes.Document;
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
@@ -24,10 +23,10 @@ import java.util.List;
 
 public class Announce extends Fragment {
 
+    public interface OnFragmentInteractionListener {}
+
     //TODO: (Aaron) Properly scrape announcement text
     //TODO: (Aaron) Work on setting up RSS feed for announcements with GBTV
-
-    private OnFragmentInteractionListener mListener;
 
     ProgressBar prog;
     ListView lstAnnounce;
@@ -55,22 +54,14 @@ public class Announce extends Fragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        prog = (ProgressBar) view.findViewById(R.id.prog);
+        lstAnnounce = (ListView) view.findViewById(R.id.lstAnnounce);
     }
 
     public void onStart() {
         super.onStart();
-        if (getActivity() != null) {
-            prog = (ProgressBar) getView().findViewById(R.id.prog);
-            lstAnnounce = (ListView) getView().findViewById(R.id.lstAnnounce);
-        }
         new AnnounceScrape().execute();
     }
 
@@ -78,8 +69,8 @@ public class Announce extends Fragment {
         @Override
         protected Void doInBackground(Void... voids) {
             //Scrape the daily announcements into a list.
-            Document announce = null;
-            Document rss = null;
+            Document announce;
+            //Document rss = null;
             List<String> list;
 
             try {
@@ -90,7 +81,7 @@ public class Announce extends Fragment {
                 announceTextArray = announceClass.toString().split("</li>");
 
                 if (announceClass.isEmpty()) {
-                    list = new ArrayList<String>();
+                    list = new ArrayList<>();
 
                     //Add "No Announcements."
                     list.add(0, "No announcements.");
@@ -112,27 +103,22 @@ public class Announce extends Fragment {
 
 
                     //Convert to ArrayList for easy item removal
-                    list = new ArrayList<String>(Arrays.asList(displayArray));
+                    list = new ArrayList<>(Arrays.asList(displayArray));
 
                     //Remove the first entry
                     list.remove(0);
 
                 }
-                if (getActivity() != null) {
                     context = getActivity().getApplicationContext();
-                    adapter = new ArrayAdapter<String>(context,
-                            android.R.layout.simple_list_item_1, list);
-                }
+                    adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, list);
             } catch (IOException e) {
-                if (getActivity() != null) {
-                    getActivity().runOnUiThread(new Runnable() {
-                        public void run() {
-                            Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
-                        }
-                    });
-                }
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
+                    }
+                });
             } catch (NullPointerException e) {
-                list = new ArrayList<String>();
+                list = new ArrayList<>();
 
                 //Add "No Announcements."
                 list.add(0, "No announcements.");
@@ -142,21 +128,9 @@ public class Announce extends Fragment {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            if (getActivity() != null) {
-                super.onPostExecute(aVoid);
-
-                lstAnnounce.setAdapter(adapter);
-                prog.setVisibility(View.GONE);
-            }
+            super.onPostExecute(aVoid);
+            lstAnnounce.setAdapter(adapter);
+            prog.setVisibility(View.GONE);
         }
     }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    public interface OnFragmentInteractionListener {}
-
 }

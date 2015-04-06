@@ -1,6 +1,5 @@
 package com.grandblanchs.gbhs;
 
-import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,15 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-/**
- *
- * @author javatechig {@link http://javatechig.com}
- *
- */
+
+import java.util.ArrayList;
+
 public class GridViewAdapter extends ArrayAdapter<ImageItem> {
     private Context context;
     private int layoutResourceId;
-    private ArrayList<ImageItem> data = new ArrayList<ImageItem>();
+    private ArrayList<ImageItem> data = new ArrayList<>();
 
     public GridViewAdapter(Context context, int layoutResourceId,
                            ArrayList<ImageItem> data) {
@@ -30,7 +27,7 @@ public class GridViewAdapter extends ArrayAdapter<ImageItem> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
-        ViewHolder holder = null;
+        ViewHolder holder;
 
         if (row == null) {
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
