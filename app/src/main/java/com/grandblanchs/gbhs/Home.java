@@ -83,15 +83,17 @@ public class Home extends Fragment {
             Disabled in testing so the website isn't constantly scraped*/
             //new CheckNotifications().execute();
 
-            btnAnnounce.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Announce));
-                    Announce announceFrag = new Announce();
-                    getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, announceFrag)
-                            .addToBackStack(null).commit();
-                }
-            });
+            if (btnAnnounce != null) { //btnAnnounce is not present in landscape layout variant
+                btnAnnounce.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Announce));
+                        Announce announceFrag = new Announce();
+                        getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, announceFrag)
+                                .addToBackStack(null).commit();
+                    }
+                });
+            }
             btnFacebook.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

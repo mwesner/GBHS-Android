@@ -16,17 +16,6 @@
         android:layout_centerHorizontal="true"
         android:visibility="invisible"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imgGBHS"
-        android:src="@drawable/gbhs"
-        android:contentDescription="@string/app_name"
-        android:adjustViewBounds="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="false"
-        android:scaleType="fitStart" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,10 +23,12 @@
         android:drawableLeft="@drawable/twitter"
         android:text="@string/Twitter"
         android:contentDescription="@string/Twitter"
+        android:cropToPadding="false"
         android:backgroundTint="#ff212121"
         android:layout_below="@+id/btnFacebook"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/btnTimes"
         android:layout_alignRight="@+id/dummy2"
         android:layout_alignEnd="@+id/dummy2"
         android:textSize="12sp" />
@@ -50,11 +41,11 @@
         android:text="@string/Facebook"
         android:contentDescription="@string/Facebook"
         android:backgroundTint="#ff212121"
-        android:layout_below="@+id/btnAnnounce"
+        android:layout_below="@+id/scrNotification"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/dummy2"
-        android:layout_alignEnd="@+id/dummy2"
+        android:layout_toLeftOf="@+id/dummy2"
+        android:layout_toStartOf="@+id/dummy2"
         android:textSize="12sp" />
 
     <Button
@@ -64,8 +55,23 @@
         android:drawableLeft="@drawable/svueaction"
         android:text="@string/Grades"
         android:contentDescription="@string/Grades"
+        android:cropToPadding="false"
         android:backgroundTint="#ff212121"
         android:layout_below="@+id/btnTimes"
+        android:layout_toRightOf="@+id/dummy2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnTimes"
+        android:drawableLeft="@drawable/clock"
+        android:text="@string/schedule"
+        android:contentDescription="@string/schedule"
+        android:backgroundTint="#ff212121"
+        android:layout_below="@+id/scrNotification"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/dummy2"
@@ -81,42 +87,12 @@
         android:contentDescription="@string/Facebook"
         android:backgroundTint="#ff212121"
         android:textColor="@android:color/white"
+        android:textSize="12sp"
         android:layout_below="@+id/btnGrades"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/btnCalendar"
-        android:layout_toEndOf="@+id/btnCalendar"
-        android:textSize="12sp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnAnnounce"
-        android:drawableLeft="@drawable/announce"
-        android:text="@string/Announce"
-        android:contentDescription="@string/Facebook"
-        android:backgroundTint="#ff212121"
-        android:layout_below="@+id/scrNotification"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="12sp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnTimes"
-        android:drawableLeft="@drawable/clock"
-        android:text="@string/schedule"
-        android:contentDescription="@string/schedule"
-        android:backgroundTint="#ff212121"
-        android:layout_alignTop="@+id/btnFacebook"
-        android:layout_alignLeft="@+id/dummy2"
-        android:layout_alignStart="@+id/dummy2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="12sp" />
+        android:layout_toRightOf="@+id/dummy2"
+        android:layout_toEndOf="@+id/dummy2" />
 
     <Button
         android:layout_width="wrap_content"
@@ -126,12 +102,11 @@
         android:text="@string/Calendar"
         android:contentDescription="@string/Calendar"
         android:backgroundTint="#ff212121"
-        android:layout_toRightOf="@+id/dummy1"
-        android:layout_toLeftOf="@+id/btnGrades"
-        android:layout_toStartOf="@+id/btnGrades"
+        android:textSize="12sp"
         android:layout_below="@+id/btnTwitter"
-        android:layout_alignBottom="@+id/btnWeb"
-        android:textSize="12sp" />
+        android:layout_toRightOf="@+id/dummy1"
+        android:layout_alignRight="@+id/dummy2"
+        android:layout_alignEnd="@+id/dummy2" />
 
     <ScrollView
         android:id="@+id/scrNotification"
@@ -139,8 +114,7 @@
         android:layout_width="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:visibility="gone"
-        android:layout_below="@+id/imgGBHS">
+        android:visibility="gone">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
