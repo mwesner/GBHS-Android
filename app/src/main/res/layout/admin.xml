@@ -15,7 +15,7 @@
         android:numColumns="auto_fit"
         android:verticalSpacing="5dp"
         android:drawSelectorOnTop="true"
-        android:stretchMode="columnWidth" >
+        android:stretchMode="columnWidth">
     </GridView>
 
     <ProgressBar
@@ -25,5 +25,10 @@
         android:id="@+id/progAdmin"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lst_admin" />
 
 </RelativeLayout>
