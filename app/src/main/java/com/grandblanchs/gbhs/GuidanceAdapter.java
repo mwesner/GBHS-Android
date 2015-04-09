@@ -3,8 +3,6 @@ package com.grandblanchs.gbhs;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +35,7 @@ class GuidanceAdapter extends ArrayAdapter<String>{
         txt_name.setText(SingleAdmin);
 
         BitmapFactory.Options opts = new BitmapFactory.Options();
-        opts.inSampleSize = 4;
+        opts.inSampleSize = 8;
 
 
         if (position == 0 ){

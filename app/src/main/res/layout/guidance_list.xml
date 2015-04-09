@@ -27,21 +27,23 @@
         android:layout_height="fill_parent">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:id="@+id/btn_email"
             android:clickable="true"
             android:layout_marginTop="5dp"
             android:enabled="true"
-            android:background="@android:drawable/ic_dialog_email" />
+            android:background="@android:drawable/ic_dialog_email"
+            android:layout_marginLeft="30dp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:id="@+id/btn_call"
             android:layout_marginTop="5dp"
             android:clickable="true"
-            android:background="@android:drawable/ic_menu_call" />
+            android:background="@android:drawable/ic_menu_call"
+            android:layout_marginLeft="30dp" />
     </LinearLayout>
 
 </LinearLayout>

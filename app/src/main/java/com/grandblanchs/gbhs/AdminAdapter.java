@@ -36,7 +36,7 @@ class AdminAdapter extends ArrayAdapter<String> {
         txt_name.setText(SingleAdmin);
 
         BitmapFactory.Options opts = new BitmapFactory.Options();
-        opts.inSampleSize = 4;
+        opts.inSampleSize = 8;
 
 
         if (position == 0) {
