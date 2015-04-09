@@ -21,9 +21,9 @@ import android.widget.Toast;
 
 public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractionListener,
         TwitterFeed.OnFragmentInteractionListener, Calendar.OnFragmentInteractionListener,
-        Announce.OnFragmentInteractionListener, Facebook.OnFragmentInteractionListener,
-        Admin.OnFragmentInteractionListener, Times.OnFragmentInteractionListener,
-        Map.OnFragmentInteractionListener, Staff.OnFragmentInteractionListener,
+        Map.OnFragmentInteractionListener, Announce.OnFragmentInteractionListener,
+        Facebook.OnFragmentInteractionListener,Admin.OnFragmentInteractionListener,
+        Times.OnFragmentInteractionListener, Staff.OnFragmentInteractionListener,
         External.OnFragmentInteractionListener, College.OnFragmentInteractionListener,
         Guidance.OnFragmentInteractionListener, Athletics.OnFragmentInteractionListener,
         NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -39,7 +39,7 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
-    FragmentManager fm;
+    public static FragmentManager fm;
     FragmentTransaction ft;
 
     Home homeFrag = new Home();
@@ -89,8 +89,8 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
             case 1:
                 mTitle = getString(R.string.Home);
                 ft.replace(R.id.FragmentContainer, homeFrag)
-                    .addToBackStack(null)
-                    .commit();
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case 2:
                 mTitle = getString(R.string.Announce);
@@ -196,7 +196,7 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
         // as you specify a parent activity in AndroidManifest.xml.
 
         fm = getFragmentManager();
-        
+
         switch (item.getItemId()) {
             case R.id.Times:
                 setActionBarTitle(getString(R.string.schedule));
