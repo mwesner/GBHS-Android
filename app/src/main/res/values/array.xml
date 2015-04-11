@@ -309,20 +309,18 @@
         <item>"Youngs, Jason"</item>
         <item>"Yunker, Karen"</item>
         <item>"Zacek, Tom"</item>
-
-
-
           </string-array>
 
 
 
-
-
-
-
-
-
-
-
+    <string-array name="guidance_numbers">
+        <item>8105916652</item>
+        <item>8105916651</item>
+        <item>8105916649</item>
+        <item>8105916651</item>
+        <item>8105916648</item>
+        <item>8105916647</item>
+    </string-array>
+    
 
 </resources>
