@@ -28,7 +28,7 @@ public class Admin extends Fragment {
     //TODO: (Aaron) Show descriptions with image in separate popout fragment
 
     private OnFragmentInteractionListener mListener;
-
+    ProgressBar prog;
     ListView lst_admin;
 
     @Override
@@ -53,15 +53,15 @@ public class Admin extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
+        prog = (ProgressBar) view.findViewById(R.id.prog);
         lst_admin = (ListView) view.findViewById(R.id.lst_admin);
 
         String[] admins = {"Dr. Hammond", "Chris Belcher", "Mr. Goetzinger", "Patricia Poelke", "Christy Knight", "Jerrod Dohm"};
 
 
 
-
-        ListAdapter adminAdapter = new AdminAdapter(getActivity().getApplicationContext(), admins);
+        //Had to get rid of the getActivity.getApplicationContext(), because then startActivity calls don't work...
+        ListAdapter adminAdapter = new AdminAdapter(getActivity(), admins);
 
         lst_admin.setAdapter(adminAdapter);
 
@@ -72,6 +72,6 @@ public class Admin extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
+        prog.setVisibility(View.GONE);
     }
 }

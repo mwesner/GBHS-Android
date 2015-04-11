@@ -2,37 +2,22 @@ package com.grandblanchs.gbhs;
 
 
 import android.app.Fragment;
-import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
-import java.util.ArrayList;
 
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Admin.OnFragmentInteractionListener} interface
- * to handle interaction events.
- */
 public class Guidance extends Fragment {
 
     public interface OnFragmentInteractionListener{}
 
 
-
+    ProgressBar prog;
     ListView lst_guide;
 
     @Override
@@ -51,14 +36,14 @@ public class Guidance extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        prog = (ProgressBar) view.findViewById(R.id.prog);
         lst_guide = (ListView) view.findViewById(R.id.lst_guide);
 
         String[] guides = {"Mrs. Gardner (O-Z)", "Mr. Hentes (CSS)", "Mrs. Hall (9th Grade)",
                 "Mrs. Kernen (Ge-N)", "Mrs. Mol (A-Ga)", "Mrs. McCleary (Secretary East)"};
 
-
-        ListAdapter guidanceAdapter = new GuidanceAdapter(getActivity().getApplicationContext(), guides);
+        //Had to get rid of the getActivity.getApplicationContext(), because then startActivity calls don't work...
+        ListAdapter guidanceAdapter = new GuidanceAdapter(getActivity(), guides);
 
 
 
@@ -70,10 +55,12 @@ public class Guidance extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
+        prog.setVisibility(View.GONE);
         //Emails:
 
         //mgardner@grandblancschools.org
+        //591-6652
+
         //jhentes@grandblancschools.org
         //phall@grandblancschools.org
         //nkernen@grandblancschools.org

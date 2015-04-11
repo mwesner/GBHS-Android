@@ -34,7 +34,8 @@
             android:clickable="true"
             android:layout_marginTop="5dp"
             android:enabled="true"
-            android:background="@android:drawable/ic_dialog_email" />
+            android:background="@android:drawable/ic_dialog_email"
+            android:layout_marginLeft="20dp" />
 
         <Button
             android:layout_width="60dp"
@@ -42,7 +43,8 @@
             android:id="@+id/btn_call"
             android:layout_marginTop="5dp"
             android:clickable="true"
-            android:background="@android:drawable/ic_menu_call" />
+            android:background="@android:drawable/ic_menu_call"
+            android:layout_marginLeft="20dp" />
     </LinearLayout>
 
 </LinearLayout>
