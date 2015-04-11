@@ -136,6 +136,193 @@
         <item>Yearbook</item>
         <item>gbyearbook.com</item>
     </string-array>
-    
+
+
+    <string-array name="staffArray">
+        <item>"Allswede, Stacey"</item>
+        <item>"Anderson, Katelyn"</item>
+        <item>"Applebee, Stephen"</item>
+        <item>"Arakelyan, Natalya"</item>
+        <item>"Arbit, Michael"</item>
+        <item>"Babiasz, Todd"</item>
+        <item>"Bailey, Brad"</item>
+        <item>"Baker, Tami"</item>
+        <item>"Barker, Steven"</item>
+        <item>"Barnes, Kim"</item>
+        <item>"Barnowsky, Nicholas"</item>
+        <item>"Bas, Adriana"</item>
+        <item>"Bauermeister, Marie"</item>
+        <item>"Belcher, Chris"</item>
+        <item>"Belill-Lemke, Valerie"</item>
+        <item>"Benaway, Karen"</item>
+        <item>"Bieda, Sara"</item>
+        <item>"Blackett, Patricia"</item>
+        <item>"Blakley, Sarah"</item>
+        <item>"Blake, Justin"</item>
+        <item>"Bleicher, Dana"</item>
+        <item>"Botzki, Denise"</item>
+        <item>"Bradley, Zachary"</item>
+        <item>"Briggs, Tisha"</item>
+        <item>"Brunskole, Lori"</item>
+        <item>"Bujalski, Courtney"</item>
+        <item>"Butzu, Ava"</item>
+        <item>"Calo, Ron"</item>
+        <item>"Carmody, Charlie"</item>
+        <item>"Carney, Chad"</item>
+        <item>"Church, Katie"</item>
+        <item>"Clark, Daniel"</item>
+        <item>"Clark, Matthew"</item>
+        <item>"Clement, David"</item>
+        <item>"Coffman, Ryan"</item>
+        <item>"Cottrill, Amy"</item>
+        <item>"Cozad, Colleen"</item>
+        <item>"Cuccia, Linda"</item>
+        <item>"Davis, Marcia"</item>
+        <item>"Delaney, Joseph"</item>
+        <item>"Doering, Meagan"</item>
+        <item>"Dohm, Jerrod"</item>
+        <item>"Dolzynski, Mary"</item>
+        <item>"Dunk, Steven"</item>
+        <item>"Dunning, Amy"</item>
+        <item>"Eickholt, Kiersten"</item>
+        <item>"Elias, Elizabeth"</item>
+        <item>"Finkbeiner, Jacob"</item>
+        <item>"Franzel, Mary"</item>
+        <item>"Funsch, Leo"</item>
+        <item>"Gardner, Mary"</item>
+        <item>"Garey, Stephanie"</item>
+        <item>"Gaudet, Karen"</item>
+        <item>"Gauthier, Marcia"</item>
+        <item>"Gibbs-Halm, Deborah"</item>
+        <item>"Giddings, Tonya"</item>
+        <item>"Goetzinger, Debbie"</item>
+        <item>"Goetzinger, Gary"</item>
+        <item>"Gottlieb, Jennifer"</item>
+        <item>"Gowdy, Larhonda"</item>
+        <item>"Graves, Megan"</item>
+        <item>"Green, Al"</item>
+        <item>"Grzymkowski, Heather"</item>
+        <item>"Gualdoni, Laura"</item>
+        <item>"Guerra, Amy"</item>
+        <item>"Hahn, Kolette"</item>
+        <item>"Hall, Pamela"</item>
+        <item>"Hammond, Jennifer"</item>
+        <item>"Harr-Smith, Lindsey"</item>
+        <item>"Hassenzahl, Beth"</item>
+        <item>"Heemsoth, Miranda"</item>
+        <item>"Hentes, John"</item>
+        <item>"Holt, Denny"</item>
+        <item>"Howell, Kathleen"</item>
+        <item>"Hubbs, Laura"</item>
+        <item>"Hugo, Brian"</item>
+        <item>"Hugo, Matt"</item>
+        <item>"Hutchison, Cory"</item>
+        <item>"Jacobson, Amy"</item>
+        <item>"Johnson, Amy"</item>
+        <item>"Johnson, Sarah"</item>
+        <item>"Kehn, Bonnie"</item>
+        <item>"Keilitz, Kevin"</item>
+        <item>"Kenney, Rachel"</item>
+        <item>"Kernen, Nicole"</item>
+        <item>"King, Irving"</item>
+        <item>"Kish, Kaitlyn"</item>
+        <item>"Knapp, Don"</item>
+        <item>"Knight, Christy"</item>
+        <item>"Kufuor, Justin"</item>
+        <item>"Larose, Michael"</item>
+        <item>"Lawrence, Jenalyn"</item>
+        <item>"Lemaster, Thomas"</item>
+        <item>"Li, Snow"</item>
+        <item>"Londrigan, Aimee"</item>
+        <item>"Lund, Elizabeth"</item>
+        <item>"Lundy, Andrea"</item>
+        <item>"Mareski, Shannon"</item>
+        <item>"Mather, Brenda"</item>
+        <item>"McCleary, Linda"</item>
+        <item>"Melton, Hunter"</item>
+        <item>"Melton, Marcie"</item>
+        <item>"Messimer, Megan"</item>
+        <item>"Meyer, Lindsay"</item>
+        <item>"Mitchell, Jeremy"</item>
+        <item>"Mol, Phyllis"</item>
+        <item>"Moore, Karen"</item>
+        <item>"Moore, Patrick"</item>
+        <item>"Morris, Krista"</item>
+        <item>"Newman, Maureen"</item>
+        <item>"Newton, Dana"</item>
+        <item>"Nicholson, James"</item>
+        <item>"O'Toole, Lia"</item>
+        <item>"Orange, Adam"</item>
+        <item>"Ousnamer, Karen"</item>
+        <item>"Padgett, David"</item>
+        <item>"Paris, Michael"</item>
+        <item>"Pearce, Jill"</item>
+        <item>"Pearce, Matt"</item>
+        <item>"Pendergrass, Erik"</item>
+        <item>"Peske, Nancy"</item>
+        <item>"Piggott, Sally"</item>
+        <item>"Poelke, Trish"</item>
+        <item>"Popadich, Nick"</item>
+        <item>"Pottenger, Troy"</item>
+        <item>"Powers, Suzanne"</item>
+        <item>"Raab, Lisa"</item>
+        <item>"Ralbusky, Elizabeth"</item>
+        <item>"Read, Rachel"</item>
+        <item>"Reed, Adam"</item>
+        <item>"Retberg, Daniel"</item>
+        <item>"Riek, Kathleen"</item>
+        <item>"Riek, Nate"</item>
+        <item>"Roberts, Janet"</item>
+        <item>"Robertson, Joan"</item>
+        <item>"Roth, Alyssa"</item>
+        <item>"Russian, Tanya"</item>
+        <item>"Ryckaert, Justin"</item>
+        <item>"Saffron, Danida"</item>
+        <item>"Salem, John"</item>
+        <item>"Schramm, Chuck"</item>
+        <item>"Schweitzer, Amy"</item>
+        <item>"Shaver, Dana"</item>
+        <item>"Shinabarger, Lucy"</item>
+        <item>"Shuster, Michael"</item>
+        <item>"Smith, Gary"</item>
+        <item>"Stockton, Sarah"</item>
+        <item>"Stockton, Susan"</item>
+        <item>"Stuck, James"</item>
+        <item>"Tackaberry, Robert"</item>
+        <item>"Tait, Rachael"</item>
+        <item>"Taneyhill, Maryalice"</item>
+        <item>"Taylor, Justin"</item>
+        <item>"Thurlow, Leslie"</item>
+        <item>"Tosh, Karin"</item>
+        <item>"Trombly, Craig"</item>
+        <item>"Urbanik, Phil"</item>
+        <item>"Vanitvelt, Marcie"</item>
+        <item>"Walroth, Allyson"</item>
+        <item>"Wesner, Michael"</item>
+        <item>"Wheeler, JD"</item>
+        <item>"Willing, Heather"</item>
+        <item>"Wilson, Jessica"</item>
+        <item>"Wiltse, Wesley"</item>
+        <item>"Wray, Peggy"</item>
+        <item>"Wyatt, Mary"</item>
+        <item>"Yelland, Paula"</item>
+        <item>"Youngs, Jason"</item>
+        <item>"Yunker, Karen"</item>
+        <item>"Zacek, Tom"</item>
+
+
+
+          </string-array>
+
+
+
+
+
+
+
+
+
+
+
 
 </resources>
