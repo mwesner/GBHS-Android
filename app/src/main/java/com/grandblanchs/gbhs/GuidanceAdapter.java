@@ -17,7 +17,7 @@ import android.content.Intent;
 
 class GuidanceAdapter extends ArrayAdapter<String>{
     Bitmap BitmapImage;
-    String number;
+    String number[];
     GuidanceAdapter(Context context, String[] guides) {
         super(context, R.layout.guidance_list ,guides);
     }
@@ -36,12 +36,23 @@ class GuidanceAdapter extends ArrayAdapter<String>{
         btn_call.setOnClickListener(
                 new Button.OnClickListener(){
                     @Override
-                    public void onClick(View v){
-                        /*number = "8105916652";
-                        Uri dial = Uri.parse("tel:" + number);
-                        Intent call = new Intent(Intent.ACTION_DIAL, dial);
-                        getContext().startActivity(call);
-                        */Toast.makeText(getContext(), "Hello", Toast.LENGTH_SHORT).show();
+                    public void onClick(View v) {
+                        number = getContext().getResources().getStringArray(R.array.guidance_numbers);
+                        if (position == 0) {
+                            phoneCall(number[position]);
+                        }else if (position == 1){
+                            phoneCall(number[position]);
+                        }else if (position == 2){
+                            phoneCall(number[position]);
+                        }else if (position == 3){
+                            phoneCall(number[position]);
+                        }else if (position == 4){
+                            phoneCall(number[position]);
+                        }else if (position == 5){
+                            phoneCall(number[position]);
+                        }else{
+
+                        }
                     }
                 }
         );
@@ -50,7 +61,22 @@ class GuidanceAdapter extends ArrayAdapter<String>{
         btn_email.setOnClickListener(
                 new Button.OnClickListener(){
                     public void onClick(View v){
-                        Toast.makeText(getContext(), "BAM!", Toast.LENGTH_SHORT).show();
+                        if (position == 0) {
+                            phoneCall(number[position]);
+                        }else if (position == 1){
+                            phoneCall(number[position]);
+                        }else if (position == 2){
+                            phoneCall(number[position]);
+                        }else if (position == 3){
+                            phoneCall(number[position]);
+                        }else if (position == 4){
+                            phoneCall(number[position]);
+                        }else if (position == 5){
+                            phoneCall(number[position]);
+                        }else{
+
+                        }
+
                     }
                 }
         );
@@ -90,5 +116,15 @@ class GuidanceAdapter extends ArrayAdapter<String>{
 
 
         return customView;
+    }
+
+    public void phoneCall(String number){
+        Uri dial = Uri.parse("tel:" + number);
+        Intent call = new Intent(Intent.ACTION_DIAL, dial);
+        getContext().startActivity(call);
+    }
+
+    public void emailer(String email){
+
     }
 }

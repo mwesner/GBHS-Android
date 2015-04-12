@@ -99,7 +99,7 @@
 
     <!--TODO: (Aaron) Change to school's twitter OAuth-->
     <string name="twitterUser">GrandBlancPride</string>
-    <string name="twitterAccessToken">2832408273-pvUljzIaVPHm9SgWAqwQXXbBQgA9AYQ8gKI9XEQ</string>
+    <string name="twitterAccessToken">1552325678377912|Uh8QafY5e5mSopY7AYRRNzEsCq0</string>
     <string name="twitterAccessTokenSecret">0NI1CVcbKCZDWjIqqipN7LZuWuCDAqVaL37Wf6XgAa9Ww</string>
     <string name="CONSUMER_KEY">0S62lfz7hGX39oZo2jJmrhZ96</string>
     <string name="CONSUMER_KEY_SECRET">Pr1YnBtFU5OErrxhpLNet2S6KolhRm43cfwZuFPCQLOasEPXm7</string>
