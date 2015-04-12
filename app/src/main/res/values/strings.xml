@@ -21,7 +21,7 @@
     <string name="CalendarWeb">Download Official School Calendar</string>
     <string name="Staff">Staff Listing</string>
     <string name="Alumni">Alumni</string>
-    <string name="Athletics">Athletics</string>
+    <string name="Athletics">Sports Schedule</string>
     <string name="SportsSchedule">View Season Schedule</string>
     <string name="SportSelect">Select Another Sport</string>
     <string name="BaseURL">"http://schedules.schedulestar.com/Grand-Blanc-High-School-Grand-Blanc-MI/season"</string>
@@ -41,6 +41,7 @@
     <string name="Summer">Summer School</string>
     <string name="NoConnection">No internet connection.</string>
     <string name="NoTwitter">Could not connect to Twitter.\n(Error Code:</string>
+    <string name="NoFacebook">Could not connect to Facebook.\n(Error Code:</string>
 
     <string name="CTEDesc">Developed by Grand Blanc CTE</string>
     <string name="CTEWeb"><a href="http://grandblanc.career.schoolfusion.us/">GBCTE Website</a></string>

@@ -1,14 +1,16 @@
 package com.grandblanchs.gbhs;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
-import android.os.AsyncTask;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,10 +20,10 @@ import android.widget.Spinner;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import java.io.IOException;
+import org.jsoup.select.Elements;
 
-import java.util.Calendar;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Locale;
 
 
@@ -29,15 +31,18 @@ public class Athletics extends Fragment {
 
     //TODO: (Corey) Show season schedule for selected athletic event
 
-    private OnFragmentInteractionListener mListener;
+    public interface OnFragmentInteractionListener{}
 
     Context context;
+    Resources res;
 
     ProgressBar prog;
     Spinner lstSport;
     Spinner lstLevel;
     Spinner lstGender;
     Button btnSport;
+
+    WebView webAthletics;
 
     boolean sportPicked;
     boolean levelPicked;
@@ -60,7 +65,7 @@ public class Athletics extends Fragment {
     String[] boysgirls;
     String[] combined;
 
-    String[] schedule;
+    String schedule;
 
     ListView lstSeason;
 
@@ -95,132 +100,115 @@ public class Athletics extends Fragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
+        context = getActivity().getApplicationContext();
+        res = getActivity().getResources();
 
-    public interface OnFragmentInteractionListener {}
+        prog = (ProgressBar) view.findViewById(R.id.progAthletics);
+        lstSport = (Spinner) view.findViewById(R.id.lstSport);
+        lstLevel = (Spinner) view.findViewById(R.id.lstLevel);
+        lstGender = (Spinner) view.findViewById(R.id.lstGender);
+        btnSport = (Button) view.findViewById(R.id.btnSport);
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        if (getActivity() != null) {
-            context = getActivity().getApplicationContext();
+        lstSeason = (ListView) view.findViewById(R.id.lstSeason);
 
-            prog = (ProgressBar) getView().findViewById(R.id.progAthletics);
-            lstSport = (Spinner) getView().findViewById(R.id.lstSport);
-            lstLevel = (Spinner) getView().findViewById(R.id.lstLevel);
-            lstGender = (Spinner) getView().findViewById(R.id.lstGender);
-            btnSport = (Button) getView().findViewById(R.id.btnSport);
+        webAthletics = (WebView) view.findViewById(R.id.webAthletics);
 
-            lstSeason = (ListView) getView().findViewById(R.id.lstSeason);
+        levelselect = res.getStringArray(R.array.sportslevelselect); //Clears level options
+        genderselect = res.getStringArray(R.array.sportsgenderselect); //Clears gender options
+        sports = res.getStringArray(R.array.sports); //List of sports
+        levelall = res.getStringArray(R.array.sportslevelall); //Varsity, JV, and Freshman
+        varsity = res.getStringArray(R.array.sportslevelvarsity); //Varsity only
+        juniorvarsity = res.getStringArray(R.array.sportsleveljuniorvarsity); //Varsity and JV only
+        genderall = res.getStringArray(R.array.sportsgenderall); //Boys, Girls, and "Boys and Girls"
+        boysgirls = res.getStringArray(R.array.sportsgenderboysgirls); //Only Boys and Girls
+        boys = res.getStringArray(R.array.sportsgenderboys); //Only Boys
+        girls = res.getStringArray(R.array.sportsgendergirls);  //Only Girls
+        combined = res.getStringArray(R.array.sportsgendercombined); //Only "Boys and Girls"
 
-            levelselect = getActivity().getResources().getStringArray(R.array.sportslevelselect); //Clears level options
-            genderselect = getActivity().getResources().getStringArray(R.array.sportsgenderselect); //Clears gender options
-            sports = getActivity().getResources().getStringArray(R.array.sports); //List of sports
-            levelall = getActivity().getResources().getStringArray(R.array.sportslevelall); //Varsity, JV, and Freshman
-            varsity = getActivity().getResources().getStringArray(R.array.sportslevelvarsity); //Varsity only
-            juniorvarsity = getActivity().getResources().getStringArray(R.array.sportsleveljuniorvarsity); //Varsity and JV only
-            genderall = getActivity().getResources().getStringArray(R.array.sportsgenderall); //Boys, Girls, and "Boys and Girls"
-            boysgirls = getActivity().getResources().getStringArray(R.array.sportsgenderboysgirls); //Only Boys and Girls
-            boys = getActivity().getResources().getStringArray(R.array.sportsgenderboys); //Only Boys
-            girls = getActivity().getResources().getStringArray(R.array.sportsgendergirls);  //Only Girls
-            combined = getActivity().getResources().getStringArray(R.array.sportsgendercombined); //Only "Boys and Girls"
-
-            lstSport.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    if (position == 0) {
-                        sportPicked = false;
-                        toggleSportButton();
-                    } else {
-                        sportPicked = true;
-                        toggleSportButton();
-                        checkSport();
-                    }
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
+        lstSport.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
                     sportPicked = false;
                     toggleSportButton();
+                } else {
+                    sportPicked = true;
+                    toggleSportButton();
+                    checkSport();
                 }
-            });
+            }
 
-            lstLevel.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    if (position == 0) {
-                        levelPicked = false;
-                        toggleSportButton();
-                    } else {
-                        levelPicked = true;
-                        toggleSportButton();
-                    }
-                }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                sportPicked = false;
+                toggleSportButton();
+            }
+        });
 
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
+        lstLevel.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
                     levelPicked = false;
                     toggleSportButton();
-                }
-            });
-
-            lstGender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    if (position == 0) {
-                        genderPicked = false;
-                        toggleSportButton();
-                    } else {
-                        genderPicked = true;
-                        toggleSportButton();
-                    }
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-                    genderPicked = false;
+                } else {
+                    levelPicked = true;
                     toggleSportButton();
                 }
-            });
+            }
 
-            btnSport.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (lstSeason.getVisibility() == View.VISIBLE) {
-                        lstSeason.setVisibility(View.GONE);
-                        lstSport.setVisibility(View.VISIBLE);
-                        lstLevel.setVisibility(View.VISIBLE);
-                        lstGender.setVisibility(View.VISIBLE);
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                levelPicked = false;
+                toggleSportButton();
+            }
+        });
 
-                        btnSport.setText(R.string.SportsSchedule);
-                    } else {
-                        lstSport.setVisibility(View.GONE);
-                        lstLevel.setVisibility(View.GONE);
-                        lstGender.setVisibility(View.GONE);
-
-                        btnSport.setText(R.string.SportSelect);
-
-                        prog.setVisibility(View.VISIBLE);
-
-                        new getSeasonSchedule().execute();
-                    }
+        lstGender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
+                    genderPicked = false;
+                    toggleSportButton();
+                } else {
+                    genderPicked = true;
+                    toggleSportButton();
                 }
-            });
-        }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                genderPicked = false;
+                toggleSportButton();
+            }
+        });
+
+        btnSport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (lstSeason.getVisibility() == View.VISIBLE) {
+                    lstSeason.setVisibility(View.GONE);
+                    lstSport.setVisibility(View.VISIBLE);
+                    lstLevel.setVisibility(View.VISIBLE);
+                    lstGender.setVisibility(View.VISIBLE);
+
+                    btnSport.setText(R.string.SportsSchedule);
+                } else {
+                    lstSport.setVisibility(View.GONE);
+                    lstLevel.setVisibility(View.GONE);
+                    lstGender.setVisibility(View.GONE);
+
+                    btnSport.setText(R.string.SportSelect);
+
+                    prog.setVisibility(View.VISIBLE);
+
+                    getSeasonSchedule();
+                }
+            }
+        });
     }
 
     public void toggleSportButton() {
@@ -311,14 +299,14 @@ public class Athletics extends Fragment {
 
     public void clearOptions() {
         ArrayAdapter levelAdapter = new ArrayAdapter<>(
-            context,
-            android.R.layout.simple_spinner_dropdown_item,
-            levelselect);
+                context,
+                android.R.layout.simple_spinner_dropdown_item,
+                levelselect);
 
         ArrayAdapter genderAdapter = new ArrayAdapter<>(
-            context,
-            android.R.layout.simple_spinner_dropdown_item,
-            genderselect);
+                context,
+                android.R.layout.simple_spinner_dropdown_item,
+                genderselect);
 
         lstLevel.setAdapter(levelAdapter);
         lstGender.setAdapter(genderAdapter);
@@ -422,96 +410,116 @@ public class Athletics extends Fragment {
         lstGender.setAdapter(spinnerAdapter);
     }
 
-    class getSeasonSchedule extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected Void doInBackground(Void... params) {
+    public void getSeasonSchedule() {
 
-            /**SCHEDULE SCRAPER**/
+        /**SCHEDULE SCRAPER**/
 
-            //Construct URL based on user selections
+        //Construct URL based on user selections
 
-            /*URL structure:
-            http://schedules.schedulestar.com/Grand-Blanc-High-School-Grand-Blanc-MI/season/[MM-dd-yyyy]/[Gender]/[Level]/[Sport]
-            */
+        /*URL structure:
+        http://schedules.schedulestar.com/Grand-Blanc-High-School-Grand-Blanc-MI/season/[MM-dd-yyyy]/[Gender]/[Level]/[Sport]
+        */
 
-            //Add the current date (MM-DD-YYYY).
-            cal = Calendar.getInstance();
-            sdf = new SimpleDateFormat("MM-dd-yyyy", Locale.US);
+        //Add the current date (MM-DD-YYYY).
+        cal = Calendar.getInstance();
+        sdf = new SimpleDateFormat("MM-dd-yyyy", Locale.US);
 
-            //Get the base season event page.
-            baseUrl = getString(R.string.BaseURL) + "/" + sdf.format(cal.getTime());
+        //Get the base season event page.
+        baseUrl = getString(R.string.BaseURL) + "/" + sdf.format(cal.getTime());
 
-            //Add the gender to the URL constructor.
-            switch (genderStatus) {
-                case 1:
-                    baseUrl += "/" + genderall[lstGender.getSelectedItemPosition()];
-                    break;
-                case 2:
-                    baseUrl += "/" + boys[lstGender.getSelectedItemPosition()];
-                    break;
-                case 3:
-                    baseUrl += "/" + girls[lstGender.getSelectedItemPosition()];
-                    break;
-                case 4:
-                    baseUrl += "/" + boysgirls[lstGender.getSelectedItemPosition()];
-                    break;
-                case 5:
-                    baseUrl += "/" + combined[lstGender.getSelectedItemPosition()];
-                    break;
-            }
-
-            //Add the level to the URL constructor.
-            switch (levelStatus) {
-                case 1:
-                    baseUrl += "/" + levelall[lstLevel.getSelectedItemPosition()];
-                    break;
-                case 2:
-                    baseUrl += "/" + varsity[lstLevel.getSelectedItemPosition()];
-                    break;
-                case 3:
-                    baseUrl += "/" + juniorvarsity[lstLevel.getSelectedItemPosition()];
-                    break;
-            }
-
-            //Add the sport to the URL constructor.
-            baseUrl += "/" + sports[lstSport.getSelectedItemPosition()];
-
-            //Remove any spaces in the URL.
-            baseUrl = baseUrl.replace(" ", "%20");
-
-            Log.d("FULL URL", baseUrl);
-
-            Document s = null;
-            try {
-                s = Jsoup.connect(baseUrl).get();
-                schedule = new String[1];
-
-                //TODO: Parse classes containing locations and times of season games.
-                schedule[0] = "Season schedule will appear here.";
-            }catch (IOException e) {
-                schedule = new String[1];
-                schedule[0] = getString(R.string.NoConnection);
-            }
-            return null;
+        //Add the gender to the URL constructor.
+        switch (genderStatus) {
+            case 1:
+                baseUrl += "/" + genderall[lstGender.getSelectedItemPosition()];
+                break;
+            case 2:
+                baseUrl += "/" + boys[lstGender.getSelectedItemPosition()];
+                break;
+            case 3:
+                baseUrl += "/" + girls[lstGender.getSelectedItemPosition()];
+                break;
+            case 4:
+                baseUrl += "/" + boysgirls[lstGender.getSelectedItemPosition()];
+                break;
+            case 5:
+                baseUrl += "/" + combined[lstGender.getSelectedItemPosition()];
+                break;
         }
 
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
+        //Add the level to the URL constructor.
+        switch (levelStatus) {
+            case 1:
+                baseUrl += "/" + levelall[lstLevel.getSelectedItemPosition()];
+                break;
+            case 2:
+                baseUrl += "/" + varsity[lstLevel.getSelectedItemPosition()];
+                break;
+            case 3:
+                baseUrl += "/" + juniorvarsity[lstLevel.getSelectedItemPosition()];
+                break;
+        }
 
-            ArrayAdapter<String> seasonAdapter = new ArrayAdapter<>(
-                    context,
-                    android.R.layout.simple_list_item_1,
-                    schedule
-            );
+        //Add the sport to the URL constructor.
+        baseUrl += "/" + sports[lstSport.getSelectedItemPosition()];
 
+        //Remove any spaces in the URL.
+        baseUrl = baseUrl.replace(" ", "%20");
 
-            lstSeason.setAdapter(seasonAdapter);
-            lstSeason.setVisibility(View.VISIBLE);
+        Log.d("FULL URL", baseUrl);
 
-            prog.setVisibility(View.GONE);
+        //Load the page in a WebView and retrieve its source HTML.
+        //TODO: Evaluate the safety of this scraping solution. Alternatives are preferred.
+
+        webAthletics.getSettings().setJavaScriptEnabled(true);
+        webAthletics.addJavascriptInterface(new MyJavaScriptInterface(getActivity()), "HTMLOUT");
+
+        webAthletics.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                webAthletics.loadUrl("javascript:HTMLOUT.showHTML('<head>'+document.getElementsByTagName('html')[0].innerHTML+'</head>');");
+            }
+        });
+
+        webAthletics.loadUrl(baseUrl);
+
+    }
+
+    class MyJavaScriptInterface
+    {
+
+        private Context ctx;
+
+        MyJavaScriptInterface(Context ctx) {
+            this.ctx = ctx;
+        }
+
+        @SuppressWarnings("unused")
+        @JavascriptInterface
+        public void showHTML(String html)
+        {
+            schedule = html;
+            Log.d("FULL HTML", schedule);
+
+            String[] scheduleArray = new String[1];
+
+            Document sportDoc = Jsoup.parse(schedule);
+            Elements sportInfo = sportDoc.getElementsByClass("sportInfo");
+
+            scheduleArray[0] = sportInfo.text();
+
+            final ArrayAdapter<String> a = new ArrayAdapter<>(
+                    context, android.R.layout.simple_list_item_1, scheduleArray);
+
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    lstSeason.setAdapter(a);
+
+                    prog.setVisibility(View.GONE);
+                    lstSeason.setVisibility(View.VISIBLE);
+                }
+            });
 
         }
     }
-
 }
