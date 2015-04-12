@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string-array name="maptype">
+        <item>Standard</item>
+        <item>Satellite</item>
+        <item>Hybrid</item>
+        <item>Terrain</item>
+    </string-array>
+
     <string-array name="admin">
         <item>@drawable/hammond</item>
         <item>@drawable/belcher</item>
@@ -310,8 +317,6 @@
         <item>"Yunker, Karen"</item>
         <item>"Zacek, Tom"</item>
           </string-array>
-
-
 
     <string-array name="guidance_numbers">
         <item>8105916652</item>
