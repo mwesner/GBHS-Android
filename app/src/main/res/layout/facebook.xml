@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".GBHS">
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="com.grandblanchs.gbhs.Twitter">
 
-    <TextView
-        android:id="@+id/hello"
-        android:layout_width="match_parent"
+    <ListView android:id="@+id/list" android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#ffffffff" />
+        android:layout_alignParentTop="true"
+        android:divider="#00000000"
+        android:dividerHeight="4dp"
+        android:requiresFadingEdge="vertical"
+        android:fadingEdgeLength="25dp"/>
 
-    <com.facebook.widget.LoginButton
-        android:id="@+id/authButton"
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="182dp"
-        android:layout_alignTop="@+id/hello"
+        android:id="@+id/progFacebook"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

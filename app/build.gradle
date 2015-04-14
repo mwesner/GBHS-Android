@@ -28,10 +28,9 @@ dependencies {
     compile 'com.android.support:support-v4:22.0.0'
     compile 'com.android.support:appcompat-v7:22.0.0'
     compile 'org.twitter4j:twitter4j-core:4.0.2'
-    compile 'com.facebook.android:facebook-android-sdk:3.21.1'
     compile 'org.facebook4j:facebook4j-core:2.2.2'
     compile 'org.jsoup:jsoup:1.8.1'
     compile 'joda-time:joda-time:2.7'
     compile 'org.apache.commons:commons-lang3:3.3.2'
-    compile 'com.google.android.gms:play-services:7.0.0'
+    compile 'com.google.android.gms:play-services-maps:7.0.0'
 }
