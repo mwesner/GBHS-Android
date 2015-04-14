@@ -326,6 +326,15 @@
         <item>8105916648</item>
         <item>8105916647</item>
     </string-array>
+
+    <string-array name="guidance_emails">
+        <item>mgardner@grandblancschools.org</item>
+        <item>jhentes@grandblancschools.org</item>
+        <item>phall@grandblancschools.org</item>
+        <item>nkernen@grandblancschools.org</item>
+        <item>pmol@grandblancschools.org</item>
+        <item>lmcclear@grandblancschools.org</item>
+    </string-array>
     
 
 </resources>

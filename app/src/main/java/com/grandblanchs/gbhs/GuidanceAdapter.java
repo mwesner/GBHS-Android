@@ -18,6 +18,7 @@ import android.content.Intent;
 class GuidanceAdapter extends ArrayAdapter<String>{
     Bitmap BitmapImage;
     String number[];
+    String email[];
     GuidanceAdapter(Context context, String[] guides) {
         super(context, R.layout.guidance_list ,guides);
     }
@@ -61,18 +62,19 @@ class GuidanceAdapter extends ArrayAdapter<String>{
         btn_email.setOnClickListener(
                 new Button.OnClickListener(){
                     public void onClick(View v){
+                        email = getContext().getResources().getStringArray(R.array.guidance_emails);
                         if (position == 0) {
-                            phoneCall(number[position]);
+                            emailer(email[position]);
                         }else if (position == 1){
-                            phoneCall(number[position]);
+                            emailer(email[position]);
                         }else if (position == 2){
-                            phoneCall(number[position]);
+                            emailer(email[position]);
                         }else if (position == 3){
-                            phoneCall(number[position]);
+                            emailer(email[position]);
                         }else if (position == 4){
-                            phoneCall(number[position]);
+                            emailer(email[position]);
                         }else if (position == 5){
-                            phoneCall(number[position]);
+                            emailer(email[position]);
                         }else{
 
                         }
@@ -124,7 +126,9 @@ class GuidanceAdapter extends ArrayAdapter<String>{
         getContext().startActivity(call);
     }
 
-    public void emailer(String email){
-
+    public void emailer(String a){
+        Intent emailing = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto:", a, null));
+        emailing.setType("message/rfc822");
+        getContext().startActivity(Intent.createChooser(emailing, "Send an email..."));
     }
 }
