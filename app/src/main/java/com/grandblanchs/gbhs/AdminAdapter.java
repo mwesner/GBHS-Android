@@ -19,7 +19,8 @@ import android.widget.TextView;
 class AdminAdapter extends ArrayAdapter<String> {
 
     Bitmap BitmapImage;
-
+    String number[];
+    String email[];
     AdminAdapter(Context context, String[] admins) {
         super(context, R.layout.admin_list, admins);
     }
@@ -36,22 +37,49 @@ class AdminAdapter extends ArrayAdapter<String> {
         TextView txt_name = (TextView) customView.findViewById(R.id.txt_name);
 
 
+
+
+        btn_call.setOnClickListener(
+            new Button.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    number = getContext().getResources().getStringArray(R.array.admin_numbers);
+                    if (position == 0) {
+                        phoneCall(number[position]);
+                    }else if (position == 1){
+                        phoneCall(number[position]);
+                    }else if (position == 2){
+                        phoneCall(number[position]);
+                    }else if (position == 3){
+                        phoneCall(number[position]);
+                    }else if (position == 4){
+                        phoneCall(number[position]);
+                    }else if (position == 5){
+                        phoneCall(number[position]);
+                    }else{
+
+                    }
+                }
+            }
+        );
+
         btn_email.setOnClickListener(
                 new Button.OnClickListener(){
                     @Override
                     public void onClick(View v) {
+                        email = getContext().getResources().getStringArray(R.array.admin_emails);
                         if (position == 0) {
-                            emailer();
+                            emailer(email[position]);
                         }else if (position == 1){
-                            emailer();
+                            emailer(email[position]);
                         }else if (position == 2){
-                            emailer();
+                            emailer(email[position]);
                         }else if (position == 3){
-                            emailer();
+                            emailer(email[position]);
                         }else if (position == 4){
-                            emailer();
+                            emailer(email[position]);
                         }else if (position == 5){
-                            emailer();
+                            emailer(email[position]);
                         }else{
 
                         }
@@ -59,14 +87,6 @@ class AdminAdapter extends ArrayAdapter<String> {
                 }
 
         );
-
-
-
-
-
-
-
-
 
 
         txt_name.setText(SingleAdmin);
@@ -107,8 +127,15 @@ class AdminAdapter extends ArrayAdapter<String> {
         return customView;
     }
 
-    public void emailer(){
-        Intent emailing = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto:", "aamigo89@gmail.com", null));
+    public void phoneCall(String number){
+        Uri dial = Uri.parse("tel:" + number);
+        Intent call = new Intent(Intent.ACTION_DIAL, dial);
+        getContext().startActivity(call);
+    }
+
+
+    public void emailer(String a){
+        Intent emailing = new Intent(Intent.ACTION_SEND, Uri.fromParts("mailto:", a, null));
         emailing.setType("message/rfc822");
         getContext().startActivity(Intent.createChooser(emailing, "Send an email..."));
     }

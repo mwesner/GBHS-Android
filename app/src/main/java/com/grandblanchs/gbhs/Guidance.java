@@ -39,11 +39,10 @@ public class Guidance extends Fragment {
         prog = (ProgressBar) view.findViewById(R.id.prog);
         lst_guide = (ListView) view.findViewById(R.id.lst_guide);
 
-        String[] guides = {"Mrs. Gardner (O-Z)", "Mr. Hentes (CSS)", "Mrs. Hall (9th Grade)",
-                "Mrs. Kernen (Ge-N)", "Mrs. Mol (A-Ga)", "Mrs. McCleary (Secretary East)"};
+
 
         //Had to get rid of the getActivity.getApplicationContext(), because then startActivity calls don't work...
-        ListAdapter guidanceAdapter = new GuidanceAdapter(getActivity(), guides);
+        ListAdapter guidanceAdapter = new GuidanceAdapter(getActivity(), getResources().getStringArray(R.array.guidance_names));
 
 
 
@@ -56,15 +55,5 @@ public class Guidance extends Fragment {
     public void onStart() {
         super.onStart();
         prog.setVisibility(View.GONE);
-        //Emails:
-
-        //mgardner@grandblancschools.org
-        //591-6652
-
-        //jhentes@grandblancschools.org
-        //phall@grandblancschools.org
-        //nkernen@grandblancschools.org
-        //pmol@grandblancschools.org
-        //lmcclear@grandblancschools.org
     }
 }

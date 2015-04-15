@@ -318,6 +318,16 @@
         <item>"Zacek, Tom"</item>
           </string-array>
 
+
+    <string-array name="guidance_names">
+        <item>Mrs. Gardner</item>
+        <item>Mr. Hentes</item>
+        <item>Mrs. Hall</item>
+        <item>Mrs. Kernen</item>
+        <item>Mrs. Mol</item>
+        <item>Mrs. McCleary</item>
+    </string-array>
+
     <string-array name="guidance_numbers">
         <item>8105916652</item>
         <item>8105916651</item>
@@ -334,6 +344,33 @@
         <item>nkernen@grandblancschools.org</item>
         <item>pmol@grandblancschools.org</item>
         <item>lmcclear@grandblancschools.org</item>
+    </string-array>
+
+    <string-array name="admin_names">
+        <item>Jennifer Hammond</item>
+        <item>Chris Belcher</item>
+        <item>Gary Goetzinger</item>
+        <item>Patricia Poelke</item>
+        <item>Christy Knight</item>
+        <item>Jerrod Dohm</item>
+    </string-array>
+
+    <string-array name="admin_emails">
+        <item>jhammond@grandblancschools.org</item>
+        <item>cbelcher@grandblancschools.org</item>
+        <item>ggoetzin@grandblancschools.org</item>
+        <item>tpoelke@grandblancschools.org</item>
+        <item>cknight@grandblancschools.org</item>
+        <item>jdohm@grandblancschools.org</item>
+    </string-array>
+
+    <string-array name="admin_numbers">
+        <item>(810)591–6637</item>
+        <item>(810)591–6659</item>
+        <item>(810)591–6645</item>
+        <item>(810)591–6353</item>
+        <item>(810)591–6357</item>
+        <item>(810)591–4301</item>
     </string-array>
     
 

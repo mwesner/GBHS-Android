@@ -56,12 +56,12 @@ public class Admin extends Fragment {
         prog = (ProgressBar) view.findViewById(R.id.prog);
         lst_admin = (ListView) view.findViewById(R.id.lst_admin);
 
-        String[] admins = {"Dr. Hammond", "Chris Belcher", "Mr. Goetzinger", "Patricia Poelke", "Christy Knight", "Jerrod Dohm"};
+
 
 
 
         //Had to get rid of the getActivity.getApplicationContext(), because then startActivity calls don't work...
-        ListAdapter adminAdapter = new AdminAdapter(getActivity(), admins);
+        ListAdapter adminAdapter = new AdminAdapter(getActivity(), getResources().getStringArray(R.array.guidance_names));
 
         lst_admin.setAdapter(adminAdapter);
 
