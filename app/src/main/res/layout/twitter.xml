@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.grandblanchs.gbhs.Twitter">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <ListView android:id="@+id/list" android:layout_width="match_parent"
+    <TextView android:id="@id/android:empty"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:divider="#00000000"
-        android:dividerHeight="4dp"
-        android:requiresFadingEdge="vertical"
-        android:fadingEdgeLength="25dp"/>
+        android:gravity="center_horizontal|center_vertical"/>
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/progTwitter"
-        android:layout_gravity="center"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
-</RelativeLayout>
+    <ListView android:id="@id/android:list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/tw__transparent"
+        android:dividerHeight="@dimen/tw__compact_tweet_container_padding_top"
+        android:drawSelectorOnTop="false"/>
+</LinearLayout>
