@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,21 +42,9 @@ class AdminAdapter extends ArrayAdapter<String> {
                 @Override
                 public void onClick(View v) {
                     number = getContext().getResources().getStringArray(R.array.admin_numbers);
-                    if (position == 0) {
-                        phoneCall(number[position]);
-                    }else if (position == 1){
-                        phoneCall(number[position]);
-                    }else if (position == 2){
-                        phoneCall(number[position]);
-                    }else if (position == 3){
-                        phoneCall(number[position]);
-                    }else if (position == 4){
-                        phoneCall(number[position]);
-                    }else if (position == 5){
-                        phoneCall(number[position]);
-                    }else{
 
-                    }
+                        phoneCall(number[position]);
+
                 }
             }
         );
@@ -68,21 +54,9 @@ class AdminAdapter extends ArrayAdapter<String> {
                     @Override
                     public void onClick(View v) {
                         email = getContext().getResources().getStringArray(R.array.admin_emails);
-                        if (position == 0) {
-                            emailer(email[position]);
-                        }else if (position == 1){
-                            emailer(email[position]);
-                        }else if (position == 2){
-                            emailer(email[position]);
-                        }else if (position == 3){
-                            emailer(email[position]);
-                        }else if (position == 4){
-                            emailer(email[position]);
-                        }else if (position == 5){
-                            emailer(email[position]);
-                        }else{
 
-                        }
+                            emailer(email[position]);
+
                     }
                 }
 

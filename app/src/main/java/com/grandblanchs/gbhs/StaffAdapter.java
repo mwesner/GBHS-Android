@@ -1,6 +1,8 @@
 package com.grandblanchs.gbhs;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +34,7 @@ class StaffAdapter extends ArrayAdapter<String> {
                     @Override
                     public void onClick(View v) {
                         email = getContext().getResources().getStringArray(R.array.guidance_numbers);
-
+                        emailer(email[position]);
                     }
                 }
         );
@@ -48,5 +50,9 @@ class StaffAdapter extends ArrayAdapter<String> {
         return convertView;
     }
 
-
+    public void emailer(String a){
+        Intent emailing = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto:", a, null));
+        emailing.setType("message/rfc822");
+        getContext().startActivity(Intent.createChooser(emailing, "Send an email..."));
+    }
 }

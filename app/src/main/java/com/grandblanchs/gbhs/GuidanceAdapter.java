@@ -39,21 +39,9 @@ class GuidanceAdapter extends ArrayAdapter<String>{
                     @Override
                     public void onClick(View v) {
                         number = getContext().getResources().getStringArray(R.array.guidance_numbers);
-                        if (position == 0) {
-                            phoneCall(number[position]);
-                        }else if (position == 1){
-                            phoneCall(number[position]);
-                        }else if (position == 2){
-                            phoneCall(number[position]);
-                        }else if (position == 3){
-                            phoneCall(number[position]);
-                        }else if (position == 4){
-                            phoneCall(number[position]);
-                        }else if (position == 5){
-                            phoneCall(number[position]);
-                        }else{
 
-                        }
+                            phoneCall(number[position]);
+
                     }
                 }
         );
@@ -63,21 +51,9 @@ class GuidanceAdapter extends ArrayAdapter<String>{
                 new Button.OnClickListener(){
                     public void onClick(View v){
                         email = getContext().getResources().getStringArray(R.array.guidance_emails);
-                        if (position == 0) {
-                            emailer(email[position]);
-                        }else if (position == 1){
-                            emailer(email[position]);
-                        }else if (position == 2){
-                            emailer(email[position]);
-                        }else if (position == 3){
-                            emailer(email[position]);
-                        }else if (position == 4){
-                            emailer(email[position]);
-                        }else if (position == 5){
-                            emailer(email[position]);
-                        }else{
 
-                        }
+                            emailer(email[position]);
+
 
                     }
                 }
