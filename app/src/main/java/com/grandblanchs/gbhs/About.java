@@ -17,7 +17,7 @@ public class About {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity)
                 .setTitle(R.string.app_name)
-                .setIcon(R.drawable.ic_launcher)
+                .setIcon(R.mipmap.ic_launcher)
                 .setMessage(mActivity.getString(R.string.CTEDesc) + "\n\n"
                                 + mActivity.getString(R.string.CTEWeb
                         ))

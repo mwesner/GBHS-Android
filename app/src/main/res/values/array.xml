@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string-array name="navdrawer">
+        <item>@string/Home</item>
+        <item>@string/Announce</item>
+        <item>@string/Grades</item>
+        <item>@string/Schedule</item>
+        <item>@string/Map</item>
+        <item>@string/Facebook</item>
+        <item>@string/Twitter</item>
+        <item>@string/Calendar</item>
+        <item>@string/Athletics</item>
+        <item>@string/Early</item>
+        <item>@string/Staff</item>
+        <item>@string/Guidance</item>
+        <item>@string/Admin</item>
+        <item>@string/External</item>
+    </string-array>
+
     <string-array name="maptype">
         <item>Standard</item>
         <item>Satellite</item>

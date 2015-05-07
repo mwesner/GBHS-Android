@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
@@ -14,7 +15,8 @@
         android:longClickable="true"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:contentDescription="@string/Guidance" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,7 +27,8 @@
         android:layout_marginStart="38dp"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/img_guide"
-        android:layout_toEndOf="@+id/img_guide" />
+        android:layout_toEndOf="@+id/img_guide"
+        tools:ignore="RelativeOverlap" />
 
     <Button
         android:layout_width="50dp"
@@ -34,7 +37,7 @@
         android:layout_alignTop="@+id/img_guide"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:background="@android:drawable/sym_action_email" />
+        android:background="@drawable/ic_action_email" />
 
     <Button
         android:layout_width="50dp"
@@ -43,6 +46,6 @@
         android:layout_alignBottom="@+id/img_guide"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:background="@android:drawable/sym_action_call" />
+        android:background="@drawable/ic_action_call" />
 
 </RelativeLayout>

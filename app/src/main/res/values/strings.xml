@@ -34,7 +34,7 @@
     <string name="GBCC">GB Community Connections</string>
     <string name="Guidance">Guidance</string>
     <string name="CTE">Career &amp; Technical Education</string>
-    <string name="external">External Links</string>
+    <string name="External">External Links</string>
     <string name="PTO">Parents / PTO</string>
     <string name="Faculty">Faculty Resources</string>
     <string name="Student">Student Resources</string>
@@ -48,7 +48,7 @@
 
     <string name="GBEC">Grand Blanc High School, in partnership with the University of Michigan–Flint, will be opening the Grand Blanc Early College (GBEC) during the 2015–2016 school year.  This exclusive opportunity will be available to Grand Blanc High School students entering Junior status in the 2015–2016 school year.  Enrollment will begin during the 2014–2015 school year.​</string>
 
-    <string name="schedule">Daily Schedule</string>
+    <string name="Schedule">Daily Schedule</string>
     <string name="fullday">Full Day</string>
     <string name="halfday">Half Day</string>
     <string name="latestart">Late Start</string>
@@ -86,9 +86,6 @@
     \n5th Hour:   1:07 - 1:38 (31 minutes)
     \n6th Hour:    1:44 - 2:16 (32 minutes)
     \n\n***There will be a tone at 10:08, 10:45, 11:22, 12:58 and 1:35 to release travelers to their next class. All non-traveling students must remain in class until the official end of the period.</string>
-
-    <color name="darkred">#ffcc0000</color>
-    <color name="bobcatred">#ff681008</color>
 
     <string name="facebook_app_id">1552325678377912</string>
     <string name="facebook_secret">dbaa58d5266424b6e25d46d1fbd773d0</string>

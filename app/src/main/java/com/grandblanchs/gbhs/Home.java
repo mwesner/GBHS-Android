@@ -81,55 +81,38 @@ public class Home extends Fragment {
             btnAnnounce.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Announce));
-                    Announce announceFrag = new Announce();
-                    getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, announceFrag)
-                            .addToBackStack(null).commit();
+                    ((GBHS) getActivity()).onSectionAttached(1);
                 }
             });
         }
         btnFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Facebook));
-                Facebook facebookFrag = new Facebook();
-                getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, facebookFrag)
-                        .addToBackStack(null).commit();
+                ((GBHS) getActivity()).onSectionAttached(5);
             }
         });
         btnTwitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Twitter));
-                TwitterFeed twitterFrag = new TwitterFeed();
-                getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, twitterFrag)
-                        .addToBackStack(null).commit();
+                ((GBHS) getActivity()).onSectionAttached(6);
             }
         });
         btnGrades.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Grades));
-                getActivity().setTitle(getString(R.string.Grades));
                 new Grades(getActivity()).show();
             }
         });
         btnCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((GBHS) getActivity()).setActionBarTitle(getString(R.string.Calendar));
-                Calendar calFrag = new Calendar();
-                getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, calFrag)
-                        .addToBackStack(null).commit();
+                ((GBHS) getActivity()).onSectionAttached(7);
             }
         });
         btnTimes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((GBHS) getActivity()).setActionBarTitle(getString(R.string.schedule));
-                Times timeFrag = new Times();
-                getFragmentManager().beginTransaction().replace(R.id.FragmentContainer, timeFrag)
-                        .addToBackStack(null).commit();
+                ((GBHS) getActivity()).onSectionAttached(3);
             }
         });
         btnWeb.setOnClickListener(new View.OnClickListener() {
