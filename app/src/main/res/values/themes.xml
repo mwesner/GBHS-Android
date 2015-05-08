@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <style
+        name="BaseTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/ColorPrimary</item>
+        <item name="colorPrimaryDark">@color/ColorPrimaryDark</item>
+        <item name="alertDialogTheme">@style/AppCompatAlertDialogStyle</item>
+    </style>
+
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="colorAccent">@android:color/white</item>
+        <item name="android:background">@color/ColorPrimaryDark</item>
+    </style>
+
+    <style
+        name="BaseTheme.MainTheme">
+    </style>
+
+    <style name="BaseTheme.MainTheme.WithNavDrawer">
+    </style>
+
+</resources>
