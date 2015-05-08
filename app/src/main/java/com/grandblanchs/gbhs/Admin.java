@@ -61,7 +61,7 @@ public class Admin extends Fragment {
 
 
         //Had to get rid of the getActivity.getApplicationContext(), because then startActivity calls don't work...
-        ListAdapter adminAdapter = new AdminAdapter(getActivity(), getResources().getStringArray(R.array.guidance_names));
+        ListAdapter adminAdapter = new AdminAdapter(getActivity(), getResources().getStringArray(R.array.admin_names));
 
         lst_admin.setAdapter(adminAdapter);
 
