@@ -1,14 +1,12 @@
 package com.grandblanchs.gbhs;
 
-import android.support.v4.app.Fragment;
-import android.content.Context;
-import android.os.AsyncTask;
-import android.app.ListFragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
@@ -17,7 +15,7 @@ import com.twitter.sdk.android.tweetui.UserTimeline;
 
 import io.fabric.sdk.android.Fabric;
 
-public class TwitterFeed extends ListFragment {
+public class TwitterFeed extends Fragment {
 
     public interface OnFragmentInteractionListener{}
 
@@ -26,11 +24,17 @@ public class TwitterFeed extends ListFragment {
     private static final String TWITTER_KEY = "ZJnydLJQ8PPjT8hxt5znyscnj";
     private static final String TWITTER_SECRET = "gzSfM0fG4fFaHuQUb46SvWEM30v9XkJih0RVJiB3nEisDZfICV";
 
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.twitter, container, false);
+    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
+        ListView timeline = (ListView) view.findViewById(R.id.timelinelist);
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(getActivity(), new Twitter(authConfig));
 
@@ -41,13 +45,7 @@ public class TwitterFeed extends ListFragment {
 
         final TweetTimelineListAdapter adapter = new TweetTimelineListAdapter(getActivity(),
                 userTimeline);
-        setListAdapter(adapter);
-    }
-
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.twitter, container, false);
+        timeline.setAdapter(adapter);
     }
 }
 

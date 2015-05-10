@@ -4,16 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/timelinelist"
+        android:divider="@color/tw__medium_gray"
+        android:dividerHeight="1dp"
+        android:drawSelectorOnTop="false"/>
+
     <TextView android:id="@id/android:empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal|center_vertical"/>
 
-    <ListView android:id="@id/android:list"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:divider="@color/tw__medium_gray"
-        android:dividerHeight="1dp"
-        android:drawSelectorOnTop="false"/>
 </LinearLayout>
