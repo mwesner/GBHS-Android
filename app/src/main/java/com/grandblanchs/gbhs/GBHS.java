@@ -1,8 +1,8 @@
 package com.grandblanchs.gbhs;
 
 import android.annotation.SuppressLint;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,9 +17,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
-public class GBHS extends AppCompatActivity implements Home.OnFragmentInteractionListener,
+public class GBHS extends AppCompatActivity implements
         TwitterFeed.OnFragmentInteractionListener, Calendar.OnFragmentInteractionListener,
         Map.OnFragmentInteractionListener, Announce.OnFragmentInteractionListener,
         Facebook.OnFragmentInteractionListener,Admin.OnFragmentInteractionListener,
@@ -42,7 +41,6 @@ public class GBHS extends AppCompatActivity implements Home.OnFragmentInteractio
 
     ActionBarDrawerToggle mDrawerToggle;                  // Declaring Action Bar Drawer Toggle
 
-    Home homeFrag = new Home();
     Facebook facebookFrag = new Facebook();
     TwitterFeed twitterFrag = new TwitterFeed();
     Times timesFrag = new Times();
@@ -65,17 +63,20 @@ public class GBHS extends AppCompatActivity implements Home.OnFragmentInteractio
         TITLES = getResources().getStringArray(R.array.navdrawer);
 
         ICONS = new int[]{
-                R.drawable.drawer_home,
                 R.drawable.drawer_announce,
                 R.drawable.drawer_svue,
-                R.drawable.drawer_clock,
-                android.R.drawable.ic_dialog_map,
+                //R.drawable.drawer_jed, //TODO: Jupiter Ed
+                R.drawable.ic_action_access_time,
+                R.drawable.ic_action_map,
                 R.drawable.drawer_facebook,
                 R.drawable.drawer_twitter,
-                R.drawable.drawer_calendar,
+                R.drawable.ic_action_event,
                 R.drawable.drawer_athletics,
                 R.drawable.drawer_gbec,
-                0, 0, 0, 0};
+                R.drawable.ic_action_quick_contacts_mail,
+                R.drawable.ic_action_people,
+                R.drawable.ic_action_school,
+                R.drawable.ic_action_exit_to_app};
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -121,7 +122,7 @@ public class GBHS extends AppCompatActivity implements Home.OnFragmentInteractio
         Drawer.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
-        onSectionAttached(0); //Show the home fragment
+        onSectionAttached(1); //Show the announcements fragment
 
         final GestureDetector mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
             @Override
@@ -144,6 +145,8 @@ public class GBHS extends AppCompatActivity implements Home.OnFragmentInteractio
                     Drawer.closeDrawers();
                     onSectionAttached(recyclerView.getChildAdapterPosition(child));
 
+                    mRecyclerView.setBackgroundColor(getResources().getColor(R.color.ColorPrimary));
+
                     return true;
 
                 }
@@ -160,16 +163,11 @@ public class GBHS extends AppCompatActivity implements Home.OnFragmentInteractio
 
     @SuppressLint("CommitTransaction")
     public void onSectionAttached(int number) {
-        fm = getFragmentManager();
+        fm = getSupportFragmentManager();
         ft = fm.beginTransaction();
         prevTitle = getTitle();
+
         switch (number) {
-            case 0:
-                setTitle(R.string.Home);
-                ft.replace(R.id.FragmentContainer, homeFrag)
-                        .addToBackStack(null)
-                        .commit();
-                break;
             case 1:
                 setTitle(R.string.Announce);
                 ft.replace(R.id.FragmentContainer, announceFrag)
@@ -216,7 +214,7 @@ public class GBHS extends AppCompatActivity implements Home.OnFragmentInteractio
                         .commit();
                 break;
             case 9:
-                setTitle(R.string.Early);
+                setTitle(R.string.College);
                 ft.replace(R.id.FragmentContainer, collegeFrag)
                         .addToBackStack(null)
                         .commit();
@@ -262,14 +260,14 @@ public class GBHS extends AppCompatActivity implements Home.OnFragmentInteractio
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
-        fm = getFragmentManager();
+        fm = getSupportFragmentManager();
 
         switch (item.getItemId()) {
             case R.id.Times:
                 setTitle(R.string.Schedule);
                 onSectionAttached(3);
                 return true;
-            case R.id.StudentVUE:
+            case R.id.Grades:
                 new Grades(this).show();
                 return true;
             case R.id.Announce:
@@ -285,15 +283,12 @@ public class GBHS extends AppCompatActivity implements Home.OnFragmentInteractio
                 onSectionAttached(6);
                 return true;
             case R.id.Calendar:
-                Intent c = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.schoolfusion.us/modules/groups/homepagefiles/cms/105549/File/District%20Calendar%202014-2015%208-19.pdf"));
-                startActivity(c);
+                setTitle(R.string.Calendar);
+                onSectionAttached(7);
                 return true;
             case R.id.GBHSWeb:
                 Intent w = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.high.schoolfusion.us"));
                 startActivity(w);
-                return true;
-            case R.id.Settings:
-                Toast.makeText(getApplicationContext(), "No settings yet.", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.About:
                 new About(this).show();

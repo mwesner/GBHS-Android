@@ -18,10 +18,8 @@ public class About {
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity)
                 .setTitle(R.string.app_name)
                 .setIcon(R.mipmap.ic_launcher)
-                .setMessage(mActivity.getString(R.string.CTEDesc) + "\n\n"
-                                + mActivity.getString(R.string.CTEWeb
-                        ))
-                .setPositiveButton("Close", new Dialog.OnClickListener() {
+                .setMessage(mActivity.getString(R.string.about))
+                .setPositiveButton(R.string.close, new Dialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();

@@ -1,6 +1,6 @@
 package com.grandblanchs.gbhs;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.jsoup.Jsoup;
@@ -27,6 +29,9 @@ public class Announce extends Fragment {
 
     //TODO: (Aaron) Properly scrape announcement text
     //TODO: (Aaron) Work on setting up RSS feed for announcements with GBTV
+
+    ScrollView scrNotification;
+    TextView txtNotification;
 
     ProgressBar prog;
     ListView lstAnnounce;
@@ -56,13 +61,43 @@ public class Announce extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        scrNotification = (ScrollView) view.findViewById(R.id.scrNotification);
+        txtNotification = (TextView) view.findViewById(R.id.txtNotification);
+
         prog = (ProgressBar) view.findViewById(R.id.prog);
         lstAnnounce = (ListView) view.findViewById(R.id.lstAnnounce);
+
+        /*TODO: Enable this before release.
+        Disabled in testing so the website isn't constantly scraped*/
+        //new CheckNotifications().execute();
+
+        new AnnounceScrape().execute();
     }
 
-    public void onStart() {
-        super.onStart();
-        new AnnounceScrape().execute();
+    public class CheckNotifications extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            //Check for emergency notifications on the website.
+            Document emergNotif;
+            try {
+                emergNotif = Jsoup.connect("http://grandblanc.high.schoolfusion.us").get();
+                final Elements emergNotifBox = emergNotif.getElementsByClass("emergNotifBox");
+                if (!emergNotifBox.text().equals("")) {
+                   //Emergency notification is present.
+                   getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            txtNotification.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_action_warning, 0, 0, 0);
+                            txtNotification.setText(emergNotifBox.text());
+                        }
+                  });
+               }
+            } catch (IOException | NullPointerException e) {
+                //No notifications. Don't do anything.
+            }
+
+            return null;
+        }
     }
 
     public class AnnounceScrape extends AsyncTask<Void, Void, Void> {

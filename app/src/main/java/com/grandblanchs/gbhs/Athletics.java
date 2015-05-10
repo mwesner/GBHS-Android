@@ -1,26 +1,19 @@
 package com.grandblanchs.gbhs;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.JavascriptInterface;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -29,7 +22,7 @@ import java.util.Locale;
 
 public class Athletics extends Fragment {
 
-    //TODO: (Corey) Show season schedule for selected athletic event
+    //Show season schedule for selected athletic event
 
     public interface OnFragmentInteractionListener{}
 
@@ -41,8 +34,6 @@ public class Athletics extends Fragment {
     Spinner lstLevel;
     Spinner lstGender;
     Button btnSport;
-
-    WebView webAthletics;
 
     boolean sportPicked;
     boolean levelPicked;
@@ -64,10 +55,6 @@ public class Athletics extends Fragment {
     String[] girls;
     String[] boysgirls;
     String[] combined;
-
-    String schedule;
-
-    ListView lstSeason;
 
     int levelStatus;
     /*0 = all
@@ -106,15 +93,10 @@ public class Athletics extends Fragment {
         context = getActivity().getApplicationContext();
         res = getActivity().getResources();
 
-        prog = (ProgressBar) view.findViewById(R.id.progAthletics);
         lstSport = (Spinner) view.findViewById(R.id.lstSport);
         lstLevel = (Spinner) view.findViewById(R.id.lstLevel);
         lstGender = (Spinner) view.findViewById(R.id.lstGender);
         btnSport = (Button) view.findViewById(R.id.btnSport);
-
-        lstSeason = (ListView) view.findViewById(R.id.lstSeason);
-
-        webAthletics = (WebView) view.findViewById(R.id.webAthletics);
 
         levelselect = res.getStringArray(R.array.sportslevelselect); //Clears level options
         genderselect = res.getStringArray(R.array.sportsgenderselect); //Clears gender options
@@ -134,9 +116,14 @@ public class Athletics extends Fragment {
                 if (position == 0) {
                     sportPicked = false;
                     toggleSportButton();
+                    lstGender.setEnabled(false);
+                    lstLevel.setEnabled(false);
+                    checkSport();
                 } else {
                     sportPicked = true;
                     toggleSportButton();
+                    lstLevel.setEnabled(true);
+                    lstGender.setEnabled(true);
                     checkSport();
                 }
             }
@@ -189,24 +176,8 @@ public class Athletics extends Fragment {
         btnSport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (lstSeason.getVisibility() == View.VISIBLE) {
-                    lstSeason.setVisibility(View.GONE);
-                    lstSport.setVisibility(View.VISIBLE);
-                    lstLevel.setVisibility(View.VISIBLE);
-                    lstGender.setVisibility(View.VISIBLE);
 
-                    btnSport.setText(R.string.SportsSchedule);
-                } else {
-                    lstSport.setVisibility(View.GONE);
-                    lstLevel.setVisibility(View.GONE);
-                    lstGender.setVisibility(View.GONE);
-
-                    btnSport.setText(R.string.SportSelect);
-
-                    prog.setVisibility(View.VISIBLE);
-
-                    getSeasonSchedule();
-                }
+                getSeasonSchedule();
             }
         });
     }
@@ -465,61 +436,9 @@ public class Athletics extends Fragment {
         //Remove any spaces in the URL.
         baseUrl = baseUrl.replace(" ", "%20");
 
-        Log.d("FULL URL", baseUrl);
+        //Load the page in an external browser.
+        Intent w = new Intent(Intent.ACTION_VIEW, Uri.parse(baseUrl));
+        startActivity(w);
 
-        //Load the page in a WebView and retrieve its source HTML.
-        //TODO: Evaluate the safety of this scraping solution. Alternatives are preferred.
-
-        webAthletics.getSettings().setJavaScriptEnabled(true);
-        webAthletics.addJavascriptInterface(new MyJavaScriptInterface(getActivity()), "HTMLOUT");
-
-        webAthletics.setWebViewClient(new WebViewClient() {
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                webAthletics.loadUrl("javascript:HTMLOUT.showHTML('<head>'+document.getElementsByTagName('html')[0].innerHTML+'</head>');");
-            }
-        });
-
-        webAthletics.loadUrl(baseUrl);
-
-    }
-
-    class MyJavaScriptInterface
-    {
-
-        private Context ctx;
-
-        MyJavaScriptInterface(Context ctx) {
-            this.ctx = ctx;
-        }
-
-        @SuppressWarnings("unused")
-        @JavascriptInterface
-        public void showHTML(String html)
-        {
-            schedule = html;
-            Log.d("FULL HTML", schedule);
-
-            String[] scheduleArray = new String[1];
-
-            Document sportDoc = Jsoup.parse(schedule);
-            Elements sportInfo = sportDoc.getElementsByClass("sportInfo");
-
-            scheduleArray[0] = sportInfo.text();
-
-            final ArrayAdapter<String> a = new ArrayAdapter<>(
-                    context, android.R.layout.simple_list_item_1, scheduleArray);
-
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    lstSeason.setAdapter(a);
-
-                    prog.setVisibility(View.GONE);
-                    lstSeason.setVisibility(View.VISIBLE);
-                }
-            });
-
-        }
     }
 }

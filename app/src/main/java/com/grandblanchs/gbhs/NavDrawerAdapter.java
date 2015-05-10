@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Random;
 
@@ -42,10 +41,6 @@ public class NavDrawerAdapter extends RecyclerView.Adapter<NavDrawerAdapter.View
         c = context;
     }
 
-    public void onClick() {
-        Toast.makeText(c, "", Toast.LENGTH_SHORT).show();
-    }
-
     @Override
     public NavDrawerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -67,12 +62,10 @@ public class NavDrawerAdapter extends RecyclerView.Adapter<NavDrawerAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(NavDrawerAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final NavDrawerAdapter.ViewHolder holder, final int position) {
         if (holder.getItemViewType() == TYPE_ITEM) {
-            holder.textView.setText(mNavTitles[position]);
-            if (mIcons[position] != 0) {
-                holder.textView.setCompoundDrawablesWithIntrinsicBounds(mIcons[position], 0, 0, 0);
-            }
+            holder.textView.setText(mNavTitles[position - 1]);
+            holder.textView.setCompoundDrawablesWithIntrinsicBounds(mIcons[position - 1], 0, 0, 0);
         } else {
             //Randomize the header image.
             Random rand = new Random();

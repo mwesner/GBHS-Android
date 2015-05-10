@@ -1,7 +1,30 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" tools:context=".GBHS">
 
+    <ScrollView
+        android:id="@+id/scrNotification"
+        android:visibility="gone"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtNotification"
+            android:visibility="gone"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#ffff0000" />
+    </ScrollView>
 
     <ListView
         android:layout_width="match_parent"
@@ -12,13 +35,19 @@
         android:layout_gravity="center_horizontal|top"
         android:requiresFadingEdge="vertical"
         android:fadingEdgeLength="25dp"
-        android:choiceMode="none" />
+        android:choiceMode="none"
+        android:layout_below="@+id/scrNotification" />
 
     <ProgressBar
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/prog"
-        android:layout_gravity="center" />
+        android:indeterminate="true"
+        android:indeterminateTint="@android:color/white"
+        android:indeterminateTintMode="src_in"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
-</FrameLayout>
+</RelativeLayout>

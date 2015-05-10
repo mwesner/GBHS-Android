@@ -7,15 +7,6 @@
     android:padding="16dp"
     android:orientation="vertical">
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/progAthletics"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:visibility="invisible" />
-
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,14 +43,20 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:text="@string/SportsSchedule"
         android:id="@+id/btnSport"
+        android:drawableLeft="@drawable/athletics_schedule"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:enabled="false" />
+        android:enabled="false"
+        tools:ignore="RtlHardcoded"
+        android:background="@color/ColorPrimary"
+        android:elevation="4dp"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -69,32 +66,8 @@
         android:contentDescription="@string/Athletics"
         android:src="@drawable/athletics"
         android:alpha="0.2"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lstSeason"
-        android:visibility="gone"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/lstSport"
-        android:layout_above="@+id/btnSport" />
-
-    <WebView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/webAthletics"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/btnSport"
-        android:layout_alignEnd="@+id/btnSport"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:visibility="gone" />
-
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/btnSport"
+        android:layout_alignParentTop="true" />
 
 </RelativeLayout>

@@ -3,49 +3,46 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".GBHS">
 
-    <!--Schedule of Times-->
-    <item android:id="@+id/Times"
-        android:title="@string/Schedule"
-        android:icon="@drawable/clock"
-        app:showAsAction="ifRoom" />
-
-    <!--StudentVUE link-->
-    <item android:id="@+id/StudentVUE"
-        android:title="@string/Grades"
-        android:icon="@drawable/svueaction"
-        app:showAsAction="ifRoom"/>
-
     <!-- Announcements-->
     <item android:id="@+id/Announce"
         android:title="@string/Announce"
-        android:icon="@drawable/announce"
+        android:icon="@drawable/drawer_announce"
+        app:showAsAction="ifRoom" />
+
+    <!--StudentVUE link-->
+    <item android:id="@+id/Grades"
+        android:title="@string/Grades"
+        android:icon="@drawable/drawer_svue"
+        app:showAsAction="ifRoom"/>
+    <!--android:icon="@drawable/drawer_jed"--> <!--TODO: Jupiter Ed-->
+
+    <!--Schedule of Times-->
+    <item android:id="@+id/Times"
+        android:title="@string/Schedule"
+        android:icon="@drawable/ic_action_access_time"
         app:showAsAction="ifRoom" />
 
     <!--Facebook-->
     <item android:id="@+id/Facebook"
         android:title="@string/Facebook"
-        android:icon="@drawable/facebook"
+        android:icon="@drawable/drawer_facebook"
         app:showAsAction="ifRoom" />
 
     <!--Twitter-->
     <item android:id="@+id/Twitter"
         android:title="@string/Twitter"
-        android:icon="@drawable/twitter"
+        android:icon="@drawable/drawer_twitter"
         app:showAsAction="ifRoom"/>
 
     <!--Calendar link-->
     <item android:id="@+id/Calendar"
-        android:title="@string/CalendarWeb"
-        android:icon="@android:drawable/ic_menu_month"
+        android:title="@string/Calendar"
+        android:icon="@drawable/ic_action_event"
         app:showAsAction="ifRoom" />
 
     <!--Website-->
     <item android:id="@+id/GBHSWeb"
         android:title="@string/GBHSWeb"/>
-
-    <!--Settings-->
-    <item android:id="@+id/Settings"
-        android:title="@string/action_settings"/>
 
     <!--About-->
     <item android:id="@+id/About"

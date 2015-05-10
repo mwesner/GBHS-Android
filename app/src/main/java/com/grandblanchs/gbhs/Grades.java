@@ -18,31 +18,33 @@ public class Grades {
 
     public void show() {
 
-        // Show the schedule
-        String title = "Check Grades";
-
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity)
-                .setTitle(title)
+                .setTitle(R.string.Grades)
                 .setIcon(R.drawable.svue)
-                .setPositiveButton(R.string.studentvue, new Dialog.OnClickListener() {
+                //.setIcon(R.drawable.jed) //TODO: Jupiter Ed
+                .setPositiveButton(R.string.GradesApp, new Dialog.OnClickListener() {
+
 
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         PackageManager pm = mActivity.getPackageManager();
                         Intent appStartIntent = pm.getLaunchIntentForPackage("com.FreeLance.StudentVUE");
+                        //Intent appStartIntent = pm.getLaunchIntentForPackage("com.jupitered.jupitered"); //TODO: Jupiter Ed
                         if (appStartIntent != null) {
                             mActivity.startActivity(appStartIntent);
-                        }else{
+                        } else {
                             Intent intent = new Intent(Intent.ACTION_VIEW);
                             intent.setData(Uri.parse("market://details?id=com.FreeLance.StudentVUE"));
+                            //intent.setData(Uri.parse("market://details?id=com.jupitered.jupitered")); //TODO: Jupiter Ed
                             mActivity.startActivity(intent);
                         }
                     }
                 })
-                .setNegativeButton(R.string.synergy, new Dialog.OnClickListener() {
+                .setNegativeButton(R.string.GradesWeb, new Dialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://studentvue.geneseeisd.org/GBCS/Login_Student_PXP.aspx"));
+                        //Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://login.jupitered.com/login")); //TODO: Jupiter Ed
                         mActivity.startActivity(browserIntent);
                     }
                 });
