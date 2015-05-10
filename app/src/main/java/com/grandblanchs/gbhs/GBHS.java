@@ -18,6 +18,9 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
+
 public class GBHS extends AppCompatActivity implements
         TwitterFeed.OnFragmentInteractionListener, Calendar.OnFragmentInteractionListener,
         Map.OnFragmentInteractionListener, Announce.OnFragmentInteractionListener,
@@ -59,6 +62,8 @@ public class GBHS extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gbhs);
+
+        Fabric.with(this, new Crashlytics());
 
         TITLES = getResources().getStringArray(R.array.navdrawer);
 
