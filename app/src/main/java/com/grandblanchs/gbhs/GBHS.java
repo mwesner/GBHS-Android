@@ -31,10 +31,6 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
         Guidance.OnFragmentInteractionListener, Athletics.OnFragmentInteractionListener,
         NavigationDrawerFragment.NavigationDrawerCallbacks {
 
-    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
-    private static final String TWITTER_KEY = "ZJnydLJQ8PPjT8hxt5znyscnj";
-    private static final String TWITTER_SECRET = "gzSfM0fG4fFaHuQUb46SvWEM30v9XkJih0RVJiB3nEisDZfICV";
-
 
     //TODO: Continue managing fragment transactions
 
@@ -68,8 +64,6 @@ public class GBHS extends ActionBarActivity implements Home.OnFragmentInteractio
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
-        Fabric.with(this, new Twitter(authConfig));
         setContentView(R.layout.activity_gbhs);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)

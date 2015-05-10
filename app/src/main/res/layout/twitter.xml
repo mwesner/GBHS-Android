@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:divider="@color/tw__transparent"
-        android:dividerHeight="@dimen/tw__compact_tweet_container_padding_top"
+        android:divider="@color/tw__medium_gray"
+        android:dividerHeight="1dp"
         android:drawSelectorOnTop="false"/>
 </LinearLayout>
