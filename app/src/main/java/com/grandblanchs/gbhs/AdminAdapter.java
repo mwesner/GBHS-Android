@@ -10,13 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
 class AdminAdapter extends ArrayAdapter<String> {
 
-    Bitmap BitmapImage;
     String number[];
     String email[];
     AdminAdapter(Context context, String[] admins) {
@@ -25,17 +25,14 @@ class AdminAdapter extends ArrayAdapter<String> {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        LayoutInflater adminInflater = LayoutInflater.from(getContext());
-        View customView = adminInflater.inflate(R.layout.admin_list, parent, false);
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.admin_list, parent, false);
+        }
 
-        String SingleAdmin = getItem(position);
-        ImageView img_admin = (ImageView) customView.findViewById(R.id.img_admin);
-        Button btn_call = (Button) customView.findViewById(R.id.btn_call);
-        Button btn_email = (Button) customView.findViewById(R.id.btn_email);
-        TextView txt_name = (TextView) customView.findViewById(R.id.txt_name);
-
-
-
+        ImageView img_admin = (ImageView) convertView.findViewById(R.id.img_admin);
+        ImageButton btn_call = (ImageButton) convertView.findViewById(R.id.btn_call);
+        ImageButton btn_email = (ImageButton) convertView.findViewById(R.id.btnmail);
+        TextView txt_name = (TextView) convertView.findViewById(R.id.txt_name);
 
         btn_call.setOnClickListener(
             new Button.OnClickListener(){
@@ -50,20 +47,15 @@ class AdminAdapter extends ArrayAdapter<String> {
         );
 
         btn_email.setOnClickListener(
-                new Button.OnClickListener(){
-                    @Override
-                    public void onClick(View v) {
-                        email = getContext().getResources().getStringArray(R.array.admin_emails);
-
-                            emailer(email[position]);
-
-                    }
+            new Button.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    email = getContext().getResources().getStringArray(R.array.admin_emails);
+                        emailer(email[position]);
                 }
-
+            }
         );
-
-
-        txt_name.setText(SingleAdmin);
+        txt_name.setText(getItem(position));
 
         BitmapFactory.Options opts = new BitmapFactory.Options();
         opts.inSampleSize = 8;
@@ -93,12 +85,10 @@ class AdminAdapter extends ArrayAdapter<String> {
             Bitmap icon = BitmapFactory.decodeResource(getContext().getResources(),
                     R.drawable.dohm, opts);
             img_admin.setImageBitmap(icon);
-        } else {
-
         }
 
 
-        return customView;
+        return convertView;
     }
 
     public void phoneCall(String number){
@@ -109,8 +99,7 @@ class AdminAdapter extends ArrayAdapter<String> {
 
 
     public void emailer(String a){
-        Intent emailing = new Intent(Intent.ACTION_SEND, Uri.fromParts("mailto:", a, null));
-        emailing.setType("message/rfc822");
-        getContext().startActivity(Intent.createChooser(emailing, "Send an email..."));
+        Intent emailing = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", a, null));
+        getContext().startActivity(emailing);
     }
 }

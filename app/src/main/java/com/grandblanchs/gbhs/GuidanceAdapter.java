@@ -9,14 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.content.Intent;
 
 
 class GuidanceAdapter extends ArrayAdapter<String>{
-    Bitmap BitmapImage;
     String number[];
     String email[];
     GuidanceAdapter(Context context, String[] guides) {
@@ -26,45 +25,38 @@ class GuidanceAdapter extends ArrayAdapter<String>{
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         LayoutInflater adminInflater = LayoutInflater.from(getContext());
-        View customView = adminInflater.inflate(R.layout.guidance_list, parent, false);
+        if (convertView == null) {
+            convertView = adminInflater.inflate(R.layout.guidance_list, parent, false);
+        }
 
-        String SingleAdmin = getItem(position);
-        ImageView img_guide = (ImageView) customView.findViewById(R.id.img_guide);
-        Button btn_call = (Button) customView.findViewById(R.id.btn_call);
-        Button btn_email = (Button) customView.findViewById(R.id.btn_email);
-        TextView txt_name = (TextView) customView.findViewById(R.id.txt_name);
+        ImageView img_guide = (ImageView) convertView.findViewById(R.id.img_guidance);
+        ImageButton btn_call = (ImageButton) convertView.findViewById(R.id.btn_call);
+        ImageButton btn_email = (ImageButton) convertView.findViewById(R.id.btnmail);
+        TextView txt_name = (TextView) convertView.findViewById(R.id.txt_name);
 
         btn_call.setOnClickListener(
-                new Button.OnClickListener(){
-                    @Override
-                    public void onClick(View v) {
-                        number = getContext().getResources().getStringArray(R.array.guidance_numbers);
-
-                            phoneCall(number[position]);
-
-                    }
+            new Button.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    number = getContext().getResources().getStringArray(R.array.guidance_numbers);
+                        phoneCall(number[position]);
                 }
+            }
         );
-
 
         btn_email.setOnClickListener(
-                new Button.OnClickListener(){
-                    public void onClick(View v){
-                        email = getContext().getResources().getStringArray(R.array.guidance_emails);
-
-                            emailer(email[position]);
-
-
-                    }
+            new Button.OnClickListener(){
+                public void onClick(View v){
+                    email = getContext().getResources().getStringArray(R.array.guidance_emails);
+                        emailer(email[position]);
                 }
+            }
         );
 
-
-        txt_name.setText(SingleAdmin);
+        txt_name.setText(getItem(position));
 
         BitmapFactory.Options opts = new BitmapFactory.Options();
         opts.inSampleSize = 8;
-
 
         if (position == 0 ){
             Bitmap icon = BitmapFactory.decodeResource(getContext().getResources(),
@@ -92,8 +84,7 @@ class GuidanceAdapter extends ArrayAdapter<String>{
             img_guide.setImageBitmap(icon);
         }
 
-
-        return customView;
+        return convertView;
     }
 
     public void phoneCall(String number){
@@ -103,8 +94,7 @@ class GuidanceAdapter extends ArrayAdapter<String>{
     }
 
     public void emailer(String a){
-        Intent emailing = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto:", a, null));
-        emailing.setType("message/rfc822");
-        getContext().startActivity(Intent.createChooser(emailing, "Send an email..."));
+        Intent emailing = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", a, null));
+        getContext().startActivity(emailing);
     }
 }

@@ -43,7 +43,7 @@
     <string name="Summer">Summer School</string>
     <string name="NoConnection">No internet connection.</string>
     <string name="NoTwitter">Could not connect to Twitter.\n(Error Code:</string>
-    <string name="emptytimeline">No Tweets</string>
+    <string name="loadingtimeline">Loading tweets...</string>
     <string name="NoFacebook">Could not connect to Facebook.\n(Error Code:</string>
 
     <string name="CTEWeb"><a href='http://grandblanc.career.schoolfusion.us'>Grand Blanc CTE</a></string>
@@ -100,10 +100,10 @@
     \n6th Hour:    1:44 - 2:16 (32 minutes)
     \n\n***There will be a tone at 10:08, 10:45, 11:22, 12:58 and 1:35 to release travelers to their next class. All non-traveling students must remain in class until the official end of the period.</string>
 
-    <string name="facebook_app_id">1552325678377912</string>
-    <string name="facebook_secret">dbaa58d5266424b6e25d46d1fbd773d0</string>
-    <string name="facebook_access_token">CAACEdEose0cBAC6gCoAVUGskqPZBW77KcnwMZC8v5JBdTbyZAxB6UDnZArTcuZBHukaH6hbFt3EgsuvmcNNjbi7OMLKTPJ1pI12mYPbYP8qr4sJGBWI474azZAqWEREnpqoWYZCrOqNRy4jIwdpVqxBuGe5ZCfm1Qw87n2MddwKTE6UKrb7PqoyFUhLgF8a4qMp2lZCHv3Fcem3nmnlq8KPdvFym6pqlnWLUZD</string>
-    <string name="facebook_app_token">1552325678377912|Uh8QafY5e5mSopY7AYRRNzEsCq0</string>
+    <string name="facebook_app_id">1582397005334091</string>
+    <string name="facebook_secret">91489e9fc106b52f15971eca1d1f8d53</string>
+    <string name="facebook_access_token">CAACEdEose0cBAKtCfk6K4eZAMsCrzvQguZCHHrCgbpyGY7N4zOAe5HviMqwKY9IMvUoMSbEPwNWayzCBAPZC0dI9IGAaETZBpmZCRT3nrk88nBySIbzZAnAduWUgVBmeV5uhnZCRvuk3afaY8iZCAZBw5ZBA0unhEmQjF8yZCcX9RsCiOIczXyoswfsv2JKty520twEizHqbUuMb2wahMUaNMWBGta0ZAH6tKd8ZD</string>
+    <string name="facebook_app_token">1582397005334091|dNZULLxkcc5jn8ZH2yJwZ3EiBSk</string>
     <!--TODO: (Aaron) Change to school's facebook ID-->
-    <string name="facebook_account_id">1575038112782132</string>
+    <string name="facebook_account_id">116000535113722</string>
 </resources>

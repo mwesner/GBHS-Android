@@ -338,7 +338,7 @@
         <item>"Youngs, Jason"</item>
         <item>"Yunker, Karen"</item>
         <item>"Zacek, Tom"</item>
-          </string-array>
+    </string-array>
 
     <string-array name="staff_emails">
         <item>sallswed@grandblancschools.org</item>
@@ -379,6 +379,7 @@
         <item>acottril@grandblancschools.org</item>
         <item>ccozad@grandblancschools.org</item>
         <item>lcuccia@grandblancschools.org</item>
+        <item>mdavis2@grandblancschools.org</item>
         <item>jdelaney@grandblancschools.org</item>
         <item>mdoering@grandblancschools.org</item>
         <item>jdohm@grandblancschools.org</item>
@@ -510,7 +511,6 @@
         <item>jyoungs@grandblancschools.org</item>
         <item>kyunker@grandblancschools.org</item>
         <item>tzacek@grandblancschools.org</item>
-
     </string-array>
 
 
@@ -560,12 +560,12 @@
     </string-array>
 
     <string-array name="admin_numbers">
-        <item>(810)591–6637</item>
-        <item>(810)591–6659</item>
-        <item>(810)591–6645</item>
-        <item>(810)591–6353</item>
-        <item>(810)591–6357</item>
-        <item>(810)591–4301</item>
+        <item>8105916637</item>
+        <item>8105916659</item>
+        <item>8105916645</item>
+        <item>8105916353</item>
+        <item>8105916357</item>
+        <item>8105914301</item>
     </string-array>
     
 
