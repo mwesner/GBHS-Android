@@ -120,7 +120,7 @@ public class GBHS extends AppCompatActivity implements
 
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
-                super.onDrawerSlide(drawerView, 0); // this disables the animation
+                super.onDrawerSlide(drawerView, 0); // this disables the hamburger animation
             }
 
         }; // Drawer Toggle Object Made
@@ -149,8 +149,6 @@ public class GBHS extends AppCompatActivity implements
                 if (child != null && mGestureDetector.onTouchEvent(motionEvent)) {
                     Drawer.closeDrawers();
                     onSectionAttached(recyclerView.getChildAdapterPosition(child));
-
-                    mRecyclerView.setBackgroundColor(getResources().getColor(R.color.ColorPrimary));
 
                     return true;
 
