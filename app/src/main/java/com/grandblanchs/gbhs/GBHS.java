@@ -215,6 +215,8 @@ public class GBHS extends AppCompatActivity implements
                 return true;
         }
 
+        prevTitle = getTitle();
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -224,10 +226,9 @@ public class GBHS extends AppCompatActivity implements
 
         if (mNavigationDrawerFragment.isDrawerOpen()) {
             mNavigationDrawerFragment.closeDrawer();
-        }
-        // Catch back action and pops from backstack
-        // (if you called previously to addToBackStack() in your transaction)
-        if (fm.getBackStackEntryCount() > 1){
+        }else if (fm.getBackStackEntryCount() > 1){
+            // Catch back action and pops from backstack
+            // (if you called previously to addToBackStack() in your transaction)
             fm.popBackStack();
             setTitle(prevTitle);
         }
