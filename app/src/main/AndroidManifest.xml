@@ -24,7 +24,7 @@
         <activity
             android:name=".GBHS"
             android:label="@string/app_name"
-            android:theme="@style/BaseTheme">
+            android:theme="@style/AppTheme" >
             <intent-filter android:label="@string/app_name" >
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -37,7 +37,6 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/google_maps_key" />
-
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="eeb59445384545e3aac40c481b2e93fb3c5269c8" />

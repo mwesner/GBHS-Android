@@ -3,8 +3,6 @@
 
     <string-array name="navdrawer">
         <item>@string/Announce</item>
-        <item>@string/Grades</item>
-        <item>@string/Schedule</item>
         <item>@string/Map</item>
         <item>@string/Facebook</item>
         <item>@string/Twitter</item>

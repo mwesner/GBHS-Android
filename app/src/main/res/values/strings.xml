@@ -43,7 +43,7 @@
     <string name="Summer">Summer School</string>
     <string name="NoConnection">No internet connection.</string>
     <string name="NoTwitter">Could not connect to Twitter.\n(Error Code:</string>
-    <string name="loadingtimeline">Loading tweets...</string>
+    <string name="loadingtimeline">Loading tweets…</string>
     <string name="NoFacebook">Could not connect to Facebook.\n(Error Code:</string>
 
     <string name="CTEWeb"><a href='http://grandblanc.career.schoolfusion.us'>Grand Blanc CTE</a></string>

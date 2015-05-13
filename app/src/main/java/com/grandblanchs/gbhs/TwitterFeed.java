@@ -19,11 +19,6 @@ public class TwitterFeed extends Fragment {
 
     public interface OnFragmentInteractionListener{}
 
-    //Your consumer key and secret should be obfuscated in your source code before shipping.
-    //TODO: Recreate these keys in the release version.
-    private static final String TWITTER_KEY = "ZJnydLJQ8PPjT8hxt5znyscnj";
-    private static final String TWITTER_SECRET = "gzSfM0fG4fFaHuQUb46SvWEM30v9XkJih0RVJiB3nEisDZfICV";
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,8 +30,6 @@ public class TwitterFeed extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ListView timeline = (ListView) view.findViewById(R.id.timelinelist);
-        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
-        Fabric.with(getActivity(), new Twitter(authConfig));
 
         final UserTimeline userTimeline = new UserTimeline.Builder()
                 .screenName("GrandBlancPride")

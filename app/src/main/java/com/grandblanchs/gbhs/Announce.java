@@ -142,6 +142,7 @@ public class Announce extends Fragment {
 
                     //Remove the first entry
                     list.remove(0);
+                    list.remove(0);
 
                 }
                     context = getActivity().getApplicationContext();

@@ -3,42 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".GBHS">
 
-    <!-- Announcements-->
-    <item android:id="@+id/Announce"
-        android:title="@string/Announce"
-        android:icon="@drawable/drawer_announce"
-        app:showAsAction="ifRoom" />
-
-    <!--StudentVUE link-->
-    <item android:id="@+id/Grades"
-        android:title="@string/Grades"
-        android:icon="@drawable/drawer_svue"
-        app:showAsAction="ifRoom"/>
-    <!--android:icon="@drawable/drawer_jed"--> <!--TODO: Jupiter Ed-->
-
     <!--Schedule of Times-->
     <item android:id="@+id/Times"
         android:title="@string/Schedule"
         android:icon="@drawable/ic_action_access_time"
         app:showAsAction="ifRoom" />
 
-    <!--Facebook-->
-    <item android:id="@+id/Facebook"
-        android:title="@string/Facebook"
-        android:icon="@drawable/drawer_facebook"
-        app:showAsAction="ifRoom" />
-
-    <!--Twitter-->
-    <item android:id="@+id/Twitter"
-        android:title="@string/Twitter"
-        android:icon="@drawable/drawer_twitter"
+    <!--StudentVUE link-->
+    <item android:id="@+id/Grades"
+        android:title="@string/Grades"
+        android:icon="@drawable/svueaction"
         app:showAsAction="ifRoom"/>
-
-    <!--Calendar link-->
-    <item android:id="@+id/Calendar"
-        android:title="@string/Calendar"
-        android:icon="@drawable/ic_action_event"
-        app:showAsAction="ifRoom" />
+    <!--android:icon="@drawable/jedaction"--> <!--TODO: Jupiter Ed-->
 
     <!--Website-->
     <item android:id="@+id/GBHSWeb"

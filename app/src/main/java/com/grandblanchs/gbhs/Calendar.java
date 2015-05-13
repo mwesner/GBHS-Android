@@ -303,7 +303,7 @@ public class Calendar extends Fragment {
             holder = new ViewHolder();
             switch (type) {
                 case TYPE_ITEM:
-                    convertView = mInflater.inflate(R.layout.bluelist, parent, false);
+                    convertView = mInflater.inflate(R.layout.calendarlist, parent, false);
                     holder.textView = (TextView) convertView.findViewById(R.id.text);
                     break;
             }

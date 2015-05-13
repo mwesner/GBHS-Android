@@ -15,7 +15,6 @@ public class College extends Fragment {
 
     public interface OnFragmentInteractionListener {}
 
-    ProgressBar prog;
     Button btnCollege;
 
     public College() {
