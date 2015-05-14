@@ -16,7 +16,7 @@ import android.content.Intent;
 
 
 class GuidanceAdapter extends ArrayAdapter<String>{
-    String number[];
+    String phone[];
     String email[];
     GuidanceAdapter(Context context, String[] guides) {
         super(context, R.layout.guidance_list ,guides);
@@ -38,8 +38,8 @@ class GuidanceAdapter extends ArrayAdapter<String>{
             new Button.OnClickListener(){
                 @Override
                 public void onClick(View v) {
-                    number = getContext().getResources().getStringArray(R.array.guidance_numbers);
-                        phoneCall(number[position]);
+                    phone = getContext().getResources().getStringArray(R.array.guidance_phones);
+                        phoneCall(phone[position]);
                 }
             }
         );

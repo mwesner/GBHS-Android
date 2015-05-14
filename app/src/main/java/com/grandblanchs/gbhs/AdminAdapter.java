@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 class AdminAdapter extends ArrayAdapter<String> {
 
-    String number[];
+    String phone[];
     String email[];
     AdminAdapter(Context context, String[] admins) {
         super(context, R.layout.admin_list, admins);
@@ -38,9 +38,9 @@ class AdminAdapter extends ArrayAdapter<String> {
             new Button.OnClickListener(){
                 @Override
                 public void onClick(View v) {
-                    number = getContext().getResources().getStringArray(R.array.admin_numbers);
+                    phone = getContext().getResources().getStringArray(R.array.admin_phones);
 
-                        phoneCall(number[position]);
+                        phoneCall(phone[position]);
 
                 }
             }

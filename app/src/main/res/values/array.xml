@@ -521,7 +521,7 @@
         <item>Mrs. McCleary</item>
     </string-array>
 
-    <string-array name="guidance_numbers">
+    <string-array name="guidance_phones">
         <item>8105916652</item>
         <item>8105916651</item>
         <item>8105916649</item>
@@ -557,7 +557,7 @@
         <item>jdohm@grandblancschools.org</item>
     </string-array>
 
-    <string-array name="admin_numbers">
+    <string-array name="admin_phones">
         <item>8105916637</item>
         <item>8105916659</item>
         <item>8105916645</item>
@@ -567,6 +567,7 @@
     </string-array>
 
     <string-array name="staff_phones">
+        <!--An entry of "NONE" indicates a staff member without a listed phone number.-->
         <item>8105916505</item>
         <item>8105911663</item>
         <item>8105916428</item>
@@ -592,7 +593,7 @@
         <item>8105916494</item>
         <item>8105916671</item>
         <item>8105916429</item>
-        <item>nothing</item>
+        <item>NONE</item>
         <item>8105916427</item>
         <item>8105911585</item>
         <item>8105916679</item>
@@ -604,6 +605,7 @@
         <item>8105911602</item>
         <item>8105916060</item>
         <item>8105911584</item>
+        <item>NONE</item>
         <item>8105916108</item>
         <item>8105914302</item>
         <item>8105916475</item>
@@ -635,7 +637,6 @@
         <item>8105916649</item>
         <item>8105916637</item>
         <item>8105916925</item>
-        <item>nothing</item>
         <item>8105916483</item>
         <item>8105911599</item>
         <item>8105916651</item>
@@ -733,6 +734,7 @@
         <item>8105916663</item>
         <item>8105916638</item>
         <item>8105916925</item>
+        <item>NONE</item>
         <item>8105916641</item>
         <item>8105916454</item>
         <item>8105916478</item>
