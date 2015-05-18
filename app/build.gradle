@@ -4,6 +4,7 @@ buildscript {
     }
 
     dependencies {
+        //noinspection GradleDynamicVersion
         classpath 'io.fabric.tools:gradle:1.+'
     }
 }
@@ -40,20 +41,17 @@ android {
 }
 
 dependencies {
-    compile('com.twitter.sdk.android:twitter:1.4.0@aar') {
+    compile('com.twitter.sdk.android:twitter:1.5.0@aar') {
         transitive = true;
     }
-    compile('com.crashlytics.sdk.android:crashlytics:2.2.3@aar') {
+    compile('com.crashlytics.sdk.android:crashlytics:2.2.4@aar') {
         transitive = true;
     }
-    compile 'com.android.support:support-v4:22.1.1'
-    compile 'com.android.support:appcompat-v7:22.1.1'
     compile 'com.android.support:support-v4:22.1.1'
     compile 'com.android.support:appcompat-v7:22.1.1'
     compile 'com.android.support:recyclerview-v7:22.1.1'
-    compile 'org.facebook4j:facebook4j-core:2.2.2'
+    compile 'com.google.android.gms:play-services-maps:7.3.0'
     compile 'org.jsoup:jsoup:1.8.1'
     compile 'joda-time:joda-time:2.7'
     compile 'org.apache.commons:commons-lang3:3.3.2'
-    compile 'com.google.android.gms:play-services-maps:7.3.0'
 }
