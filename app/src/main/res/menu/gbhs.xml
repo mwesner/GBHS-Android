@@ -16,6 +16,12 @@
         app:showAsAction="ifRoom"/>
     <!--android:icon="@drawable/jedaction"--> <!--TODO: Jupiter Ed-->
 
+    <!--Facebook-->
+    <item android:id="@+id/Facebook"
+        android:title="@string/Facebook"
+        android:icon="@drawable/ic_action_facebook"
+        app:showAsAction="ifRoom" />
+
     <!--Website-->
     <item android:id="@+id/GBHSWeb"
         android:title="@string/GBHSWeb"/>

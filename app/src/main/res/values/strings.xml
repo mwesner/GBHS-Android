@@ -9,6 +9,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="Announce">Announcements</string>
+    <string name="NoAnnouncements">No announcements.</string>
     <string name="Grades">Check Grades</string>
     <string name="GradesApp">Open StudentVUE</string>
     <!--<string name="GradesApp">Open Jupiter Ed</string> TODO: Jupiter Ed-->
@@ -44,7 +45,9 @@
     <string name="NoConnection">No internet connection.</string>
     <string name="NoTwitter">Could not connect to Twitter.\n(Error Code:</string>
     <string name="loadingtimeline">Loading tweets…</string>
-    <string name="NoFacebook">Could not connect to Facebook.\n(Error Code:</string>
+
+    <string name="FacebookID">116000535113722</string>
+    <string name="TwitterUser">GrandBlancPride</string>
 
     <string name="CTEWeb"><a href='http://grandblanc.career.schoolfusion.us'>Grand Blanc CTE</a></string>
     <string name="about">Developed by Grand Blanc CTE.\n\n
@@ -99,11 +102,4 @@
     \n5th Hour:   1:07 - 1:38 (31 minutes)
     \n6th Hour:    1:44 - 2:16 (32 minutes)
     \n\n***There will be a tone at 10:08, 10:45, 11:22, 12:58 and 1:35 to release travelers to their next class. All non-traveling students must remain in class until the official end of the period.</string>
-
-    <string name="facebook_app_id">1582397005334091</string>
-    <string name="facebook_secret">91489e9fc106b52f15971eca1d1f8d53</string>
-    <string name="facebook_access_token">CAACEdEose0cBAKtCfk6K4eZAMsCrzvQguZCHHrCgbpyGY7N4zOAe5HviMqwKY9IMvUoMSbEPwNWayzCBAPZC0dI9IGAaETZBpmZCRT3nrk88nBySIbzZAnAduWUgVBmeV5uhnZCRvuk3afaY8iZCAZBw5ZBA0unhEmQjF8yZCcX9RsCiOIczXyoswfsv2JKty520twEizHqbUuMb2wahMUaNMWBGta0ZAH6tKd8ZD</string>
-    <string name="facebook_app_token">1582397005334091|dNZULLxkcc5jn8ZH2yJwZ3EiBSk</string>
-    <!--TODO: (Aaron) Change to school's facebook ID-->
-    <string name="facebook_account_id">116000535113722</string>
 </resources>

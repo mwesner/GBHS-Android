@@ -4,7 +4,6 @@
     <string-array name="navdrawer">
         <item>@string/Announce</item>
         <item>@string/Map</item>
-        <item>@string/Facebook</item>
         <item>@string/Twitter</item>
         <item>@string/Calendar</item>
         <item>@string/Athletics</item>

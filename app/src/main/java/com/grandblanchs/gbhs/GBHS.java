@@ -1,5 +1,6 @@
 package com.grandblanchs.gbhs;
 
+import android.content.pm.PackageManager;
 import android.support.v4.app.FragmentManager;
 import android.content.Intent;
 import android.net.Uri;
@@ -22,11 +23,10 @@ import io.fabric.sdk.android.Fabric;
 public class GBHS extends AppCompatActivity implements
         TwitterFeed.OnFragmentInteractionListener, Calendar.OnFragmentInteractionListener,
         Map.OnFragmentInteractionListener, Announce.OnFragmentInteractionListener,
-        Facebook.OnFragmentInteractionListener,Admin.OnFragmentInteractionListener,
-        Times.OnFragmentInteractionListener, Staff.OnFragmentInteractionListener,
-        External.OnFragmentInteractionListener, College.OnFragmentInteractionListener,
-        Guidance.OnFragmentInteractionListener, Athletics.OnFragmentInteractionListener,
-        NavigationDrawerCallbacks {
+        Admin.OnFragmentInteractionListener, Times.OnFragmentInteractionListener,
+        Staff.OnFragmentInteractionListener, External.OnFragmentInteractionListener,
+        College.OnFragmentInteractionListener, Guidance.OnFragmentInteractionListener,
+        Athletics.OnFragmentInteractionListener, NavigationDrawerCallbacks {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -36,7 +36,6 @@ public class GBHS extends AppCompatActivity implements
     CharSequence prevTitle;
     FragmentManager fm;
 
-    Facebook facebookFrag = new Facebook();
     TwitterFeed twitterFrag = new TwitterFeed();
     Times timesFrag = new Times();
     Map mapFrag = new Map();
@@ -102,6 +101,7 @@ public class GBHS extends AppCompatActivity implements
             case 1:
                 setTitle(R.string.Announce);
                 fm.beginTransaction()
+                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
                         .replace(R.id.FragmentContainer, announceFrag)
                         .addToBackStack(null)
                         .commit();
@@ -109,69 +109,80 @@ public class GBHS extends AppCompatActivity implements
             case 2:
                 setTitle(R.string.Map);
                 fm.beginTransaction()
+                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                R.anim.abc_fade_in, R.anim.abc_fade_out)
                         .replace(R.id.FragmentContainer, mapFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
             case 3:
-                setTitle(R.string.Facebook);
-                fm.beginTransaction()
-                        .replace(R.id.FragmentContainer, facebookFrag)
-                        .addToBackStack(null)
-                        .commit();
-                break;
-            case 4:
                 setTitle(R.string.Twitter);
                 fm.beginTransaction()
+                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                R.anim.abc_fade_in, R.anim.abc_fade_out)
                         .replace(R.id.FragmentContainer, twitterFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
-            case 5:
+            case 4:
                 setTitle(R.string.Calendar);
                 fm.beginTransaction()
+                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                R.anim.abc_fade_in, R.anim.abc_fade_out)
                         .replace(R.id.FragmentContainer, calFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
-            case 6:
+            case 5:
                 setTitle(R.string.Athletics);
                 fm.beginTransaction()
+                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                R.anim.abc_fade_in, R.anim.abc_fade_out)
                         .replace(R.id.FragmentContainer, athleticsFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
-            case 7:
+            case 6:
                 setTitle(R.string.College);
                 fm.beginTransaction()
+                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                R.anim.abc_fade_in, R.anim.abc_fade_out)
                         .replace(R.id.FragmentContainer, collegeFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
-            case 8:
+            case 7:
                 setTitle(R.string.Staff);
                 fm.beginTransaction()
+                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                R.anim.abc_fade_in, R.anim.abc_fade_out)
                         .replace(R.id.FragmentContainer, staffFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
-            case 9:
+            case 8:
                 setTitle(R.string.Guidance);
                 fm.beginTransaction()
+                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                R.anim.abc_fade_in, R.anim.abc_fade_out)
                         .replace(R.id.FragmentContainer, guidanceFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
-            case 10:
+            case 9:
                 setTitle(R.string.Admin);
                 fm.beginTransaction()
+                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                R.anim.abc_fade_in, R.anim.abc_fade_out)
                         .replace(R.id.FragmentContainer, adminFrag)
                         .addToBackStack(null)
                         .commit();
                 break;
-            case 11:
+            case 10:
                 setTitle(R.string.External);
                 fm.beginTransaction()
+                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                R.anim.abc_fade_in, R.anim.abc_fade_out)
                         .replace(R.id.FragmentContainer, externalFrag)
                         .addToBackStack(null)
                         .commit();
@@ -199,12 +210,26 @@ public class GBHS extends AppCompatActivity implements
             case R.id.Times:
                 setTitle(R.string.Schedule);
                 fm.beginTransaction()
+                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                R.anim.abc_fade_in, R.anim.abc_fade_out)
                         .replace(R.id.FragmentContainer, timesFrag)
                         .addToBackStack(null)
                         .commit();
                 return true;
             case R.id.Grades:
                 new Grades(this).show();
+                return true;
+            case R.id.Facebook:
+                Uri uri;
+                String url = "https://www.facebook.com/GrandBlancHighSchool";
+                try {
+                    getPackageManager().getPackageInfo("com.facebook.katana", 0);
+                    uri = Uri.parse("fb://page/" + getString(R.string.FacebookID));
+                } catch (PackageManager.NameNotFoundException e) {
+                    uri = Uri.parse(url);
+                }
+                Intent i = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(i);
                 return true;
             case R.id.GBHSWeb:
                 Intent w = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.high.schoolfusion.us"));
@@ -221,9 +246,7 @@ public class GBHS extends AppCompatActivity implements
     }
 
     @Override
-    public void onBackPressed()
-    {
-
+    public void onBackPressed() {
         if (mNavigationDrawerFragment.isDrawerOpen()) {
             mNavigationDrawerFragment.closeDrawer();
         }else if (fm.getBackStackEntryCount() > 1){
@@ -231,8 +254,9 @@ public class GBHS extends AppCompatActivity implements
             // (if you called previously to addToBackStack() in your transaction)
             fm.popBackStack();
             setTitle(prevTitle);
+        } else {
+            // Default action on back pressed
+            super.onBackPressed();
         }
-        // Default action on back pressed
-        else super.onBackPressed();
     }
 }

@@ -96,14 +96,6 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(mFragmentContainerView);
     }
 
-    public ActionBarDrawerToggle getActionBarDrawerToggle() {
-        return mActionBarDrawerToggle;
-    }
-
-    public DrawerLayout getDrawerLayout() {
-        return mDrawerLayout;
-    }
-
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         selectItem(position);
@@ -115,15 +107,14 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         String[] list = res.getStringArray(R.array.navdrawer);
         items.add(new NavigationItem(list[0], ResourcesCompat.getDrawable(res, R.drawable.drawer_announce, null)));
         items.add(new NavigationItem(list[1], ResourcesCompat.getDrawable(res, R.drawable.ic_action_map, null)));
-        items.add(new NavigationItem(list[2], ResourcesCompat.getDrawable(res, R.drawable.drawer_facebook, null)));
-        items.add(new NavigationItem(list[3], ResourcesCompat.getDrawable(res, R.drawable.drawer_twitter, null)));
-        items.add(new NavigationItem(list[4], ResourcesCompat.getDrawable(res, R.drawable.ic_action_event, null)));
-        items.add(new NavigationItem(list[5], ResourcesCompat.getDrawable(res, R.drawable.drawer_athletics, null)));
-        items.add(new NavigationItem(list[6], ResourcesCompat.getDrawable(res, R.drawable.drawer_gbec, null)));
-        items.add(new NavigationItem(list[7], ResourcesCompat.getDrawable(res, R.drawable.ic_action_quick_contacts_mail, null)));
-        items.add(new NavigationItem(list[8], ResourcesCompat.getDrawable(res, R.drawable.ic_action_people, null)));
-        items.add(new NavigationItem(list[9], ResourcesCompat.getDrawable(res, R.drawable.ic_action_school, null)));
-        items.add(new NavigationItem(list[10], ResourcesCompat.getDrawable(res, R.drawable.ic_action_open_in_browser, null)));
+        items.add(new NavigationItem(list[2], ResourcesCompat.getDrawable(res, R.drawable.drawer_twitter, null)));
+        items.add(new NavigationItem(list[3], ResourcesCompat.getDrawable(res, R.drawable.ic_action_event, null)));
+        items.add(new NavigationItem(list[4], ResourcesCompat.getDrawable(res, R.drawable.drawer_athletics, null)));
+        items.add(new NavigationItem(list[5], ResourcesCompat.getDrawable(res, R.drawable.drawer_gbec, null)));
+        items.add(new NavigationItem(list[6], ResourcesCompat.getDrawable(res, R.drawable.ic_action_quick_contacts_mail, null)));
+        items.add(new NavigationItem(list[7], ResourcesCompat.getDrawable(res, R.drawable.ic_action_people, null)));
+        items.add(new NavigationItem(list[8], ResourcesCompat.getDrawable(res, R.drawable.ic_action_school, null)));
+        items.add(new NavigationItem(list[9], ResourcesCompat.getDrawable(res, R.drawable.ic_action_open_in_browser, null)));
         return items;
     }
 
@@ -197,10 +188,6 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         ((NavigationDrawerAdapter) mDrawerList.getAdapter()).selectPosition(position);
     }
 
-    public void openDrawer() {
-        mDrawerLayout.openDrawer(mFragmentContainerView);
-    }
-
     public void closeDrawer() {
         mDrawerLayout.closeDrawer(mFragmentContainerView);
     }
@@ -239,9 +226,5 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         ImageView avatarContainer = (ImageView) mFragmentContainerView.findViewById(R.id.imgAvatar);
         avatarContainer.setImageDrawable(avatar);
         headerBackground.setBackgroundResource(randomHeaderBackground);
-    }
-
-    public View getGoogleDrawer() {
-        return mFragmentContainerView.findViewById(R.id.googleDrawer);
     }
 }
