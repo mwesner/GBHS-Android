@@ -7,12 +7,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 
 public class External extends Fragment {
@@ -46,86 +44,17 @@ public class External extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.external, container, false);
+        return inflater.inflate(R.layout.fragment_external, container, false);
     }
 
     @Override
     public void onStart() {
         super.onStart();
 
-        ExternalAdapter adapter = new ExternalAdapter();
-        for (String anExternal : external) {
-            adapter.addItem(anExternal);
-        }
+        ExternalAdapter adapter = new ExternalAdapter(getActivity(), external);
+
         lstExternal.setAdapter(adapter);
-        prog.setVisibility(View.GONE);
-        lstExternal.setVisibility(View.VISIBLE);
-
-    }
-
-    //Adapter class
-    private class ExternalAdapter extends BaseAdapter {
-        private static final int TYPE_ITEM = 0;
-
-        private ArrayList<String> mData = new ArrayList<>();
-        private LayoutInflater mInflater;
-
-        public ExternalAdapter() {
-            mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        }
-
-        public void addItem(final String item) {
-            mData.add(item);
-            notifyDataSetChanged();
-        }
-
-        @Override
-        public int getItemViewType(int position) {
-            return TYPE_ITEM;
-        }
-
-        @Override
-        public int getViewTypeCount() {
-            return 1;
-        }
-
-        @Override
-        public int getCount() {
-            return mData.size();
-        }
-
-        @Override
-        public String getItem(int position) {
-            return mData.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder;
-            int type = getItemViewType(position);
-            holder = new ViewHolder();
-            switch (type) {
-                case TYPE_ITEM:
-                    if (position %2 == 0) {
-                        convertView = mInflater.inflate(R.layout.largelist, parent, false);
-                        holder.textView = (TextView) convertView.findViewById(R.id.text);
-                    }else{
-                        convertView = mInflater.inflate(R.layout.linklist, parent, false);
-                        holder.textView = (TextView) convertView.findViewById(R.id.text);
-                    }
-                    break;
-            }
-            convertView.setTag(holder);
-            holder.textView.setText(mData.get(position));
-            return convertView;
-        }
-    }
-
-    public static class ViewHolder {
-        public TextView textView;
+        FadeAnimation f = new FadeAnimation();
+        f.start(lstExternal, null, prog);
     }
 }
