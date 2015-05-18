@@ -19,14 +19,14 @@ class GuidanceAdapter extends ArrayAdapter<String>{
     String phone[];
     String email[];
     GuidanceAdapter(Context context, String[] guides) {
-        super(context, R.layout.guidance_list ,guides);
+        super(context, R.layout.item_guidance ,guides);
     }
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         LayoutInflater adminInflater = LayoutInflater.from(getContext());
         if (convertView == null) {
-            convertView = adminInflater.inflate(R.layout.guidance_list, parent, false);
+            convertView = adminInflater.inflate(R.layout.item_guidance, parent, false);
         }
 
         ImageView img_guide = (ImageView) convertView.findViewById(R.id.img_guidance);

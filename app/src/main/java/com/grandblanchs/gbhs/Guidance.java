@@ -16,7 +16,6 @@ public class Guidance extends Fragment {
 
     public interface OnFragmentInteractionListener{}
 
-
     ProgressBar prog;
     ListView lst_guide;
 
@@ -29,8 +28,7 @@ public class Guidance extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.guidance, container, false);
-
+        return inflater.inflate(R.layout.fragment_guidance, container, false);
     }
 
     @Override
@@ -39,21 +37,11 @@ public class Guidance extends Fragment {
         prog = (ProgressBar) view.findViewById(R.id.prog);
         lst_guide = (ListView) view.findViewById(R.id.lst_guide);
 
-
-
-        //Had to get rid of the getActivity.getApplicationContext(), because then startActivity calls don't work...
         ListAdapter guidanceAdapter = new GuidanceAdapter(getActivity(), getResources().getStringArray(R.array.guidance_names));
-
-
 
         lst_guide.setAdapter(guidanceAdapter);
 
-
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        prog.setVisibility(View.GONE);
+        FadeAnimation f = new FadeAnimation();
+        f.start(lst_guide, null, prog);
     }
 }

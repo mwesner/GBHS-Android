@@ -15,7 +15,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Map extends Fragment {
@@ -29,9 +28,13 @@ public class Map extends Fragment {
     GoogleMap map;
     CameraUpdate cam;
 
+    String[] maptype;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.map, container, false);
+        View v = inflater.inflate(R.layout.fragment_map, container, false);
+
+        maptype = getResources().getStringArray(R.array.maptype);
 
         btnWest = (Button) v.findViewById(R.id.btnWest);
         btnEast = (Button) v.findViewById(R.id.btnEast);
@@ -43,8 +46,6 @@ public class Map extends Fragment {
 
         // Gets to GoogleMap from the MapView and does initialization
         map = mapView.getMap();
-        map.getUiSettings().setMyLocationButtonEnabled(true);
-        map.setMyLocationEnabled(true);
 
         // Needs to call MapsInitializer before doing any CameraUpdateFactory calls
         MapsInitializer.initialize(this.getActivity());
@@ -64,6 +65,8 @@ public class Map extends Fragment {
                 .title("Grand Blanc High School")
                 .snippet("West Campus")
                 .position(west));
+
+        lstType.setAdapter(new MapAdapter(getActivity(), maptype));
 
         lstType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -104,23 +107,6 @@ public class Map extends Fragment {
             }
         });
 
-        map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(Marker marker) {
-                switch (marker.getSnippet()) {
-                    case "West Campus":
-                        cam = CameraUpdateFactory.newLatLngZoom(west, 18);
-                        map.animateCamera(cam);
-                        break;
-                    case "East Campus":
-                        cam = CameraUpdateFactory.newLatLngZoom(east, (float) 17.125);
-                        map.animateCamera(cam);
-                        break;
-                }
-                marker.showInfoWindow();
-                return true;
-            }
-        });
         return v;
     }
 

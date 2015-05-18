@@ -20,13 +20,13 @@ class AdminAdapter extends ArrayAdapter<String> {
     String phone[];
     String email[];
     AdminAdapter(Context context, String[] admins) {
-        super(context, R.layout.admin_list, admins);
+        super(context, R.layout.item_admin, admins);
     }
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.admin_list, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_admin, parent, false);
         }
 
         ImageView img_admin = (ImageView) convertView.findViewById(R.id.img_admin);

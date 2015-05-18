@@ -7,11 +7,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.CalendarView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.commons.lang3.StringUtils;
@@ -60,7 +58,7 @@ public class Calendar extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.calendar, container, false);
+        return inflater.inflate(R.layout.fragment_calendar, container, false);
     }
 
     @Override
@@ -185,21 +183,26 @@ public class Calendar extends Fragment {
                 }
 
                 //Set the content of the ListView
-                mAdapter = new CalendarAdapter();
-                for (int i = 0; i < eventList.size(); i++) {
-                    mAdapter.addItem(eventList.get(i));
-                }
+                mAdapter = new CalendarAdapter(getActivity(), eventList);
 
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
-                    lstInfo.setAdapter(mAdapter);
+                        lstInfo.setAdapter(mAdapter);
 
+                        FadeAnimation f = new FadeAnimation();
+                        f.start(lstInfo, gridCal, prog);
+                        prog.setVisibility(View.GONE);
+                        lstInfo.setVisibility(View.VISIBLE);
+                        gridCal.setVisibility(View.VISIBLE);
                     }
                 });
+
             } catch (IOException e) {
                 final Context context = getActivity().getApplicationContext();
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
+                        FadeAnimation f = new FadeAnimation();
+                        f.start(null, null, prog);
                         Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
                     }
                 });
@@ -211,9 +214,6 @@ public class Calendar extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            prog.setVisibility(View.GONE);
-            lstInfo.setVisibility(View.VISIBLE);
-            gridCal.setVisibility(View.VISIBLE);
 
             //Change the events displayed when the user selects a new date.
             gridCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -244,10 +244,7 @@ public class Calendar extends Fragment {
                     }
 
                     //Set the content of the ListView
-                    mAdapter = new CalendarAdapter();
-                    for (int i = 0; i < eventList.size(); i++) {
-                        mAdapter.addItem(eventList.get(i));
-                    }
+                    mAdapter = new CalendarAdapter(getActivity(), eventList);
 
                     lstInfo.setAdapter(mAdapter);
                 }
@@ -255,66 +252,5 @@ public class Calendar extends Fragment {
             });
         }
     }
-
-    //Adapter class
-    private class CalendarAdapter extends BaseAdapter {
-        private static final int TYPE_ITEM = 0;
-
-        private ArrayList<String> mData = new ArrayList<>();
-        private LayoutInflater mInflater;
-
-        public CalendarAdapter() {
-            mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        }
-
-        public void addItem(final String item) {
-            mData.add(item);
-            notifyDataSetChanged();
-        }
-
-        @Override
-        public int getItemViewType(int position) {
-            return TYPE_ITEM;
-        }
-
-        @Override
-        public int getViewTypeCount() {
-            return 1;
-        }
-
-        @Override
-        public int getCount() {
-            return mData.size();
-        }
-
-        @Override
-        public String getItem(int position) {
-            return mData.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder;
-            int type = getItemViewType(position);
-            holder = new ViewHolder();
-            switch (type) {
-                case TYPE_ITEM:
-                    convertView = mInflater.inflate(R.layout.calendarlist, parent, false);
-                    holder.textView = (TextView) convertView.findViewById(R.id.text);
-                    break;
-            }
-            convertView.setTag(holder);
-            holder.textView.setText(mData.get(position));
-            return convertView;
-        }
-    }
-
-    public static class ViewHolder {
-        public TextView textView;
-}
 }
 

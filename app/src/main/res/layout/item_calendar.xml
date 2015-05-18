@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent">
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/caltext"
         android:autoLink="all"
         android:gravity="center"
         android:paddingLeft="16dp"

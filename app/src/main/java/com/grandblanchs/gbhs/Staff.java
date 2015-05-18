@@ -1,14 +1,23 @@
 package com.grandblanchs.gbhs;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class Staff extends Fragment {
@@ -17,12 +26,14 @@ public class Staff extends Fragment {
 
     ProgressBar prog;
     ListView lst_staff;
+    TextView staffSearch;
 
-    @Nullable
+    List<String> staffNames = new ArrayList<>();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.staff, container, false);
+        return inflater.inflate(R.layout.fragment_staff, container, false);
     }
 
     @Override
@@ -30,14 +41,50 @@ public class Staff extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         prog = (ProgressBar) view.findViewById(R.id.prog);
         lst_staff = (ListView) view.findViewById(R.id.lst_staff);
+        staffSearch = (TextView) view.findViewById(R.id.staffSearch);
 
-        ListAdapter StaffAdapter = new StaffAdapter(getActivity(), getResources().getStringArray(R.array.staff_names));
+        staffNames = Arrays.asList(getResources().getStringArray(R.array.staff_names));
+        final ListAdapter StaffAdapter = new StaffAdapter(getActivity(),
+                staffNames);
         lst_staff.setAdapter(StaffAdapter);
-    }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        prog.setVisibility(View.GONE);
+        lst_staff.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+             @Override
+             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                 staffSearch.clearFocus();
+                 InputMethodManager imm = (InputMethodManager)
+                         getActivity().getSystemService(
+                                 Context.INPUT_METHOD_SERVICE);
+                 imm.hideSoftInputFromWindow(staffSearch.getWindowToken(),
+                         0);
+             }
+         });
+
+        FadeAnimation f = new FadeAnimation();
+        f.start(lst_staff, null, prog);
+
+        staffSearch.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                ListAdapter sa = new StaffAdapter(getActivity(), staffNames);
+                lst_staff.setAdapter(sa);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+
+        lst_staff.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                staffSearch.clearFocus();
+            }
+        });
     }
 }

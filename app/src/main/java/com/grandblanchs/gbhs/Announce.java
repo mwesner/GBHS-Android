@@ -55,7 +55,7 @@ public class Announce extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.announce, container, false);
+        return inflater.inflate(R.layout.fragment_announce, container, false);
     }
 
     @Override
@@ -119,7 +119,7 @@ public class Announce extends Fragment {
                     list = new ArrayList<>();
 
                     //Add "No Announcements."
-                    list.add(0, "No announcements.");
+                    list.add(0, getString(R.string.NoAnnouncements));
 
                 }else{
                     displayArray = new String[announceTextArray.length];
@@ -146,18 +146,18 @@ public class Announce extends Fragment {
 
                 }
                     context = getActivity().getApplicationContext();
-                    adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, list);
+                    adapter = new AnnounceAdapter(getActivity(), list);
             } catch (IOException e) {
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
-                        Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
                     }
                 });
             } catch (NullPointerException e) {
                 list = new ArrayList<>();
 
                 //Add "No Announcements."
-                list.add(0, "No announcements.");
+                list.add(0, getString(R.string.NoAnnouncements));
             }
             return null;
         }
@@ -166,7 +166,9 @@ public class Announce extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             lstAnnounce.setAdapter(adapter);
-            prog.setVisibility(View.GONE);
+
+            FadeAnimation f = new FadeAnimation();
+            f.start(lstAnnounce, null, prog);
         }
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
@@ -12,7 +13,22 @@
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lstType"
+        android:spinnerMode="dropdown"
+        android:entries="@array/maptype"
+        android:background="@android:drawable/screen_background_dark_transparent"
+        tools:ignore="RtlSymmetry"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -20,9 +36,10 @@
         android:layout_height="wrap_content"
         android:text="@string/West"
         android:id="@+id/btnWest"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/space"
-        android:layout_toStartOf="@+id/space" />
+        tools:ignore="RelativeOverlap"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/btnEast"
+        android:layout_toStartOf="@+id/btnEast" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -30,18 +47,7 @@
         android:layout_height="wrap_content"
         android:text="@string/East"
         android:id="@+id/btnEast"
-        android:layout_alignTop="@+id/btnWest"
-        android:layout_toRightOf="@+id/space"
-        android:layout_toEndOf="@+id/space" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lstType"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:spinnerMode="dropdown"
-        android:entries="@array/maptype"
-        android:background="@android:drawable/screen_background_dark_transparent" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
