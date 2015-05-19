@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:theme="@android:style/Theme.Holo.Dialog">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/img_admin"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/txt_name"
+        android:layout_alignEnd="@+id/txt_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/txt_name"
+        android:layout_below="@+id/img_admin"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="STUFF GOES HERE AND THINGS AND PEOPLE"
+        android:id="@+id/txt_bio"
+        android:layout_below="@+id/txt_name"
+        android:layout_marginTop="33dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>
