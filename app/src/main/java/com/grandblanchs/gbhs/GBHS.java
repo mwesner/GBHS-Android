@@ -63,7 +63,13 @@ public class GBHS extends AppCompatActivity implements
         setContentView(R.layout.activity_gbhs);
 
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
-        Fabric.with(this, new Crashlytics(), new Twitter(authConfig));
+
+        //Disable crashlytics for debug builds.
+        if (BuildConfig.USE_CRASHLYTICS) {
+            Fabric.with(this, new Crashlytics(), new Twitter(authConfig));
+        }else{
+            Fabric.with(this, new Twitter(authConfig));
+        }
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
