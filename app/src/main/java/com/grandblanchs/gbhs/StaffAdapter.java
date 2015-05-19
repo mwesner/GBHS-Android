@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Filter;
@@ -63,6 +64,18 @@ class StaffAdapter extends ArrayAdapter<String> implements Filterable {
 
         email = getContext().getResources().getStringArray(R.array.staff_emails);
         call = getContext().getResources().getStringArray(R.array.staff_phones);
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Staff.staffSearch.clearFocus();
+                InputMethodManager imm = (InputMethodManager)
+                        getContext().getSystemService(
+                                Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(Staff.staffSearch.getWindowToken(),
+                        0);
+            }
+        });
 
         btn_email.setOnClickListener(
                 new Button.OnClickListener() {
