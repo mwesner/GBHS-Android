@@ -1,6 +1,5 @@
 package com.grandblanchs.gbhs;
 
-import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.app.FragmentManager;
@@ -202,7 +201,6 @@ public class GBHS extends AppCompatActivity implements
         return true;
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -213,7 +211,9 @@ public class GBHS extends AppCompatActivity implements
 
         switch (item.getItemId()) {
             case R.id.Times:
-                toolbar.setElevation(0);
+                if (Build.VERSION.SDK_INT >= 21) {
+                    toolbar.setElevation(0);
+                }
                 setTitle(R.string.Schedule);
                 fm.beginTransaction()
                         .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,

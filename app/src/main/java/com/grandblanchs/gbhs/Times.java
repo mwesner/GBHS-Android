@@ -61,7 +61,8 @@ public class Times extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         super.onDestroy();
-
-        GBHS.toolbar.setElevation(4);
+        if (Build.VERSION.SDK_INT >= 21) {
+            GBHS.toolbar.setElevation(4);
+        }
     }
 }
