@@ -32,17 +32,13 @@ public void start(@Nullable final View v1, @Nullable final View v2, @Nullable fi
     fadeOut.setFillAfter(true);
     fadeOut.setAnimationListener(new Animation.AnimationListener() {
         @Override
-        public void onAnimationStart(Animation animation) {
-        }
-
+        public void onAnimationStart(Animation animation) {}
         @Override
         public void onAnimationEnd(Animation animation) {
             if (v3 != null) {v3.setVisibility(View.GONE);}
         }
-
         @Override
-        public void onAnimationRepeat(Animation animation) {
-        }
+        public void onAnimationRepeat(Animation animation) {}
     });
     if (v3 != null) {v3.startAnimation(fadeOut);}
 }

@@ -1,6 +1,8 @@
 package com.grandblanchs.gbhs;
 
+import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.v4.app.FragmentManager;
 import android.content.Intent;
 import android.net.Uri;
@@ -33,6 +35,8 @@ public class GBHS extends AppCompatActivity implements
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
+    static Toolbar toolbar;
+
     CharSequence prevTitle;
     FragmentManager fm;
 
@@ -62,7 +66,7 @@ public class GBHS extends AppCompatActivity implements
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(this, new Crashlytics(), new Twitter(authConfig));
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
@@ -198,6 +202,7 @@ public class GBHS extends AppCompatActivity implements
         return true;
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -208,6 +213,7 @@ public class GBHS extends AppCompatActivity implements
 
         switch (item.getItemId()) {
             case R.id.Times:
+                toolbar.setElevation(0);
                 setTitle(R.string.Schedule);
                 fm.beginTransaction()
                         .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
