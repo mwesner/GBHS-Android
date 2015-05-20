@@ -19,6 +19,7 @@
         android:gravity="center"
         android:choiceMode="none"
         android:numColumns="7"
+        android:selectedWeekBackgroundColor="@color/myPrimaryDarkColor"
         android:visibility="invisible"
         android:layout_alignRight="@+id/dummy"
         android:layout_alignEnd="@+id/dummy"

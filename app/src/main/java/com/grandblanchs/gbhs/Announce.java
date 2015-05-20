@@ -1,7 +1,6 @@
 package com.grandblanchs.gbhs;
 
 import android.support.v4.app.Fragment;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -37,10 +36,9 @@ public class Announce extends Fragment {
     ListView lstAnnounce;
     ArrayAdapter adapter;
 
+    List<String> list = new ArrayList<>();
     String[] announceTextArray;
     String[] displayArray;
-
-    Context context;
 
     public Announce() {
         // Required empty public constructor
@@ -75,6 +73,7 @@ public class Announce extends Fragment {
         new AnnounceScrape().execute();
     }
 
+    @SuppressWarnings("unused")
     public class CheckNotifications extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... params) {
@@ -106,7 +105,6 @@ public class Announce extends Fragment {
             //Scrape the daily announcements into a list.
             Document announce;
             //Document rss = null;
-            List<String> list;
 
             try {
                 announce = Jsoup.connect("http://grandblanc.high.schoolfusion.us/modules/cms/pages.phtml?pageid=22922").get();
@@ -145,7 +143,6 @@ public class Announce extends Fragment {
                     list.remove(0);
 
                 }
-                    context = getActivity().getApplicationContext();
                     adapter = new AnnounceAdapter(getActivity(), list);
             } catch (IOException e) {
                 getActivity().runOnUiThread(new Runnable() {
