@@ -17,7 +17,9 @@ public class Guidance extends Fragment {
     public interface OnFragmentInteractionListener{}
 
     ProgressBar prog;
-    ListView lst_guide;
+    ListView lst_guidance;
+
+    String[] names;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,13 +37,16 @@ public class Guidance extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         prog = (ProgressBar) view.findViewById(R.id.prog);
-        lst_guide = (ListView) view.findViewById(R.id.lst_guide);
+        lst_guidance = (ListView) view.findViewById(R.id.lst_guidance);
 
-        ListAdapter guidanceAdapter = new GuidanceAdapter(getActivity(), getResources().getStringArray(R.array.guidance_names));
+        names = getResources().getStringArray(R.array.guidance_names);
 
-        lst_guide.setAdapter(guidanceAdapter);
+        ListAdapter guidanceAdapter = new OfficeAdapter
+                (getActivity(), 1, names);
+
+        lst_guidance.setAdapter(guidanceAdapter);
 
         FadeAnimation f = new FadeAnimation();
-        f.start(lst_guide, null, prog);
+        f.start(lst_guidance, null, prog);
     }
 }

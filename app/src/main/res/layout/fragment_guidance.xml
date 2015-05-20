@@ -5,18 +5,17 @@
     android:layout_height="match_parent"
     tools:context=".GBHS" >
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lst_guide"
-        android:textAlignment="center" />
-
     <ProgressBar
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/prog"
-        android:layout_gravity="center" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lst_guidance" />
 
 </RelativeLayout>

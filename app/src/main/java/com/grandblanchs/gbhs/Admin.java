@@ -14,11 +14,9 @@ public class Admin extends Fragment {
 
     public interface OnFragmentInteractionListener {}
 
-    //TODO: (Aaron) Code descriptions (web or hardcoded)
-    //TODO: (Aaron) Show descriptions with image in separate popout fragment
-
     ProgressBar prog;
     ListView lst_admin;
+    String[] names;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,8 +38,10 @@ public class Admin extends Fragment {
         prog = (ProgressBar) view.findViewById(R.id.prog);
         lst_admin = (ListView) view.findViewById(R.id.lst_admin);
 
-        ListAdapter adminAdapter = new AdminAdapter(getActivity(),
-                getResources().getStringArray(R.array.admin_names));
+        names = getResources().getStringArray(R.array.admin_names);
+
+        ListAdapter adminAdapter = new OfficeAdapter
+                (getActivity(), 0, names);
 
         lst_admin.setAdapter(adminAdapter);
 
