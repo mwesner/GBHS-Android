@@ -11,9 +11,8 @@
     <string name="Announce">Announcements</string>
     <string name="NoAnnouncements">No announcements.</string>
     <string name="Grades">Check Grades</string>
-    <string name="GradesApp">Open StudentVUE</string>
-    <!--<string name="GradesApp">Open Jupiter Ed</string> TODO: Jupiter Ed-->
-    <string name="GradesWeb">Open website</string>
+    <string name="openapp">Open in app</string>
+    <string name="openweb">Open website</string>
     <string name="Map">Campus Map</string>
     <string name="East">East Campus</string>
     <string name="West">West Campus</string>

@@ -1,6 +1,5 @@
 package com.grandblanchs.gbhs;
 
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.app.FragmentManager;
 import android.content.Intent;
@@ -229,19 +228,10 @@ public class GBHS extends AppCompatActivity implements
                         .commit();
                 return true;
             case R.id.Grades:
-                new Grades(this).show();
+                new AppDialog(this, 0).show();
                 return true;
             case R.id.Facebook:
-                Uri uri;
-                String url = "https://www.facebook.com/GrandBlancHighSchool";
-                try {
-                    getPackageManager().getPackageInfo("com.facebook.katana", 0);
-                    uri = Uri.parse("fb://page/" + getString(R.string.FacebookID));
-                } catch (PackageManager.NameNotFoundException e) {
-                    uri = Uri.parse(url);
-                }
-                Intent i = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(i);
+                new AppDialog(this, 1).show();
                 return true;
             case R.id.GBHSWeb:
                 Intent w = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.high.schoolfusion.us"));
