@@ -5,11 +5,11 @@ import android.support.v7.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 
-public class About {
+public class AboutDialog {
 
     private Activity mActivity;
 
-    public About(Activity context) {
+    public AboutDialog(Activity context) {
         mActivity = context;
     }
 

@@ -240,7 +240,7 @@ public class GBHS extends AppCompatActivity implements
                 startActivity(w);
                 return true;
             case R.id.About:
-                new About(this).show();
+                new AboutDialog(this).show();
                 return true;
         }
 
