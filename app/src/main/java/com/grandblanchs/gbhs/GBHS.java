@@ -31,6 +31,8 @@ public class GBHS extends AppCompatActivity implements
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
+
+    //TODO: (App-wide) Resolve any issues with savedInstanceState.
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
     static Toolbar toolbar;
@@ -51,7 +53,7 @@ public class GBHS extends AppCompatActivity implements
     Athletics athleticsFrag = new Athletics();
 
     //Your consumer key and secret should be obfuscated in your source code before shipping.
-    //TODO: Recreate these keys in the release version.
+    //TODO: (Wesner) Ensure these keys are replaced with the active release keys before publishing to Google Play.
     private static final String TWITTER_KEY = "ZJnydLJQ8PPjT8hxt5znyscnj";
     private static final String TWITTER_SECRET = "gzSfM0fG4fFaHuQUb46SvWEM30v9XkJih0RVJiB3nEisDZfICV";
 
@@ -228,10 +230,10 @@ public class GBHS extends AppCompatActivity implements
                         .commit();
                 return true;
             case R.id.Grades:
-                new AppDialog(this, 0).show();
+                new GradesDialog(this).show();
                 return true;
             case R.id.Facebook:
-                new AppDialog(this, 1).show();
+                new FacebookDialog(this).show();
                 return true;
             case R.id.GBHSWeb:
                 Intent w = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grandblanc.high.schoolfusion.us"));

@@ -26,8 +26,7 @@ public class Announce extends Fragment {
 
     public interface OnFragmentInteractionListener {}
 
-    //TODO: (Aaron) Properly scrape announcement text
-    //TODO: (Aaron) Work on setting up RSS feed for announcements with GBTV
+    //TODO: Connect to announcements XML feed
 
     ScrollView scrNotification;
     TextView txtNotification;
