@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 
 import java.text.SimpleDateFormat;
@@ -29,7 +28,6 @@ public class Athletics extends Fragment {
     Context context;
     Resources res;
 
-    ProgressBar prog;
     Spinner lstSport;
     Spinner lstLevel;
     Spinner lstGender;

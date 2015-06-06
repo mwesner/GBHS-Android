@@ -3,7 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <include android:id="@+id/toolbar" layout="@layout/toolbar_default"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
 
     <com.grandblanchs.gbhs.SlidingTabLayout
         android:id="@+id/tabs"
@@ -19,3 +23,4 @@
         android:layout_weight="1" />
 
 </LinearLayout>
+

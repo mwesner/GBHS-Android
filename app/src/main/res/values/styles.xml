@@ -13,6 +13,12 @@
         <item name="alertDialogTheme">@style/AppCompatAlertDialogStyle</item>
     </style>
 
+    <style name="TimeTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/myPrimaryColor</item>
+        <item name="colorPrimaryDark">@color/myPrimaryDarkColor</item>
+        <item name="android:windowBackground">@color/myWindowBackground</item>
+    </style>
+
     <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:background">@android:color/white</item>
     </style>

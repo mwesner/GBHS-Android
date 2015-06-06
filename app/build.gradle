@@ -54,13 +54,13 @@ dependencies {
     compile('com.twitter.sdk.android:twitter:1.5.1@aar') {
         transitive = true;
     }
-    compile('com.crashlytics.sdk.android:crashlytics:2.2.4@aar') {
+    compile('com.crashlytics.sdk.android:crashlytics:2.3.2@aar') {
         transitive = true;
     }
-    compile 'com.android.support:support-v4:22.1.1'
-    compile 'com.android.support:appcompat-v7:22.1.1'
-    compile 'com.android.support:recyclerview-v7:22.1.1'
-    compile 'com.google.android.gms:play-services-maps:7.3.0'
+    compile 'com.android.support:support-v4:22.2.0'
+    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile 'com.android.support:recyclerview-v7:22.2.0'
+    compile 'com.google.android.gms:play-services-maps:7.5.0'
     compile 'org.jsoup:jsoup:1.8.1'
     compile 'joda-time:joda-time:2.7'
     compile 'org.apache.commons:commons-lang3:3.3.2'

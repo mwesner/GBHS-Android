@@ -1,6 +1,5 @@
 package com.grandblanchs.gbhs;
 
-import android.os.Build;
 import android.support.v4.app.FragmentManager;
 import android.content.Intent;
 import android.net.Uri;
@@ -23,10 +22,10 @@ import io.fabric.sdk.android.Fabric;
 public class GBHS extends AppCompatActivity implements
         TwitterFeed.OnFragmentInteractionListener, Calendar.OnFragmentInteractionListener,
         Map.OnFragmentInteractionListener, Announce.OnFragmentInteractionListener,
-        Admin.OnFragmentInteractionListener, Times.OnFragmentInteractionListener,
-        Staff.OnFragmentInteractionListener, External.OnFragmentInteractionListener,
-        College.OnFragmentInteractionListener, Guidance.OnFragmentInteractionListener,
-        Athletics.OnFragmentInteractionListener, NavigationDrawerCallbacks {
+        Admin.OnFragmentInteractionListener, Staff.OnFragmentInteractionListener,
+        External.OnFragmentInteractionListener, College.OnFragmentInteractionListener,
+        Guidance.OnFragmentInteractionListener, Athletics.OnFragmentInteractionListener,
+        NavigationDrawerCallbacks {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -41,7 +40,6 @@ public class GBHS extends AppCompatActivity implements
     FragmentManager fm;
 
     TwitterFeed twitterFrag = new TwitterFeed();
-    Times timesFrag = new Times();
     Map mapFrag = new Map();
     Calendar calFrag = new Calendar();
     Announce announceFrag = new Announce();
@@ -218,16 +216,8 @@ public class GBHS extends AppCompatActivity implements
 
         switch (item.getItemId()) {
             case R.id.Times:
-                if (Build.VERSION.SDK_INT >= 21) {
-                    toolbar.setElevation(0);
-                }
-                setTitle(R.string.Schedule);
-                fm.beginTransaction()
-                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
-                                R.anim.abc_fade_in, R.anim.abc_fade_out)
-                        .replace(R.id.FragmentContainer, timesFrag)
-                        .addToBackStack(null)
-                        .commit();
+                Intent i = new Intent(this, Times.class);
+                startActivity(i);
                 return true;
             case R.id.Grades:
                 new GradesDialog(this).show();
