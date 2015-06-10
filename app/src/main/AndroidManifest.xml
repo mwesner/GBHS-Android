@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.grandblanchs.gbhs" >
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -27,8 +28,9 @@
             android:name=".TimesActivity"
             android:theme="@style/PopupTheme"
             android:label="@string/Schedule"
-            android:parentActivityName="com.grandblanchs.gbhs.MainActivity"
-            android:launchMode="singleTop">
+            android:parentActivityName=".TimesActivity"
+            android:launchMode="singleTop"
+            tools:ignore="UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -37,15 +39,14 @@
         <activity
             android:name=".AboutActivity"
             android:theme="@style/PopupTheme"
-            android:label="@string/action_about"
-            android:parentActivityName="com.grandblanchs.gbhs.MainActivity"
-            android:launchMode="singleTop">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity" />
+            android:label="@string/Schedule"
+            android:parentActivityName=".AboutActivity"
+            android:launchMode="singleTop"
+            tools:ignore="UnusedAttribute">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
-
-
 
         <meta-data
             android:name="com.google.android.gms.version"

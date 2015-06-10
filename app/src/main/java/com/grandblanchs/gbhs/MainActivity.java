@@ -282,7 +282,6 @@ public class MainActivity extends AppCompatActivity implements
                 return true;
             case R.id.About:
                 Intent a = new Intent(this, AboutActivity.class);
-                a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(a);
                 return true;
         }
