@@ -19,6 +19,8 @@ import com.crashlytics.android.Crashlytics;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 
+import java.util.Random;
+
 import io.fabric.sdk.android.Fabric;
 
 public class MainActivity extends AppCompatActivity implements
@@ -104,6 +106,8 @@ public class MainActivity extends AppCompatActivity implements
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         if (navigationView != null) {
             setupDrawerContent(navigationView);
+
+            navigationView.inflateHeaderView(getRandomHeaderLayout());
 
             navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -214,6 +218,23 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
+    public int getRandomHeaderLayout() {
+        //Randomize the header image.
+        Random rand = new Random();
+
+        switch (rand.nextInt(4)) {
+            default: //Required
+            case 0:
+                return R.layout.nav_header_flag;
+            case 1:
+                return R.layout.nav_header_hswest;
+            case 2:
+                return R.layout.nav_header_hsfinal1;
+            case 3:
+                return R.layout.nav_header_gbgym;
+        }
+    }
+
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -221,7 +242,6 @@ public class MainActivity extends AppCompatActivity implements
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         menuItem.setChecked(true);
                         mDrawerLayout.closeDrawers();
-                        new RandomHeader(getApplicationContext());
                         return true;
                     }
                 });
