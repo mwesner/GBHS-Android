@@ -7,14 +7,20 @@
     android:focusableInTouchMode="true"
     android:weightSum="1">
 
-    <!-- Editext for Search -->
-    <EditText android:id="@+id/staffSearch"
-        android:layout_width="fill_parent"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/staffSearchLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search..."
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:inputType="textFilter"/>
+        android:paddingTop="8dp">
+        <EditText
+            android:id="@+id/staffSearch"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Search"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:inputType="textFilter"/>
+    </android.support.design.widget.TextInputLayout>
 
     <ProgressBar
         style="?android:attr/progressBarStyleLarge"
@@ -35,7 +41,7 @@
         android:fastScrollEnabled="true"
         android:requiresFadingEdge="vertical"
         android:fadingEdgeLength="25dp"
-        android:layout_below="@+id/staffSearch"
+        android:layout_below="@+id/staffSearchLayout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 </RelativeLayout>
