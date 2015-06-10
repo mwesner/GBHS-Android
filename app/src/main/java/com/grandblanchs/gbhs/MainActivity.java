@@ -261,7 +261,9 @@ public class MainActivity extends AppCompatActivity implements
                 startActivity(w);
                 return true;
             case R.id.About:
-                new AboutDialog(this).show();
+                Intent a = new Intent(this, AboutActivity.class);
+                a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(a);
                 return true;
         }
 
