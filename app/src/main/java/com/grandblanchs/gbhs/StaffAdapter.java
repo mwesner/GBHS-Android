@@ -20,7 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-class StaffAdapter extends ArrayAdapter<String> implements Filterable {
+public class StaffAdapter extends ArrayAdapter<String> implements Filterable {
     String email[];
     String call[];
 
@@ -68,11 +68,11 @@ class StaffAdapter extends ArrayAdapter<String> implements Filterable {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Staff.staffSearch.clearFocus();
+                StaffFragment.staffSearch.clearFocus();
                 InputMethodManager imm = (InputMethodManager)
                         getContext().getSystemService(
                                 Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(Staff.staffSearch.getWindowToken(),
+                imm.hideSoftInputFromWindow(StaffFragment.staffSearch.getWindowToken(),
                         0);
             }
         });
@@ -125,7 +125,7 @@ class StaffAdapter extends ArrayAdapter<String> implements Filterable {
             FilterResults results = new FilterResults();
             // We implement here the filter logic
             if (constraint == null || constraint.length() == 0) {
-                staffList = Arrays.asList(new Staff().getResources().getStringArray
+                staffList = Arrays.asList(new StaffFragment().getResources().getStringArray
                         (R.array.staff_names));
                 // No filter implemented: we return all the list
                 results.values = staffList;

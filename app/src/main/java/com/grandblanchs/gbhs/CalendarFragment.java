@@ -1,5 +1,7 @@
 package com.grandblanchs.gbhs;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -7,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -22,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Calendar extends Fragment {
+public class CalendarFragment extends Fragment {
 
     public interface OnFragmentInteractionListener {}
 
@@ -31,6 +34,7 @@ public class Calendar extends Fragment {
 
     CalendarView gridCal;
     ListView lstInfo;
+    Button btnCal;
 
     ProgressBar prog;
     List<String> eventList = new ArrayList<>();
@@ -45,7 +49,7 @@ public class Calendar extends Fragment {
 
     private CalendarAdapter mAdapter;
 
-    public Calendar() {
+    public CalendarFragment() {
         // Required empty public constructor
     }
 
@@ -67,18 +71,22 @@ public class Calendar extends Fragment {
 
         gridCal = (CalendarView) view.findViewById(R.id.gridCal);
         lstInfo = (ListView) view.findViewById(R.id.lstInfo);
+        btnCal = (Button) view.findViewById(R.id.btnCal);
         prog = (ProgressBar) view.findViewById(R.id.progCalendar);
+
+        //This will display events for a given date
+        gridCal.setShowWeekNumber(false);
+        new CalGet().execute();
+
+        btnCal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent calIntent = new Intent(Intent.ACTION_VIEW, Uri.parse
+                        ("http://docs.google.com/gview?embedded=true&url=http://grandblanc.schoolfusion.us/modules/groups/homepagefiles/cms/105549/File/District%20Calendar%202015-2016.pdf"));
+                startActivity(calIntent);
+            }
+        });
     }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-            //This will display events for a given date
-            gridCal.setShowWeekNumber(false);
-            new CalGet().execute();
-    }
-
-
 
     private class CalGet extends AsyncTask<Void, Void, Void> {
 

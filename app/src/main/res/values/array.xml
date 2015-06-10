@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string-array name="SecondYearDevs">
+        <item>Corey Rowe</item>
+        <item>Aaron Goodfellow</item>
+    </string-array>
+
+    <string-array name="FirstYearDevs">
+        <item>Bridget Suski</item>
+        <item>Michael Olmsted</item>
+        <item>Brad Kivett</item>
+    </string-array>
+
     <string-array name="navdrawer">
         <item>@string/Announce</item>
         <item>@string/Map</item>
         <item>@string/Twitter</item>
         <item>@string/Calendar</item>
-        <item>@string/Athletics</item>
+        <item>@string/Sports</item>
         <item>@string/College</item>
         <item>@string/Staff</item>
         <item>@string/Guidance</item>

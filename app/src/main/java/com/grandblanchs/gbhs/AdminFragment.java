@@ -10,7 +10,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
-public class Admin extends Fragment {
+public class AdminFragment extends Fragment {
 
     public interface OnFragmentInteractionListener {}
 

@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class Staff extends Fragment {
+public class StaffFragment extends Fragment {
 
     public interface OnFragmentInteractionListener{}
 

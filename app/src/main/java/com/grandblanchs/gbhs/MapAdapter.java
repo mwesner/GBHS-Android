@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 
-class MapAdapter extends ArrayAdapter<String> {
+public class MapAdapter extends ArrayAdapter<String> {
     String maptype[];
 
     public MapAdapter(Context context, String[] type) {

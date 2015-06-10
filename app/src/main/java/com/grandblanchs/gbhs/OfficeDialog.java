@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +25,7 @@ public class OfficeDialog {
 
     public OfficeDialog(Context c, Bitmap img, String n,
                         String s, String e, String p,
-                        String b) {
+                        @Nullable String b) {
         context = c;
         image = img;
         name = n;
@@ -53,7 +54,9 @@ public class OfficeDialog {
         txtSubtitle.setText(subtitle);
         txtEmail.setText(email);
         txtPhone.setText(phone);
-        txtBio.setText(bio);
+        if (bio != null) {
+            txtBio.setText(bio);
+        }
 
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override

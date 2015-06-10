@@ -13,7 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
-public class External extends Fragment {
+public class ExternalFragment extends Fragment {
 
     public interface OnFragmentInteractionListener {}
 
@@ -22,7 +22,7 @@ public class External extends Fragment {
 
     String[] external;
 
-    public External() {
+    public ExternalFragment() {
         // Required empty public constructor
     }
 

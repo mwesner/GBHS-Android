@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:id="@+id/picAthletics"
-        android:contentDescription="@string/Athletics"
+        android:contentDescription="@string/Sports"
         android:src="@drawable/athletics"
         android:alpha="0.2"
         android:layout_centerHorizontal="true"

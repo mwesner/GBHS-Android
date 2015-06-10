@@ -19,7 +19,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 
-public class Athletics extends Fragment {
+public class SportsFragment extends Fragment {
 
     //Show season schedule for selected athletic event
 
@@ -68,7 +68,7 @@ public class Athletics extends Fragment {
      *4 = combined
      */
 
-    public Athletics() {
+    public SportsFragment() {
         // Required empty public constructor
     }
 

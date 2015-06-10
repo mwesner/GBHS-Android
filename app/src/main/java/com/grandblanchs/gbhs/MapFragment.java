@@ -17,7 +17,7 @@ import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class Map extends Fragment {
+public class MapFragment extends Fragment {
 
     public interface OnFragmentInteractionListener{}
 

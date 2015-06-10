@@ -12,7 +12,7 @@ import android.widget.ProgressBar;
 
 
 
-public class Guidance extends Fragment {
+public class GuidanceFragment extends Fragment {
 
     public interface OnFragmentInteractionListener{}
 

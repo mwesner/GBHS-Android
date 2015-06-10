@@ -24,7 +24,7 @@
         android:layout_alignRight="@+id/dummy"
         android:layout_alignEnd="@+id/dummy"
         android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_above="@+id/btnCal" />
 
     <ListView
         android:paddingTop="32dp"
@@ -36,7 +36,8 @@
         android:visibility="invisible"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/dummy"
-        android:layout_toEndOf="@+id/dummy" />
+        android:layout_toEndOf="@+id/dummy"
+        android:layout_above="@+id/btnCal" />
 
     <ProgressBar
         style="?android:attr/progressBarStyleLarge"
@@ -45,6 +46,21 @@
         android:id="@+id/progCalendar"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/CalendarWeb"
+        android:drawableLeft="@android:drawable/stat_sys_download"
+        android:drawableStart="@android:drawable/stat_sys_download"
+        android:drawablePadding="16dp"
+        android:id="@+id/btnCal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

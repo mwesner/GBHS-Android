@@ -10,7 +10,7 @@ import android.widget.ListView;
 import com.twitter.sdk.android.tweetui.TweetTimelineListAdapter;
 import com.twitter.sdk.android.tweetui.UserTimeline;
 
-public class TwitterFeed extends Fragment {
+public class TwitterFragment extends Fragment {
 
     public interface OnFragmentInteractionListener{}
 

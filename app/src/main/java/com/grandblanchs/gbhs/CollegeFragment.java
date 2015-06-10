@@ -11,13 +11,13 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 
-public class College extends Fragment {
+public class CollegeFragment extends Fragment {
 
     public interface OnFragmentInteractionListener {}
 
     Button btnCollege;
 
-    public College() {
+    public CollegeFragment() {
         // Required empty public constructor
     }
 

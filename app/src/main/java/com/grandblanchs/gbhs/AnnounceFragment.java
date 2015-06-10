@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Announce extends Fragment {
+public class AnnounceFragment extends Fragment {
 
     public interface OnFragmentInteractionListener {}
 
@@ -39,7 +39,7 @@ public class Announce extends Fragment {
     String[] announceTextArray;
     String[] displayArray;
 
-    public Announce() {
+    public AnnounceFragment() {
         // Required empty public constructor
     }
 
