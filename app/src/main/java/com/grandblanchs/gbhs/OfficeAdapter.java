@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-class OfficeAdapter extends ArrayAdapter<String> {
+public class OfficeAdapter extends ArrayAdapter<String> {
 
 
     int type; //0 is administration, 1 is guidance
@@ -82,9 +82,14 @@ class OfficeAdapter extends ArrayAdapter<String> {
             @Override
             public void onClick(View view) {
                 //TODO: Properly adjust image sizes.
-                new OfficeDialog(getContext(), getImage(8, type, position), name[position],
-                        subtitle[position], email[position], phone[position],
-                        bio[position]).show();
+                if (type == 0) {
+                    new OfficeDialog(getContext(), getImage(8, type, position), name[position],
+                            subtitle[position], email[position], phone[position],
+                            bio[position]).show();
+                }else{
+                    new OfficeDialog(getContext(), getImage(8, type, position), name[position],
+                            subtitle[position], email[position], phone[position], null).show();
+                }
             }
         });
 
@@ -102,7 +107,6 @@ class OfficeAdapter extends ArrayAdapter<String> {
             subtitle = res.getStringArray(R.array.guidance_subtitles);
             email = res.getStringArray(R.array.guidance_emails);
             phone = res.getStringArray(R.array.guidance_phones);
-            bio = res.getStringArray(R.array.guidance_bios);
         }
     }
     
