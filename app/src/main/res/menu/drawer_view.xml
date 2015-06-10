@@ -1,0 +1,46 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/Announce"
+            android:checked="true"
+            android:icon="@drawable/drawer_announce"
+            android:title="@string/Announce"/>
+        <item
+            android:id="@+id/Twitter"
+            android:icon="@drawable/drawer_twitter"
+            android:title="@string/Twitter"/>
+        <item
+            android:id="@+id/Calendar"
+            android:icon="@drawable/ic_action_event"
+            android:title="@string/Calendar"/>
+        <item
+            android:id="@+id/Sports"
+            android:icon="@drawable/drawer_athletics"
+            android:title="@string/Sports"/>
+        <item
+            android:id="@+id/Staff"
+            android:icon="@drawable/ic_action_quick_contacts_mail"
+            android:title="@string/Staff"/>
+        <item
+            android:id="@+id/Guidance"
+            android:icon="@drawable/ic_action_people"
+            android:title="@string/Guidance"/>
+        <item
+            android:id="@+id/Admin"
+            android:icon="@drawable/ic_action_school"
+            android:title="@string/Admin"/>
+        <item
+            android:id="@+id/Map"
+            android:icon="@drawable/ic_action_map"
+            android:title="@string/Map"/>
+        <item
+            android:id="@+id/College"
+            android:icon="@drawable/drawer_gbec"
+            android:title="@string/College"/>
+        <item
+            android:id="@+id/External"
+            android:icon="@drawable/ic_action_open_in_browser"
+            android:title="@string/External"/>
+    </group>
+</menu>

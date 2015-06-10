@@ -57,9 +57,7 @@ dependencies {
     compile('com.crashlytics.sdk.android:crashlytics:2.3.2@aar') {
         transitive = true;
     }
-    compile 'com.android.support:support-v4:22.2.0'
-    compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.android.support:recyclerview-v7:22.2.0'
+    compile 'com.android.support:design:22.2.0'
     compile 'com.google.android.gms:play-services-maps:7.5.0'
     compile 'org.jsoup:jsoup:1.8.1'
     compile 'joda-time:joda-time:2.7'
