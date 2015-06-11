@@ -124,16 +124,6 @@
         <item>(810) 591–6647</item>
     </string-array>
 
-    <string-array name="guidance_bios">
-        <!--TODO: (Aaron) Put these in!-->
-        <item>Guidance bio 1</item>
-        <item>Guidance bio 2</item>
-        <item>Guidance bio 3</item>
-        <item>Guidance bio 4</item>
-        <item>Guidance bio 5</item>
-        <item>Guidance bio 6</item>
-    </string-array>
-
     <string-array name="staff_names">
         <item>"Allswede, Stacey"</item>
         <item>"Anderson, Katelyn"</item>

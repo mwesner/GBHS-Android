@@ -58,12 +58,12 @@ public class MapFragment extends Fragment {
         final LatLng west = new LatLng(42.920577,-83.630655);
 
         map.addMarker(new MarkerOptions()
-                .title("Grand Blanc High School")
-                .snippet("East Campus")
+                .title(getString(R.string.app_name))
+                .snippet(getString(R.string.East))
                 .position(east));
         map.addMarker(new MarkerOptions()
-                .title("Grand Blanc High School")
-                .snippet("West Campus")
+                .title(getString(R.string.app_name))
+                .snippet(getString(R.string.West))
                 .position(west));
 
         lstType.setAdapter(new MapAdapter(getActivity(), maptype));
