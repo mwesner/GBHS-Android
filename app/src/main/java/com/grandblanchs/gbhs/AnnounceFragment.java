@@ -144,7 +144,7 @@ public class AnnounceFragment extends Fragment {
             } catch (IOException e) {
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
-                        Toast.makeText(getActivity(), getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), getString(R.string.AnnounceLoadError), Toast.LENGTH_LONG).show();
                     }
                 });
             } catch (NullPointerException e) {

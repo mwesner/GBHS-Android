@@ -211,7 +211,7 @@ public class CalendarFragment extends Fragment {
                     public void run() {
                         FadeAnimation f = new FadeAnimation();
                         f.start(null, null, prog);
-                        Toast.makeText(context, getString(R.string.NoConnection), Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, getString(R.string.NoCalendar), Toast.LENGTH_LONG).show();
                     }
                 });
             }

@@ -47,8 +47,10 @@
 
     <!--Error handling-->
     <string name="NoAnnouncements">No announcements.</string>
-    <string name="NoConnection">No internet connection.</string>
-    <string name="NoTwitter">Could not connect to Twitter.\n(Error Code:</string>
+    <string name="AnnounceLoadError">Could not load announcements.</string>
+    <string name="NoCalendar">Could not load calendar.</string>
+    <string name="NoTwitter">Could not connect to Twitter.</string>
+    <string name="Retry">Retry</string>
 
     <!--Schedule Star-->
     <string name="BaseURL">http://schedules.schedulestar.com/Grand-Blanc-High-School-Grand-Blanc-MI/season</string>
