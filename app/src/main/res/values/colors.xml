@@ -17,7 +17,4 @@
     <color name="myNavigationColor">@color/myPrimaryColor</color>
 
     <color name="tabsScrollColor">@android:color/white</color>
-
-    <drawable name="pressed_gray">#0c000000</drawable>
-    <drawable name="selected_gray">#2c000000</drawable>
 </resources>

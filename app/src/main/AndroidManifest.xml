@@ -12,7 +12,9 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:versionCode="2"
+        android:versionName="1.0a2">
 
         <activity
             android:name=".MainActivity"
@@ -39,7 +41,7 @@
         <activity
             android:name=".AboutActivity"
             android:theme="@style/PopupTheme"
-            android:label="@string/Schedule"
+            android:label="@string/action_about"
             android:parentActivityName=".AboutActivity"
             android:launchMode="singleTop"
             tools:ignore="UnusedAttribute">
