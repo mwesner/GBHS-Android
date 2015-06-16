@@ -14,8 +14,6 @@ import android.widget.ProgressBar;
 
 public class GuidanceFragment extends Fragment {
 
-    public interface OnFragmentInteractionListener{}
-
     ProgressBar prog;
     ListView lst_guidance;
 

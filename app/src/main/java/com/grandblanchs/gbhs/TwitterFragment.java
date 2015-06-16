@@ -12,8 +12,6 @@ import com.twitter.sdk.android.tweetui.UserTimeline;
 
 public class TwitterFragment extends Fragment {
 
-    public interface OnFragmentInteractionListener{}
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

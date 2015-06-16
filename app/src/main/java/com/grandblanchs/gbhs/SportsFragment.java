@@ -23,8 +23,6 @@ public class SportsFragment extends Fragment {
 
     //Show season schedule for selected athletic event
 
-    public interface OnFragmentInteractionListener{}
-
     Context context;
     Resources res;
 
@@ -81,7 +79,7 @@ public class SportsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_athletics, container, false);
+        return inflater.inflate(R.layout.fragment_sports, container, false);
     }
 
     @Override

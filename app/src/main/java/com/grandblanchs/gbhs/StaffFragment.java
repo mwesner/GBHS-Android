@@ -20,8 +20,6 @@ import java.util.List;
 
 public class StaffFragment extends Fragment {
 
-    public interface OnFragmentInteractionListener{}
-
     ProgressBar prog;
     ListView lst_staff;
     static TextView staffSearch;

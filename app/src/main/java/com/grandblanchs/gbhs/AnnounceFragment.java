@@ -24,8 +24,6 @@ import java.util.List;
 
 public class AnnounceFragment extends Fragment {
 
-    public interface OnFragmentInteractionListener {}
-
     //TODO: Connect to announcements XML feed
 
     ScrollView scrNotification;

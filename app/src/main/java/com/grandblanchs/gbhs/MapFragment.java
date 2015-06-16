@@ -19,8 +19,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapFragment extends Fragment {
 
-    public interface OnFragmentInteractionListener{}
-
     MapView mapView;
     Button btnWest;
     Button btnEast;

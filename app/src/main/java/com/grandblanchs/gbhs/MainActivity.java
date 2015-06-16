@@ -23,12 +23,7 @@ import java.util.Random;
 
 import io.fabric.sdk.android.Fabric;
 
-public class MainActivity extends AppCompatActivity implements
-        TwitterFragment.OnFragmentInteractionListener, CalendarFragment.OnFragmentInteractionListener,
-        MapFragment.OnFragmentInteractionListener, AnnounceFragment.OnFragmentInteractionListener,
-        AdminFragment.OnFragmentInteractionListener, StaffFragment.OnFragmentInteractionListener,
-        ExternalFragment.OnFragmentInteractionListener, CollegeFragment.OnFragmentInteractionListener,
-        GuidanceFragment.OnFragmentInteractionListener, SportsFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity {
 
     //TODO: (App-wide) Resolve any issues with savedInstanceState.
 

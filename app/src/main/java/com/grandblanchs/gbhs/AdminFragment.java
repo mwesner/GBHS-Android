@@ -12,8 +12,6 @@ import android.widget.ProgressBar;
 
 public class AdminFragment extends Fragment {
 
-    public interface OnFragmentInteractionListener {}
-
     ProgressBar prog;
     ListView lst_admin;
     String[] names;
