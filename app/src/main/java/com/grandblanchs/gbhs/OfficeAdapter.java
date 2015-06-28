@@ -83,10 +83,12 @@ public class OfficeAdapter extends ArrayAdapter<String> {
             public void onClick(View view) {
                 //TODO: Properly adjust image sizes.
                 if (type == 0) {
+                    //admin
                     new OfficeDialog(getContext(), getImage(8, type, position), name[position],
                             subtitle[position], email[position], phone[position],
                             bio[position]).show();
                 }else{
+                    //guidance
                     new OfficeDialog(getContext(), getImage(8, type, position), name[position],
                             subtitle[position], email[position], phone[position], null).show();
                 }
@@ -97,7 +99,7 @@ public class OfficeAdapter extends ArrayAdapter<String> {
     }
 
     public void getInformation(int i, int pos) {
-        image = getImage(6, i, pos);
+        image = getImage(4, i, pos);
         if (i == 0) { //Administration
             subtitle = res.getStringArray(R.array.admin_subtitles);
             email = res.getStringArray(R.array.admin_emails);
