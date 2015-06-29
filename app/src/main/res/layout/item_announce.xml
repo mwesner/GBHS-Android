@@ -8,11 +8,12 @@
     android:paddingRight="16dp">
 
     <TextView
-        android:id="@+id/txtannounce"
+        android:id="@+id/text"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Announce" />
+        android:text="@string/Announce"
+        android:autoLink="all"/>
 
 </RelativeLayout>

@@ -1,26 +1,23 @@
 package com.grandblanchs.gbhs;
 
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class AnnounceFragment extends Fragment {
 
@@ -31,11 +28,8 @@ public class AnnounceFragment extends Fragment {
 
     ProgressBar prog;
     ListView lstAnnounce;
-    ArrayAdapter adapter;
 
-    List<String> list = new ArrayList<>();
-    String[] announceTextArray;
-    String[] displayArray;
+    AnnounceAdapter adapter;
 
     public AnnounceFragment() {
         // Required empty public constructor
@@ -80,14 +74,14 @@ public class AnnounceFragment extends Fragment {
                 emergNotif = Jsoup.connect("http://grandblanc.high.schoolfusion.us").get();
                 final Elements emergNotifBox = emergNotif.getElementsByClass("emergNotifBox");
                 if (!emergNotifBox.text().equals("")) {
-                   //Emergency notification is present.
-                   getActivity().runOnUiThread(new Runnable() {
+                    //Emergency notification is present.
+                    getActivity().runOnUiThread(new Runnable() {
                         public void run() {
                             txtNotification.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_action_warning, 0, 0, 0);
                             txtNotification.setText(emergNotifBox.text());
                         }
-                  });
-               }
+                    });
+                }
             } catch (IOException | NullPointerException e) {
                 //No notifications. Don't do anything.
             }
@@ -101,57 +95,40 @@ public class AnnounceFragment extends Fragment {
         protected Void doInBackground(Void... voids) {
             //Scrape the daily announcements into a list.
             Document announce;
-            //Document rss = null;
+
+            adapter = new AnnounceAdapter(getActivity());
 
             try {
-                announce = Jsoup.connect("http://grandblanc.high.schoolfusion.us/modules/cms/pages.phtml?pageid=22922").get();
-                Elements announceClass = announce.getElementsByClass("MsoNormal").tagName("li");
 
-                //Split by class/bullet point
-                announceTextArray = announceClass.toString().split("</li>");
+                //TODO: Replace testing document with active link
+                announce = Jsoup.parse(new File("mnt/sdcard/Announcements.xml"), "UTF-8");
+                Elements group = announce.select("group");
 
-                if (announceClass.isEmpty()) {
-                    list = new ArrayList<>();
-
+                if (group.isEmpty()) {
                     //Add "No Announcements."
-                    list.add(0, getString(R.string.NoAnnouncements));
-
+                    adapter.addItem(getString(R.string.NoAnnouncements));
                 }else{
-                    displayArray = new String[announceTextArray.length];
-                    for (int i = 0; i < announceTextArray.length; i++) {
-                        //Populate the array, removing the class and style tags
 
-                        displayArray[i] = announceTextArray[i].substring(85, announceTextArray[i].length());
+                    for (int i = 0; i < group.size(); i++) {
 
-                        //Overwrite undesired HTML characters
-                        displayArray[i] = displayArray[i].replace("&nbsp;", "");
-                        displayArray[i] = displayArray[i].replace("&amp;", "&");
-                        displayArray[i] = displayArray[i].replace("<br>", "");
-                        displayArray[i] = displayArray[i].replace("</strong></span>", "");
-                        displayArray[i] = displayArray[i].replace("ext-align: center;\">  <span style=\"font-size:16px;\"><strong>", "");
+                        for (int j = 0; j < group.get(i).select("date").size(); j++) {
+                            adapter.addSeparatorItem(group.get(i).select("date").get(j).text());
+                        }
+                        for (int k = 0; k < group.get(i).select("announcement").size(); k++) {
+                            adapter.addItem(group.get(i).select("announcement").get(k).text());
+                        }
                     }
-
-
-                    //Convert to ArrayList for easy item removal
-                    list = new ArrayList<>(Arrays.asList(displayArray));
-
-                    //Remove the first entry
-                    list.remove(0);
-                    list.remove(0);
-
                 }
-                    adapter = new AnnounceAdapter(getActivity(), list);
-            } catch (IOException e) {
+
+            } catch (NullPointerException | IOException e) {
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
-                        Toast.makeText(getActivity(), getString(R.string.AnnounceLoadError), Toast.LENGTH_LONG).show();
+                        Snackbar.make(getView(), getString(R.string.AnnounceLoadError), Snackbar.LENGTH_LONG).show();
+
+                        //Add "No Announcements."
+                        adapter.addItem(getString(R.string.NoAnnouncements));
                     }
                 });
-            } catch (NullPointerException e) {
-                list = new ArrayList<>();
-
-                //Add "No Announcements."
-                list.add(0, getString(R.string.NoAnnouncements));
             }
             return null;
         }

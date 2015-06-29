@@ -4,29 +4,87 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.TreeSet;
 
-public class AnnounceAdapter extends ArrayAdapter<String> {
+class AnnounceAdapter extends BaseAdapter {
 
-    List<String> announcelist = new ArrayList<>();
+    Context c;
 
-    public AnnounceAdapter(Context context, List<String> announce) {
-        super(context, R.layout.item_announce, announce);
-        announcelist = announce;
+    private static final int TYPE_ITEM = 0;
+    private static final int TYPE_SEPARATOR = 1;
+    private static final int TYPE_MAX_COUNT = TYPE_SEPARATOR + 1;
+
+    private ArrayList<String> mData = new ArrayList<>();
+    private LayoutInflater mInflater;
+
+    private TreeSet<Integer> mSeparatorsSet = new TreeSet<>();
+
+    public AnnounceAdapter(Context context) {
+        c = context;
+        mInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    }
+
+    public void addItem(final String item) {
+        mData.add(item);
+        notifyDataSetChanged();
+    }
+
+    public void addSeparatorItem(final String item) {
+        mData.add(item);
+        //Save separator position
+        mSeparatorsSet.add(mData.size() - 1);
+        notifyDataSetChanged();
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
-        LayoutInflater staffInflater = LayoutInflater.from(getContext());
-        if (convertView == null) {
-            convertView = staffInflater.inflate(R.layout.item_announce, parent, false);
+    public int getItemViewType(int position) {
+        return mSeparatorsSet.contains(position) ? TYPE_SEPARATOR : TYPE_ITEM;
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        return TYPE_MAX_COUNT;
+    }
+
+    @Override
+    public int getCount() {
+        return mData.size();
+    }
+
+    @Override
+    public String getItem(int position) {
+        return mData.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder;
+        int type = getItemViewType(position);
+        holder = new ViewHolder();
+        switch (type) {
+            case TYPE_ITEM:
+                convertView = mInflater.inflate(R.layout.item_announce, parent, false);
+                holder.textView =(TextView)convertView.findViewById(R.id.text);
+                break;
+            case TYPE_SEPARATOR:
+                convertView = mInflater.inflate(R.layout.separator_announce, parent, false);
+                holder.textView = (TextView) convertView.findViewById(R.id.text);
+                break;
         }
-        TextView txt = (TextView) convertView.findViewById(R.id.txtannounce);
-        txt.setText(announcelist.get(position));
+        convertView.setTag(holder);
+        holder.textView.setText(mData.get(position));
         return convertView;
+    }
+
+    public static class ViewHolder {
+        public TextView textView;
     }
 }

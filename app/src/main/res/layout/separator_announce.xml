@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent">
+    <TextView
+        android:id="@+id/text"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:textColor="@color/myTextPrimaryColor"
+        android:textSize="17sp"
+        android:background="@color/myPrimaryColor"
+        android:clickable="false"
+        android:focusable="false" />
+</LinearLayout>
