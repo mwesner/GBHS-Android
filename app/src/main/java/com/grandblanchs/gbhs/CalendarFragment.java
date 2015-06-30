@@ -27,8 +27,6 @@ import java.util.List;
 
 public class CalendarFragment extends Fragment {
 
-    public interface OnFragmentInteractionListener {}
-
     //Scrape iCal feed
     //Add events into a list that shows on date change
 

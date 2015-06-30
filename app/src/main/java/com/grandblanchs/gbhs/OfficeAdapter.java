@@ -84,12 +84,12 @@ public class OfficeAdapter extends ArrayAdapter<String> {
                 //TODO: Properly adjust image sizes.
                 if (type == 0) {
                     //admin
-                    new OfficeDialog(getContext(), getImage(8, type, position), name[position],
+                    new OfficeDialog(getContext(), getImage(4, type, position), name[position],
                             subtitle[position], email[position], phone[position],
                             bio[position]).show();
                 }else{
                     //guidance
-                    new OfficeDialog(getContext(), getImage(8, type, position), name[position],
+                    new OfficeDialog(getContext(), getImage(4, type, position), name[position],
                             subtitle[position], email[position], phone[position], null).show();
                 }
             }

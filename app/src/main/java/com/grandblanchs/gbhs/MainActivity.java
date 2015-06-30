@@ -13,7 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
 import com.twitter.sdk.android.Twitter;
@@ -293,16 +292,9 @@ public class MainActivity extends AppCompatActivity {
             // (if you called previously to addToBackStack() in your transaction)
            // restoreChecked();
             fm.popBackStack();
-            restoreTitle();
         } else {
             // Default action on back pressed
             super.onBackPressed();
-        }
-    }
-
-    public void restoreTitle() {
-        for (int i = 0; i < fm.getFragments().size(); i++) {
-            Toast.makeText(this, fm.getFragments().get(i).getId(), Toast.LENGTH_LONG).show();
         }
     }
 }
