@@ -48,12 +48,13 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
+        android:layout_margin="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/CalendarWeb"
-        android:drawableLeft="@android:drawable/stat_sys_download"
-        android:drawableStart="@android:drawable/stat_sys_download"
+        android:backgroundTint="@color/myPrimaryColor"
+        android:drawableLeft="@drawable/ic_action_open_in_browser"
+        android:drawableStart="@drawable/ic_action_open_in_browser"
         android:drawablePadding="16dp"
         android:id="@+id/btnCal"
         android:layout_alignParentBottom="true"
@@ -61,6 +62,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
 
 
 </RelativeLayout>

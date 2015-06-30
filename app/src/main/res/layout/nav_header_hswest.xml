@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:scaleType="matrix" />
+        android:scaleType="centerCrop" />
 
     <ImageView
         android:layout_width="128dp"
