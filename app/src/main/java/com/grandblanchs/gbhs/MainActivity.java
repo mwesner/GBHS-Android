@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
     //TODO: (App-wide) Resolve any issues with savedInstanceState.
 
     DrawerLayout mDrawerLayout;
+    NavigationView navigationView;
+
+    int selectedMenuItem;
 
     FragmentManager fm;
 
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TWITTER_SECRET = "gzSfM0fG4fFaHuQUb46SvWEM30v9XkJih0RVJiB3nEisDZfICV";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -89,19 +92,27 @@ public class MainActivity extends AppCompatActivity {
 
         fm = getSupportFragmentManager();
 
-        //Show the announcements
-        setTitle(R.string.Announce);
-        fm.beginTransaction()
-                .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
-                .replace(R.id.FragmentContainer, announceFrag)
-                .addToBackStack(null)
-                .commit();
+        if (savedInstanceState == null) {
+            //Set the announcements as home fragment
+            setTitle(R.string.Announce);
+            fm.beginTransaction()
+                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
+                    .replace(R.id.FragmentContainer, announceFrag)
+                    .addToBackStack(null)
+                    .commit();
+        }else{
+            setTitle(savedInstanceState.getCharSequence("Title"));
+        }
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         if (navigationView != null) {
             setupDrawerContent(navigationView);
 
             navigationView.inflateHeaderView(getRandomHeaderLayout());
+
+            if (savedInstanceState != null) {
+                navigationView.getMenu().getItem(savedInstanceState.getInt("MenuItem")).setChecked(true);
+            }
 
             navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -118,23 +129,16 @@ public class MainActivity extends AppCompatActivity {
                     switch (menuItem.getItemId()) {
                         case R.id.Announce:
                             setTitle(R.string.Announce);
+                            selectedMenuItem = 0;
                             fm.beginTransaction()
                                     .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
                                     .replace(R.id.FragmentContainer, announceFrag, "Announce")
                                     .addToBackStack(null)
                                     .commit();
                             return true;
-                        case R.id.Map:
-                            setTitle(R.string.Map);
-                            fm.beginTransaction()
-                                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
-                                            R.anim.abc_fade_in, R.anim.abc_fade_out)
-                                    .replace(R.id.FragmentContainer, mapFrag, "Map")
-                                    .addToBackStack(null)
-                                    .commit();
-                            return true;
                         case R.id.Twitter:
                             setTitle(R.string.Twitter);
+                            selectedMenuItem = 1;
                             fm.beginTransaction()
                                     .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
                                             R.anim.abc_fade_in, R.anim.abc_fade_out)
@@ -144,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
                             return true;
                         case R.id.Calendar:
                             setTitle(R.string.Calendar);
+                            selectedMenuItem = 2;
                             fm.beginTransaction()
                                     .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
                                             R.anim.abc_fade_in, R.anim.abc_fade_out)
@@ -153,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
                             return true;
                         case R.id.Sports:
                             setTitle(R.string.Sports);
+                            selectedMenuItem = 3;
                             fm.beginTransaction()
                                     .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
                                             R.anim.abc_fade_in, R.anim.abc_fade_out)
@@ -160,17 +166,9 @@ public class MainActivity extends AppCompatActivity {
                                     .addToBackStack(null)
                                     .commit();
                             return true;
-                        case R.id.College:
-                            setTitle(R.string.College);
-                            fm.beginTransaction()
-                                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
-                                            R.anim.abc_fade_in, R.anim.abc_fade_out)
-                                    .replace(R.id.FragmentContainer, collegeFrag, "College")
-                                    .addToBackStack(null)
-                                    .commit();
-                            return true;
                         case R.id.Staff:
                             setTitle(R.string.Staff);
+                            selectedMenuItem = 4;
                             fm.beginTransaction()
                                     .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
                                             R.anim.abc_fade_in, R.anim.abc_fade_out)
@@ -180,6 +178,7 @@ public class MainActivity extends AppCompatActivity {
                             return true;
                         case R.id.Guidance:
                             setTitle(R.string.Guidance);
+                            selectedMenuItem = 5;
                             fm.beginTransaction()
                                     .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
                                             R.anim.abc_fade_in, R.anim.abc_fade_out)
@@ -189,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
                             return true;
                         case R.id.Admin:
                             setTitle(R.string.Admin);
+                            selectedMenuItem = 6;
                             fm.beginTransaction()
                                     .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
                                             R.anim.abc_fade_in, R.anim.abc_fade_out)
@@ -196,8 +196,29 @@ public class MainActivity extends AppCompatActivity {
                                     .addToBackStack(null)
                                     .commit();
                             return true;
+                        case R.id.Map:
+                            setTitle(R.string.Map);
+                            selectedMenuItem = 7;
+                            fm.beginTransaction()
+                                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                            R.anim.abc_fade_in, R.anim.abc_fade_out)
+                                    .replace(R.id.FragmentContainer, mapFrag, "Map")
+                                    .addToBackStack(null)
+                                    .commit();
+                            return true;
+                        case R.id.College:
+                            setTitle(R.string.College);
+                            selectedMenuItem = 8;
+                            fm.beginTransaction()
+                                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                            R.anim.abc_fade_in, R.anim.abc_fade_out)
+                                    .replace(R.id.FragmentContainer, collegeFrag, "College")
+                                    .addToBackStack(null)
+                                    .commit();
+                            return true;
                         case R.id.External:
                             setTitle(R.string.External);
+                            selectedMenuItem = 9;
                             fm.beginTransaction()
                                     .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
                                             R.anim.abc_fade_in, R.anim.abc_fade_out)
@@ -210,6 +231,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putCharSequence("Title", getTitle());
+        outState.putInt("MenuItem", selectedMenuItem);
     }
 
     public int getRandomHeaderLayout() {
