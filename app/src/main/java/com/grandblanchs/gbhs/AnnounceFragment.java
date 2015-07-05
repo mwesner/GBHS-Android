@@ -18,6 +18,7 @@ import org.jsoup.select.Elements;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class AnnounceFragment extends Fragment {
 
@@ -30,6 +31,11 @@ public class AnnounceFragment extends Fragment {
     ListView lstAnnounce;
 
     AnnounceAdapter adapter;
+
+    Elements group;
+
+    ArrayList<String> text = new ArrayList<>();
+    ArrayList<Integer> sort = new ArrayList<>();
 
     public AnnounceFragment() {
         // Required empty public constructor
@@ -61,7 +67,24 @@ public class AnnounceFragment extends Fragment {
         Disabled in testing so the website isn't constantly scraped*/
         //new CheckNotifications().execute();
 
-        new AnnounceScrape().execute();
+        if (savedInstanceState == null) {
+            new AnnounceScrape().execute();
+        }else{
+            text = savedInstanceState.getStringArrayList("Testing");
+            sort = savedInstanceState.getIntegerArrayList("Sort");
+
+            adapter = new AnnounceAdapter(getActivity());
+
+            for (int i = 0; i < text.size(); i++) {
+                if (sort.get(i) == 0) {
+                    adapter.addSeparatorItem(text.get(i));
+                }else{
+                    adapter.addItem(text.get(i));
+                }
+            }
+
+            setAnnouncements();
+        }
     }
 
     @SuppressWarnings("unused")
@@ -79,6 +102,9 @@ public class AnnounceFragment extends Fragment {
                         public void run() {
                             txtNotification.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_action_warning, 0, 0, 0);
                             txtNotification.setText(emergNotifBox.text());
+
+                            txtNotification.setVisibility(View.VISIBLE);
+                            scrNotification.setVisibility(View.VISIBLE);
                         }
                     });
                 }
@@ -102,23 +128,8 @@ public class AnnounceFragment extends Fragment {
 
                 //TODO: Replace testing document with active link
                 announce = Jsoup.parse(new File("mnt/sdcard/Announcements.xml"), "UTF-8");
-                Elements group = announce.select("group");
 
-                if (group.isEmpty()) {
-                    //Add "No Announcements."
-                    adapter.addItem(getString(R.string.NoAnnouncements));
-                }else{
-
-                    for (int i = 0; i < group.size(); i++) {
-
-                        for (int j = 0; j < group.get(i).select("date").size(); j++) {
-                            adapter.addSeparatorItem(group.get(i).select("date").get(j).text());
-                        }
-                        for (int k = 0; k < group.get(i).select("announcement").size(); k++) {
-                            adapter.addItem(group.get(i).select("announcement").get(k).text());
-                        }
-                    }
-                }
+                group = announce.select("group");
 
             } catch (NullPointerException | IOException e) {
                 getActivity().runOnUiThread(new Runnable() {
@@ -136,10 +147,46 @@ public class AnnounceFragment extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            lstAnnounce.setAdapter(adapter);
-
-            FadeAnimation f = new FadeAnimation();
-            f.start(lstAnnounce, null, prog);
+            parseAnnouncements();
+            setAnnouncements();
         }
+    }
+
+    public void parseAnnouncements(){
+
+        if (group == null) {
+            //Add "No Announcements."
+            adapter.addItem(getString(R.string.NoAnnouncements));
+        }else{
+
+            for (int i = 0; i < group.size(); i++) {
+
+                for (int j = 0; j < group.get(i).select("date").size(); j++) {
+                    adapter.addSeparatorItem(group.get(i).select("date").get(j).text());
+                    text.add(group.get(i).select("date").get(j).text());
+                    sort.add(0);
+                }
+                for (int k = 0; k < group.get(i).select("announcement").size(); k++) {
+                    adapter.addItem(group.get(i).select("announcement").get(k).text());
+                    text.add(group.get(i).select("announcement").get(k).text());
+                    sort.add(1);
+                }
+            }
+        }
+    }
+
+    public void setAnnouncements() {
+        lstAnnounce.setAdapter(adapter);
+
+        FadeAnimation f = new FadeAnimation();
+        f.start(lstAnnounce, null, prog);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putStringArrayList("Testing", text);
+        outState.putIntegerArrayList("Sort", sort);
     }
 }
