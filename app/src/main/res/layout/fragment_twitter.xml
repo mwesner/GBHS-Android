@@ -9,16 +9,22 @@
         android:layout_height="wrap_content"
         android:text="@string/loadingtimeline"
         android:drawableLeft="@drawable/tw__ic_logo_default"
+        android:drawableStart="@drawable/tw__ic_logo_default"
         android:gravity="center_horizontal|center_vertical"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
-    <ListView
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/timelinelist"
-        android:divider="@color/tw__medium_gray"
-        android:dividerHeight="1dp"
-        android:drawSelectorOnTop="false"/>
+        android:layout_height="wrap_content">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@android:id/list"
+            android:divider="@color/tw__medium_gray"
+            android:dividerHeight="1dp"
+            android:drawSelectorOnTop="false"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </RelativeLayout>

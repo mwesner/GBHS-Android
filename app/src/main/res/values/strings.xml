@@ -50,6 +50,7 @@
     <string name="AnnounceLoadError">Could not load announcements.</string>
     <string name="NoCalendar">Could not load calendar.</string>
     <string name="NoTwitter">Could not connect to Twitter.</string>
+    <string name="NoTwitterRefresh">Could not reload tweets.</string>
     <string name="Retry">Retry</string>
 
     <!--Schedule Star-->
