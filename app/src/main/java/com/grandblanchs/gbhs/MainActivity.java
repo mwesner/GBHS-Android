@@ -18,6 +18,7 @@ import com.crashlytics.android.Crashlytics;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import io.fabric.sdk.android.Fabric;
@@ -29,7 +30,10 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout mDrawerLayout;
     NavigationView navigationView;
 
+    int prevCount;
     int selectedMenuItem;
+
+    ArrayList<String> prevTitle = new ArrayList<>();
 
     FragmentManager fm;
 
@@ -98,8 +102,11 @@ public class MainActivity extends AppCompatActivity {
             fm.beginTransaction()
                     .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
                     .replace(R.id.FragmentContainer, announceFrag)
-                    .addToBackStack(null)
                     .commit();
+
+            prevTitle.add(prevCount, getTitle().toString());
+            prevCount++;
+
         }else{
             setTitle(savedInstanceState.getCharSequence("Title"));
         }
@@ -125,6 +132,9 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     mDrawerLayout.closeDrawers();
+
+                    prevTitle.add(prevCount, getTitle().toString());
+                    prevCount++;
 
                     switch (menuItem.getItemId()) {
                         case R.id.Announce:
@@ -318,7 +328,9 @@ public class MainActivity extends AppCompatActivity {
         }else if (fm.getBackStackEntryCount() > 0){
             // Catch back action and pops from backstack
             // (if you called previously to addToBackStack() in your transaction)
-           // restoreChecked();
+            setTitle(prevTitle.get(prevCount - 1));
+            prevCount--;
+
             fm.popBackStack();
         } else {
             // Default action on back pressed
