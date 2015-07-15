@@ -8,15 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 
 public class StaffFragment extends Fragment {
 
@@ -24,7 +21,11 @@ public class StaffFragment extends Fragment {
     ListView lst_staff;
     static TextView staffSearch;
 
-    List<String> staffNames = new ArrayList<>();
+    StaffAdapter adapter;
+
+    List<String> staffNames;
+    List<String> staffEmails;
+    List<String> staffPhones;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,9 +41,11 @@ public class StaffFragment extends Fragment {
         staffSearch = (TextView) view.findViewById(R.id.staffSearch);
 
         staffNames = Arrays.asList(getResources().getStringArray(R.array.staff_names));
-        final ListAdapter StaffAdapter = new StaffAdapter(getActivity(),
-                staffNames);
-        lst_staff.setAdapter(StaffAdapter);
+        staffEmails = Arrays.asList(getResources().getStringArray(R.array.staff_emails));
+        staffPhones = Arrays.asList(getResources().getStringArray(R.array.staff_phones));
+        adapter = new StaffAdapter(getActivity(),
+                staffNames, staffEmails, staffPhones);
+        lst_staff.setAdapter(adapter);
 
         FadeAnimation f = new FadeAnimation();
         f.start(lst_staff, null, prog);
@@ -51,8 +54,7 @@ public class StaffFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                ListAdapter sa = new StaffAdapter(getActivity(), staffNames);
-                lst_staff.setAdapter(sa);
+                adapter.getFilter().filter(s.toString());
             }
 
             @Override

@@ -8,148 +8,167 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
+public class StaffAdapter extends BaseAdapter implements Filterable {
 
-public class StaffAdapter extends ArrayAdapter<String> implements Filterable {
-    String email[];
-    String call[];
+    Context context;
+    private LayoutInflater mInflater;
 
-    public StaffAdapter(Context context, List<String> staff) {
-        super(context, R.layout.item_staff, staff);
-        this.filteredData = staff;
-        this.originalData = staff;
+    private ItemFilter mFilter = new ItemFilter();
+
+    private List<String> originalNames;
+    private List<String> filteredNames;
+
+    private List<String> originalEmails;
+    private List<String> filteredEmails;
+
+    private List<String> originalPhones;
+    private List<String> filteredPhones;
+
+    ImageButton btn_email;
+    ImageButton btn_call;
+
+
+    public StaffAdapter(Context context, List<String> names, List<String> emails, List<String> phones) {
+
+        this.context = context;
+        mInflater = LayoutInflater.from(context);
+
+        this.originalNames = names;
+        this.filteredNames = names;
+
+        this.originalEmails = emails;
+        this.filteredEmails = emails;
+
+        this.originalPhones = phones;
+        this.filteredPhones = phones;
     }
 
     public int getCount() {
-        return filteredData.size();
+        return filteredNames.size();
     }
 
-    public String getItem(int position) {
-        return filteredData.get(position);
+    public Object getItem(int position) {
+        return filteredNames.get(position);
     }
 
     public long getItemId(int position) {
         return position;
     }
 
-    ImageButton btn_email;
-    ImageButton btn_call;
-
-    List<String> originalData;
-    List<String> filteredData;
-    StaffFilter filter = new StaffFilter();
-
     @SuppressLint("ViewHolder")
-    @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        LayoutInflater staffInflater = LayoutInflater.from(getContext());
 
-        //convertView cannot be recycled - position is used to hide call button for staff without phones.
-        convertView = staffInflater.inflate(R.layout.item_staff, parent, false);
+        convertView = mInflater.inflate(R.layout.item_staff, parent, false);
 
+        ViewHolder holder = new ViewHolder();
+
+        holder.text = (TextView) convertView.findViewById(R.id.txt_name);
         btn_email = (ImageButton) convertView.findViewById(R.id.btn_email);
         btn_call = (ImageButton) convertView.findViewById(R.id.btn_call);
-        TextView txt_name = (TextView) convertView.findViewById(R.id.txt_name);
-        txt_name.setText(getItem(position));
 
-        email = getContext().getResources().getStringArray(R.array.staff_emails);
-        call = getContext().getResources().getStringArray(R.array.staff_phones);
+        convertView.setTag(holder);
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 StaffFragment.staffSearch.clearFocus();
                 InputMethodManager imm = (InputMethodManager)
-                        getContext().getSystemService(
+                        context.getSystemService(
                                 Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(StaffFragment.staffSearch.getWindowToken(),
                         0);
             }
         });
 
-        btn_email.setOnClickListener(
-                new Button.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        emailer(email[position]);
-                    }
-                }
-        );
+        holder.text.setText(filteredNames.get(position));
 
-        btn_call.setOnClickListener(new View.OnClickListener() {
+        btn_email.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View view) {
-                caller(call[position]);
+                emailer(filteredEmails.get(position));
             }
         });
 
-        if (call[position].equals("NONE")) {
+        if (filteredPhones.get(position).equals("NONE")) {
             btn_call.setVisibility(View.INVISIBLE);
         }
+
+        btn_call.setOnClickListener(new ImageButton.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                caller(filteredPhones.get(position));
+            }
+        });
         return convertView;
     }
 
-    @Override
+    static class ViewHolder {
+        TextView text;
+    }
+
     public Filter getFilter() {
-        if (filter == null)
-            filter = new StaffFilter();
-        return filter;
+        return mFilter;
     }
 
     public void emailer(String a) {
         Intent emailing = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", a, null));
-        getContext().startActivity(emailing);
+        context.startActivity(emailing);
     }
 
     public void caller(String a) {
         Intent calling = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", a, null));
-        getContext().startActivity(calling);
+        context.startActivity(calling);
     }
 
-    private class StaffFilter extends Filter {
-
-        List<String> staffList = new ArrayList<>();
+    private class ItemFilter extends Filter {
 
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
+
+            String filterString = constraint.toString().toLowerCase();
+
             FilterResults results = new FilterResults();
-            // We implement here the filter logic
-            if (constraint == null || constraint.length() == 0) {
-                staffList = Arrays.asList(new StaffFragment().getResources().getStringArray
-                        (R.array.staff_names));
-                // No filter implemented: we return all the list
-                results.values = staffList;
-                results.count = staffList.size();
-            } else {
 
-                for (String s : staffList) {
-                    if (s.toUpperCase().startsWith(constraint.toString().toUpperCase())) {
-                        staffList.add(s);
-                    }
+            int count = originalNames.size();
+            final ArrayList<String> nlist = new ArrayList<>(count);
+            final ArrayList<String> nlistemail = new ArrayList<>(count);
+            final ArrayList<String> nlistphone = new ArrayList<>(count);
+
+            String filterableString;
+
+            for (int i = 0; i < count; i++) {
+                filterableString = originalNames.get(i);
+                if (filterableString.toLowerCase().contains(filterString)) {
+                    nlist.add(filterableString);
+                    nlistemail.add(originalEmails.get(i));
+                    nlistphone.add(originalPhones.get(i));
                 }
-
-                results.values = staffList;
-                results.count = staffList.size();
-
             }
+
+            filteredEmails = nlistemail;
+            filteredPhones = nlistphone;
+
+            results.values = nlist;
+            results.count = nlist.size();
+
             return results;
         }
 
         @SuppressWarnings("unchecked")
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-                staffList = (ArrayList<String>) results.values;
-                notifyDataSetChanged();
-            }
+            filteredNames = (ArrayList<String>) results.values;
+            notifyDataSetChanged();
         }
+
     }
+}
