@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
         //Randomize the header image.
         Random rand = new Random();
 
-        switch (rand.nextInt(4)) {
+        switch (rand.nextInt(6)) {
             default: //Required
             case 0:
                 return R.layout.nav_header_flag;
@@ -264,6 +264,10 @@ public class MainActivity extends AppCompatActivity {
                 return R.layout.nav_header_hsfinal1;
             case 3:
                 return R.layout.nav_header_gbgym;
+            case 4:
+                return R.layout.nav_header_hseast;
+            case 5:
+                return R.layout.nav_header_hsfrank;
         }
     }
 
