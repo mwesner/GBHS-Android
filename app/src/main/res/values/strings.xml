@@ -60,7 +60,7 @@
     <string name="FacebookID">116000535113722</string>
 
     <!--Twitter-->
-    <string name="loadingtimeline">Loading tweets…</string>
+    <string name="EmptyTimeline">No Tweets</string>
     <string name="TwitterUser">GrandBlancPride</string>
 
     <!--About-->

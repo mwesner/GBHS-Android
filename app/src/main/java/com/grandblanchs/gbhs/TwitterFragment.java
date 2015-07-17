@@ -27,7 +27,7 @@ public class TwitterFragment extends ListFragment {
         super.onViewCreated(view, savedInstanceState);
 
         final SwipeRefreshLayout swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_layout);
-        final UserTimeline timeline = new UserTimeline.Builder().screenName("GrandBlancPride").build();
+        final UserTimeline timeline = new UserTimeline.Builder().screenName(getString(R.string.TwitterUser)).build();
         final TweetTimelineListAdapter adapter = new TweetTimelineListAdapter(getActivity(), timeline);
         setListAdapter(adapter);
 
