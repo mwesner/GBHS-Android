@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
     int prevCount;
     int selectedMenuItem;
 
-    ArrayList<String> prevTitle = new ArrayList<>();
+    ArrayList<String> prevTitles = new ArrayList<>();
+    ArrayList<Integer> prevMenuItems = new ArrayList<>();
 
     FragmentManager fm;
 
@@ -104,11 +105,17 @@ public class MainActivity extends AppCompatActivity {
                     .replace(R.id.FragmentContainer, announceFrag)
                     .commit();
 
-            prevTitle.add(prevCount, getTitle().toString());
+            prevTitles.add(prevCount, getTitle().toString());
+            prevMenuItems.add(prevCount, selectedMenuItem);
             prevCount++;
 
         }else{
             setTitle(savedInstanceState.getCharSequence("Title"));
+            prevTitles = savedInstanceState.getStringArrayList("prevTitles");
+
+            selectedMenuItem = savedInstanceState.getInt("MenuItem");
+            prevMenuItems = savedInstanceState.getIntegerArrayList("prevMenuItems");
+            prevCount = savedInstanceState.getInt("prevCount");
         }
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -118,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             navigationView.inflateHeaderView(getRandomHeaderLayout());
 
             if (savedInstanceState != null) {
-                navigationView.getMenu().getItem(savedInstanceState.getInt("MenuItem")).setChecked(true);
+                navigationView.getMenu().getItem(selectedMenuItem).setChecked(true);
             }
 
             navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -126,119 +133,123 @@ public class MainActivity extends AppCompatActivity {
                 public boolean onNavigationItemSelected(MenuItem menuItem) {
 
                     if (menuItem.isChecked()) {
-                        menuItem.setChecked(false);
-                    }else{
+                        mDrawerLayout.closeDrawers();
+                    } else {
+
                         menuItem.setChecked(true);
+
+                        mDrawerLayout.closeDrawers();
+
+                        prevTitles.add(prevCount, getTitle().toString());
+                        prevMenuItems.add(prevCount, selectedMenuItem);
+                        prevCount++;
+
+                        switch (menuItem.getItemId()) {
+                            case R.id.Announce:
+                                setTitle(R.string.Announce);
+                                selectedMenuItem = 0;
+                                fm.beginTransaction()
+                                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
+                                        .replace(R.id.FragmentContainer, announceFrag, "Announce")
+                                        .addToBackStack(null)
+                                        .commit();
+                                return true;
+                            case R.id.Twitter:
+                                setTitle(R.string.Twitter);
+                                selectedMenuItem = 1;
+                                fm.beginTransaction()
+                                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                                R.anim.abc_fade_in, R.anim.abc_fade_out)
+                                        .replace(R.id.FragmentContainer, twitterFrag, "Twitter")
+                                        .addToBackStack(null)
+                                        .commit();
+                                return true;
+                            case R.id.Calendar:
+                                setTitle(R.string.Calendar);
+                                selectedMenuItem = 2;
+                                fm.beginTransaction()
+                                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                                R.anim.abc_fade_in, R.anim.abc_fade_out)
+                                        .replace(R.id.FragmentContainer, calFrag, "Calendar")
+                                        .addToBackStack(null)
+                                        .commit();
+                                return true;
+                            case R.id.Sports:
+                                setTitle(R.string.Sports);
+                                selectedMenuItem = 3;
+                                fm.beginTransaction()
+                                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                                R.anim.abc_fade_in, R.anim.abc_fade_out)
+                                        .replace(R.id.FragmentContainer, sportsFrag, "Sports")
+                                        .addToBackStack(null)
+                                        .commit();
+                                return true;
+                            case R.id.Staff:
+                                setTitle(R.string.Staff);
+                                selectedMenuItem = 4;
+                                fm.beginTransaction()
+                                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                                R.anim.abc_fade_in, R.anim.abc_fade_out)
+                                        .replace(R.id.FragmentContainer, staffFrag, "Staff")
+                                        .addToBackStack(null)
+                                        .commit();
+                                return true;
+                            case R.id.Guidance:
+                                setTitle(R.string.Guidance);
+                                selectedMenuItem = 5;
+                                fm.beginTransaction()
+                                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                                R.anim.abc_fade_in, R.anim.abc_fade_out)
+                                        .replace(R.id.FragmentContainer, guidanceFrag, "Guidance")
+                                        .addToBackStack(null)
+                                        .commit();
+                                return true;
+                            case R.id.Admin:
+                                setTitle(R.string.Admin);
+                                selectedMenuItem = 6;
+                                fm.beginTransaction()
+                                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                                R.anim.abc_fade_in, R.anim.abc_fade_out)
+                                        .replace(R.id.FragmentContainer, adminFrag, "Admin")
+                                        .addToBackStack(null)
+                                        .commit();
+                                return true;
+                            case R.id.Map:
+                                setTitle(R.string.Map);
+                                selectedMenuItem = 7;
+                                fm.beginTransaction()
+                                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                                R.anim.abc_fade_in, R.anim.abc_fade_out)
+                                        .replace(R.id.FragmentContainer, mapFrag, "Map")
+                                        .addToBackStack(null)
+                                        .commit();
+                                return true;
+                            case R.id.College:
+                                setTitle(R.string.College);
+                                selectedMenuItem = 8;
+                                fm.beginTransaction()
+                                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                                R.anim.abc_fade_in, R.anim.abc_fade_out)
+                                        .replace(R.id.FragmentContainer, collegeFrag, "College")
+                                        .addToBackStack(null)
+                                        .commit();
+                                return true;
+                            case R.id.External:
+                                setTitle(R.string.External);
+                                selectedMenuItem = 9;
+                                fm.beginTransaction()
+                                        .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
+                                                R.anim.abc_fade_in, R.anim.abc_fade_out)
+                                        .replace(R.id.FragmentContainer, externalFrag, "External")
+                                        .addToBackStack(null)
+                                        .commit();
+                                return true;
+                        }
                     }
 
-                    mDrawerLayout.closeDrawers();
-
-                    prevTitle.add(prevCount, getTitle().toString());
-                    prevCount++;
-
-                    switch (menuItem.getItemId()) {
-                        case R.id.Announce:
-                            setTitle(R.string.Announce);
-                            selectedMenuItem = 0;
-                            fm.beginTransaction()
-                                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
-                                    .replace(R.id.FragmentContainer, announceFrag, "Announce")
-                                    .addToBackStack(null)
-                                    .commit();
-                            return true;
-                        case R.id.Twitter:
-                            setTitle(R.string.Twitter);
-                            selectedMenuItem = 1;
-                            fm.beginTransaction()
-                                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
-                                            R.anim.abc_fade_in, R.anim.abc_fade_out)
-                                    .replace(R.id.FragmentContainer, twitterFrag, "Twitter")
-                                    .addToBackStack(null)
-                                    .commit();
-                            return true;
-                        case R.id.Calendar:
-                            setTitle(R.string.Calendar);
-                            selectedMenuItem = 2;
-                            fm.beginTransaction()
-                                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
-                                            R.anim.abc_fade_in, R.anim.abc_fade_out)
-                                    .replace(R.id.FragmentContainer, calFrag, "Calendar")
-                                    .addToBackStack(null)
-                                    .commit();
-                            return true;
-                        case R.id.Sports:
-                            setTitle(R.string.Sports);
-                            selectedMenuItem = 3;
-                            fm.beginTransaction()
-                                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
-                                            R.anim.abc_fade_in, R.anim.abc_fade_out)
-                                    .replace(R.id.FragmentContainer, sportsFrag, "Sports")
-                                    .addToBackStack(null)
-                                    .commit();
-                            return true;
-                        case R.id.Staff:
-                            setTitle(R.string.Staff);
-                            selectedMenuItem = 4;
-                            fm.beginTransaction()
-                                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
-                                            R.anim.abc_fade_in, R.anim.abc_fade_out)
-                                    .replace(R.id.FragmentContainer, staffFrag, "Staff")
-                                    .addToBackStack(null)
-                                    .commit();
-                            return true;
-                        case R.id.Guidance:
-                            setTitle(R.string.Guidance);
-                            selectedMenuItem = 5;
-                            fm.beginTransaction()
-                                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
-                                            R.anim.abc_fade_in, R.anim.abc_fade_out)
-                                    .replace(R.id.FragmentContainer, guidanceFrag, "Guidance")
-                                    .addToBackStack(null)
-                                    .commit();
-                            return true;
-                        case R.id.Admin:
-                            setTitle(R.string.Admin);
-                            selectedMenuItem = 6;
-                            fm.beginTransaction()
-                                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
-                                            R.anim.abc_fade_in, R.anim.abc_fade_out)
-                                    .replace(R.id.FragmentContainer, adminFrag, "Admin")
-                                    .addToBackStack(null)
-                                    .commit();
-                            return true;
-                        case R.id.Map:
-                            setTitle(R.string.Map);
-                            selectedMenuItem = 7;
-                            fm.beginTransaction()
-                                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
-                                            R.anim.abc_fade_in, R.anim.abc_fade_out)
-                                    .replace(R.id.FragmentContainer, mapFrag, "Map")
-                                    .addToBackStack(null)
-                                    .commit();
-                            return true;
-                        case R.id.College:
-                            setTitle(R.string.College);
-                            selectedMenuItem = 8;
-                            fm.beginTransaction()
-                                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
-                                            R.anim.abc_fade_in, R.anim.abc_fade_out)
-                                    .replace(R.id.FragmentContainer, collegeFrag, "College")
-                                    .addToBackStack(null)
-                                    .commit();
-                            return true;
-                        case R.id.External:
-                            setTitle(R.string.External);
-                            selectedMenuItem = 9;
-                            fm.beginTransaction()
-                                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out,
-                                            R.anim.abc_fade_in, R.anim.abc_fade_out)
-                                    .replace(R.id.FragmentContainer, externalFrag, "External")
-                                    .addToBackStack(null)
-                                    .commit();
-                            return true;
-                    }
                     return true;
                 }
+
             });
         }
     }
@@ -247,7 +258,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putCharSequence("Title", getTitle());
+        outState.putStringArrayList("prevTitles", prevTitles);
+
         outState.putInt("MenuItem", selectedMenuItem);
+        outState.putIntegerArrayList("prevMenuItems", prevMenuItems);
+
+        outState.putInt("prevCount", prevCount);
     }
 
     public int getRandomHeaderLayout() {
@@ -332,7 +348,11 @@ public class MainActivity extends AppCompatActivity {
         }else if (fm.getBackStackEntryCount() > 0){
             // Catch back action and pops from backstack
             // (if you called previously to addToBackStack() in your transaction)
-            setTitle(prevTitle.get(prevCount - 1));
+            setTitle(prevTitles.get(prevCount - 1));
+
+            selectedMenuItem = prevMenuItems.get(prevCount - 1);
+            navigationView.getMenu().getItem(selectedMenuItem).setChecked(true);
+
             prevCount--;
 
             fm.popBackStack();
