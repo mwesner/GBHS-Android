@@ -62,6 +62,7 @@ public class AnnounceFragment extends Fragment {
 
         prog = (ProgressBar) view.findViewById(R.id.prog);
         lstAnnounce = (ListView) view.findViewById(R.id.lstAnnounce);
+        lstAnnounce.setFastScrollEnabled(true);
 
         /*TODO: Enable this before release.
         Disabled in testing so the website isn't constantly scraped*/
@@ -123,6 +124,8 @@ public class AnnounceFragment extends Fragment {
             Document announce;
 
             adapter = new AnnounceAdapter(getActivity());
+            text.clear();
+            sort.clear();
 
             try {
 
@@ -132,14 +135,25 @@ public class AnnounceFragment extends Fragment {
                 group = announce.select("group");
 
             } catch (NullPointerException | IOException e) {
-                getActivity().runOnUiThread(new Runnable() {
-                    public void run() {
-                        Snackbar.make(getView(), getString(R.string.AnnounceLoadError), Snackbar.LENGTH_LONG).show();
 
-                        //Add "No Announcements."
-                        adapter.addItem(getString(R.string.NoAnnouncements));
-                    }
-                });
+                //Add "No Announcements."
+                adapter.addItem(getString(R.string.NoAnnouncements));
+                text.add(getString(R.string.NoAnnouncements));
+                sort.add(1);
+
+                if (getView() != null) {
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            Snackbar.make(getView(), getString(R.string.AnnounceLoadError), Snackbar.LENGTH_LONG)
+                                    .setAction(getString(R.string.Retry), new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            new AnnounceScrape().execute();
+                                        }
+                                    }).show();
+                        }
+                    });
+                }
             }
             return null;
         }
@@ -154,11 +168,7 @@ public class AnnounceFragment extends Fragment {
 
     public void parseAnnouncements(){
 
-        if (group == null) {
-            //Add "No Announcements."
-            adapter.addItem(getString(R.string.NoAnnouncements));
-        }else{
-
+        if (group != null) {
             for (int i = 0; i < group.size(); i++) {
 
                 for (int j = 0; j < group.get(i).select("date").size(); j++) {
