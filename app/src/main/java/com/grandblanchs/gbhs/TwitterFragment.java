@@ -45,14 +45,16 @@ public class TwitterFragment extends ListFragment {
                     @Override
                     public void failure(TwitterException exception) {
                         swipeLayout.setRefreshing(false);
-                        Snackbar.make(getView(), getString(R.string.NoTwitterRefresh), Snackbar.LENGTH_LONG)
-                                .setAction(R.string.Retry, new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        onRefresh();
-                                    }
-                                })
-                                .show();
+                        if (getView() != null) {
+                            Snackbar.make(getView(), getString(R.string.NoTwitterRefresh), Snackbar.LENGTH_LONG)
+                                    .setAction(R.string.Retry, new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            onRefresh();
+                                        }
+                                    })
+                                    .show();
+                        }
                     }
                 });
             }

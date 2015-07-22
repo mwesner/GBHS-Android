@@ -63,6 +63,17 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <TextView android:id="@+id/txtError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/NoCalendar"
+        android:drawableLeft="@drawable/ic_action_event"
+        android:drawableStart="@drawable/ic_action_event"
+        android:drawablePadding="8dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
 
 
 </RelativeLayout>
