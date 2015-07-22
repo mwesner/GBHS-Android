@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -46,10 +47,19 @@ public class MapFragment extends Fragment {
         map = mapView.getMap();
 
         // Needs to call MapsInitializer before doing any CameraUpdateFactory calls
-        MapsInitializer.initialize(this.getActivity());
+        if (MapsInitializer.initialize(getActivity()) == ConnectionResult.SUCCESS) {
+            showMap();
+        }
+        return v;
+    }
+
+    public void showMap() {
+        btnEast.setVisibility(View.VISIBLE);
+        btnWest.setVisibility(View.VISIBLE);
+        lstType.setVisibility(View.VISIBLE);
 
         // Updates the location and zoom of the MapView
-        cam = CameraUpdateFactory.newLatLngZoom(new LatLng(42.921275,-83.627256), 16);
+        cam = CameraUpdateFactory.newLatLngZoom(new LatLng(42.921275, -83.627256), 16);
         map.moveCamera(cam);
 
         final LatLng east = new LatLng(42.91995,-83.624859);
@@ -104,8 +114,6 @@ public class MapFragment extends Fragment {
                 map.animateCamera(cam);
             }
         });
-
-        return v;
     }
 
     @Override
