@@ -27,6 +27,8 @@ public class AnnounceFragment extends Fragment {
     ScrollView scrNotification;
     TextView txtNotification;
 
+    CharSequence notification;
+
     ProgressBar prog;
     ListView lstAnnounce;
 
@@ -36,10 +38,6 @@ public class AnnounceFragment extends Fragment {
 
     ArrayList<String> text = new ArrayList<>();
     ArrayList<Integer> sort = new ArrayList<>();
-
-    public AnnounceFragment() {
-        // Required empty public constructor
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,28 +62,36 @@ public class AnnounceFragment extends Fragment {
         lstAnnounce = (ListView) view.findViewById(R.id.lstAnnounce);
         lstAnnounce.setFastScrollEnabled(true);
 
-        /*TODO: Enable this before release.
-        Disabled in testing so the website isn't constantly scraped*/
-        //new CheckNotifications().execute();
-
+        //TODO: Remove prototype content
         if (savedInstanceState == null) {
-            new AnnounceScrape().execute();
+            new CheckNotifications().execute();
+            //new AnnounceScrape().execute();
         }else{
-            text = savedInstanceState.getStringArrayList("Testing");
-            sort = savedInstanceState.getIntegerArrayList("Sort");
 
-            adapter = new AnnounceAdapter(getActivity());
+            notification = savedInstanceState.getCharSequence("Notification");
+            setNotification();
 
-            for (int i = 0; i < text.size(); i++) {
+            //text = savedInstanceState.getStringArrayList("Testing");
+            //sort = savedInstanceState.getIntegerArrayList("Sort");
+
+            //adapter = new AnnounceAdapter(getActivity());
+
+            /*for (int i = 0; i < text.size(); i++) {
                 if (sort.get(i) == 0) {
                     adapter.addSeparatorItem(text.get(i));
                 }else{
                     adapter.addItem(text.get(i));
                 }
-            }
+            }*/
 
-            setAnnouncements();
+            //setAnnouncements();
         }
+
+        adapter = new AnnounceAdapter(getActivity());
+        adapter.addSeparatorItem("Announcement date will appear here.");
+        adapter.addItem("Announcements will appear here.");
+
+        setAnnouncements();
     }
 
     @SuppressWarnings("unused")
@@ -93,28 +99,34 @@ public class AnnounceFragment extends Fragment {
         @Override
         protected Void doInBackground(Void... params) {
             //Check for emergency notifications on the website.
+            //TODO: Remove prototype content
             Document emergNotif;
-            try {
-                emergNotif = Jsoup.connect("http://grandblanc.high.schoolfusion.us").get();
-                final Elements emergNotifBox = emergNotif.getElementsByClass("emergNotifBox");
-                if (!emergNotifBox.text().equals("")) {
+            //try {
+                //emergNotif = Jsoup.connect("http://grandblanc.high.schoolfusion.us").get();
+                //final Elements emergNotifBox = emergNotif.getElementsByClass("emergNotifBox");
+                //if (!emergNotifBox.text().equals("")) {
                     //Emergency notification is present.
-                    getActivity().runOnUiThread(new Runnable() {
-                        public void run() {
-                            txtNotification.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_action_warning, 0, 0, 0);
-                            txtNotification.setText(emergNotifBox.text());
-
-                            txtNotification.setVisibility(View.VISIBLE);
-                            scrNotification.setVisibility(View.VISIBLE);
-                        }
-                    });
-                }
-            } catch (IOException | NullPointerException e) {
+                    //alert = emergNotifBox.text();
+                    notification = "Emergency notifications such as school closings or event cancellations will appear here.";
+                    setNotification();
+                //}
+            //} catch (IOException | NullPointerException e) {
                 //No notifications. Don't do anything.
-            }
+            //}
 
             return null;
         }
+    }
+
+    public void setNotification() {
+        getActivity().runOnUiThread(new Runnable() {
+            public void run() {
+                txtNotification.setText(notification);
+
+                txtNotification.setVisibility(View.VISIBLE);
+                scrNotification.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     public class AnnounceScrape extends AsyncTask<Void, Void, Void> {
@@ -196,7 +208,9 @@ public class AnnounceFragment extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        outState.putStringArrayList("Testing", text);
-        outState.putIntegerArrayList("Sort", sort);
+        //outState.putStringArrayList("Testing", text);
+        //outState.putIntegerArrayList("Sort", sort);
+
+        outState.putCharSequence("Notification", notification);
     }
 }

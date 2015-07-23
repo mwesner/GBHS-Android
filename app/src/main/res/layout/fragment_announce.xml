@@ -17,13 +17,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtNotification"
+            android:drawableLeft="@drawable/ic_action_warning"
+            android:drawableStart="@drawable/ic_action_warning"
+            android:drawablePadding="16dp"
             android:visibility="gone"
             android:gravity="center"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="#ffff0000" />
+            android:textColor="@color/myAccentColor" />
     </ScrollView>
 
     <ListView
