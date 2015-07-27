@@ -8,7 +8,7 @@
             android:title="@string/Announce"/>
         <item
             android:id="@+id/Twitter"
-            android:icon="@drawable/drawer_twitter"
+            android:icon="@drawable/tw__ic_logo_default"
             android:title="@string/Twitter"/>
         <item
             android:id="@+id/Calendar"

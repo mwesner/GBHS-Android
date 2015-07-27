@@ -2,6 +2,7 @@
 <resources>
     <!--Application Name-->
     <string name="app_name">Grand Blanc High School</string>
+    <string name="app_label">GBHS</string>
 
     <!--Fragment Names-->
     <string name="Announce">Announcements</string>
