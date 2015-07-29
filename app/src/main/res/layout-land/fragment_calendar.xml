@@ -52,7 +52,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/CalendarWeb"
-        android:backgroundTint="@color/myPrimaryColor"
         android:drawableLeft="@drawable/ic_action_open_in_browser"
         android:drawableStart="@drawable/ic_action_open_in_browser"
         android:drawablePadding="16dp"

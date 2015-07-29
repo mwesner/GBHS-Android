@@ -6,6 +6,7 @@
         <item name="colorPrimaryDark">@color/myPrimaryDarkColor</item>
         <item name="colorAccent">@color/myAccentColor</item>
         <item name="android:windowBackground">@color/myWindowBackground</item>
+        <item name="android:colorButtonNormal">@color/myPrimaryColor</item>
         <item name="android:textColorPrimary">@color/myTextPrimaryColor</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@color/myNavigationColor</item>

@@ -55,7 +55,6 @@
         android:layout_alignParentEnd="true"
         android:enabled="false"
         tools:ignore="RtlHardcoded"
-        android:backgroundTint="@color/myPrimaryColor"
         android:elevation="4dp"/>
 
     <ImageView

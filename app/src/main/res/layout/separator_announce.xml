@@ -8,7 +8,6 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:gravity="center"
-        android:textColor="@color/myTextPrimaryColor"
         android:textSize="17sp"
         android:background="@color/myPrimaryColor"
         android:clickable="false"
