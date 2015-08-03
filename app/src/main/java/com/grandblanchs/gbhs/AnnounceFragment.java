@@ -16,13 +16,10 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class AnnounceFragment extends Fragment {
-
-    //TODO: Connect to announcements XML feed
 
     ScrollView scrNotification;
     TextView txtNotification;
@@ -62,36 +59,28 @@ public class AnnounceFragment extends Fragment {
         lstAnnounce = (ListView) view.findViewById(R.id.lstAnnounce);
         lstAnnounce.setFastScrollEnabled(true);
 
-        //TODO: Remove prototype content
         if (savedInstanceState == null) {
             new CheckNotifications().execute();
-            //new AnnounceScrape().execute();
-        }else{
+            new AnnounceScrape().execute();
+        } else {
 
             notification = savedInstanceState.getCharSequence("Notification");
             setNotification();
+            text = savedInstanceState.getStringArrayList("Testing");
+            sort = savedInstanceState.getIntegerArrayList("Sort");
 
-            //text = savedInstanceState.getStringArrayList("Testing");
-            //sort = savedInstanceState.getIntegerArrayList("Sort");
+            adapter = new AnnounceAdapter(getActivity());
 
-            //adapter = new AnnounceAdapter(getActivity());
-
-            /*for (int i = 0; i < text.size(); i++) {
+            for (int i = 0; i < text.size(); i++) {
                 if (sort.get(i) == 0) {
                     adapter.addSeparatorItem(text.get(i));
-                }else{
+                } else {
                     adapter.addItem(text.get(i));
                 }
-            }*/
+            }
 
-            //setAnnouncements();
+            setAnnouncements();
         }
-
-        adapter = new AnnounceAdapter(getActivity());
-        adapter.addSeparatorItem("Announcement date will appear here.");
-        adapter.addItem("Announcements will appear here.");
-
-        setAnnouncements();
     }
 
     @SuppressWarnings("unused")
@@ -99,20 +88,16 @@ public class AnnounceFragment extends Fragment {
         @Override
         protected Void doInBackground(Void... params) {
             //Check for emergency notifications on the website.
-            //TODO: Remove prototype content
-            Document emergNotif;
-            //try {
-                //emergNotif = Jsoup.connect("http://grandblanc.high.schoolfusion.us").get();
-                //final Elements emergNotifBox = emergNotif.getElementsByClass("emergNotifBox");
-                //if (!emergNotifBox.text().equals("")) {
+            try {
+                final Elements emergNotifBox = Jsoup.connect(getString(R.string.SchoolURL)).get().getElementsByClass("emergNotifBox");
+                if (emergNotifBox.hasText()) {
                     //Emergency notification is present.
-                    //alert = emergNotifBox.text();
-                    notification = "Emergency notifications such as school closings or event cancellations will appear here.";
+                    notification = emergNotifBox.text();
                     setNotification();
-                //}
-            //} catch (IOException | NullPointerException e) {
+                }
+            } catch (IOException | NullPointerException e) {
                 //No notifications. Don't do anything.
-            //}
+            }
 
             return null;
         }
@@ -133,17 +118,15 @@ public class AnnounceFragment extends Fragment {
         @Override
         protected Void doInBackground(Void... voids) {
             //Scrape the daily announcements into a list.
-            Document announce;
 
             adapter = new AnnounceAdapter(getActivity());
             text.clear();
             sort.clear();
 
+            final Document announce;
+
             try {
-
-                //TODO: Replace testing document with active link
-                announce = Jsoup.parse(new File("mnt/sdcard/Announcements.xml"), "UTF-8");
-
+                announce = Jsoup.connect("http://drive.google.com/uc?export=downloads&id=0B0YlVLIB047UQzRVclRBb2RFS00").get();
                 group = announce.select("group");
 
             } catch (NullPointerException | IOException e) {
@@ -208,8 +191,8 @@ public class AnnounceFragment extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        //outState.putStringArrayList("Testing", text);
-        //outState.putIntegerArrayList("Sort", sort);
+        outState.putStringArrayList("Testing", text);
+        outState.putIntegerArrayList("Sort", sort);
 
         outState.putCharSequence("Notification", notification);
     }

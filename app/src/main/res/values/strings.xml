@@ -57,6 +57,9 @@
     <!--Schedule Star-->
     <string name="BaseURL">http://schedules.schedulestar.com/Grand-Blanc-High-School-Grand-Blanc-MI/season</string>
 
+    <!--School website-->
+    <string name="SchoolURL">http://grandblanc.high.schoolfusion.us</string>
+
     <!--Facebook-->
     <string name="FacebookID">116000535113722</string>
 
