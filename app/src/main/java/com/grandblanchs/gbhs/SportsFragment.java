@@ -260,6 +260,10 @@ public class SportsFragment extends Fragment {
                 setJuniorVarsity();
                 setBoysGirls();
                 break;
+            case 18: //Wrestling: Varsity, JV, Boys
+                setJuniorVarsity();
+                setBoys();
+                break;
         }
 
     }
