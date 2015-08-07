@@ -65,7 +65,10 @@ public class AnnounceFragment extends Fragment {
         } else {
 
             notification = savedInstanceState.getCharSequence("Notification");
-            setNotification();
+            if (notification != null) {
+                setNotification();
+            }
+
             text = savedInstanceState.getStringArrayList("Testing");
             sort = savedInstanceState.getIntegerArrayList("Sort");
 
