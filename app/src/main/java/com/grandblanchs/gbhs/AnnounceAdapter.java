@@ -12,12 +12,10 @@ import java.util.TreeSet;
 
 class AnnounceAdapter extends BaseAdapter {
 
-    Context c;
-
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_SEPARATOR = 1;
     private static final int TYPE_MAX_COUNT = TYPE_SEPARATOR + 1;
-
+    Context c;
     private ArrayList<String> mData = new ArrayList<>();
     private LayoutInflater mInflater;
 
@@ -72,7 +70,7 @@ class AnnounceAdapter extends BaseAdapter {
         switch (type) {
             case TYPE_ITEM:
                 convertView = mInflater.inflate(R.layout.item_announce, parent, false);
-                holder.textView =(TextView)convertView.findViewById(R.id.text);
+                holder.textView = (TextView) convertView.findViewById(R.id.text);
                 break;
             case TYPE_SEPARATOR:
                 convertView = mInflater.inflate(R.layout.separator_announce, parent, false);

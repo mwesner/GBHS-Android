@@ -100,6 +100,77 @@ public class CalendarFragment extends Fragment {
         outState.putStringArray("eventTime", eventTime);
     }
 
+    public void setEvents() {
+
+        //Set the current date
+        DateTime dt = new DateTime();
+        int currentday = dt.getDayOfMonth();
+
+        int currentmonth = dt.getMonthOfYear();
+
+        int currentyear = dt.getYear();
+
+        currentDate = currentyear + "" + currentmonth + "" + currentday;
+
+
+        //Search for events that occur on the current date
+        for (int i = 1; i < calArray.length; i++) {
+            if (calArray[i].equals(currentDate)) {
+                eventList.add(eventCount, eventDescription[i]);
+                eventCount++;
+            }
+        }
+
+        if (getActivity() != null) {
+            //Set the content of the ListView
+            mAdapter = new CalendarAdapter(getActivity(), eventList);
+
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    lstInfo.setAdapter(mAdapter);
+
+                    FadeAnimation f = new FadeAnimation();
+                    f.start(lstInfo, gridCal, prog);
+                    prog.setVisibility(View.GONE);
+                    lstInfo.setVisibility(View.VISIBLE);
+                    gridCal.setVisibility(View.VISIBLE);
+                }
+            });
+
+            //Change the events displayed when the user selects a new date.
+            gridCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+                @Override
+                public void onSelectedDayChange(CalendarView calendarView, int year, int month,
+                                                int day) {
+
+                    //Add one month because month starts at 0
+                    month++;
+
+                    selectedDate = year + "" + month + "" + day;
+
+                    //Clear the events from the previously selected date
+                    eventList.clear();
+                    eventCount = 0;
+
+                    //Search for events that occur on the selected date
+                    for (int i = 1; i < calArray.length; i++) {
+                        if (calArray[i].equals(selectedDate)) {
+                            eventList.add(eventCount, eventDescription[i]);
+                            eventCount++;
+                        }
+                    }
+
+                    //Set the content of the ListView
+                    mAdapter = new CalendarAdapter(getActivity(), eventList);
+
+                    lstInfo.setAdapter(mAdapter);
+                }
+            });
+        }
+    }
+
     private class CalGet extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -192,77 +263,6 @@ public class CalendarFragment extends Fragment {
             }
 
             return null;
-        }
-    }
-
-    public void setEvents() {
-
-        //Set the current date
-        DateTime dt = new DateTime();
-        int currentday = dt.getDayOfMonth();
-
-        int currentmonth = dt.getMonthOfYear();
-
-        int currentyear = dt.getYear();
-
-        currentDate = currentyear + "" + currentmonth + "" + currentday;
-
-
-        //Search for events that occur on the current date
-        for (int i = 1; i < calArray.length; i++) {
-            if (calArray[i].equals(currentDate)) {
-                eventList.add(eventCount, eventDescription[i]);
-                eventCount++;
-            }
-        }
-
-        if (getActivity() != null) {
-            //Set the content of the ListView
-            mAdapter = new CalendarAdapter(getActivity(), eventList);
-
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    lstInfo.setAdapter(mAdapter);
-
-                    FadeAnimation f = new FadeAnimation();
-                    f.start(lstInfo, gridCal, prog);
-                    prog.setVisibility(View.GONE);
-                    lstInfo.setVisibility(View.VISIBLE);
-                    gridCal.setVisibility(View.VISIBLE);
-                }
-            });
-
-            //Change the events displayed when the user selects a new date.
-            gridCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-
-                @Override
-                public void onSelectedDayChange(CalendarView calendarView, int year, int month,
-                                                int day) {
-
-                    //Add one month because month starts at 0
-                    month++;
-
-                    selectedDate = year + "" + month + "" + day;
-
-                    //Clear the events from the previously selected date
-                    eventList.clear();
-                    eventCount = 0;
-
-                    //Search for events that occur on the selected date
-                    for (int i = 1; i < calArray.length; i++) {
-                        if (calArray[i].equals(selectedDate)) {
-                            eventList.add(eventCount, eventDescription[i]);
-                            eventCount++;
-                        }
-                    }
-
-                    //Set the content of the ListView
-                    mAdapter = new CalendarAdapter(getActivity(), eventList);
-
-                    lstInfo.setAdapter(mAdapter);
-                }
-            });
         }
     }
 }

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
     <TextView
         android:id="@+id/caltext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:autoLink="all"
+        android:background="@color/myAccentColor"
+        android:clickable="false"
+        android:focusable="false"
         android:gravity="center"
+        android:paddingBottom="16dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:clickable="false"
-        android:focusable="false"
-        android:background="@color/myAccentColor"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:visibility="visible" />
 </LinearLayout>

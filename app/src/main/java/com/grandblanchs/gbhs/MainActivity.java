@@ -25,17 +25,17 @@ import io.fabric.sdk.android.Fabric;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Your consumer key and secret should be obfuscated in your source code before shipping.
+    //TODO: (Wesner) Ensure these keys are replaced with the active release keys before publishing to Google Play.
+    private static final String TWITTER_KEY = "ZJnydLJQ8PPjT8hxt5znyscnj";
+    private static final String TWITTER_SECRET = "gzSfM0fG4fFaHuQUb46SvWEM30v9XkJih0RVJiB3nEisDZfICV";
     DrawerLayout mDrawerLayout;
     NavigationView navigationView;
-
     int prevCount;
     int selectedMenuItem;
-
     ArrayList<String> prevTitles = new ArrayList<>();
     ArrayList<Integer> prevMenuItems = new ArrayList<>();
-
     FragmentManager fm;
-
     TwitterFragment twitterFrag = new TwitterFragment();
     MapFragment mapFrag = new MapFragment();
     CalendarFragment calFrag = new CalendarFragment();
@@ -46,11 +46,6 @@ public class MainActivity extends AppCompatActivity {
     ExternalFragment externalFrag = new ExternalFragment();
     GuidanceFragment guidanceFrag = new GuidanceFragment();
     SportsFragment sportsFrag = new SportsFragment();
-
-    //Your consumer key and secret should be obfuscated in your source code before shipping.
-    //TODO: (Wesner) Ensure these keys are replaced with the active release keys before publishing to Google Play.
-    private static final String TWITTER_KEY = "ZJnydLJQ8PPjT8hxt5znyscnj";
-    private static final String TWITTER_SECRET = "gzSfM0fG4fFaHuQUb46SvWEM30v9XkJih0RVJiB3nEisDZfICV";
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -70,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, 0, 0){
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, 0, 0) {
 
             @Override
             public void onDrawerSlide(View drawerView, float drawerOffset) {
@@ -97,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             prevMenuItems.add(prevCount, selectedMenuItem);
             prevCount++;
 
-        }else{
+        } else {
             setTitle(savedInstanceState.getCharSequence("Title"));
             prevTitles = savedInstanceState.getStringArrayList("prevTitles");
 
@@ -335,7 +330,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.closeDrawer(GravityCompat.START);
-        }else if (fm.getBackStackEntryCount() > 0){
+        } else if (fm.getBackStackEntryCount() > 0) {
             // Catch back action and pops from backstack
             // (if you called previously to addToBackStack() in your transaction)
             setTitle(prevTitles.get(prevCount - 1));

@@ -1,33 +1,38 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".GBHS">
 
     <!--Schedule of Times-->
-    <item android:id="@+id/Times"
-        android:title="@string/Schedule"
+    <item
+        android:id="@+id/Times"
         android:icon="@drawable/ic_action_access_time"
+        android:title="@string/Schedule"
         app:showAsAction="ifRoom" />
 
     <!--StudentVUE link-->
-    <item android:id="@+id/Grades"
-        android:title="@string/Grades"
+    <item
+        android:id="@+id/Grades"
         android:icon="@drawable/ic_action_svue"
-        app:showAsAction="ifRoom"/>
+        android:title="@string/Grades"
+        app:showAsAction="ifRoom" />
     <!--android:icon="@drawable/ic_action_jed"--> <!--TODO: Jupiter Ed-->
 
     <!--Facebook-->
-    <item android:id="@+id/Facebook"
-        android:title="@string/Facebook"
+    <item
+        android:id="@+id/Facebook"
         android:icon="@drawable/ic_action_facebook"
+        android:title="@string/Facebook"
         app:showAsAction="ifRoom" />
 
     <!--Website-->
-    <item android:id="@+id/GBHSWeb"
-        android:title="@string/GBHSWeb"/>
+    <item
+        android:id="@+id/GBHSWeb"
+        android:title="@string/GBHSWeb" />
 
     <!--About-->
-    <item android:id="@+id/About"
+    <item
+        android:id="@+id/About"
         android:title="@string/action_about" />
 
 </menu>

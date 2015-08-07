@@ -62,8 +62,8 @@ public class MapFragment extends Fragment {
         cam = CameraUpdateFactory.newLatLngZoom(new LatLng(42.921275, -83.627256), 16);
         map.moveCamera(cam);
 
-        final LatLng east = new LatLng(42.91995,-83.624859);
-        final LatLng west = new LatLng(42.920577,-83.630655);
+        final LatLng east = new LatLng(42.91995, -83.624859);
+        final LatLng west = new LatLng(42.920577, -83.630655);
 
         map.addMarker(new MarkerOptions()
                 .title(getString(R.string.app_name))

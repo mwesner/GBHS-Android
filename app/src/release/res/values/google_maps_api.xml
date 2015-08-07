@@ -1,6 +1,6 @@
 <resources>
     <!--TODO: (Wesner) Add this key before release.-->
-    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
         YOUR_KEY_HERE
     </string>
 </resources>

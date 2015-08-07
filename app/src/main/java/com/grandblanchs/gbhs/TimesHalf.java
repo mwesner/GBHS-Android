@@ -11,6 +11,6 @@ public class TimesHalf extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.times_half,container,false);
+        return inflater.inflate(R.layout.times_half, container, false);
     }
 }

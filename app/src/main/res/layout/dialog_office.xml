@@ -2,10 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="16dp"
-    android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
-    android:requiresFadingEdge="vertical"
     android:fadingEdgeLength="4dp"
+    android:padding="16dp"
+    android:requiresFadingEdge="vertical"
+    android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
     tools:context="com.grandblanchs.gbhs.Info">
 
     <LinearLayout
@@ -14,58 +14,58 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
             android:id="@+id/imgInfo"
-            android:adjustViewBounds="true"
-            android:src="@mipmap/ic_launcher"
-            tools:ignore="ContentDescription"
-            android:layout_gravity="center_horizontal" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/txtName"
-            android:layout_gravity="center_horizontal" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/txtSubtitle"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp" />
+            android:adjustViewBounds="true"
+            android:gravity="center"
+            android:src="@mipmap/ic_launcher"
+            tools:ignore="ContentDescription" />
 
         <TextView
+            android:id="@+id/txtName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/txtSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
             android:id="@+id/txtEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:autoLink="email"
-            android:drawableStart="@drawable/ic_action_email_dark"
             android:drawableLeft="@drawable/ic_action_email_dark"
             android:drawablePadding="16dp"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="8dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtPhone"
-            android:autoLink="phone"
-            android:drawableStart="@drawable/ic_action_call_dark"
-            android:drawableLeft="@drawable/ic_action_call_dark"
-            android:drawablePadding="16dp"
+            android:drawableStart="@drawable/ic_action_email_dark"
             android:gravity="center_vertical" />
 
         <TextView
+            android:id="@+id/txtPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:id="@+id/txtBio" />
+            android:autoLink="phone"
+            android:drawableLeft="@drawable/ic_action_call_dark"
+            android:drawablePadding="16dp"
+            android:drawableStart="@drawable/ic_action_call_dark"
+            android:gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/txtBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
     </LinearLayout>
 
 </ScrollView>

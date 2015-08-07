@@ -2,71 +2,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GBHS"
-    android:weightSum="1"
+    android:orientation="vertical"
     android:padding="16dp"
-    android:orientation="vertical">
+    android:weightSum="1"
+    tools:context=".GBHS">
 
     <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/lstSport"
-        android:entries="@array/sports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:entries="@array/sports" />
 
     <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/lstLevel"
-        android:entries="@array/sportslevelselect"
-        android:layout_below="@+id/lstSport"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lstGender"
-        android:entries="@array/sportsgenderselect"
-        android:layout_below="@+id/lstLevel"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/lstSport"
+        android:entries="@array/sportslevelselect" />
+
+    <Spinner
+        android:id="@+id/lstGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/lstLevel"
+        android:entries="@array/sportsgenderselect" />
 
     <Button
+        android:id="@+id/btnSport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:drawableLeft="@drawable/icon_schedulestar"
+        android:elevation="4dp"
+        android:enabled="false"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:text="@string/SportsSchedule"
-        android:id="@+id/btnSport"
-        android:drawableLeft="@drawable/icon_schedulestar"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:enabled="false"
-        tools:ignore="RtlHardcoded,UnusedAttribute"
-        android:elevation="4dp"/>
+        tools:ignore="RtlHardcoded,UnusedAttribute" />
 
     <ImageView
+        android:id="@+id/picAthletics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:id="@+id/picAthletics"
-        android:contentDescription="@string/Sports"
-        android:src="@drawable/img_sports"
-        android:alpha="0.2"
-        android:layout_centerHorizontal="true"
         android:layout_above="@+id/btnSport"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:alpha="0.2"
+        android:contentDescription="@string/Sports"
+        android:padding="16dp"
+        android:src="@drawable/img_sports" />
 
 </RelativeLayout>

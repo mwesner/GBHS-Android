@@ -20,21 +20,16 @@ import java.util.List;
 public class StaffAdapter extends BaseAdapter implements Filterable {
 
     Context context;
-    private LayoutInflater mInflater;
-
-    private ItemFilter mFilter = new ItemFilter();
-
-    private List<String> originalNames;
-    private List<String> filteredNames;
-
-    private List<String> originalEmails;
-    private List<String> filteredEmails;
-
-    private List<String> originalPhones;
-    private List<String> filteredPhones;
-
     ImageButton btn_email;
     ImageButton btn_call;
+    private LayoutInflater mInflater;
+    private ItemFilter mFilter = new ItemFilter();
+    private List<String> originalNames;
+    private List<String> filteredNames;
+    private List<String> originalEmails;
+    private List<String> filteredEmails;
+    private List<String> originalPhones;
+    private List<String> filteredPhones;
 
 
     public StaffAdapter(Context context, List<String> names, List<String> emails, List<String> phones) {
@@ -111,10 +106,6 @@ public class StaffAdapter extends BaseAdapter implements Filterable {
         return convertView;
     }
 
-    static class ViewHolder {
-        TextView text;
-    }
-
     public Filter getFilter() {
         return mFilter;
     }
@@ -127,6 +118,10 @@ public class StaffAdapter extends BaseAdapter implements Filterable {
     public void caller(String a) {
         Intent calling = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", a, null));
         context.startActivity(calling);
+    }
+
+    static class ViewHolder {
+        TextView text;
     }
 
     private class ItemFilter extends Filter {

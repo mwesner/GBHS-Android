@@ -2,13 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <Space
-        android:layout_height="match_parent"
+        android:id="@+id/space"
         android:layout_width="0dp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/space" />
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
@@ -19,38 +19,38 @@
         android:layout_alignParentTop="true" />
 
     <Spinner
+        android:id="@+id/lstType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lstType"
-        android:spinnerMode="dropdown"
-        android:entries="@array/maptype"
-        android:background="@android:drawable/screen_background_dark_transparent"
-        tools:ignore="RtlSymmetry"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:visibility="gone"/>
+        android:layout_alignParentTop="true"
+        android:background="@android:drawable/screen_background_dark_transparent"
+        android:entries="@array/maptype"
+        android:spinnerMode="dropdown"
+        android:visibility="gone"
+        tools:ignore="RtlSymmetry" />
 
     <Button
+        android:id="@+id/btnWest"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/West"
-        android:id="@+id/btnWest"
-        tools:ignore="RelativeOverlap"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/btnEast"
         android:layout_toStartOf="@+id/btnEast"
-        android:visibility="gone"/>
+        android:text="@string/West"
+        android:visibility="gone"
+        tools:ignore="RelativeOverlap" />
 
     <Button
+        android:id="@+id/btnEast"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/East"
-        android:id="@+id/btnEast"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:visibility="gone"/>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/East"
+        android:visibility="gone" />
 </RelativeLayout>

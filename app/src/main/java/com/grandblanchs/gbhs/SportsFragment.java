@@ -172,7 +172,7 @@ public class SportsFragment extends Fragment {
     public void toggleSportButton() {
         if (sportPicked && levelPicked && genderPicked) {
             btnSport.setEnabled(true);
-        }else{
+        } else {
             btnSport.setEnabled(false);
         }
     }

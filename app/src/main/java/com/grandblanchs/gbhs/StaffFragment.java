@@ -17,10 +17,9 @@ import java.util.List;
 
 public class StaffFragment extends Fragment {
 
+    static TextView staffSearch;
     ProgressBar prog;
     ListView lst_staff;
-    static TextView staffSearch;
-
     StaffAdapter adapter;
 
     List<String> staffNames;

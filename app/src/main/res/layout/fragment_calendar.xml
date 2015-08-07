@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GBHS"
+    android:orientation="vertical"
     android:weightSum="1"
-    android:orientation="vertical">
+    tools:context=".GBHS">
 
     <Space
         android:id="@+id/dummy"
@@ -13,61 +13,62 @@
         android:layout_centerVertical="true" />
 
     <CalendarView
+        android:id="@+id/gridCal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/dummy"
-        android:id="@+id/gridCal"
-        android:gravity="center"
         android:choiceMode="none"
+        android:gravity="center"
         android:numColumns="7"
         android:selectedWeekBackgroundColor="@color/myPrimaryDarkColor"
         android:visibility="invisible" />
 
     <ListView
-        android:paddingTop="32dp"
+        android:id="@+id/lstInfo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:gravity="center"
-        android:id="@+id/lstInfo"
-        android:visibility="invisible"
+        android:layout_above="@+id/btnCal"
         android:layout_below="@+id/dummy"
-        android:layout_above="@+id/btnCal" />
+        android:gravity="center"
+        android:paddingTop="32dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="invisible" />
 
     <ProgressBar
+        android:id="@+id/progCalendar"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progCalendar"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 
     <Button
-        android:layout_margin="16dp"
+        android:id="@+id/btnCal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/CalendarWeb"
-        android:drawableLeft="@drawable/ic_action_open_in_browser"
-        android:drawableStart="@drawable/ic_action_open_in_browser"
-        android:drawablePadding="16dp"
-        android:id="@+id/btnCal"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="16dp"
+        android:drawableLeft="@drawable/ic_action_open_in_browser"
+        android:drawablePadding="16dp"
+        android:drawableStart="@drawable/ic_action_open_in_browser"
+        android:text="@string/CalendarWeb" />
 
-    <TextView android:id="@+id/txtError"
+    <TextView
+        android:id="@+id/txtError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/NoCalendar"
-        android:drawableLeft="@drawable/ic_action_event"
-        android:drawableStart="@drawable/ic_action_event"
-        android:drawablePadding="8dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:visibility="gone"/>
+        android:layout_centerVertical="true"
+        android:drawableLeft="@drawable/ic_action_event"
+        android:drawablePadding="8dp"
+        android:drawableStart="@drawable/ic_action_event"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/NoCalendar"
+        android:visibility="gone" />
 
 
 </RelativeLayout>

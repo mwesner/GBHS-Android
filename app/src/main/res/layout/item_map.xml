@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:clickable="false"
     android:focusable="false"
     android:focusableInTouchMode="false"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingRight="16dp">
 
     <TextView
         android:id="@+id/txtmaptype"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:drawablePadding="16dp"
         android:clickable="false"
+        android:drawablePadding="16dp"
         android:focusable="false"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
         android:text="@string/Map"
         android:textSize="12sp" />
 

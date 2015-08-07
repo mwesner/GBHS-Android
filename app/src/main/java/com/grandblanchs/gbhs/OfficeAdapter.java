@@ -86,7 +86,7 @@ public class OfficeAdapter extends ArrayAdapter<String> {
                     new OfficeDialog(getContext(), getImage(2, type, position), name[position],
                             subtitle[position], email[position], phone[position],
                             bio[position]).show();
-                }else{
+                } else {
                     //guidance
                     new OfficeDialog(getContext(), getImage(2, type, position), name[position],
                             subtitle[position], email[position], phone[position], null).show();
@@ -104,13 +104,13 @@ public class OfficeAdapter extends ArrayAdapter<String> {
             email = res.getStringArray(R.array.admin_emails);
             phone = res.getStringArray(R.array.admin_phones);
             bio = res.getStringArray(R.array.admin_bios);
-        }else if (i == 1) { //Guidance
+        } else if (i == 1) { //Guidance
             subtitle = res.getStringArray(R.array.guidance_subtitles);
             email = res.getStringArray(R.array.guidance_emails);
             phone = res.getStringArray(R.array.guidance_phones);
         }
     }
-    
+
     public Bitmap getImage(int sampleSize, int type, int position) {
         BitmapFactory.Options opts = new BitmapFactory.Options();
         opts.inSampleSize = sampleSize;
@@ -138,7 +138,7 @@ public class OfficeAdapter extends ArrayAdapter<String> {
                     return BitmapFactory.decodeResource(res,
                             R.drawable.admin_dohm, opts);
             }
-        }else if (type == 1) {
+        } else if (type == 1) {
             switch (position) {
                 default:
                     return null; //Required
@@ -161,19 +161,19 @@ public class OfficeAdapter extends ArrayAdapter<String> {
                     return BitmapFactory.decodeResource(res,
                             R.drawable.guidance_mccleary, opts);
             }
-        }else{
+        } else {
             return null;
         }
     }
 
-    public void phoneCall(String number){
+    public void phoneCall(String number) {
         Uri dial = Uri.parse("tel:" + number);
         Intent call = new Intent(Intent.ACTION_DIAL, dial);
         getContext().startActivity(call);
     }
 
 
-    public void emailer(String a){
+    public void emailer(String a) {
         Intent emailing = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", a, null));
         getContext().startActivity(emailing);
     }

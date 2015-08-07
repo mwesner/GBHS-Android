@@ -7,28 +7,28 @@
 
 
     <ImageView
-        tools:ignore="ContentDescription"
+        android:id="@+id/imgBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/drawer_header_flag"
-        android:id="@+id/imgBackground"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:scaleType="matrix" />
+        android:layout_alignParentTop="true"
+        android:scaleType="matrix"
+        android:src="@drawable/drawer_header_flag"
+        tools:ignore="ContentDescription" />
 
     <ImageView
+        android:id="@+id/imgLogo"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        android:src="@drawable/drawer_header"
-        android:id="@+id/imgLogo"
-        android:contentDescription="@string/app_name"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:padding="16dp"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/app_name"
         android:cropToPadding="false"
-        android:adjustViewBounds="true" />
+        android:padding="16dp"
+        android:src="@drawable/drawer_header" />
 
 </RelativeLayout>

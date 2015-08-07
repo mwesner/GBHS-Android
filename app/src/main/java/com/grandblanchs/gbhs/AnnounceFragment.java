@@ -81,6 +81,53 @@ public class AnnounceFragment extends Fragment {
         }
     }
 
+    public void setNotification() {
+        getActivity().runOnUiThread(new Runnable() {
+            public void run() {
+                txtNotification.setText(notification);
+
+                txtNotification.setVisibility(View.VISIBLE);
+                scrNotification.setVisibility(View.VISIBLE);
+            }
+        });
+    }
+
+    public void parseAnnouncements() {
+
+        if (group != null) {
+            for (int i = 0; i < group.size(); i++) {
+
+                for (int j = 0; j < group.get(i).select("date").size(); j++) {
+                    adapter.addSeparatorItem(group.get(i).select("date").get(j).text());
+                    text.add(group.get(i).select("date").get(j).text());
+                    sort.add(0);
+                }
+                for (int k = 0; k < group.get(i).select("announcement").size(); k++) {
+                    adapter.addItem(group.get(i).select("announcement").get(k).text());
+                    text.add(group.get(i).select("announcement").get(k).text());
+                    sort.add(1);
+                }
+            }
+        }
+    }
+
+    public void setAnnouncements() {
+        lstAnnounce.setAdapter(adapter);
+
+        FadeAnimation f = new FadeAnimation();
+        f.start(lstAnnounce, null, prog);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putStringArrayList("Testing", text);
+        outState.putIntegerArrayList("Sort", sort);
+
+        outState.putCharSequence("Notification", notification);
+    }
+
     @SuppressWarnings("unused")
     public class CheckNotifications extends AsyncTask<Void, Void, Void> {
         @Override
@@ -99,17 +146,6 @@ public class AnnounceFragment extends Fragment {
 
             return null;
         }
-    }
-
-    public void setNotification() {
-        getActivity().runOnUiThread(new Runnable() {
-            public void run() {
-                txtNotification.setText(notification);
-
-                txtNotification.setVisibility(View.VISIBLE);
-                scrNotification.setVisibility(View.VISIBLE);
-            }
-        });
     }
 
     public class AnnounceScrape extends AsyncTask<Void, Void, Void> {
@@ -157,41 +193,5 @@ public class AnnounceFragment extends Fragment {
             parseAnnouncements();
             setAnnouncements();
         }
-    }
-
-    public void parseAnnouncements(){
-
-        if (group != null) {
-            for (int i = 0; i < group.size(); i++) {
-
-                for (int j = 0; j < group.get(i).select("date").size(); j++) {
-                    adapter.addSeparatorItem(group.get(i).select("date").get(j).text());
-                    text.add(group.get(i).select("date").get(j).text());
-                    sort.add(0);
-                }
-                for (int k = 0; k < group.get(i).select("announcement").size(); k++) {
-                    adapter.addItem(group.get(i).select("announcement").get(k).text());
-                    text.add(group.get(i).select("announcement").get(k).text());
-                    sort.add(1);
-                }
-            }
-        }
-    }
-
-    public void setAnnouncements() {
-        lstAnnounce.setAdapter(adapter);
-
-        FadeAnimation f = new FadeAnimation();
-        f.start(lstAnnounce, null, prog);
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        outState.putStringArrayList("Testing", text);
-        outState.putIntegerArrayList("Sort", sort);
-
-        outState.putCharSequence("Notification", notification);
     }
 }

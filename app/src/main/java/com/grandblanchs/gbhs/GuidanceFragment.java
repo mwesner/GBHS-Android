@@ -11,7 +11,6 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 
 
-
 public class GuidanceFragment extends Fragment {
 
     ProgressBar prog;
