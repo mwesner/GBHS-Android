@@ -73,16 +73,6 @@ public class MainActivity extends AppCompatActivity {
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, 0, 0){
 
             @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-            }
-
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-            }
-
-            @Override
             public void onDrawerSlide(View drawerView, float drawerOffset) {
                 super.onDrawerSlide(drawerView, 0);
             }
@@ -273,17 +263,17 @@ public class MainActivity extends AppCompatActivity {
             case 0:
                 return R.layout.nav_header_flag;
             case 1:
-                return R.layout.nav_header_west;
-            case 2:
-                return R.layout.nav_header_aerial_1;
-            case 3:
-                return R.layout.nav_header_gym;
-            case 4:
-                return R.layout.nav_header_aerial_2;
-            case 5:
                 return R.layout.nav_header_frank;
-            case 6:
+            case 2:
+                return R.layout.nav_header_gym;
+            case 3:
+                return R.layout.nav_header_west;
+            case 4:
+                return R.layout.nav_header_aerial_1;
+            case 5:
                 return R.layout.nav_header_aerial_2;
+            case 6:
+                return R.layout.nav_header_aerial_3;
         }
     }
 

@@ -19,11 +19,6 @@
     <string name="College">Early College</string>
     <string name="External">External Links</string>
 
-    <!--Navigation Drawer Headers-->
-    <string name="News">News</string>
-    <string name="Events">Events</string>
-    <string name="Faculty">Faculty and Staff</string>
-
     <!--Action Bar Items-->
     <string name="Schedule">Daily Schedule</string>
     <string name="Grades">Check Grades</string>
@@ -34,7 +29,6 @@
     <!--Dialog Buttons-->
     <string name="openweb">Open website</string>
     <string name="openapp">Open app</string>
-    <string name="close">Close</string>
 
     <!--Buttons-->
     <string name="CalendarWeb">Open 2015–2016 Calendar</string>
@@ -50,7 +44,6 @@
     <string name="NoAnnouncements">No announcements.</string>
     <string name="AnnounceLoadError">Could not load announcements.</string>
     <string name="NoCalendar">Could not load calendar.</string>
-    <string name="NoTwitter">Could not connect to Twitter.</string>
     <string name="NoTwitterRefresh">Could not reload tweets.</string>
     <string name="Retry">Retry</string>
 

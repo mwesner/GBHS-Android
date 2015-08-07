@@ -54,7 +54,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:enabled="false"
-        tools:ignore="RtlHardcoded"
+        tools:ignore="RtlHardcoded,UnusedAttribute"
         android:elevation="4dp"/>
 
     <ImageView
