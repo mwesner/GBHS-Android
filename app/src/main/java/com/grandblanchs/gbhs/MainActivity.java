@@ -273,17 +273,17 @@ public class MainActivity extends AppCompatActivity {
             case 0:
                 return R.layout.nav_header_flag;
             case 1:
-                return R.layout.nav_header_hswest;
+                return R.layout.nav_header_west;
             case 2:
-                return R.layout.nav_header_hsfinal1;
+                return R.layout.nav_header_aerial_1;
             case 3:
-                return R.layout.nav_header_gbgym;
+                return R.layout.nav_header_gym;
             case 4:
-                return R.layout.nav_header_hseast;
+                return R.layout.nav_header_aerial_2;
             case 5:
-                return R.layout.nav_header_hsfrank;
+                return R.layout.nav_header_frank;
             case 6:
-                return R.layout.nav_header_aerial;
+                return R.layout.nav_header_aerial_2;
         }
     }
 

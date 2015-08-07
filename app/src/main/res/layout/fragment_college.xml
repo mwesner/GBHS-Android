@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="16dp"
         android:id="@+id/imgGBEC"
-        android:src="@drawable/gbec"
+        android:src="@drawable/img_gbec"
         android:contentDescription="@string/app_name"
         android:adjustViewBounds="false"
         android:scaleType="center"

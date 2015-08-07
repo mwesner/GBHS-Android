@@ -16,7 +16,7 @@
             android:title="@string/Calendar"/>
         <item
             android:id="@+id/Sports"
-            android:icon="@drawable/drawer_athletics"
+            android:icon="@drawable/drawer_sports"
             android:title="@string/Sports"/>
         <item
             android:id="@+id/Staff"

@@ -20,7 +20,7 @@ public class FacebookDialog {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity)
                 .setTitle(R.string.Facebook)
-                .setIcon(R.drawable.facebook)
+                .setIcon(R.drawable.icon_facebook)
                 .setPositiveButton(R.string.openapp, new Dialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

@@ -121,22 +121,22 @@ public class OfficeAdapter extends ArrayAdapter<String> {
                     return null; //Required
                 case 0:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.hammond, opts);
+                            R.drawable.admin_hammond, opts);
                 case 1:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.belcher, opts);
+                            R.drawable.admin_belcher, opts);
                 case 2:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.gz, opts);
+                            R.drawable.admin_gz, opts);
                 case 3:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.poelke, opts);
+                            R.drawable.admin_poelke, opts);
                 case 4:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.knight, opts);
+                            R.drawable.admin_knight, opts);
                 case 5:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.dohm, opts);
+                            R.drawable.admin_dohm, opts);
             }
         }else if (type == 1) {
             switch (position) {
@@ -144,22 +144,22 @@ public class OfficeAdapter extends ArrayAdapter<String> {
                     return null; //Required
                 case 0:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.gardner, opts);
+                            R.drawable.guidance_gardner, opts);
                 case 1:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.hentes, opts);
+                            R.drawable.guidance_hentes, opts);
                 case 2:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.hall, opts);
+                            R.drawable.guidance_hall, opts);
                 case 3:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.kernen, opts);
+                            R.drawable.guidance_kernen, opts);
                 case 4:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.mol, opts);
+                            R.drawable.guidance_mol, opts);
                 case 5:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.mccleary, opts);
+                            R.drawable.guidance_mccleary, opts);
             }
         }else{
             return null;

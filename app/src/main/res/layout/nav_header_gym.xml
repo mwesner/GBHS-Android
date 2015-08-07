@@ -10,7 +10,7 @@
         tools:ignore="ContentDescription"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/gbgym"
+        android:src="@drawable/drawer_header_gym"
         android:id="@+id/imgBackground"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"

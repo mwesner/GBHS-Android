@@ -20,8 +20,8 @@ public class GradesDialog {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity)
                 .setTitle(R.string.Grades)
-                .setIcon(R.drawable.svue)
-                //.setIcon(R.drawable.jed) //TODO: Jupiter Ed
+                .setIcon(R.drawable.icon_svue)
+                //.setIcon(R.drawable.icon_jed) //TODO: Jupiter Ed
                 .setPositiveButton(R.string.openapp, new Dialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
