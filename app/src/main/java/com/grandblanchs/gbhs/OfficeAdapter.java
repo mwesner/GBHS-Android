@@ -83,12 +83,12 @@ public class OfficeAdapter extends ArrayAdapter<String> {
             public void onClick(View view) {
                 if (type == 0) {
                     //admin
-                    new OfficeDialog(getContext(), getImage(4, type, position), name[position],
+                    new OfficeDialog(getContext(), getImage(2, type, position), name[position],
                             subtitle[position], email[position], phone[position],
                             bio[position]).show();
                 }else{
                     //guidance
-                    new OfficeDialog(getContext(), getImage(4, type, position), name[position],
+                    new OfficeDialog(getContext(), getImage(2, type, position), name[position],
                             subtitle[position], email[position], phone[position], null).show();
                 }
             }
