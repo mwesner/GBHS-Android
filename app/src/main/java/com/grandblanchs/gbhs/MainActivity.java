@@ -25,8 +25,6 @@ import io.fabric.sdk.android.Fabric;
 
 public class MainActivity extends AppCompatActivity {
 
-    //TODO: (App-wide) Resolve any issues with savedInstanceState.
-
     DrawerLayout mDrawerLayout;
     NavigationView navigationView;
 

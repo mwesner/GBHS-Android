@@ -2,14 +2,14 @@
 <resources>
 
     <string-array name="SecondYearDevs">
-        <item>Corey Rowe</item>
         <item>Aaron Goodfellow</item>
+        <item>Corey Rowe</item>
     </string-array>
 
     <string-array name="FirstYearDevs">
-        <item>Bridget Suski</item>
-        <item>Michael Olmsted</item>
         <item>Brad Kivett</item>
+        <item>Michael Olmsted</item>
+        <item>Bridget Suski</item>
     </string-array>
 
     <string-array name="navdrawer">

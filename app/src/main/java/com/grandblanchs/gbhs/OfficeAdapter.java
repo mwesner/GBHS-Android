@@ -81,7 +81,6 @@ public class OfficeAdapter extends ArrayAdapter<String> {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: Properly adjust image sizes.
                 if (type == 0) {
                     //admin
                     new OfficeDialog(getContext(), getImage(4, type, position), name[position],
