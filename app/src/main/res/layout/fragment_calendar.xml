@@ -12,27 +12,35 @@
         android:layout_height="0dp"
         android:layout_centerVertical="true" />
 
-    <CalendarView
-        android:id="@+id/gridCal"
+    <LinearLayout
+        android:id="@+id/calendarLayout"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/dummy"
-        android:choiceMode="none"
-        android:gravity="center"
-        android:numColumns="7"
-        android:selectedWeekBackgroundColor="@color/myPrimaryDarkColor"
-        android:visibility="invisible" />
-
-    <ListView
-        android:id="@+id/lstInfo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
         android:layout_above="@+id/btnCal"
-        android:layout_below="@+id/dummy"
-        android:gravity="center"
-        android:paddingTop="32dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:visibility="invisible" />
+        android:weightSum="1"
+        android:visibility="invisible">
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="7"
+            android:selectedWeekBackgroundColor="@color/myPrimaryDarkColor"
+            android:layout_weight="0.2" />
+
+        <ListView
+            android:id="@+id/lstInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:requiresFadingEdge="vertical"
+            android:fadingEdgeLength="8dp"
+            android:layout_weight="0.8"/>
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progCalendar"
