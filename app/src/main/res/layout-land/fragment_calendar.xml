@@ -12,32 +12,35 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true" />
 
-    <CalendarView
-        android:id="@+id/gridCal"
+    <LinearLayout
+        android:id="@+id/calendarLayout"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:orientation="horizontal"
         android:layout_above="@+id/btnCal"
-        android:layout_alignEnd="@+id/dummy"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/dummy"
-        android:choiceMode="none"
-        android:gravity="center"
-        android:numColumns="7"
-        android:selectedWeekBackgroundColor="@color/myPrimaryDarkColor"
-        android:visibility="invisible" />
+        android:weightSum="1"
+        android:visibility="invisible">
 
-    <ListView
-        android:id="@+id/lstInfo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/btnCal"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/dummy"
-        android:layout_toRightOf="@+id/dummy"
-        android:gravity="center"
-        android:paddingTop="32dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:visibility="invisible" />
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:choiceMode="none"
+            android:gravity="center"
+            android:numColumns="7"
+            android:selectedWeekBackgroundColor="@color/myPrimaryDarkColor" />
+
+        <ListView
+            android:id="@+id/lstInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:paddingTop="32dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progCalendar"
@@ -52,13 +55,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
-        android:layout_margin="16dp"
-        android:drawableLeft="@drawable/ic_action_open_in_browser"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:drawablePadding="16dp"
+        android:drawableLeft="@drawable/ic_action_open_in_browser"
         android:drawableStart="@drawable/ic_action_open_in_browser"
         android:text="@string/CalendarWeb" />
 
@@ -68,8 +70,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:drawableLeft="@drawable/ic_action_event"
         android:drawablePadding="8dp"
+        android:drawableLeft="@drawable/ic_action_event"
         android:drawableStart="@drawable/ic_action_event"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/NoCalendar"

@@ -10,9 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.crashlytics.android.Crashlytics;
 
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
@@ -20,8 +23,12 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 public class CalendarFragment extends Fragment {
@@ -29,7 +36,9 @@ public class CalendarFragment extends Fragment {
     //Scrape iCal feed
     //Add events into a list that shows on date change
 
-    CalendarView gridCal;
+    LinearLayout calendarLayout;
+
+    CalendarView calendarView;
     ListView lstInfo;
     Button btnCal;
     TextView txtError;
@@ -42,8 +51,13 @@ public class CalendarFragment extends Fragment {
     String[] eventDescription;
     String[] eventTime;
 
-    String currentDate;
     String selectedDate;
+
+    int calendarYear;
+    int calendarMonth;
+    int calendarDay;
+
+    Long calendarDate;
 
     private CalendarAdapter mAdapter;
 
@@ -58,14 +72,16 @@ public class CalendarFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        gridCal = (CalendarView) view.findViewById(R.id.gridCal);
+        calendarLayout = (LinearLayout) view.findViewById(R.id.calendarLayout);
+
+        calendarView = (CalendarView) view.findViewById(R.id.calendarView);
         lstInfo = (ListView) view.findViewById(R.id.lstInfo);
         btnCal = (Button) view.findViewById(R.id.btnCal);
         prog = (ProgressBar) view.findViewById(R.id.progCalendar);
         txtError = (TextView) view.findViewById(R.id.txtError);
 
         //This will display events for a given date
-        gridCal.setShowWeekNumber(false);
+        calendarView.setShowWeekNumber(false);
 
         btnCal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,12 +97,21 @@ public class CalendarFragment extends Fragment {
             eventDescription = savedInstanceState.getStringArray("eventDescription");
             eventTime = savedInstanceState.getStringArray("eventTime");
             selectedDate = savedInstanceState.getString("selectedDate");
+            calendarDate = savedInstanceState.getLong("calendarDate");
+
+            calendarYear = savedInstanceState.getInt("calendarYear");
+            calendarMonth = savedInstanceState.getInt("calendarMonth");
+            calendarDay = savedInstanceState.getInt("calendarDay");
+
+            calendarView.setDate(calendarDate, true, true);
 
             if (calArray != null) {
-                setEvents();
+                setEvents(calendarYear, calendarMonth, calendarDay, false, false);
             } else {
                 FadeAnimation f = new FadeAnimation();
                 f.start(txtError, null, prog);
+                Crashlytics.log("calArray was null when restoring from savedInstanceState");
+
             }
         } else {
             new CalGet().execute();
@@ -98,24 +123,41 @@ public class CalendarFragment extends Fragment {
         outState.putStringArray("calArray", calArray);
         outState.putStringArray("eventDescription", eventDescription);
         outState.putStringArray("eventTime", eventTime);
+        outState.putString("selectedDate", selectedDate);
+        outState.putLong("calendarDate", calendarDate);
+
+        outState.putInt("calendarYear", calendarYear);
+        outState.putInt("calendarMonth", calendarMonth);
+        outState.putInt("calendarDay", calendarDay);
     }
 
-    public void setEvents() {
+    public void setEvents(int year, int month, int day, final boolean newCal, final boolean calVisible) {
 
-        //Set the current date
-        DateTime dt = new DateTime();
-        int currentday = dt.getDayOfMonth();
+        if (newCal) {
+            //Activity is new; today is selected.
+            DateTime dt = new DateTime();
+            selectedDate = dt.getYear() + "" + dt.getMonthOfYear() + "" + dt.getDayOfMonth();
+        }else{
+            selectedDate = year + "" + month + "" + day;
+        }
 
-        int currentmonth = dt.getMonthOfYear();
+        String formattedDate = day + "-" + month + "-" + year;
+        SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
 
-        int currentyear = dt.getYear();
+        try {
+            Date d = f.parse(formattedDate);
+            calendarDate = d.getTime();
+        } catch (ParseException e) {
+            Crashlytics.logException(e);
+        }
 
-        currentDate = currentyear + "" + currentmonth + "" + currentday;
+        //Clear the events from the previously selected date
+        eventList.clear();
+        eventCount = 0;
 
-
-        //Search for events that occur on the current date
+        //Search for events that occur on the selected date
         for (int i = 1; i < calArray.length; i++) {
-            if (calArray[i].equals(currentDate)) {
+            if (calArray[i].equals(selectedDate)) {
                 eventList.add(eventCount, eventDescription[i]);
                 eventCount++;
             }
@@ -130,16 +172,16 @@ public class CalendarFragment extends Fragment {
                 public void run() {
                     lstInfo.setAdapter(mAdapter);
 
-                    FadeAnimation f = new FadeAnimation();
-                    f.start(lstInfo, gridCal, prog);
-                    prog.setVisibility(View.GONE);
-                    lstInfo.setVisibility(View.VISIBLE);
-                    gridCal.setVisibility(View.VISIBLE);
+                    if (!calVisible) {
+                        FadeAnimation f = new FadeAnimation();
+                        f.start(calendarLayout, null, prog);
+                    }
+
                 }
             });
 
             //Change the events displayed when the user selects a new date.
-            gridCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
                 @Override
                 public void onSelectedDayChange(CalendarView calendarView, int year, int month,
@@ -148,24 +190,11 @@ public class CalendarFragment extends Fragment {
                     //Add one month because month starts at 0
                     month++;
 
-                    selectedDate = year + "" + month + "" + day;
+                    calendarYear = year;
+                    calendarMonth = month;
+                    calendarDay = day;
 
-                    //Clear the events from the previously selected date
-                    eventList.clear();
-                    eventCount = 0;
-
-                    //Search for events that occur on the selected date
-                    for (int i = 1; i < calArray.length; i++) {
-                        if (calArray[i].equals(selectedDate)) {
-                            eventList.add(eventCount, eventDescription[i]);
-                            eventCount++;
-                        }
-                    }
-
-                    //Set the content of the ListView
-                    mAdapter = new CalendarAdapter(getActivity(), eventList);
-
-                    lstInfo.setAdapter(mAdapter);
+                    setEvents(calendarYear, calendarMonth, calendarDay, false, true);
                 }
             });
         }
@@ -177,7 +206,6 @@ public class CalendarFragment extends Fragment {
         protected Void doInBackground(Void... voids) {
             //Retrieve iCalendar with Jsoup
             Document cal;
-
 
             try {
                 cal = Jsoup.connect("http://grandblanc.high.schoolfusion.us/modules/calendar/exportICal.php").get();
@@ -251,13 +279,14 @@ public class CalendarFragment extends Fragment {
                 }
 
                 //Show the events in a list
-                setEvents();
+                setEvents(calendarYear, calendarMonth, calendarDay, true, false);
 
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
                         FadeAnimation f = new FadeAnimation();
                         f.start(txtError, null, prog);
+                        Crashlytics.logException(e);
                     }
                 });
             }
