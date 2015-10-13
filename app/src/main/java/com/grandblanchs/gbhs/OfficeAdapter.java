@@ -133,7 +133,7 @@ public class OfficeAdapter extends ArrayAdapter<String> {
                             R.drawable.admin_poelke, opts);
                 case 4:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.admin_knight, opts);
+                            R.drawable.admin_mitchell, opts);
                 case 5:
                     return BitmapFactory.decodeResource(res,
                             R.drawable.admin_dohm, opts);
