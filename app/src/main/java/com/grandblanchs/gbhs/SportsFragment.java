@@ -1,381 +1,336 @@
 package com.grandblanchs.gbhs;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
-
-public class SportsFragment extends Fragment {
+public class SportsFragment extends Fragment
+{
 
     //Show season schedule for selected athletic event
 
     Context context;
     Resources res;
 
-    Spinner lstSport;
-    Spinner lstLevel;
-    Spinner lstGender;
-    Button btnSport;
+    ListView lvSport;
 
-    boolean sportPicked;
-    boolean levelPicked;
-    boolean genderPicked;
+    String sportPicked, levelPicked, genderPicked;
+
+    int place = 0;
+    int sportPosition;
+
+    ArrayAdapter myAdapter;
 
     String baseUrl;
     Calendar cal;
     SimpleDateFormat sdf;
 
-    String[] levelselect;
-    String[] genderselect;
-
-    String[] sports;
-    String[] levelall;
-    String[] varsity;
-    String[] juniorvarsity;
-    String[] genderall;
-    String[] boys;
-    String[] girls;
-    String[] boysgirls;
-    String[] combined;
-
-    int levelStatus;
-    /*0 = all
-     *1 = V
-     *2 = JV
-     */
-
-    int genderStatus;
-    /*0 = all
-     *1 = boys
-     *2 = girls
-     *3 = boysgirls
-     *4 = combined
-     */
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sports, container, false);
+    public void onActivityCreated(Bundle savedInstanceState)
+    {
+        super.onActivityCreated(savedInstanceState);
+        if (getView() != null)
+        {
+            getView().setFocusableInTouchMode(true);
+            getView().requestFocus();
+
+        }
+
+        //Allow back button to go to start of selection.
+        getView().setOnKeyListener(new View.OnKeyListener()
+        {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event)
+            {
+                if (event.getAction() == KeyEvent.ACTION_DOWN)
+                {
+                    if (keyCode == KeyEvent.KEYCODE_BACK)
+                    {
+                        if (place != 0) //Go back to the sport selection
+                        {
+                            resetData();
+                        }
+                        else //Go back to the last fragment
+                        {
+                            getActivity().onBackPressed();
+                        }
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState)
+    {
+        // Inflate the layout for this fragment on first instance created
+        return inflater.inflate(R.layout.fragment_sports, container, false);
+    }
+
+
+    @Override
+    public void onResume()
+    {
+        //Start at the beginning of selection when fragment is reopened
+        super.onResume();
+        resetData();
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState)
+    {
         super.onViewCreated(view, savedInstanceState);
 
         context = getActivity().getApplicationContext();
         res = getActivity().getResources();
 
-        lstSport = (Spinner) view.findViewById(R.id.lstSport);
-        lstLevel = (Spinner) view.findViewById(R.id.lstLevel);
-        lstGender = (Spinner) view.findViewById(R.id.lstGender);
-        btnSport = (Button) view.findViewById(R.id.btnSport);
+        //Get an Array of all sports, and convert it to an ArrayList
+        final List<String> sportList =
+                new ArrayList<>(Arrays.asList(res.getStringArray(R.array.sports)));
 
-        levelselect = res.getStringArray(R.array.sportslevelselect); //Clears level options
-        genderselect = res.getStringArray(R.array.sportsgenderselect); //Clears gender options
-        sports = res.getStringArray(R.array.sports); //List of sports
-        levelall = res.getStringArray(R.array.sportslevelall); //Varsity, JV, and Freshman
-        varsity = res.getStringArray(R.array.sportslevelvarsity); //Varsity only
-        juniorvarsity = res.getStringArray(R.array.sportsleveljuniorvarsity); //Varsity and JV only
-        genderall = res.getStringArray(R.array.sportsgenderall); //Boys, Girls, and "Boys and Girls"
-        boysgirls = res.getStringArray(R.array.sportsgenderboysgirls); //Only Boys and Girls
-        boys = res.getStringArray(R.array.sportsgenderboys); //Only Boys
-        girls = res.getStringArray(R.array.sportsgendergirls);  //Only Girls
-        combined = res.getStringArray(R.array.sportsgendercombined); //Only "Boys and Girls"
+        //Creating a ListView and setting it up
+        lvSport = (ListView) view.findViewById(R.id.lvSport);
+        myAdapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, sportList);
+        lvSport.setAdapter(myAdapter);
 
-        lstSport.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        //Controls for the ListView
+        lvSport.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
-                    sportPicked = false;
-                    toggleSportButton();
-                    lstGender.setEnabled(false);
-                    lstLevel.setEnabled(false);
-                    checkSport();
-                } else {
-                    sportPicked = true;
-                    toggleSportButton();
-                    lstLevel.setEnabled(true);
-                    lstGender.setEnabled(true);
-                    checkSport();
+            public void onItemClick(AdapterView<?> adapter, View v, int position, long arg3)
+            {
+                if (place == 0)
+                {
+                    sportPicked = (String) adapter.getItemAtPosition(position);
+                    sportPosition = position;
+                    place++;
+                    //Display levels based on sport
+                    switch (position)
+                    {
+                        case 0:
+                            changeData(myAdapter, 0, 0);
+                            break;
+                        case 1: //
+                            changeData(myAdapter, 0, 0);
+                            break;
+                        case 2: //Bowling only has Varsity and is Combined, go to schedule.
+                            levelPicked = "Varsity";
+                            genderPicked = "Boys and Girls";
+                            place = 0;
+                            getSeasonSchedule(myAdapter);
+                            break;
+                        case 3:
+                            changeData(myAdapter, 0, 0);
+                            break;
+                        case 4: //Cross Country is only Varsity, go to gender.
+                            levelPicked = "Varsity";
+                            changeData(myAdapter, 1, 0);
+                            place ++;
+                            break;
+                        case 5:
+                            changeData(myAdapter, 0, 0);
+                            break;
+                        case 6:
+                            changeData(myAdapter, 0, 1);
+                            break;
+                        case 7: //Hockey is only Varsity and is only Boys, show schedule
+                            levelPicked = "Varsity";
+                            genderPicked = "Boys";
+                            place = 0;
+                            getSeasonSchedule(myAdapter);
+                            break;
+                        case 8:
+                            changeData(myAdapter, 0, 1);
+                            break;
+                        case 9:
+                            changeData(myAdapter, 0, 1);
+                            break;
+                        case 10:
+                            changeData(myAdapter, 0, 0);
+                            break;
+                        case 11:
+                            changeData(myAdapter, 0, 0);
+                            break;
+                        case 12: //Swim and Dive is only Varsity, go to gender.
+                            levelPicked = "Varsity";
+                            changeData(myAdapter, 1, 0);
+                            break;
+                        case 13:
+                            changeData(myAdapter, 0, 1);
+                            break;
+                        case 14:
+                            changeData(myAdapter, 0, 2);
+                            break;
+                        case 15:
+                            changeData(myAdapter, 0, 0);
+                            break;
+                        case 16:
+                            changeData(myAdapter, 0, 1);
+                            break;
+                        case 17:
+                            changeData(myAdapter, 0, 1);
+                            break;
+                    }
                 }
-            }
+                //Display gender based on sport.
+                else if (place == 1)
+                {
+                    levelPicked = (String) adapter.getItemAtPosition(position);
+                    place++;
+                    //Display Correct Gender based on sport
+                    switch (sportPosition)
+                    {
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                sportPicked = false;
-                toggleSportButton();
-            }
-        });
-
-        lstLevel.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
-                    levelPicked = false;
-                    toggleSportButton();
-                } else {
-                    levelPicked = true;
-                    toggleSportButton();
+                        case 0: //Baseball is only boys, go to schedule.
+                            genderPicked = "Boys";
+                            place = 0;
+                            getSeasonSchedule(myAdapter);
+                            break;
+                        case 1:
+                            changeData(myAdapter, 1, 0);
+                            break;
+                        case 3: //Cheer is only girls, go to schedule.
+                            genderPicked = "Girls";
+                            place = 0;
+                            getSeasonSchedule(myAdapter);
+                            break;
+                        case 4:
+                            changeData(myAdapter, 1, 0);
+                            break;
+                        case 5: //Football is a boys sport, go to schedule
+                            genderPicked = "Boys";
+                            place = 0;
+                            getSeasonSchedule(myAdapter);
+                            break;
+                        case 6:
+                            changeData(myAdapter, 1, 0);
+                            break;
+                        case 8:
+                            changeData(myAdapter, 1, 0);
+                            break;
+                        case 9: //Skiing is only combined sport, go to schedule
+                            genderPicked = "Boys and Girls";
+                            place = 0;
+                            getSeasonSchedule(myAdapter);
+                            break;
+                        case 10:
+                            changeData(myAdapter, 1, 0);
+                            break;
+                        case 11: //Softball is only a girls sport, go to schedule
+                            genderPicked = "Girls";
+                            place = 0;
+                            getSeasonSchedule(myAdapter);
+                            break;
+                        case 12:
+                            changeData(myAdapter, 1, 0);
+                            break;
+                        case 13:
+                            changeData(myAdapter, 1, 0);
+                            break;
+                        case 14:
+                            changeData(myAdapter, 1, 0);
+                            break;
+                        case 15: //Volleyball is only a girls sport, go to schedule
+                            genderPicked = "Girls";
+                            place = 0;
+                            getSeasonSchedule(myAdapter);
+                            break;
+                        case 16:
+                            changeData(myAdapter, 1, 0);
+                            break;
+                        case 17: //Wrestling is only a boys sport, go to schedule
+                            genderPicked = "Boys";
+                            place = 0;
+                            getSeasonSchedule(myAdapter);
+                            break;
+                    }
+                    myAdapter.notifyDataSetChanged();
                 }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                levelPicked = false;
-                toggleSportButton();
-            }
-        });
-
-        lstGender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
-                    genderPicked = false;
-                    toggleSportButton();
-                } else {
-                    genderPicked = true;
-                    toggleSportButton();
+                else //Display the schedule after a gender has been clicked
+                {
+                    genderPicked = (String) adapter.getItemAtPosition(position);
+                    place = 0;
+                    getSeasonSchedule(myAdapter);
                 }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                genderPicked = false;
-                toggleSportButton();
-            }
-        });
-
-        btnSport.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                getSeasonSchedule();
             }
         });
     }
 
-    public void toggleSportButton() {
-        if (sportPicked && levelPicked && genderPicked) {
-            btnSport.setEnabled(true);
-        } else {
-            btnSport.setEnabled(false);
+    //Start the ListView back at the sport selection
+    public void resetData()
+    {
+        String[] sportList = (res.getStringArray(R.array.sports));
+        place = 0;
+        myAdapter.clear();
+        for (int i = 0; i < sportList.length; i ++)
+        {
+            myAdapter.add(sportList[i]);
         }
+        myAdapter.notifyDataSetChanged();
     }
 
-    public void checkSport() {
-        //Change the options available based on the selected sport.
-
-        switch (lstSport.getSelectedItemPosition()) {
-            case 0: //Reset
-                clearOptions();
-            case 1: //Baseball: All levels, Boys
-                setLevelAll();
-                setBoys();
-                break;
-            case 2: //Basketball: All levels, Boys, Girls
-                setLevelAll();
-                setBoysGirls();
-                break;
-            case 3: //Bowling: Varsity, Combined
-                setVarsity();
-                setCombined();
-                break;
-            case 4: //Cheerleading: All levels, Girls
-                setLevelAll();
-                setGirls();
-                break;
-            case 5: //Cross Country: Varsity, all genders
-                setVarsity();
-                setGenderAll();
-                break;
-            case 6: //Football: All levels, Boys
-                setLevelAll();
-                setBoys();
-                break;
-            case 7: //Golf: Varsity and JV, Boys, Girls
-                setJuniorVarsity();
-                setBoysGirls();
-                break;
-            case 8: //Ice Hockey: Varsity, Boys
-                setVarsity();
-                setBoys();
-                break;
-            case 9: //Lacrosse: Varsity and JV, Boys, Girls
-                setJuniorVarsity();
-                setBoysGirls();
-                break;
-            case 10: //Skiing: Varsity and JV, Combined
-                setJuniorVarsity();
-                setCombined();
-                break;
-            case 11: //Soccer: All levels, Boys, Girls
-                setLevelAll();
-                setBoysGirls();
-                break;
-            case 12: //Softball: All levels, Girls
-                setLevelAll();
-                setGirls();
-                break;
-            case 13: //Swim and Dive: Varsity, Boys, Girls
-                setVarsity();
-                setBoysGirls();
-                break;
-            case 14: //Tennis: Varsity, JV, Boys, Girls
-                setJuniorVarsity();
-                setBoysGirls();
-                break;
-            case 15: //Track: Varsity, Boys, Girls
-                setVarsity();
-                setBoysGirls();
-                break;
-            case 16: //Volleyball: All levels, Girls
-                setLevelAll();
-                setGirls();
-                break;
-            case 17: //Water Polo: Varsity, JV, Boys, Girls
-                setJuniorVarsity();
-                setBoysGirls();
-                break;
-            case 18: //Wrestling: Varsity, JV, Boys
-                setJuniorVarsity();
-                setBoys();
-                break;
+    //Changes the data that is held in the Adapter for the ListView
+    //Type 0 is Level, Type 1 is Gender
+    //Case 0 is All, Case 1 is Varsity and Junior Varsity, Case 2 is Combined
+    public void changeData(ArrayAdapter adapter, int typeCode, int caseCode)
+    {
+        adapter.clear();
+        if (typeCode == 0)
+        {
+            if (caseCode == 0)
+            {
+                adapter.add("Varsity");
+                adapter.add("Junior Varsity");
+                adapter.add("Freshmen");
+            }
+            else if (caseCode == 1)
+            {
+                adapter.add("Varsity");
+                adapter.add("Junior Varsity");
+            }
+            else if (caseCode == 2)
+            {
+                adapter.add("Varsity");
+            }
         }
-
+        else
+        {
+            if (caseCode == 0)
+            {
+                adapter.add("Boys");
+                adapter.add("Girls");
+            }
+        }
+        adapter.notifyDataSetChanged();
     }
 
-    public void clearOptions() {
-        ArrayAdapter levelAdapter = new ArrayAdapter<>(
-                context,
-                android.R.layout.simple_spinner_dropdown_item,
-                levelselect);
-
-        ArrayAdapter genderAdapter = new ArrayAdapter<>(
-                context,
-                android.R.layout.simple_spinner_dropdown_item,
-                genderselect);
-
-        lstLevel.setAdapter(levelAdapter);
-        lstGender.setAdapter(genderAdapter);
-
-    }
-
-
-    public void setLevelAll() {
-
-        levelStatus = 1;
-
-        ArrayAdapter spinnerAdapter = new ArrayAdapter<>(
-                context,
-                android.R.layout.simple_spinner_dropdown_item,
-                levelall);
-
-        lstLevel.setAdapter(spinnerAdapter);
-    }
-
-    public void setVarsity() {
-
-        levelStatus = 2;
-
-        ArrayAdapter spinnerAdapter = new ArrayAdapter<>(
-                context,
-                android.R.layout.simple_spinner_dropdown_item,
-                varsity);
-
-        lstLevel.setAdapter(spinnerAdapter);
-    }
-
-    public void setJuniorVarsity() {
-
-        levelStatus = 3;
-
-        ArrayAdapter spinnerAdapter = new ArrayAdapter<>(
-                context,
-                android.R.layout.simple_spinner_dropdown_item,
-                juniorvarsity);
-
-        lstLevel.setAdapter(spinnerAdapter);
-    }
-
-    public void setGenderAll() {
-
-        genderStatus = 1;
-
-        ArrayAdapter spinnerAdapter = new ArrayAdapter<>(
-                context,
-                android.R.layout.simple_spinner_dropdown_item,
-                genderall);
-
-        lstGender.setAdapter(spinnerAdapter);
-    }
-
-    public void setBoys() {
-
-        genderStatus = 2;
-
-        ArrayAdapter spinnerAdapter = new ArrayAdapter<>(
-                context,
-                android.R.layout.simple_spinner_dropdown_item,
-                boys);
-
-        lstGender.setAdapter(spinnerAdapter);
-    }
-
-    public void setGirls() {
-
-        genderStatus = 3;
-
-        ArrayAdapter spinnerAdapter = new ArrayAdapter<>(
-                context,
-                android.R.layout.simple_spinner_dropdown_item,
-                girls);
-
-        lstGender.setAdapter(spinnerAdapter);
-    }
-
-    public void setBoysGirls() {
-
-        genderStatus = 4;
-
-        ArrayAdapter spinnerAdapter = new ArrayAdapter<>(
-                context,
-                android.R.layout.simple_spinner_dropdown_item,
-                boysgirls);
-
-        lstGender.setAdapter(spinnerAdapter);
-    }
-
-    public void setCombined() {
-
-        genderStatus = 5;
-
-        ArrayAdapter spinnerAdapter = new ArrayAdapter<>(
-                context,
-                android.R.layout.simple_spinner_dropdown_item,
-                combined);
-
-        lstGender.setAdapter(spinnerAdapter);
-    }
-
-    public void getSeasonSchedule() {
-
+    public void getSeasonSchedule(ArrayAdapter adapter)
+    {
         /**SCHEDULE SCRAPER**/
-
         //Construct URL based on user selections
 
         /*URL structure:
@@ -389,40 +344,10 @@ public class SportsFragment extends Fragment {
         //Get the base season event page.
         baseUrl = getString(R.string.BaseURL) + "/" + sdf.format(cal.getTime());
 
-        //Add the gender to the URL constructor.
-        switch (genderStatus) {
-            case 1:
-                baseUrl += "/" + genderall[lstGender.getSelectedItemPosition()];
-                break;
-            case 2:
-                baseUrl += "/" + boys[lstGender.getSelectedItemPosition()];
-                break;
-            case 3:
-                baseUrl += "/" + girls[lstGender.getSelectedItemPosition()];
-                break;
-            case 4:
-                baseUrl += "/" + boysgirls[lstGender.getSelectedItemPosition()];
-                break;
-            case 5:
-                baseUrl += "/" + combined[lstGender.getSelectedItemPosition()];
-                break;
-        }
-
-        //Add the level to the URL constructor.
-        switch (levelStatus) {
-            case 1:
-                baseUrl += "/" + levelall[lstLevel.getSelectedItemPosition()];
-                break;
-            case 2:
-                baseUrl += "/" + varsity[lstLevel.getSelectedItemPosition()];
-                break;
-            case 3:
-                baseUrl += "/" + juniorvarsity[lstLevel.getSelectedItemPosition()];
-                break;
-        }
-
-        //Add the sport to the URL constructor.
-        baseUrl += "/" + sports[lstSport.getSelectedItemPosition()];
+        //Add the user choices to the URL
+        baseUrl += "/" + genderPicked;
+        baseUrl += "/" + levelPicked;
+        baseUrl += "/" + sportPicked;
 
         //Remove any spaces in the URL.
         baseUrl = baseUrl.replace(" ", "%20");
@@ -430,6 +355,12 @@ public class SportsFragment extends Fragment {
         //Load the page in an external browser.
         Intent w = new Intent(Intent.ACTION_VIEW, Uri.parse(baseUrl));
         startActivity(w);
+    }
 
+    @Override
+    public void onStop()
+    {
+        super.onStop();
+        place = 0;
     }
 }
