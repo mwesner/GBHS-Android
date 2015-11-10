@@ -1,6 +1,5 @@
 package com.grandblanchs.gbhs;
 
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -13,10 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,7 +23,6 @@ import java.util.Locale;
 
 public class SportsFragment extends Fragment
 {
-
     //Show season schedule for selected athletic event
 
     Context context;
@@ -132,67 +127,67 @@ public class SportsFragment extends Fragment
                     switch (position)
                     {
                         case 0:
-                            changeData(myAdapter, 0, 0);
+                            changeData(0, 0);
                             break;
                         case 1: //
-                            changeData(myAdapter, 0, 0);
+                            changeData(0, 0);
                             break;
                         case 2: //Bowling only has Varsity and is Combined, go to schedule.
                             levelPicked = "Varsity";
                             genderPicked = "Boys and Girls";
                             place = 0;
-                            getSeasonSchedule(myAdapter);
+                            getSeasonSchedule();
                             break;
                         case 3:
-                            changeData(myAdapter, 0, 0);
+                            changeData(0, 0);
                             break;
                         case 4: //Cross Country is only Varsity, go to gender.
                             levelPicked = "Varsity";
-                            changeData(myAdapter, 1, 0);
+                            changeData(1, 0);
                             place ++;
                             break;
                         case 5:
-                            changeData(myAdapter, 0, 0);
+                            changeData(0, 0);
                             break;
                         case 6:
-                            changeData(myAdapter, 0, 1);
+                            changeData(0, 1);
                             break;
                         case 7: //Hockey is only Varsity and is only Boys, show schedule
                             levelPicked = "Varsity";
                             genderPicked = "Boys";
                             place = 0;
-                            getSeasonSchedule(myAdapter);
+                            getSeasonSchedule();
                             break;
                         case 8:
-                            changeData(myAdapter, 0, 1);
+                            changeData(0, 1);
                             break;
                         case 9:
-                            changeData(myAdapter, 0, 1);
+                            changeData(0, 1);
                             break;
                         case 10:
-                            changeData(myAdapter, 0, 0);
+                            changeData(0, 0);
                             break;
                         case 11:
-                            changeData(myAdapter, 0, 0);
+                            changeData(0, 0);
                             break;
                         case 12: //Swim and Dive is only Varsity, go to gender.
                             levelPicked = "Varsity";
-                            changeData(myAdapter, 1, 0);
+                            changeData(1, 0);
                             break;
                         case 13:
-                            changeData(myAdapter, 0, 1);
+                            changeData(0, 1);
                             break;
                         case 14:
-                            changeData(myAdapter, 0, 2);
+                            changeData(0, 2);
                             break;
                         case 15:
-                            changeData(myAdapter, 0, 0);
+                            changeData(0, 0);
                             break;
                         case 16:
-                            changeData(myAdapter, 0, 1);
+                            changeData(0, 1);
                             break;
                         case 17:
-                            changeData(myAdapter, 0, 1);
+                            changeData(0, 1);
                             break;
                     }
                 }
@@ -208,64 +203,64 @@ public class SportsFragment extends Fragment
                         case 0: //Baseball is only boys, go to schedule.
                             genderPicked = "Boys";
                             place = 0;
-                            getSeasonSchedule(myAdapter);
+                            getSeasonSchedule();
                             break;
                         case 1:
-                            changeData(myAdapter, 1, 0);
+                            changeData(1, 0);
                             break;
                         case 3: //Cheer is only girls, go to schedule.
                             genderPicked = "Girls";
                             place = 0;
-                            getSeasonSchedule(myAdapter);
+                            getSeasonSchedule();
                             break;
                         case 4:
-                            changeData(myAdapter, 1, 0);
+                            changeData(1, 0);
                             break;
                         case 5: //Football is a boys sport, go to schedule
                             genderPicked = "Boys";
                             place = 0;
-                            getSeasonSchedule(myAdapter);
+                            getSeasonSchedule();
                             break;
                         case 6:
-                            changeData(myAdapter, 1, 0);
+                            changeData(1, 0);
                             break;
                         case 8:
-                            changeData(myAdapter, 1, 0);
+                            changeData(1, 0);
                             break;
                         case 9: //Skiing is only combined sport, go to schedule
                             genderPicked = "Boys and Girls";
                             place = 0;
-                            getSeasonSchedule(myAdapter);
+                            getSeasonSchedule();
                             break;
                         case 10:
-                            changeData(myAdapter, 1, 0);
+                            changeData(1, 0);
                             break;
                         case 11: //Softball is only a girls sport, go to schedule
                             genderPicked = "Girls";
                             place = 0;
-                            getSeasonSchedule(myAdapter);
+                            getSeasonSchedule();
                             break;
                         case 12:
-                            changeData(myAdapter, 1, 0);
+                            changeData(1, 0);
                             break;
                         case 13:
-                            changeData(myAdapter, 1, 0);
+                            changeData(1, 0);
                             break;
                         case 14:
-                            changeData(myAdapter, 1, 0);
+                            changeData(1, 0);
                             break;
                         case 15: //Volleyball is only a girls sport, go to schedule
                             genderPicked = "Girls";
                             place = 0;
-                            getSeasonSchedule(myAdapter);
+                            getSeasonSchedule();
                             break;
                         case 16:
-                            changeData(myAdapter, 1, 0);
+                            changeData(1, 0);
                             break;
                         case 17: //Wrestling is only a boys sport, go to schedule
                             genderPicked = "Boys";
                             place = 0;
-                            getSeasonSchedule(myAdapter);
+                            getSeasonSchedule();
                             break;
                     }
                     myAdapter.notifyDataSetChanged();
@@ -274,7 +269,7 @@ public class SportsFragment extends Fragment
                 {
                     genderPicked = (String) adapter.getItemAtPosition(position);
                     place = 0;
-                    getSeasonSchedule(myAdapter);
+                    getSeasonSchedule();
                 }
             }
         });
@@ -296,39 +291,39 @@ public class SportsFragment extends Fragment
     //Changes the data that is held in the Adapter for the ListView
     //Type 0 is Level, Type 1 is Gender
     //Case 0 is All, Case 1 is Varsity and Junior Varsity, Case 2 is Combined
-    public void changeData(ArrayAdapter adapter, int typeCode, int caseCode)
+    public void changeData(int typeCode, int caseCode)
     {
-        adapter.clear();
+        myAdapter.clear();
         if (typeCode == 0)
         {
             if (caseCode == 0)
             {
-                adapter.add("Varsity");
-                adapter.add("Junior Varsity");
-                adapter.add("Freshmen");
+                myAdapter.add("Varsity");
+                myAdapter.add("Junior Varsity");
+                myAdapter.add("Freshmen");
             }
             else if (caseCode == 1)
             {
-                adapter.add("Varsity");
-                adapter.add("Junior Varsity");
+                myAdapter.add("Varsity");
+                myAdapter.add("Junior Varsity");
             }
             else if (caseCode == 2)
             {
-                adapter.add("Varsity");
+                myAdapter.add("Varsity");
             }
         }
         else
         {
             if (caseCode == 0)
             {
-                adapter.add("Boys");
-                adapter.add("Girls");
+                myAdapter.add("Boys");
+                myAdapter.add("Girls");
             }
         }
-        adapter.notifyDataSetChanged();
+        myAdapter.notifyDataSetChanged();
     }
 
-    public void getSeasonSchedule(ArrayAdapter adapter)
+    public void getSeasonSchedule()
     {
         /**SCHEDULE SCRAPER**/
         //Construct URL based on user selections
@@ -355,12 +350,5 @@ public class SportsFragment extends Fragment
         //Load the page in an external browser.
         Intent w = new Intent(Intent.ACTION_VIEW, Uri.parse(baseUrl));
         startActivity(w);
-    }
-
-    @Override
-    public void onStop()
-    {
-        super.onStop();
-        place = 0;
     }
 }
