@@ -159,7 +159,10 @@ public class OfficeAdapter extends ArrayAdapter<String> {
                             R.drawable.guidance_mol, opts);
                 case 5:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.guidance_mccleary, opts);
+                            R.drawable.guidance_wood, opts);
+                case 6:
+                    return BitmapFactory.decodeResource(res,
+                            R.drawable.guidance_clark, opts);
             }
         } else {
             return null;

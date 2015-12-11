@@ -69,12 +69,13 @@
     </string-array>
 
     <string-array name="guidance_names">
-        <item>Mrs. Gardner</item>
-        <item>Mr. Hentes</item>
-        <item>Mrs. Hall</item>
-        <item>Mrs. Kernen</item>
-        <item>Mrs. Mol</item>
-        <item>Mrs. McCleary</item>
+        <item>Mary Gardner</item>
+        <item>John Hentes</item>
+        <item>Pamela Hall</item>
+        <item>Nicole Kernen</item>
+        <item>Phyllis Mol</item>
+        <item>Courtney Wood</item>
+        <item>Kari Lynn Clark</item>
     </string-array>
 
     <string-array name="guidance_subtitles">
@@ -83,7 +84,8 @@
         <item>9th Grade</item>
         <item>Ge-N</item>
         <item>A-Ga</item>
-        <item>Secretary East</item>
+        <item>Counselor Asst.</item>
+        <item>Secretary</item>
     </string-array>
 
     <string-array name="guidance_emails">
@@ -92,7 +94,8 @@
         <item>phall@grandblancschools.org</item>
         <item>nkernen@grandblancschools.org</item>
         <item>pmol@grandblancschools.org</item>
-        <item>lmcclear@grandblancschools.org</item>
+        <item>cwood@grandblancschools.org</item>
+        <item>kclark@grandblancschools.org</item>
     </string-array>
 
     <string-array name="guidance_phones">
@@ -101,6 +104,7 @@
         <item>(810) 591–6649</item>
         <item>(810) 591–6651</item>
         <item>(810) 591–6648</item>
+        <item>(810) 591–6680</item>
         <item>(810) 591–6647</item>
     </string-array>
 
