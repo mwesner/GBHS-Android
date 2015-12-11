@@ -22,7 +22,6 @@ public class AboutActivity extends AppCompatActivity {
 
     TextView firstyear1;
     TextView firstyear2;
-    TextView firstyear3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,14 +54,12 @@ public class AboutActivity extends AppCompatActivity {
 
         firstyear1 = (TextView) findViewById(R.id.txtFYD1);
         firstyear2 = (TextView) findViewById(R.id.txtFYD2);
-        firstyear3 = (TextView) findViewById(R.id.txtFYD3);
 
         secondyear1.setText(SYD[0]);
         secondyear2.setText(SYD[1]);
 
         firstyear1.setText(FYD[0]);
         firstyear2.setText(FYD[1]);
-        firstyear3.setText(FYD[2]);
     }
 
     private PackageInfo getPackageInfo() {

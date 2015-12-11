@@ -35,8 +35,8 @@
 
             <ImageView
                 android:id="@+id/imgAbout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/app_name"
                 android:gravity="center"
@@ -144,14 +144,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/txtFYD3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingBottom="16dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView

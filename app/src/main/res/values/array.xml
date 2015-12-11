@@ -7,8 +7,8 @@
     </string-array>
 
     <string-array name="FirstYearDevs">
-        <item>Brad Kivett</item>
         <item>Michael Olmsted</item>
+        <item>Brad Kivett</item>
     </string-array>
 
     <string-array name="maptype">
