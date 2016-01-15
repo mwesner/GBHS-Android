@@ -6,7 +6,7 @@
     <!--Schedule of Times-->
     <item
         android:id="@+id/Times"
-        android:icon="@drawable/ic_action_access_time"
+        android:icon="@drawable/ic_schedule"
         android:title="@string/Schedule"
         app:showAsAction="ifRoom" />
 

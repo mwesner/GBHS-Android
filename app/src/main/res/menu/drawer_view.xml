@@ -12,7 +12,7 @@
             android:title="@string/Twitter" />
         <item
             android:id="@+id/Calendar"
-            android:icon="@drawable/ic_action_event"
+            android:icon="@drawable/ic_event"
             android:title="@string/Calendar" />
         <item
             android:id="@+id/Sports"
@@ -24,15 +24,15 @@
             android:title="@string/Staff" />
         <item
             android:id="@+id/Guidance"
-            android:icon="@drawable/ic_action_people"
+            android:icon="@drawable/ic_people"
             android:title="@string/Guidance" />
         <item
             android:id="@+id/Admin"
-            android:icon="@drawable/ic_action_school"
+            android:icon="@drawable/ic_school"
             android:title="@string/Admin" />
         <item
             android:id="@+id/Map"
-            android:icon="@drawable/ic_action_map"
+            android:icon="@drawable/ic_map"
             android:title="@string/Map" />
         <item
             android:id="@+id/College"

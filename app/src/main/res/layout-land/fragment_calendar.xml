@@ -71,8 +71,8 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:drawablePadding="8dp"
-        android:drawableLeft="@drawable/ic_action_event"
-        android:drawableStart="@drawable/ic_action_event"
+        android:drawableLeft="@drawable/ic_event"
+        android:drawableStart="@drawable/ic_event"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/NoCalendar"
         android:visibility="gone" />
