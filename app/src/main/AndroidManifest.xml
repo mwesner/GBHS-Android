@@ -14,7 +14,8 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         android:versionCode="3"
-        android:versionName="1.0">
+        android:versionName="1.0"
+        tools:ignore="GoogleAppIndexingWarning">
 
         <activity
             android:name=".MainActivity"
