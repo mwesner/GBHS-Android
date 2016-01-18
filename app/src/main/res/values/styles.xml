@@ -7,19 +7,16 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/windowBackground</item>
 
-        <item name="android:alertDialogTheme">@style/AppCompatAlertDialogStyle</item>
+        <item name="alertDialogTheme">@style/AppCompatAlertDialogStyle</item>
         <item name="toolbarStyle">@style/ToolBarStyle</item>
     </style>
 
-    <style name="ActivityTheme" parent="AppTheme">
-        <item name="android:windowBackground">@color/windowBackground</item>
-    </style>
+    <style name="ActivityTheme" parent="AppTheme"/>
 
     <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <!--Intentional (for readability) -->
+        <item name="colorAccent">@color/colorPrimary</item>
         <item name="android:background">@color/colorAccent</item>
-        <item name="android:autoLink">all</item>
-        <item name="android:textColorLink">@color/colorPrimaryDark</item>
     </style>
 
     <style name="ToolBarStyle" parent="">
