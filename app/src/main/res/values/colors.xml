@@ -8,10 +8,9 @@
         http://www.google.com/design/spec/style/color.html#color-ui-color-palette
     -->
 
-    <color name="myPrimaryColor">#ff681008</color>
-    <color name="myPrimaryDarkColor">#ff4e1008</color>
-    <color name="myAccentColor">@android:color/white</color>
-    <color name="myWindowBackground">#ff341008</color>
-    <color name="myTextPrimaryColor">@android:color/white</color>
-    <color name="myNavigationColor">@color/myPrimaryColor</color>
+    <color name="colorPrimary">#ff681008</color>
+    <color name="colorPrimaryDark">#ff4e1008</color>
+    <color name="colorAccent">@android:color/white</color>
+    <color name="colorTextPrimary">@android:color/white</color>
+    <color name="windowBackground">#ff341008</color>
 </resources>

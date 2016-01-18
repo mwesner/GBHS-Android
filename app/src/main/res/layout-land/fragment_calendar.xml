@@ -30,7 +30,7 @@
             android:choiceMode="none"
             android:gravity="center"
             android:numColumns="7"
-            android:selectedWeekBackgroundColor="@color/myPrimaryDarkColor" />
+            android:selectedWeekBackgroundColor="@color/colorPrimaryDark" />
 
         <ListView
             android:id="@+id/lstInfo"

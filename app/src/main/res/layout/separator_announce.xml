@@ -7,7 +7,7 @@
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/myPrimaryColor"
+        android:background="@color/colorPrimary"
         android:clickable="false"
         android:focusable="false"
         android:gravity="center"
