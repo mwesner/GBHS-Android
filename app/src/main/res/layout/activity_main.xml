@@ -27,6 +27,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:elevation="@dimen/navigation_elevation"
+        app:theme="@style/NavTheme"
         app:menu="@menu/drawer_view" />
 
 </android.support.v4.widget.DrawerLayout>

@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:numColumns="7"
-            android:selectedWeekBackgroundColor="@color/myPrimaryDarkColor"
+            android:selectedWeekBackgroundColor="@color/colorPrimaryDark"
             android:layout_weight="0.2" />
 
         <ListView
@@ -71,9 +71,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:drawableLeft="@drawable/ic_action_event"
+        android:drawableLeft="@drawable/ic_event"
         android:drawablePadding="8dp"
-        android:drawableStart="@drawable/ic_action_event"
+        android:drawableStart="@drawable/ic_event"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/NoCalendar"
         android:visibility="gone" />

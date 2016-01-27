@@ -28,13 +28,13 @@ public class MapAdapter extends ArrayAdapter<String> {
 
         switch (position) {
             case 0:
-                type.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_action_map, 0, 0, 0);
+                type.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_map, 0, 0, 0);
                 break;
             case 1:
-                type.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_action_satellite, 0, 0, 0);
+                type.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_satellite, 0, 0, 0);
                 break;
             case 3:
-                type.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_action_terrain, 0, 0, 0);
+                type.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_terrain, 0, 0, 0);
                 break;
         }
 

@@ -2,38 +2,36 @@
 
     <!--Base application theme.-->
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/myPrimaryColor</item>
-        <item name="colorPrimaryDark">@color/myPrimaryDarkColor</item>
-        <item name="colorAccent">@color/myAccentColor</item>
-        <item name="android:windowBackground">@color/myWindowBackground</item>
-        <item name="android:colorButtonNormal">@color/myPrimaryColor</item>
-        <item name="android:textColorPrimary">@color/myTextPrimaryColor</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="android:colorButtonNormal">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/colorTextPrimary</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@color/myNavigationColor</item>
+        <item name="android:navigationBarColor">@color/colorPrimary</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:windowContentTransitions">true</item>
 
-        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
-
         <item name="alertDialogTheme">@style/AppCompatAlertDialogStyle</item>
+        <item name="android:toolbarStyle">@style/ToolBarStyle</item>
     </style>
 
-    <style name="PopupTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/myPrimaryColor</item>
-        <item name="colorPrimaryDark">@color/myPrimaryDarkColor</item>
-        <item name="android:colorAccent">@color/myAccentColor</item>
-        <item name="android:windowBackground">@color/myWindowBackground</item>
-        <item name="android:statusBarColor">@color/myPrimaryDarkColor</item>
-        <item name="android:navigationBarColor">@color/myNavigationColor</item>
+    <style name="ActivityTheme" parent="AppTheme">
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="NavTheme" parent="AppTheme">
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
     <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:background">@android:color/white</item>
-        <item name="android:colorButtonNormal">@color/myPrimaryColor</item>
-    </style>
-
-    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
-        <item name="color">@android:color/white</item>
+        <!--Intentional (for readability) -->
+        <item name="android:colorAccent">@color/colorPrimary</item>
+        <item name="android:background">@color/colorAccent</item>
     </style>
 
     <style name="ToolBarStyle" parent="">
