@@ -1,6 +1,5 @@
 package com.grandblanchs.gbhs;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -20,9 +19,7 @@ import java.util.List;
 public class StaffAdapter extends BaseAdapter implements Filterable {
 
     Context context;
-    ImageButton btn_email;
-    ImageButton btn_call;
-    private LayoutInflater mInflater;
+
     private ItemFilter mFilter = new ItemFilter();
     private List<String> originalNames;
     private List<String> filteredNames;
@@ -35,7 +32,6 @@ public class StaffAdapter extends BaseAdapter implements Filterable {
     public StaffAdapter(Context context, List<String> names, List<String> emails, List<String> phones) {
 
         this.context = context;
-        mInflater = LayoutInflater.from(context);
 
         this.originalNames = names;
         this.filteredNames = names;
@@ -59,16 +55,20 @@ public class StaffAdapter extends BaseAdapter implements Filterable {
         return position;
     }
 
-    @SuppressLint("ViewHolder")
     public View getView(final int position, View convertView, ViewGroup parent) {
-
-        convertView = mInflater.inflate(R.layout.item_staff, parent, false);
 
         ViewHolder holder = new ViewHolder();
 
+        if (convertView == null) {
+            LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = vi.inflate(R.layout.item_staff, parent, false);
+        }else{
+            holder = (ViewHolder) convertView.getTag();
+        }
+
         holder.text = (TextView) convertView.findViewById(R.id.txt_name);
-        btn_email = (ImageButton) convertView.findViewById(R.id.btn_email);
-        btn_call = (ImageButton) convertView.findViewById(R.id.btn_call);
+        holder.btn_email = (ImageButton) convertView.findViewById(R.id.btn_email);
+        holder.btn_call = (ImageButton) convertView.findViewById(R.id.btn_call);
 
         convertView.setTag(holder);
 
@@ -86,7 +86,7 @@ public class StaffAdapter extends BaseAdapter implements Filterable {
 
         holder.text.setText(filteredNames.get(position));
 
-        btn_email.setOnClickListener(new ImageButton.OnClickListener() {
+        holder.btn_email.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View view) {
                 emailer(filteredEmails.get(position));
@@ -94,10 +94,12 @@ public class StaffAdapter extends BaseAdapter implements Filterable {
         });
 
         if (filteredPhones.get(position).equals("NONE")) {
-            btn_call.setVisibility(View.INVISIBLE);
+            holder.btn_call.setVisibility(View.INVISIBLE);
+        }else{
+            holder.btn_call.setVisibility(View.VISIBLE);
         }
 
-        btn_call.setOnClickListener(new ImageButton.OnClickListener() {
+        holder.btn_call.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View view) {
                 caller(filteredPhones.get(position));
@@ -120,8 +122,10 @@ public class StaffAdapter extends BaseAdapter implements Filterable {
         context.startActivity(calling);
     }
 
-    static class ViewHolder {
-        TextView text;
+    public class ViewHolder {
+        public TextView text;
+        public ImageButton btn_email;
+        public ImageButton btn_call;
     }
 
     private class ItemFilter extends Filter {
