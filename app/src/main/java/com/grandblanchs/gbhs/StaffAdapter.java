@@ -93,6 +93,12 @@ public class StaffAdapter extends BaseAdapter implements Filterable {
             }
         });
 
+        if (filteredEmails.get(position).equals("NONE")) {
+            holder.btn_email.setVisibility(View.INVISIBLE);
+        }else{
+            holder.btn_email.setVisibility(View.VISIBLE);
+        }
+
         if (filteredPhones.get(position).equals("NONE")) {
             holder.btn_call.setVisibility(View.INVISIBLE);
         }else{

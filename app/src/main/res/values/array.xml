@@ -282,6 +282,7 @@
     </string-array>
 
     <string-array name="staff_emails">
+        <!--An array entry of "NONE" indicates a staff member without a listed email.-->
         <item>"sallswed@grandblancschools.org"</item>
         <item>"sapplebe@grandblancschools.org"</item>
         <item>"narakely@grandblancschools.org"</item>
