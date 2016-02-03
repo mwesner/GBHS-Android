@@ -1,8 +1,11 @@
 package com.grandblanchs.gbhs;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -108,7 +111,7 @@ public class StaffAdapter extends BaseAdapter implements Filterable {
         holder.btn_call.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View view) {
-                caller(filteredPhones.get(position));
+                caller(filteredPhones.get(position), filteredNames.get(position));
             }
         });
         return convertView;
@@ -123,9 +126,20 @@ public class StaffAdapter extends BaseAdapter implements Filterable {
         context.startActivity(emailing);
     }
 
-    public void caller(String a) {
-        Intent calling = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", a, null));
-        context.startActivity(calling);
+    public void caller(final String a, String b) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context)
+                .setTitle(b)
+                .setIcon(R.drawable.ic_action_call_dark)
+                .setMessage(R.string.PhoneWarn)
+                .setPositiveButton(R.string.Continue, new Dialog.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent calling = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", a, null));
+                                context.startActivity(calling);
+                            }
+                        }
+                );
+        builder.create().show();
     }
 
     public class ViewHolder {
