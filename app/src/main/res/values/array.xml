@@ -55,7 +55,7 @@
     </string-array>
 
     <string-array name="admin_bios">
-        <item>"As the principal of Grand Blanc High School, my responsibilities include supervising the overall building operations, overseeing curriculum development and improvement, evaluating and monitoring instructional staff by visiting classrooms on a daily basis, planning and executing professional development for staff, monitoring the building budget, developing and implementing the school improvement plan, overseeing the high school testing program, and supervising the career and technical education department. What I love most about my position is being around our students and staff. With a large campus, it is often difficult to get to know individual students but I visit classrooms regularly and enjoy seeing them learning, collaborating, and building relationships with their teachers and one another. \n\nI began my career in education over 20 years ago as a high school math teacher in Houston, Texas. I also taught middle school and high school math in Hamtramck and at Troy Athens High School. I served as an assistant principal at Troy High School for eight years prior to coming to Grand Blanc. My educational experiences include a bachelor\’s degree from Michigan State University, a master\’s degree from Wayne State University and an education specialist degree and doctorate of philosophy degree from Oakland University.</item>
+        <item>As the principal of Grand Blanc High School, my responsibilities include supervising the overall building operations, overseeing curriculum development and improvement, evaluating and monitoring instructional staff by visiting classrooms on a daily basis, planning and executing professional development for staff, monitoring the building budget, developing and implementing the school improvement plan, overseeing the high school testing program, and supervising the career and technical education department. What I love most about my position is being around our students and staff. With a large campus, it is often difficult to get to know individual students but I visit classrooms regularly and enjoy seeing them learning, collaborating, and building relationships with their teachers and one another. \n\nI began my career in education over 20 years ago as a high school math teacher in Houston, Texas. I also taught middle school and high school math in Hamtramck and at Troy Athens High School. I served as an assistant principal at Troy High School for eight years prior to coming to Grand Blanc. My educational experiences include a bachelor\’s degree from Michigan State University, a master\’s degree from Wayne State University and an education specialist degree and doctorate of philosophy degree from Oakland University.</item>
 
         <item>After serving Grand Blanc High School for ten years as a World History teacher and basketball coach I moved into administration.  The experiences I have had in the classroom and on the athletic field here at GBHS have helped mold me into the person and leader I am today. \n\nI am a proud graduate of Oakland University, where I received my Bachelors, Masters and Education Specialist degrees in education and leadership. My coursework has given me invaluable experiences in building curriculum, working with state standards, public speaking and school leadership––all skills and tools that I use daily as an AP. For the 2015–2016 school year, I will be responsible for students in grades 9–12 whose last names begin with O-Z but am always available to any student. I am looking forward to another great year here at GBHS and continue to believe we have one of the best high schools in the state of Michigan, and we should all be very proud to be bobcats!</item>
 
@@ -109,526 +109,524 @@
     </string-array>
 
     <string-array name="staff_names">
-        <item>"Allswede, Stacey"</item>
-        <item>"Applebee, Stephen"</item>
-        <item>"Arakelyan, Natalya"</item>
-        <item>"Arbit, Michael"</item>
-        <item>"Babiasz, Todd"</item>
-        <item>"Bailey, Brad"</item>
-        <item>"Baker, Tami"</item>
-        <item>"Barker, Steven"</item>
-        <item>"Barnes, Kim"</item>
-        <item>"Barnowsky, Nicholas"</item>
-        <item>"Bas, Adriana"</item>
-        <item>"Bauermeister, Marie"</item>
-        <item>"Belcher, Chris"</item>
-        <item>"Belill, Valerie"</item>
-        <item>"Benaway, Karen"</item>
-        <item>"Bieda, Sara"</item>
-        <item>"Blackett, Patricia"</item>
-        <item>"Blakley, Sarah"</item>
-        <item>"Blake, Justin"</item>
-        <item>"Bleicher, Dana"</item>
-        <item>"Botzki, Denise"</item>
-        <item>"Bradley, Zachary"</item>
-        <item>"Briggs, Tisha"</item>
-        <item>"Bruin, Amanda"</item>
-        <item>"Brunskole, Lori"</item>
-        <item>"Butzu, Ava"</item>
-        <item>"Buxbaum, Nina"</item>
-        <item>"Calo, Ron"</item>
-        <item>"Campbell, Lynn"</item>
-        <item>"Carmody, Charlie"</item>
-        <item>"Carney, Chad"</item>
-        <item>"Church, Katie"</item>
-        <item>"Clark, Daniel"</item>
-        <item>"Clark, Kari"</item>
-        <item>"Clark, Matthew"</item>
-        <item>"Clement, David"</item>
-        <item>"Coffman, Ryan"</item>
-        <item>"Coon, Robert"</item>
-        <item>"Cottrill, Amy"</item>
-        <item>"Cozad, Colleen"</item>
-        <item>"Cuccia, Linda"</item>
-        <item>"Davis, Marcia"</item>
-        <item>"Decker, Cynthia"</item>
-        <item>"Delaney, Joseph"</item>
-        <item>"Doering, Meagan"</item>
-        <item>"Dohm, Jerrod"</item>
-        <item>"Dunk, Steven"</item>
-        <item>"Dunning, Amy"</item>
-        <item>"Elias, Elizabeth"</item>
-        <item>"Ender, Nicholas"</item>
-        <item>"Finkbeiner, Jacob"</item>
-        <item>"Franzel, Mary"</item>
-        <item>"Fritzsching, Kaylinda"</item>
-        <item>"Gardner, Mary"</item>
-        <item>"Garey, Kolette"</item>
-        <item>"Garey, Stephanie"</item>
-        <item>"Gaudet, Karen"</item>
-        <item>"Gibbs-Halm, Deborah"</item>
-        <item>"Giddings, Tonya"</item>
-        <item>"Goetzinger, Gary"</item>
-        <item>"Gorney, Mary"</item>
-        <item>"Gowdy, Larhonda"</item>
-        <item>"Graves, Megan"</item>
-        <item>"Green, Al"</item>
-        <item>"Grzymkowski, Heather"</item>
-        <item>"Gualdoni, Laura"</item>
-        <item>"Guerra, Amy"</item>
-        <item>"Garey, Kolette"</item>
-        <item>"Hall, Pamela"</item>
-        <item>"Hammond, Jennifer"</item>
-        <item>"Hassenzahl, Beth"</item>
-        <item>"Heemsoth, Miranda"</item>
-        <item>"Hentes, John"</item>
-        <item>"Holt, Denny"</item>
-        <item>"Howell, Kathleen"</item>
-        <item>"Hubbs, Laura"</item>
-        <item>"Hugo, Brian"</item>
-        <item>"Hugo, Matt"</item>
-        <item>"Hutchison, Cory"</item>
-        <item>"Jacobson, Amy"</item>
-        <item>"Johnson, Amy"</item>
-        <item>"Johnson, Sarah"</item>
-        <item>"Kehn, Bonnie"</item>
-        <item>"Keilitz, Kevin"</item>
-        <item>"Kenney, Rachel"</item>
-        <item>"Kernen, Nicole"</item>
-        <item>"Kildee, Meghan"</item>
-        <item>"King, Irving"</item>
-        <item>"Kish, Kaitlyn"</item>
-        <item>"Knapp, Don"</item>
-        <item>"Larose, Michael"</item>
-        <item>"Lawrence, Jenalyn"</item>
-        <item>"Lemaster, Thomas"</item>
-        <item>"Li, Snow"</item>
-        <item>"Londrigan, Aimee"</item>
-        <item>"Lundy, Andrea"</item>
-        <item>"Mareski, Shannon"</item>
-        <item>"Mather, Brenda"</item>
-        <item>"Melton, Hunter"</item>
-        <item>"Melton, Marcie"</item>
-        <item>"Meyer, Lindsay"</item>
-        <item>"Minier, Judith"</item>
-        <item>"Mitchell, Jeremy"</item>
-        <item>"Mol, Phyllis"</item>
-        <item>"Moore, Karen"</item>
-        <item>"Moore, Patrick"</item>
-        <item>"Morris, Krista"</item>
-        <item>"Mueller, Tina"</item>
-        <item>"Naddeo, Sara"</item>
-        <item>"Newman, Maureen"</item>
-        <item>"Newton, Dana"</item>
-        <item>"Nicholson, James"</item>
-        <item>"O\'Toole, Lia"</item>
-        <item>"Ousnamer, Karen"</item>
-        <item>"Padgett, David"</item>
-        <item>"Paris, Michael"</item>
-        <item>"Parish, Lindsay"</item>
-        <item>"Pearce, Jill"</item>
-        <item>"Pearce, Matt"</item>
-        <item>"Pendergrass, Erik"</item>
-        <item>"Peske, Nancy"</item>
-        <item>"Piggott, Sally"</item>
-        <item>"Poelke, Trish"</item>
-        <item>"Popadich, Nick"</item>
-        <item>"Pottenger, Troy"</item>
-        <item>"Powers, Suzanne"</item>
-        <item>"Raab, Lisa"</item>
-        <item>"Ralbusky, Elizabeth"</item>
-        <item>"Read, Rachel"</item>
-        <item>"Reed, Adam"</item>
-        <item>"Retberg, Daniel"</item>
-        <item>"Riek, Kathleen"</item>
-        <item>"Riek, Nate"</item>
-        <item>"Roberts, Janet"</item>
-        <item>"Robertson, Joan"</item>
-        <item>"Russian, Tanya"</item>
-        <item>"Ryckaert, Justin"</item>
-        <item>"Saffron, Danida"</item>
-        <item>"Salem, John"</item>
-        <item>"Schramm, Chuck"</item>
-        <item>"Schweitzer, Amy"</item>
-        <item>"Seeds, Rebecca"</item>
-        <item>"Seiter, Sarah"</item>
-        <item>"Shaver, Dana"</item>
-        <item>"Shaw, Susan"</item>
-        <item>"Shebak, Bodhi"</item>
-        <item>"Shinabarger, Lucy"</item>
-        <item>"Shuster, Michael"</item>
-        <item>"Smith, Gary"</item>
-        <item>"Stockton, Sarah"</item>
-        <item>"Stockton, Susan"</item>
-        <item>"Stuck, James"</item>
-        <item>"Tait, Rachael"</item>
-        <item>"Taylor, Justin"</item>
-        <item>"Thurlow, Leslie"</item>
-        <item>"Tosh, Karin"</item>
-        <item>"Trombly, Craig"</item>
-        <item>"Urbanik, Phil"</item>
-        <item>"Vanitvelt, Marcie"</item>
-        <item>"Walroth, Allyson"</item>
-        <item>"Wesner, Michael"</item>
-        <item>"Willing, Heather"</item>
-        <item>"Wilson, Jessica"</item>
-        <item>"Wiltse, Wesley"</item>
-        <item>"Wood, Courtney"</item>
-        <item>"Wray, Peggy"</item>
-        <item>"Wyatt, Mary"</item>
-        <item>"Youngs, Jason"</item>
-        <item>"Yunker, Karen"</item>
-        <item>"Zacek, Tom"</item>
+        <item>Allswede, Stacey</item>
+        <item>Applebee, Stephen</item>
+        <item>Arakelyan, Natalya</item>
+        <item>Arbit, Michael</item>
+        <item>Babiasz, Todd</item>
+        <item>Bailey, Brad</item>
+        <item>Baker, Tami</item>
+        <item>Barker, Steven</item>
+        <item>Barnes, Kim</item>
+        <item>Barnowsky, Nicholas</item>
+        <item>Bas, Adriana</item>
+        <item>Bauermeister, Marie</item>
+        <item>Belcher, Chris</item>
+        <item>Belill, Valerie</item>
+        <item>Benaway, Karen</item>
+        <item>Bieda, Sara</item>
+        <item>Blackett, Patricia</item>
+        <item>Blakley, Sarah</item>
+        <item>Blake, Justin</item>
+        <item>Bleicher, Dana</item>
+        <item>Botzki, Denise</item>
+        <item>Bradley, Zachary</item>
+        <item>Briggs, Tisha</item>
+        <item>Bruin, Amanda</item>
+        <item>Brunskole, Lori</item>
+        <item>Butzu, Ava</item>
+        <item>Buxbaum, Nina</item>
+        <item>Calo, Ron</item>
+        <item>Campbell, Lynn</item>
+        <item>Carmody, Charlie</item>
+        <item>Carney, Chad</item>
+        <item>Church, Katie</item>
+        <item>Clark, Daniel</item>
+        <item>Clark, Kari</item>
+        <item>Clark, Matthew</item>
+        <item>Clement, David</item>
+        <item>Coffman, Ryan</item>
+        <item>Coon, Robert</item>
+        <item>Cottrill, Amy</item>
+        <item>Cozad, Colleen</item>
+        <item>Cuccia, Linda</item>
+        <item>Davis, Marcia</item>
+        <item>Decker, Cynthia</item>
+        <item>Delaney, Joseph</item>
+        <item>Doering, Meagan</item>
+        <item>Dohm, Jerrod</item>
+        <item>Dunk, Steven</item>
+        <item>Dunning, Amy</item>
+        <item>Elias, Elizabeth</item>
+        <item>Ender, Nicholas</item>
+        <item>Finkbeiner, Jacob</item>
+        <item>Franzel, Mary</item>
+        <item>Fritzsching, Kaylinda</item>
+        <item>Gardner, Mary</item>
+        <item>Garey, Kolette</item>
+        <item>Garey, Stephanie</item>
+        <item>Gaudet, Karen</item>
+        <item>Gibbs-halm, Deborah</item>
+        <item>Giddings, Tonya</item>
+        <item>Goetzinger, Gary</item>
+        <item>Gowdy, La'rhonda</item>
+        <item>Graves, Megan</item>
+        <item>Green, Al</item>
+        <item>Grzymkowski, Heather</item>
+        <item>Gualdoni, Laura</item>
+        <item>Guerra, Amy</item>
+        <item>Garey, Kolette</item>
+        <item>Hall, Pamela</item>
+        <item>Hammond, Jennifer</item>
+        <item>Hassenzahl, Beth</item>
+        <item>Heemsoth, Miranda</item>
+        <item>Hentes, John</item>
+        <item>Holt, Denny</item>
+        <item>Howell, Kathleen</item>
+        <item>Hubbs, Laura</item>
+        <item>Hugo, Brian</item>
+        <item>Hugo, Matt</item>
+        <item>Hutchison, Cory</item>
+        <item>Jacobson, Amy</item>
+        <item>Johnson, Amy</item>
+        <item>Johnson, Sarah</item>
+        <item>Kehn, Bonnie</item>
+        <item>Keilitz, Kevin</item>
+        <item>Kenney, Rachel</item>
+        <item>Kernen, Nicole</item>
+        <item>Kildee, Meghann</item>
+        <item>King, Irving</item>
+        <item>Kish, Kaitlyn</item>
+        <item>Knapp, Don</item>
+        <item>Larose, Michael</item>
+        <item>Lawrence, Jenalyn</item>
+        <item>Lemaster, Thomas</item>
+        <item>Li, Snow</item>
+        <item>Londrigan, Aimee</item>
+        <item>Lundy, Andrea</item>
+        <item>Mareski, Shannon</item>
+        <item>Mather, Brenda</item>
+        <item>Melton, Hunter</item>
+        <item>Melton, Marcie</item>
+        <item>Meyer, Lindsay</item>
+        <item>Minier, Judith</item>
+        <item>Mitchell, Jeremy</item>
+        <item>Mol, Phyllis</item>
+        <item>Moore, Karen</item>
+        <item>Moore, Patrick</item>
+        <item>Morris, Krista</item>
+        <item>Newman, Maureen</item>
+        <item>Mueller, Tina</item>
+        <item>Naddeo, Sara</item>
+        <item>Newton, Dana</item>
+        <item>Nicholson, James</item>
+        <item>O'toole, Lia</item>
+        <item>Ousnamer, Karen</item>
+        <item>Padgett, David</item>
+        <item>Paris, Michael</item>
+        <item>Parish, Lindsay</item>
+        <item>Pearce, Jill</item>
+        <item>Pearce, Matt</item>
+        <item>Pendergrass, Erik</item>
+        <item>Peske, Nancy</item>
+        <item>Piggott, Sally</item>
+        <item>Poelke, Trish</item>
+        <item>Popadich, Nick</item>
+        <item>Pottenger, Troy</item>
+        <item>Powers, Suzanne</item>
+        <item>Raab, Lisa</item>
+        <item>Ralbusky, Elizabeth</item>
+        <item>Read, Rachel</item>
+        <item>Reed, Adam</item>
+        <item>Retberg, Daniel</item>
+        <item>Riek, Kathleen</item>
+        <item>Riek, Nate</item>
+        <item>Roberts, Janet</item>
+        <item>Robertson, Joan</item>
+        <item>Russian, Tanya</item>
+        <item>Ryckaert, Justin</item>
+        <item>Saffron, Danida</item>
+        <item>Salem, John</item>
+        <item>Schramm, Chuck</item>
+        <item>Schweitzer, Amy</item>
+        <item>Seeds, Rebecca</item>
+        <item>Seiter, Sarah</item>
+        <item>Shaver, Dana</item>
+        <item>Shaw, Susan</item>
+        <item>Shebak, Bodhi</item>
+        <item>Shinabarger, Lucy</item>
+        <item>Shuster, Michael</item>
+        <item>Smith, Gary</item>
+        <item>Stockton, Sarah</item>
+        <item>Stockton, Susan</item>
+        <item>Stuck, James</item>
+        <item>Tait, Rachael</item>
+        <item>Taylor, Justin</item>
+        <item>Thurlow, Leslie</item>
+        <item>Tosh, Karin</item>
+        <item>Trombly, Craig</item>
+        <item>Urbanik, Phil</item>
+        <item>Vanitvelt, Marcie</item>
+        <item>Vanover, Kendra</item>
+        <item>Walroth, Allyson</item>
+        <item>Wesner, Michael</item>
+        <item>Willing, Heather</item>
+        <item>Wilson, Jessica</item>
+        <item>Wiltse, Wesley</item>
+        <item>Wood, Courtney</item>
+        <item>Wray, Peggy</item>
+        <item>Wyatt, Mary</item>
+        <item>Youngs, Jason</item>
+        <item>Yunker, Karen</item>
+        <item>Zacek, Tom</item>
     </string-array>
 
     <string-array name="staff_emails">
-        <item>"sallswed@grandblancschools.org"</item>
-        <item>"sapplebe@grandblancschools.org"</item>
-        <item>"narakely@grandblancschools.org"</item>
-        <item>"marbit@grandblancschools.org"</item>
-        <item>"tbabiasz@grandblancschools.org"</item>
-        <item>"bbailey@grandblancschools.org"</item>
-        <item>"tbaker@grandblancschools.org"</item>
-        <item>"sbarker@grandblancschools.org"</item>
-        <item>"kbarnes@grandblancschools.org"</item>
-        <item>"nbarnows@grandblancschools.org"</item>
-        <item>"abas@grandblancschools.org"</item>
-        <item>"mbauerme@grandblancschools.org"</item>
-        <item>"cbelcher@grandblancschools.org"</item>
-        <item>"vbelill@grandblancschools.org"</item>
-        <item>"kbenaway@grandblancschools.org"</item>
-        <item>"sbieda@grandblancschools.org"</item>
-        <item>"pblacket@grandblancschools.org"</item>
-        <item>"sblakley@grandblancschools.org"</item>
-        <item>"jblake@grandblancschools.org"</item>
-        <item>"dbleiche@grandblancschools.org"</item>
-        <item>"dbotzki@grandblancschools.org"</item>
-        <item>"zbradley@grandblancschools.org"</item>
-        <item>"tbriggs@grandblancschools.org"</item>
-        <item>"abruin@grandblancschools.org"</item>
-        <item>"lbrunsko@grandblancschools.org"</item>
-        <item>"abutzu@grandblancschools.org"</item>
-        <item>"nbuxbaum@grandblancschools.org"</item>
-        <item>"rcalo@grandblancschools.org"</item>
-        <item>"lcampbel@grandblancschools.org"</item>
-        <item>"ccarmody@grandblancschools.org"</item>
-        <item>"ccarney@grandblancschools.org"</item>
-        <item>"kchurch@grandblancschools.org"</item>
-        <item>"dclark@grandblancschools.org"</item>
-        <item>"kclark@grandblancschools.org"</item>
-        <item>"mclark@grandblancschools.org"</item>
-        <item>"dclement@grandblancschools.org"</item>
-        <item>"rcoffman@grandblancschools.org"</item>
-        <item>"rcoon@grandblancschools.org"</item>
-        <item>"acottril@grandblancschools.org"</item>
-        <item>"ccozad@grandblancschools.org"</item>
-        <item>"lcuccia@grandblancschools.org"</item>
-        <item>"mdavis@grandblancschools.org"</item>
-        <item>"cdecker@grandblancschools.org"</item>
-        <item>"jdelaney@grandblancschools.org"</item>
-        <item>"mdoering@grandblancschools.org"</item>
-        <item>"jdohm@grandblancschools.org"</item>
-        <item>"sdunk@grandblancschools.org"</item>
-        <item>"adunning@grandblancschools.org"</item>
-        <item>"eelias@grandblancschools.org"</item>
-        <item>"nender@grandblancschools.org"</item>
-        <item>"jfinkbei@grandblancschools.org"</item>
-        <item>"mfranzel@grandblancschools.org"</item>
-        <item>"kfritzsc@grandblancschools.org"</item>
-        <item>"mgardner@grandblancschools.org"</item>
-        <item>"kgarey@grandblancschools.org"</item>
-        <item>"sgarey@grandblancschools.org"</item>
-        <item>"kgaudet@grandblancschools.org"</item>
-        <item>"dgibbs-h@grandblancschools.org"</item>
-        <item>"tgidding@grandblancschools.org"</item>
-        <item>"ggoetzin@grandblancschools.org"</item>
-        <item>"mgorney@grandblancschools.org"</item>
-        <item>"lgowdy@grandblancschools.org"</item>
-        <item>"mgraves@grandblancschools.org"</item>
-        <item>"agreen@grandblancschools.org"</item>
-        <item>"hgrzymko@grandblancschools.org"</item>
-        <item>"lgualdon@grandblancschools.org"</item>
-        <item>"aguerra@grandblancschools.org"</item>
-        <item>"kgarey@grandblancschools.org"</item>
-        <item>"phall@grandblancschools.org"</item>
-        <item>"jhammond@grandblancschools.org"</item>
-        <item>"bhassenz@grandblancschools.org"</item>
-        <item>"mheemsot@grandblancschools.org"</item>
-        <item>"jhentes@grandblancschools.org"</item>
-        <item>"dholt@grandblancschools.org"</item>
-        <item>"khowell@grandblancschools.org"</item>
-        <item>"lhubbs@grandblancschools.org"</item>
-        <item>"bhugo@grandblancschools.org"</item>
-        <item>"mhugo@grandblancschools.org"</item>
-        <item>"chutchis@grandblancschools.org"</item>
-        <item>"ajacobso@grandblancschools.org"</item>
-        <item>"ajohnson@grandblancschools.org"</item>
-        <item>"sjohnson@grandblancschools.org"</item>
-        <item>"bkehn@grandblancschools.org"</item>
-        <item>"kkeilitz@grandblancschools.org"</item>
-        <item>"rkenney@grandblancschools.org"</item>
-        <item>"nkernen@grandblancschools.org"</item>
-        <item>"mkildee@grandblancschools.org"</item>
-        <item>"iking@grandblancschools.org"</item>
-        <item>"kkish@grandblancschools.org"</item>
-        <item>"dknapp@grandblancschools.org"</item>
-        <item>"mlarose@grandblancschools.org"</item>
-        <item>"jlawrenc@grandblancschools.org"</item>
-        <item>"tlemaste@grandblancschools.org"</item>
-        <item>"sli@grandblancschools.org"</item>
-        <item>"alondrig@grandblancschools.org"</item>
-        <item>"alundy@grandblancschools.org"</item>
-        <item>"smareski@grandblancschools.org"</item>
-        <item>"bmather@grandblancschools.org"</item>
-        <item>"hmelton@grandblancschools.org"</item>
-        <item>"mmelton@grandblancschools.org"</item>
-        <item>"lmeyer@grandblancschools.org"</item>
-        <item>"jminier@grandblancschools.org"</item>
-        <item>"jmitchel@grandblancschools.org"</item>
-        <item>"pmol@grandblancschools.org"</item>
-        <item>"kmoore@grandblancschools.org"</item>
-        <item>"pmoore@grandblancschools.org"</item>
-        <item>"kmorris@grandblancschools.org"</item>
-        <item>"tmueller@grandblancschools.org"</item>
-        <item>"snaddeo@grandblancschools.org"</item>
-        <item>"mnewman@grandblancschools.org"</item>
-        <item>"dnewton@grandblancschools.org"</item>
-        <item>"jnichols@grandblancschools.org"</item>
-        <item>"lotoole@grandblancschools.org"</item>
-        <item>"kousname@grandblancschools.org"</item>
-        <item>"dpadgett@grandblancschools.org"</item>
-        <item>"mparis@grandblancschools.org"</item>
-        <item>"lparish@grandblancschools.org"</item>
-        <item>"jpearce@grandblancschools.org"</item>
-        <item>"mpearce@grandblancschools.org"</item>
-        <item>"ependerg@grandblancschools.org"</item>
-        <item>"npeske@grandblancschools.org"</item>
-        <item>"spiggott@grandblancschools.org"</item>
-        <item>"tpoelke@grandblancschools.org"</item>
-        <item>"npopadic@grandblancschools.org"</item>
-        <item>"tpotteng@grandblancschools.org"</item>
-        <item>"spowers@grandblancschools.org"</item>
-        <item>"lraab@grandblancschools.org"</item>
-        <item>"eralbusk@grandblancschools.org"</item>
-        <item>"rread@grandblancschools.org"</item>
-        <item>"areed@grandblancschools.org"</item>
-        <item>"dretberg@grandblancschools.org"</item>
-        <item>"kriek@grandblancschools.org"</item>
-        <item>"nriek@grandblancschools.org"</item>
-        <item>"jroberts@grandblancschools.org"</item>
-        <item>"jroberts@grandblancschools.org"</item>
-        <item>"trussian@grandblancschools.org"</item>
-        <item>"jryckaer@grandblancschools.org"</item>
-        <item>"dsaffron@grandblancschools.org"</item>
-        <item>"jsalem@grandblancschools.org"</item>
-        <item>"cschramm@grandblancschools.org"</item>
-        <item>"aschweit@grandblancschools.org"</item>
-        <item>"rseeds@grandblancschools.org"</item>
-        <item>"sseiter@grandblancschools.org"</item>
-        <item>"dshaver@grandblancschools.org"</item>
-        <item>"sshaw@grandblancschools.org"</item>
-        <item>"bshebak@grandblancschools.org"</item>
-        <item>"lshinaba@grandblancschools.org"</item>
-        <item>"mshuster@grandblancschools.org"</item>
-        <item>"gsmith@grandblancschools.org"</item>
-        <item>"sstockto@grandblancschools.org"</item>
-        <item>"sstockto@grandblancschools.org"</item>
-        <item>"jstuck@grandblancschools.org"</item>
-        <item>"rtait@grandblancschools.org"</item>
-        <item>"jtaylor@grandblancschools.org"</item>
-        <item>"lthurlow@grandblancschools.org"</item>
-        <item>"ktosh@grandblancschools.org"</item>
-        <item>"ctrombly@grandblancschools.org"</item>
-        <item>"purbanik@grandblancschools.org"</item>
-        <item>"mvanitve@grandblancschools.org"</item>
-        <item>"awalroth@grandblancschools.org"</item>
-        <item>"mwesner@grandblancschools.org"</item>
-        <item>"hwilling@grandblancschools.org"</item>
-        <item>"jwilson@grandblancschools.org"</item>
-        <item>"wwiltse@grandblancschools.org"</item>
-        <item>"cwood@grandblancschools.org"</item>
-        <item>"pwray@grandblancschools.org"</item>
-        <item>"mwyatt@grandblancschools.org"</item>
-        <item>"jyoungs@grandblancschools.org"</item>
-        <item>"kyunker@grandblancschools.org"</item>
-        <item>"tzacek@grandblancschools.org"</item>
+        <item>sallswed@grandblancschools.org</item>
+        <item>sapplebe@grandblancschools.org</item>
+        <item>narakely@grandblancschools.org</item>
+        <item>marbit@grandblancschools.org</item>
+        <item>tbabiasz@grandblancschools.org</item>
+        <item>bbailey@grandblancschools.org</item>
+        <item>tbaker@grandblancschools.org</item>
+        <item>sbarker@grandblancschools.org</item>
+        <item>kbarnes@grandblancschools.org</item>
+        <item>nbarnows@grandblancschools.org</item>
+        <item>abas@grandblancschools.org</item>
+        <item>mbauerme@grandblancschools.org</item>
+        <item>cbelcher@grandblancschools.org</item>
+        <item>vbelill@grandblancschools.org</item>
+        <item>kbenaway@grandblancschools.org</item>
+        <item>sbieda@grandblancschools.org</item>
+        <item>pblacket@grandblancschools.org</item>
+        <item>sblakley@grandblancschools.org</item>
+        <item>jblake@grandblancschools.org</item>
+        <item>dbleiche@grandblancschools.org</item>
+        <item>dbotzki@grandblancschools.org</item>
+        <item>zbradley@grandblancschools.org</item>
+        <item>tbriggs@grandblancschools.org</item>
+        <item>abruin@grandblancschools.org</item>
+        <item>lbrunsko@grandblancschools.org</item>
+        <item>abutzu@grandblancschools.org</item>
+        <item>nbuxbaum@grandblancschools.org</item>
+        <item>rcalo@grandblancschools.org</item>
+        <item>lcampbel@grandblancschools.org</item>
+        <item>ccarmody@grandblancschools.org</item>
+        <item>carney@grandblancschools.org</item>
+        <item>kchurch@grandblancschools.org</item>
+        <item>dclark@grandblancschools.org</item>
+        <item>kclark@grandblancschools.org</item>
+        <item>mclark@grandblancschools.org</item>
+        <item>dclement@grandblancschools.org</item>
+        <item>rcoffman@grandblancschools.org</item>
+        <item>rcoon@grandblancschools.org</item>
+        <item>acottril@grandblancschools.org</item>
+        <item>ccozad@grandblancschools.org</item>
+        <item>lcuccia@grandblancschools.org</item>
+        <item>mdavis2@grandblancschools.org</item>
+        <item>cdecker@grandblancschools.org</item>
+        <item>jdelaney@grandblancschools.org</item>
+        <item>mdoering@grandblancschools.org</item>
+        <item>jdohm@grandblancschools.org</item>
+        <item>sdunk@grandblancschools.org</item>
+        <item>adunning@grandblancschools.org</item>
+        <item>eelias@grandblancschools.org</item>
+        <item>nender@grandblancschools.org</item>
+        <item>jfinkbei@grandblancschools.org</item>
+        <item>mfranzel@grandblancschools.org</item>
+        <item>kfritzsc@grandblancschools.org</item>
+        <item>mgardner@grandblancschools.org</item>
+        <item>kgarey@grandblancschools.org</item>
+        <item>sgarey@grandblancschools.org</item>
+        <item>kgaudet@grandblancschools.org</item>
+        <item>dgibbsha@grandblancschools.org</item>
+        <item>tgidding@grandblancschools.org</item>
+        <item>ggoetzin@grandblancschools.org</item>
+        <item>lgowdy@grandblancschools.org</item>
+        <item>mgraves@grandblancschools.org</item>
+        <item>agreen@grandblancschools.org</item>
+        <item>hgrzymko@grandblancschools.org</item>
+        <item>lgualdon@grandblancschools.org</item>
+        <item>aguerra@grandblancschools.org</item>
+        <item>kgarey@grandblancschools.org</item>
+        <item>phall@grandblancschools.org</item>
+        <item>jhammond@grandblancschools.org</item>
+        <item>bhassenz@grandblancschools.org</item>
+        <item>mheemsot@grandblancschools.org</item>
+        <item>jhentes@grandblancschools.org</item>
+        <item>dholt@grandblancschools.org</item>
+        <item>khowell@grandblancschools.org</item>
+        <item>lhubbs@grandblancschools.org</item>
+        <item>bhugo@grandblancschools.org</item>
+        <item>mhugo@grandblancschools.org</item>
+        <item>chutchis@grandblancschools.org</item>
+        <item>ajacobso@grandblancschools.org</item>
+        <item>ajohnson@grandblancschools.org</item>
+        <item>sjohnson@grandblancschools.org</item>
+        <item>bkehn@grandblancschools.org</item>
+        <item>kkeilitz@grandblancschools.org</item>
+        <item>rkenney@grandblancschools.org</item>
+        <item>nkernen@grandblancschools.org</item>
+        <item>mkildee@grandblancschools.org</item>
+        <item>iking@grandblancschools.org</item>
+        <item>kkish@grandblancschools.org</item>
+        <item>dknapp@grandblancschools.org</item>
+        <item>mlarose@grandblancschools.org</item>
+        <item>jlawrenc@grandblancschools.org</item>
+        <item>tlemaste@grandblancschools.org</item>
+        <item>sli@grandblancschools.org</item>
+        <item>alondrig@grandblancschools.org</item>
+        <item>alundy@grandblancschools.org</item>
+        <item>smareski@grandblancschools.org</item>
+        <item>bmather@grandblancschools.org</item>
+        <item>hmelton@grandblancschools.org</item>
+        <item>mmelton@grandblancschools.org</item>
+        <item>lmeyer@grandblancschools.org</item>
+        <item>jminier@grandblancschools.org</item>
+        <item>jmitchel@grandblancschools.org</item>
+        <item>pmol@grandblancschools.org</item>
+        <item>kmoore@grandblancschools.org</item>
+        <item>pmoore@grandblancschools.org</item>
+        <item>kmorris@grandblancschools.org</item>
+        <item>mnewman@grandblancschools.org</item>
+        <item>tmueller@grandblancschools.org</item>
+        <item>snaddeo@grandblancschools.org</item>
+        <item>dnewton@grandblancschools.org</item>
+        <item>jnichols@grandblancschools.org</item>
+        <item>lotoole@grandblancschools.org</item>
+        <item>kousname@grandblancschools.org</item>
+        <item>dpadgett@grandblancschools.org</item>
+        <item>mparis@grandblancschools.org</item>
+        <item>lparish@grandblancschools.org</item>
+        <item>jpearce@grandblancschools.org</item>
+        <item>mpearce@grandblancschools.org</item>
+        <item>ependerg@grandblancschools.org</item>
+        <item>npeske@grandblancschools.org</item>
+        <item>spiggott@grandblancschools.org</item>
+        <item>ppoelke@grandblancschools.org</item>
+        <item>npopadic@grandblancschools.org</item>
+        <item>tpotteng@grandblancschools.org</item>
+        <item>spowers@grandblancschools.org</item>
+        <item>lraab@grandblancschools.org</item>
+        <item>eralbusky@grandblancschools.org</item>
+        <item>rread@grandblancschools.org</item>
+        <item>areed@grandblancschools.org</item>
+        <item>dretberg@grandblancschools.org</item>
+        <item>kriek@grandblancschools.org</item>
+        <item>nriek@grandblancschools.org</item>
+        <item>jrobert2@grandblancschools.org</item>
+        <item>jroberts@grandblancschools.org</item>
+        <item>trussian@grandblancschools.org</item>
+        <item>jryckaer@grandblancschools.org</item>
+        <item>dsaffron@grandblancschools.org</item>
+        <item>jsalem@grandblancschools.org</item>
+        <item>cschramm@grandblancschools.org</item>
+        <item>aschweit@grandblancschools.org</item>
+        <item>rseeds@grandblancschools.org</item>
+        <item>sseiter@grandblancschools.org</item>
+        <item>dshaver@grandblancschools.org</item>
+        <item>sshaw@grandblancschools.org</item>
+        <item>bshebak@grandblancschools.org</item>
+        <item>lshinaba@grandblancschools.org</item>
+        <item>mshuster@grandblancschools.org</item>
+        <item>gsmith@grandblancschools.org</item>
+        <item>sstockto@grandblancschools.org</item>
+        <item>sstockt2@grandblancschools.org</item>
+        <item>jstuck@grandblancschools.org</item>
+        <item>rtait@grandblancschools.org</item>
+        <item>jtaylor@grandblancschools.org</item>
+        <item>lthurlow@grandblancschools.org</item>
+        <item>ktosh@grandblancschools.org</item>
+        <item>ctrombly@grandblancschools.org</item>
+        <item>purbanik@grandblancschools.org</item>
+        <item>mvanitve@grandblancschools.org</item>
+        <item>kvanover@grandblancschools.org</item>
+        <item>awalroth@grandblancschools.org</item>
+        <item>mwesner@grandblancschools.org</item>
+        <item>hwilling@grandblancschools.org</item>
+        <item>jwilson@grandblancschools.org</item>
+        <item>wwiltse@grandblancschools.org</item>
+        <item>cwood@grandblancschools.org</item>
+        <item>pwray@grandblancschools.org</item>
+        <item>mwyatt@grandblancschools.org</item>
+        <item>jyoungs@grandblancschools.org</item>
+        <item>kyunker@grandblancschools.org</item>
+        <item>tzacek@grandblancschools.org</item>
     </string-array>
 
 
     <string-array name="staff_phones">
-        <!--An entry of "NONE" indicates a staff member without a listed phone number.-->
-        <item>"8105916505"</item>
-        <item>"8105916428"</item>
-        <item>"8105916443"</item>
-        <item>"8105916662"</item>
-        <item>"8105916487"</item>
-        <item>"8105916663"</item>
-        <item>"8105911679"</item>
-        <item>"8105911575"</item>
-        <item>"8105911572"</item>
-        <item>"8105916452"</item>
-        <item>"8105916466"</item>
-        <item>"8105916492"</item>
-        <item>"8105916659"</item>
-        <item>"8105916315"</item>
-        <item>"8105916665"</item>
-        <item>"8105911579"</item>
-        <item>"8105911675"</item>
-        <item>"8105916348"</item>
-        <item>"8105916455"</item>
-        <item>"8105916072"</item>
-        <item>"8105911606"</item>
-        <item>"8105916494"</item>
-        <item>"8105916671"</item>
-        <item>"8105916045"</item>
-        <item>"8105916429"</item>
-        <item>"8105916427"</item>
-        <item>"8105916066"</item>
-        <item>"8105911585"</item>
-        <item>"NONE"</item>
-        <item>"8105916679"</item>
-        <item>"8105916438"</item>
-        <item>"8105911587"</item>
-        <item>"8105916045"</item>
-        <item>"8105916647"</item>
-        <item>"8105911579"</item>
-        <item>"8105916479"</item>
-        <item>"8105911602"</item>
-        <item>"8105916361"</item>
-        <item>"8105916060"</item>
-        <item>"NONE"</item>
-        <item>"8105911584"</item>
-        <item>"8105916108"</item>
-        <item>"8105916468"</item>
-        <item>"8105914302"</item>
-        <item>"8105916475"</item>
-        <item>"8105914301"</item>
-        <item>"8105916493"</item>
-        <item>"8105916071"</item>
-        <item>"8105916467"</item>
-        <item>"8105911663"</item>
-        <item>"8105916102"</item>
-        <item>"NONE"</item>
-        <item>"8105916642"</item>
-        <item>"8105916652"</item>
-        <item>"8105916501"</item>
-        <item>"8105916929"</item>
-        <item>"8105916643"</item>
-        <item>"8105912668"</item>
-        <item>"8105916448"</item>
-        <item>"8105916645"</item>
-        <item>"8105916639"</item>
-        <item>"8105916061"</item>
-        <item>"8105916697"</item>
-        <item>"8105916669"</item>
-        <item>"8105916495"</item>
-        <item>"8105911677"</item>
-        <item>"8105916503"</item>
-        <item>"8105916501"</item>
-        <item>"8105916649"</item>
-        <item>"8105916637"</item>
-        <item>"8105916483"</item>
-        <item>"8105911599"</item>
-        <item>"8105916651"</item>
-        <item>"8105916656"</item>
-        <item>"8105916664"</item>
-        <item>"8105911674"</item>
-        <item>"8105916437"</item>
-        <item>"8105916345"</item>
-        <item>"8105916102"</item>
-        <item>"8105911583"</item>
-        <item>"8105916475"</item>
-        <item>"8105916445"</item>
-        <item>"8105916635"</item>
-        <item>"8105916357"</item>
-        <item>"8105916040"</item>
-        <item>"8105916651"</item>
-        <item>"8105911678"</item>
-        <item>"8105916348"</item>
-        <item>"8105916511"</item>
-        <item>"8105916375"</item>
-        <item>"8105916481"</item>
-        <item>"8105916506"</item>
-        <item>"8105911589"</item>
-        <item>"8105911571"</item>
-        <item>"8105916475"</item>
-        <item>"8105916480"</item>
-        <item>"8105916464"</item>
-        <item>"8105916068"</item>
-        <item>"8105916688"</item>
-        <item>"8105916350"</item>
-        <item>"NONE"</item>
-        <item>"8105916434"</item>
-        <item>"8105916644"</item>
-        <item>"8105916648"</item>
-        <item>"8105916351"</item>
-        <item>"8105916500"</item>
-        <item>"8105916666"</item>
-        <item>"8105916107"</item>
-        <item>"8105911567"</item>
-        <item>"8105916925"</item>
-        <item>"8105916448"</item>
-        <item>"8105911576"</item>
-        <item>"8105911581"</item>
-        <item>"8105911574"</item>
-        <item>"8105916346"</item>
-        <item>"8105916070"</item>
-        <item>"8105916067"</item>
-        <item>"8105916634"</item>
-        <item>"8105916376"</item>
-        <item>"8105916449"</item>
-        <item>"8105916042"</item>
-        <item>"8105914300"</item>
-        <item>"8105916353"</item>
-        <item>"8105916677"</item>
-        <item>"8105916332"</item>
-        <item>"8105911586"</item>
-        <item>"8105916497"</item>
-        <item>"8105911576"</item>
-        <item>"8105911680"</item>
-        <item>"8105916491"</item>
-        <item>"8105916468"</item>
-        <item>"8105916041"</item>
-        <item>"8105916344"</item>
-        <item>"8105916035"</item>
-        <item>"8105916653"</item>
-        <item>"8105916507"</item>
-        <item>"8105916655"</item>
-        <item>"8105911588"</item>
-        <item>"8105916504"</item>
-        <item>"8105916502"</item>
-        <item>"8105916666"</item>
-        <item>"8105911678"</item>
-        <item>"8105916657"</item>
-        <item>"8105916657"</item>
-        <item>"8105916069"</item>
-        <item>"8105916469"</item>
-        <item>"8105911567"</item>
-        <item>"8105911567"</item>
-        <item>"8105916931"</item>
-        <item>"8105911582"</item>
-        <item>"8105916063"</item>
-        <item>"8105916444"</item>
-        <item>"8105916465"</item>
-        <item>"8105916047"</item>
-        <item>"8105916921"</item>
-        <item>"8105916640"</item>
-        <item>"8105916484"</item>
-        <item>"8105916678"</item>
-        <item>"8105916430"</item>
-        <item>"8105916485"</item>
-        <item>"8105911676"</item>
-        <item>"8105916044"</item>
-        <item>"8105911591"</item>
-        <item>"8105916380"</item>
-        <item>"8105911560"</item>
-        <item>"8105916663"</item>
-        <item>"8105916680"</item>
-        <item>"8105916638"</item>
-        <item>"8105916925"</item>
-        <item>"8105916641"</item>
-        <item>"8105916454"</item>
-        <item>"8105916478"</item>
+        <!--An entry of NONE indicates a staff member without a listed phone number.-->
+        <item>8105916505</item>
+        <item>8105916428</item>
+        <item>8105916443</item>
+        <item>8105916662</item>
+        <item>8105916487</item>
+        <item>8105916663</item>
+        <item>8105911679</item>
+        <item>8105911575</item>
+        <item>8105911572</item>
+        <item>8105916452</item>
+        <item>8105916466</item>
+        <item>8105916492</item>
+        <item>8105916659</item>
+        <item>8105916315</item>
+        <item>8105916665</item>
+        <item>8105911579</item>
+        <item>8105911675</item>
+        <item>8105916348</item>
+        <item>8105916455</item>
+        <item>8105916072</item>
+        <item>8105911606</item>
+        <item>8105916494</item>
+        <item>8105916671</item>
+        <item>8105916045</item>
+        <item>8105916429</item>
+        <item>8105916427</item>
+        <item>8105916066</item>
+        <item>8105911585</item>
+        <item>NONE</item>
+        <item>8105916679</item>
+        <item>8105916438</item>
+        <item>8105911587</item>
+        <item>8105916045</item>
+        <item>8105916639</item>
+        <item>8105911579</item>
+        <item>8105916479</item>
+        <item>8105911602</item>
+        <item>8105916361</item>
+        <item>8105916060</item>
+        <item>8105911584</item>
+        <item>NONE</item>
+        <item>8105916108</item>
+        <item>8105916468</item>
+        <item>8105914302</item>
+        <item>8105916475</item>
+        <item>8105914301</item>
+        <item>8105916493</item>
+        <item>8105916071</item>
+        <item>8105916467</item>
+        <item>8105911663</item>
+        <item>8105916102</item>
+        <item>8105916642</item>
+        <item>NONE</item>
+        <item>8105916652</item>
+        <item>8105916501</item>
+        <item>8105916929</item>
+        <item>8105916643</item>
+        <item>8105912668</item>
+        <item>8105916448</item>
+        <item>8105916645</item>
+        <item>8105916061</item>
+        <item>8105916697</item>
+        <item>8105916669</item>
+        <item>8105916495</item>
+        <item>8105911677</item>
+        <item>8105916503</item>
+        <item>8105916501</item>
+        <item>8105916649</item>
+        <item>8105916637</item>
+        <item>8105916483</item>
+        <item>8105911599</item>
+        <item>8105916651</item>
+        <item>8105916656</item>
+        <item>8105916664</item>
+        <item>8105911674</item>
+        <item>8105916437</item>
+        <item>8105916345</item>
+        <item>8105916102</item>
+        <item>8105911583</item>
+        <item>8105916475</item>
+        <item>8105916445</item>
+        <item>8105916635</item>
+        <item>8105916357</item>
+        <item>8105916040</item>
+        <item>8105916651</item>
+        <item>8105911678</item>
+        <item>8105916348</item>
+        <item>8105916511</item>
+        <item>8105916375</item>
+        <item>8105916481</item>
+        <item>8105916506</item>
+        <item>8105911589</item>
+        <item>8105911571</item>
+        <item>8105916475</item>
+        <item>8105916480</item>
+        <item>8105916464</item>
+        <item>8105916068</item>
+        <item>8105916688</item>
+        <item>8105916350</item>
+        <item>8105916434</item>
+        <item>NONE</item>
+        <item>8105916644</item>
+        <item>8105916648</item>
+        <item>8105916351</item>
+        <item>8105916500</item>
+        <item>8105916666</item>
+        <item>8105916107</item>
+        <item>8105911672</item>
+        <item>8105916925</item>
+        <item>8105916448</item>
+        <item>8105911576</item>
+        <item>8105911581</item>
+        <item>8105911574</item>
+        <item>8105916346</item>
+        <item>8105916070</item>
+        <item>8105916067</item>
+        <item>8105916634</item>
+        <item>8105916376</item>
+        <item>8105916449</item>
+        <item>8105916042</item>
+        <item>8105914300</item>
+        <item>8105916353</item>
+        <item>8105916677</item>
+        <item>8105916332</item>
+        <item>8105911586</item>
+        <item>8105916497</item>
+        <item>8105911576</item>
+        <item>8105911680</item>
+        <item>8105916491</item>
+        <item>8105916468</item>
+        <item>8105916041</item>
+        <item>8105916344</item>
+        <item>8105916035</item>
+        <item>8105916653</item>
+        <item>8105916507</item>
+        <item>8105916655</item>
+        <item>8105911588</item>
+        <item>8105916504</item>
+        <item>8105916502</item>
+        <item>8105916666</item>
+        <item>8105911678</item>
+        <item>8105916657</item>
+        <item>8105916069</item>
+        <item>8105916469</item>
+        <item>8105911567</item>
+        <item>8105916931</item>
+        <item>8105911582</item>
+        <item>8105916063</item>
+        <item>8105916444</item>
+        <item>8105916465</item>
+        <item>8105916047</item>
+        <item>8105916921</item>
+        <item>8105916640</item>
+        <item>8105916484</item>
+        <item>8105916678</item>
+        <item>8105916430</item>
+        <item>8105916485</item>
+        <item>8105911676</item>
+        <item>8105916647</item>
+        <item>8105916044</item>
+        <item>8105911591</item>
+        <item>8105916380</item>
+        <item>8105911560</item>
+        <item>8105916663</item>
+        <item>8105916680</item>
+        <item>8105916638</item>
+        <item>8105916925</item>
+        <item>8105916641</item>
+        <item>8105916454</item>
+        <item>8105916478</item>
     </string-array>
 
     <string-array name="sports">
