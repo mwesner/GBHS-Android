@@ -457,176 +457,176 @@
 
     <string-array name="staff_phones">
         <!--An entry of NONE indicates a staff member without a listed phone number.-->
-        <item>8105916505</item>
-        <item>8105916428</item>
-        <item>8105916443</item>
-        <item>8105916662</item>
-        <item>8105916487</item>
-        <item>8105916663</item>
-        <item>8105911679</item>
-        <item>8105911575</item>
-        <item>8105911572</item>
-        <item>8105916452</item>
-        <item>8105916466</item>
-        <item>8105916492</item>
-        <item>8105916659</item>
-        <item>8105916315</item>
-        <item>8105916665</item>
-        <item>8105911579</item>
-        <item>8105911675</item>
-        <item>8105916348</item>
-        <item>8105916455</item>
-        <item>8105916072</item>
-        <item>8105911606</item>
-        <item>8105916494</item>
-        <item>8105916671</item>
-        <item>8105916045</item>
-        <item>8105916429</item>
-        <item>8105916427</item>
-        <item>8105916066</item>
-        <item>8105911585</item>
+        <item>(810) 591–6505</item>
+        <item>(810) 591–6428</item>
+        <item>(810) 591–6443</item>
+        <item>(810) 591–6662</item>
+        <item>(810) 591–6487</item>
+        <item>(810) 591–6663</item>
+        <item>(810) 591–1679</item>
+        <item>(810) 591–1575</item>
+        <item>(810) 591–1572</item>
+        <item>(810) 591–6452</item>
+        <item>(810) 591–6466</item>
+        <item>(810) 591–6492</item>
+        <item>(810) 591–6659</item>
+        <item>(810) 591–6315</item>
+        <item>(810) 591–6665</item>
+        <item>(810) 591–1579</item>
+        <item>(810) 591–1675</item>
+        <item>(810) 591–6348</item>
+        <item>(810) 591–6455</item>
+        <item>(810) 591–6072</item>
+        <item>(810) 591–1606</item>
+        <item>(810) 591–6494</item>
+        <item>(810) 591–6671</item>
+        <item>(810) 591–6045</item>
+        <item>(810) 591–6429</item>
+        <item>(810) 591–6427</item>
+        <item>(810) 591–6066</item>
+        <item>(810) 591–1585</item>
         <item>NONE</item>
-        <item>8105916679</item>
-        <item>8105916438</item>
-        <item>8105911587</item>
-        <item>8105916045</item>
-        <item>8105916639</item>
-        <item>8105911579</item>
-        <item>8105916479</item>
-        <item>8105911602</item>
-        <item>8105916361</item>
-        <item>8105916060</item>
-        <item>8105911584</item>
+        <item>(810) 591–6679</item>
+        <item>(810) 591–6438</item>
+        <item>(810) 591–1587</item>
+        <item>(810) 591–6045</item>
+        <item>(810) 591–6639</item>
+        <item>(810) 591–1579</item>
+        <item>(810) 591–6479</item>
+        <item>(810) 591–1602</item>
+        <item>(810) 591–6361</item>
+        <item>(810) 591–6060</item>
+        <item>(810) 591–1584</item>
         <item>NONE</item>
-        <item>8105916108</item>
-        <item>8105916468</item>
-        <item>8105914302</item>
-        <item>8105916475</item>
-        <item>8105914301</item>
-        <item>8105916493</item>
-        <item>8105916071</item>
-        <item>8105916467</item>
-        <item>8105911663</item>
-        <item>8105916102</item>
-        <item>8105916642</item>
+        <item>(810) 591–6108</item>
+        <item>(810) 591–6468</item>
+        <item>(810) 591–4302</item>
+        <item>(810) 591–6475</item>
+        <item>(810) 591–4301</item>
+        <item>(810) 591–6493</item>
+        <item>(810) 591–6071</item>
+        <item>(810) 591–6467</item>
+        <item>(810) 591–1663</item>
+        <item>(810) 591–6102</item>
+        <item>(810) 591–6642</item>
         <item>NONE</item>
-        <item>8105916652</item>
-        <item>8105916501</item>
-        <item>8105916929</item>
-        <item>8105916643</item>
-        <item>8105912668</item>
-        <item>8105916448</item>
-        <item>8105916645</item>
-        <item>8105916061</item>
-        <item>8105916697</item>
-        <item>8105916669</item>
-        <item>8105916495</item>
-        <item>8105911677</item>
-        <item>8105916503</item>
-        <item>8105916501</item>
-        <item>8105916649</item>
-        <item>8105916637</item>
-        <item>8105916483</item>
-        <item>8105911599</item>
-        <item>8105916651</item>
-        <item>8105916656</item>
-        <item>8105916664</item>
-        <item>8105911674</item>
-        <item>8105916437</item>
-        <item>8105916345</item>
-        <item>8105916102</item>
-        <item>8105911583</item>
-        <item>8105916475</item>
-        <item>8105916445</item>
-        <item>8105916635</item>
-        <item>8105916357</item>
-        <item>8105916040</item>
-        <item>8105916651</item>
-        <item>8105911678</item>
-        <item>8105916348</item>
-        <item>8105916511</item>
-        <item>8105916375</item>
-        <item>8105916481</item>
-        <item>8105916506</item>
-        <item>8105911589</item>
-        <item>8105911571</item>
-        <item>8105916475</item>
-        <item>8105916480</item>
-        <item>8105916464</item>
-        <item>8105916068</item>
-        <item>8105916688</item>
-        <item>8105916350</item>
-        <item>8105916434</item>
+        <item>(810) 591–6652</item>
+        <item>(810) 591–6501</item>
+        <item>(810) 591–6929</item>
+        <item>(810) 591–6643</item>
+        <item>(810) 591–2668</item>
+        <item>(810) 591–6448</item>
+        <item>(810) 591–6645</item>
+        <item>(810) 591–6061</item>
+        <item>(810) 591–6697</item>
+        <item>(810) 591–6669</item>
+        <item>(810) 591–6495</item>
+        <item>(810) 591–1677</item>
+        <item>(810) 591–6503</item>
+        <item>(810) 591–6501</item>
+        <item>(810) 591–6649</item>
+        <item>(810) 591–6637</item>
+        <item>(810) 591–6483</item>
+        <item>(810) 591–1599</item>
+        <item>(810) 591–6651</item>
+        <item>(810) 591–6656</item>
+        <item>(810) 591–6664</item>
+        <item>(810) 591–1674</item>
+        <item>(810) 591–6437</item>
+        <item>(810) 591–6345</item>
+        <item>(810) 591–6102</item>
+        <item>(810) 591–1583</item>
+        <item>(810) 591–6475</item>
+        <item>(810) 591–6445</item>
+        <item>(810) 591–6635</item>
+        <item>(810) 591–6357</item>
+        <item>(810) 591–6040</item>
+        <item>(810) 591–6651</item>
+        <item>(810) 591–1678</item>
+        <item>(810) 591–6348</item>
+        <item>(810) 591–6511</item>
+        <item>(810) 591–6375</item>
+        <item>(810) 591–6481</item>
+        <item>(810) 591–6506</item>
+        <item>(810) 591–1589</item>
+        <item>(810) 591–1571</item>
+        <item>(810) 591–6475</item>
+        <item>(810) 591–6480</item>
+        <item>(810) 591–6464</item>
+        <item>(810) 591–6068</item>
+        <item>(810) 591–6688</item>
+        <item>(810) 591–6350</item>
+        <item>(810) 591–6434</item>
         <item>NONE</item>
-        <item>8105916644</item>
-        <item>8105916648</item>
-        <item>8105916351</item>
-        <item>8105916500</item>
-        <item>8105916666</item>
-        <item>8105916107</item>
-        <item>8105911672</item>
-        <item>8105916925</item>
-        <item>8105916448</item>
-        <item>8105911576</item>
-        <item>8105911581</item>
-        <item>8105911574</item>
-        <item>8105916346</item>
-        <item>8105916070</item>
-        <item>8105916067</item>
-        <item>8105916634</item>
-        <item>8105916376</item>
-        <item>8105916449</item>
-        <item>8105916042</item>
-        <item>8105914300</item>
-        <item>8105916353</item>
-        <item>8105916677</item>
-        <item>8105916332</item>
-        <item>8105911586</item>
-        <item>8105916497</item>
-        <item>8105911576</item>
-        <item>8105911680</item>
-        <item>8105916491</item>
-        <item>8105916468</item>
-        <item>8105916041</item>
-        <item>8105916344</item>
-        <item>8105916035</item>
-        <item>8105916653</item>
-        <item>8105916507</item>
-        <item>8105916655</item>
-        <item>8105911588</item>
-        <item>8105916504</item>
-        <item>8105916502</item>
-        <item>8105916666</item>
-        <item>8105911678</item>
-        <item>8105916657</item>
-        <item>8105916069</item>
-        <item>8105916469</item>
-        <item>8105911567</item>
-        <item>8105916931</item>
-        <item>8105911582</item>
-        <item>8105916063</item>
-        <item>8105916444</item>
-        <item>8105916465</item>
-        <item>8105916047</item>
-        <item>8105916921</item>
-        <item>8105916640</item>
-        <item>8105916484</item>
-        <item>8105916678</item>
-        <item>8105916430</item>
-        <item>8105916485</item>
-        <item>8105911676</item>
-        <item>8105916647</item>
-        <item>8105916044</item>
-        <item>8105911591</item>
-        <item>8105916380</item>
-        <item>8105911560</item>
-        <item>8105916663</item>
-        <item>8105916680</item>
-        <item>8105916638</item>
-        <item>8105916925</item>
-        <item>8105916641</item>
-        <item>8105916454</item>
-        <item>8105916478</item>
+        <item>(810) 591–6644</item>
+        <item>(810) 591–6648</item>
+        <item>(810) 591–6351</item>
+        <item>(810) 591–6500</item>
+        <item>(810) 591–6666</item>
+        <item>(810) 591–6107</item>
+        <item>(810) 591–1672</item>
+        <item>(810) 591–6925</item>
+        <item>(810) 591–6448</item>
+        <item>(810) 591–1576</item>
+        <item>(810) 591–1581</item>
+        <item>(810) 591–1574</item>
+        <item>(810) 591–6346</item>
+        <item>(810) 591–6070</item>
+        <item>(810) 591–6067</item>
+        <item>(810) 591–6634</item>
+        <item>(810) 591–6376</item>
+        <item>(810) 591–6449</item>
+        <item>(810) 591–6042</item>
+        <item>(810) 591–4300</item>
+        <item>(810) 591–6353</item>
+        <item>(810) 591–6677</item>
+        <item>(810) 591–6332</item>
+        <item>(810) 591–1586</item>
+        <item>(810) 591–6497</item>
+        <item>(810) 591–1576</item>
+        <item>(810) 591–1680</item>
+        <item>(810) 591–6491</item>
+        <item>(810) 591–6468</item>
+        <item>(810) 591–6041</item>
+        <item>(810) 591–6344</item>
+        <item>(810) 591–6035</item>
+        <item>(810) 591–6653</item>
+        <item>(810) 591–6507</item>
+        <item>(810) 591–6655</item>
+        <item>(810) 591–1588</item>
+        <item>(810) 591–6504</item>
+        <item>(810) 591–6502</item>
+        <item>(810) 591–6666</item>
+        <item>(810) 591–1678</item>
+        <item>(810) 591–6657</item>
+        <item>(810) 591–6069</item>
+        <item>(810) 591–6469</item>
+        <item>(810) 591–1567</item>
+        <item>(810) 591–6931</item>
+        <item>(810) 591–1582</item>
+        <item>(810) 591–6063</item>
+        <item>(810) 591–6444</item>
+        <item>(810) 591–6465</item>
+        <item>(810) 591–6047</item>
+        <item>(810) 591–6921</item>
+        <item>(810) 591–6640</item>
+        <item>(810) 591–6484</item>
+        <item>(810) 591–6678</item>
+        <item>(810) 591–6430</item>
+        <item>(810) 591–6485</item>
+        <item>(810) 591–1676</item>
+        <item>(810) 591–6647</item>
+        <item>(810) 591–6044</item>
+        <item>(810) 591–1591</item>
+        <item>(810) 591–6380</item>
+        <item>(810) 591–1560</item>
+        <item>(810) 591–6663</item>
+        <item>(810) 591–6680</item>
+        <item>(810) 591–6638</item>
+        <item>(810) 591–6925</item>
+        <item>(810) 591–6641</item>
+        <item>(810) 591–6454</item>
+        <item>(810) 591–6478</item>
     </string-array>
 
     <string-array name="sports">
