@@ -169,7 +169,7 @@
         <item>Gibbs-halm, Deborah</item>
         <item>Giddings, Tonya</item>
         <item>Goetzinger, Gary</item>
-        <item>Gowdy, La\'rhonda</item>
+        <item>Gowdy, La\'Rhonda</item>
         <item>Graves, Megan</item>
         <item>Green, Al</item>
         <item>Grzymkowski, Heather</item>
@@ -220,7 +220,7 @@
         <item>Naddeo, Sara</item>
         <item>Newton, Dana</item>
         <item>Nicholson, James</item>
-        <item>O\'toole, Lia</item>
+        <item>O\'Toole, Lia</item>
         <item>Ousnamer, Karen</item>
         <item>Padgett, David</item>
         <item>Paris, Michael</item>
@@ -282,6 +282,7 @@
     </string-array>
 
     <string-array name="staff_emails">
+		<!--An entry of "NONE" indicates a staff member without a listed email.-->
         <item>sallswed@grandblancschools.org</item>
         <item>sapplebe@grandblancschools.org</item>
         <item>narakely@grandblancschools.org</item>
@@ -453,7 +454,6 @@
         <item>kyunker@grandblancschools.org</item>
         <item>tzacek@grandblancschools.org</item>
     </string-array>
-
 
     <string-array name="staff_phones">
         <!--An entry of NONE indicates a staff member without a listed phone number.-->
