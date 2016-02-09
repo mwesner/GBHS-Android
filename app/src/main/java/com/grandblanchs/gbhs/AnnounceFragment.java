@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,8 @@ public class AnnounceFragment extends Fragment {
 
     ScrollView scrNotification;
     TextView txtNotification;
+
+    SwipeRefreshLayout swipeLayout;
 
     CharSequence notification;
 
@@ -47,6 +50,8 @@ public class AnnounceFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_layout);
+
         scrNotification = (ScrollView) view.findViewById(R.id.scrNotification);
         txtNotification = (TextView) view.findViewById(R.id.txtNotification);
 
@@ -64,7 +69,7 @@ public class AnnounceFragment extends Fragment {
                 setNotification();
             }
 
-            text = savedInstanceState.getStringArrayList("Testing");
+            text = savedInstanceState.getStringArrayList("Text");
             sort = savedInstanceState.getIntegerArrayList("Sort");
 
             adapter = new AnnounceAdapter(getActivity());
@@ -79,6 +84,15 @@ public class AnnounceFragment extends Fragment {
 
             setAnnouncements();
         }
+
+        swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @SuppressWarnings("unchecked")
+            @Override
+            public void onRefresh() {
+                swipeLayout.setRefreshing(true);
+                new AnnounceScrape().execute();
+            }
+        });
     }
 
     public void setNotification() {
@@ -122,7 +136,7 @@ public class AnnounceFragment extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        outState.putStringArrayList("Testing", text);
+        outState.putStringArrayList("Text", text);
         outState.putIntegerArrayList("Sort", sort);
 
         outState.putCharSequence("Notification", notification);
@@ -152,6 +166,12 @@ public class AnnounceFragment extends Fragment {
         @Override
         protected Void doInBackground(Void... voids) {
             //Scrape the daily announcements into a list.
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    swipeLayout.setEnabled(false);
+                }
+            });
 
             adapter = new AnnounceAdapter(getActivity());
             text.clear();
@@ -192,6 +212,8 @@ public class AnnounceFragment extends Fragment {
             super.onPostExecute(aVoid);
             parseAnnouncements();
             setAnnouncements();
+            swipeLayout.setEnabled(true);
+            swipeLayout.setRefreshing(false);
         }
     }
 }

@@ -30,6 +30,9 @@
     <string name="openweb">Open website</string>
     <string name="openapp">Open app</string>
 
+    <string name="PhoneWarn">Phones ring into the classroom so please make an effort to call before/after school or during a conference period.</string>
+    <string name="Continue">Continue</string>
+
     <!--Buttons-->
     <string name="CalendarWeb">Open 2015–2016 Calendar</string>
     <string name="SportsSchedule">Open Schedule Star</string>
