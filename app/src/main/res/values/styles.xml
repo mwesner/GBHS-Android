@@ -6,12 +6,21 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/colorTextPrimary</item>
 
         <item name="alertDialogTheme">@style/AppCompatAlertDialogStyle</item>
         <item name="toolbarStyle">@style/ToolBarStyle</item>
     </style>
 
     <style name="ActivityTheme" parent="AppTheme"/>
+
+    <style name="NavTheme" parent="AppTheme">
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
 
     <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
         <!--Intentional (for readability) -->
