@@ -22,7 +22,7 @@ android {
 
     defaultConfig {
         applicationId "com.grandblanchs.gbhs"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 23
         versionCode 3
         versionName "1.0"
@@ -63,4 +63,5 @@ dependencies {
     compile 'org.jsoup:jsoup:1.8.3'
     compile 'joda-time:joda-time:2.9.1'
     compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'com.vimeo.android.deeplink:vimeo-deeplink:1.0.0'
 }
