@@ -124,7 +124,10 @@ public class CalendarFragment extends Fragment {
         outState.putStringArray("eventDescription", eventDescription);
         outState.putStringArray("eventTime", eventTime);
         outState.putString("selectedDate", selectedDate);
-        outState.putLong("calendarDate", calendarDate);
+
+        if (calendarDate != null) {
+            outState.putLong("calendarDate", calendarDate);
+        }
 
         outState.putInt("calendarYear", calendarYear);
         outState.putInt("calendarMonth", calendarMonth);
