@@ -29,23 +29,27 @@ public class MainActivity extends AppCompatActivity {
     //TODO: (Wesner) Ensure these keys are replaced with the active release keys before publishing to Google Play.
     private static final String TWITTER_KEY = "ZJnydLJQ8PPjT8hxt5znyscnj";
     private static final String TWITTER_SECRET = "gzSfM0fG4fFaHuQUb46SvWEM30v9XkJih0RVJiB3nEisDZfICV";
-    DrawerLayout mDrawerLayout;
-    NavigationView navigationView;
-    int prevCount;
-    int selectedMenuItem;
-    ArrayList<String> prevTitles = new ArrayList<>();
-    ArrayList<Integer> prevMenuItems = new ArrayList<>();
-    FragmentManager fm;
-    TwitterFragment twitterFrag = new TwitterFragment();
-    MapFragment mapFrag = new MapFragment();
-    CalendarFragment calFrag = new CalendarFragment();
-    AnnounceFragment announceFrag = new AnnounceFragment();
-    CollegeFragment collegeFrag = new CollegeFragment();
-    AdminFragment adminFrag = new AdminFragment();
-    StaffFragment staffFrag = new StaffFragment();
-    ExternalFragment externalFrag = new ExternalFragment();
-    GuidanceFragment guidanceFrag = new GuidanceFragment();
-    SportsFragment sportsFrag = new SportsFragment();
+
+    private DrawerLayout mDrawerLayout;
+    private NavigationView navigationView;
+
+    private int prevCount;
+    private int selectedMenuItem;
+
+    private ArrayList<String> prevTitles = new ArrayList<>();
+    private ArrayList<Integer> prevMenuItems = new ArrayList<>();
+
+    private FragmentManager fm;
+    private static final TwitterFragment twitterFrag = new TwitterFragment();
+    private static final MapFragment mapFrag = new MapFragment();
+    private static final CalendarFragment calFrag = new CalendarFragment();
+    private static final AnnounceFragment announceFrag = new AnnounceFragment();
+    private static final CollegeFragment collegeFrag = new CollegeFragment();
+    private static final AdminFragment adminFrag = new AdminFragment();
+    private static final StaffFragment staffFrag = new StaffFragment();
+    private static final ExternalFragment externalFrag = new ExternalFragment();
+    private static final GuidanceFragment guidanceFrag = new GuidanceFragment();
+    private static final SportsFragment sportsFrag = new SportsFragment();
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {

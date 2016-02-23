@@ -12,10 +12,6 @@ import android.widget.ProgressBar;
 
 public class AdminFragment extends Fragment {
 
-    ProgressBar prog;
-    ListView lst_admin;
-    String[] names;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,10 +24,10 @@ public class AdminFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        prog = (ProgressBar) view.findViewById(R.id.prog);
-        lst_admin = (ListView) view.findViewById(R.id.lst_admin);
+        ProgressBar prog = (ProgressBar) view.findViewById(R.id.prog);
+        ListView lst_admin = (ListView) view.findViewById(R.id.lst_admin);
 
-        names = getResources().getStringArray(R.array.admin_names);
+        String[] names = getResources().getStringArray(R.array.admin_names);
 
         ListAdapter adminAdapter = new OfficeAdapter
                 (getActivity(), 0, names);
@@ -39,6 +35,6 @@ public class AdminFragment extends Fragment {
         lst_admin.setAdapter(adminAdapter);
 
         FadeAnimation f = new FadeAnimation();
-        f.start(lst_admin, null, prog);
+        f.start(lst_admin, prog);
     }
 }

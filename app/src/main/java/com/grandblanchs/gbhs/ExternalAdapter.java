@@ -7,12 +7,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class ExternalAdapter extends ArrayAdapter<String> {
+class ExternalAdapter extends ArrayAdapter<String> {
     private static final int TYPE_ITEM = 0;
 
-    String[] externalarray;
+    private final String[] externalarray;
 
-    public ExternalAdapter(Context context, String[] external) {
+    ExternalAdapter(Context context, String[] external) {
         super(context, 0, external);
         this.externalarray = external;
     }

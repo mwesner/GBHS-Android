@@ -15,15 +15,13 @@ class AnnounceAdapter extends BaseAdapter {
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_SEPARATOR = 1;
     private static final int TYPE_MAX_COUNT = TYPE_SEPARATOR + 1;
-    Context c;
-    private ArrayList<String> mData = new ArrayList<>();
-    private LayoutInflater mInflater;
+    private static final ArrayList<String> mData = new ArrayList<>();
+    private static final TreeSet<Integer> mSeparatorsSet = new TreeSet<>();
 
-    private TreeSet<Integer> mSeparatorsSet = new TreeSet<>();
+    private final LayoutInflater mInflater;
 
     public AnnounceAdapter(Context context) {
-        c = context;
-        mInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     public void addItem(final String item) {

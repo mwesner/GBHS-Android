@@ -12,17 +12,6 @@ import android.widget.TextView;
 
 public class AboutActivity extends AppCompatActivity {
 
-    Resources res;
-
-    String[] SYD; //Second year developer names
-    String[] FYD; //First year developer names
-
-    TextView secondyear1;
-    TextView secondyear2;
-
-    TextView firstyear1;
-    TextView firstyear2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,16 +33,16 @@ public class AboutActivity extends AppCompatActivity {
         TextView dev = (TextView) findViewById(R.id.txtDev);
         dev.setMovementMethod(LinkMovementMethod.getInstance());
 
-        res = getResources();
+        Resources res = getResources();
 
-        SYD = res.getStringArray(R.array.SecondYearDevs);
-        FYD = res.getStringArray(R.array.FirstYearDevs);
+        String[] SYD = res.getStringArray(R.array.SecondYearDevs); //Second year developer names
+        String[] FYD = res.getStringArray(R.array.FirstYearDevs); //First year developer names
 
-        secondyear1 = (TextView) findViewById(R.id.txtSYD1);
-        secondyear2 = (TextView) findViewById(R.id.txtSYD2);
+        TextView secondyear1 = (TextView) findViewById(R.id.txtSYD1);
+        TextView secondyear2 = (TextView) findViewById(R.id.txtSYD2);
 
-        firstyear1 = (TextView) findViewById(R.id.txtFYD1);
-        firstyear2 = (TextView) findViewById(R.id.txtFYD2);
+        TextView firstyear1 = (TextView) findViewById(R.id.txtFYD1);
+        TextView firstyear2 = (TextView) findViewById(R.id.txtFYD2);
 
         secondyear1.setText(SYD[0]);
         secondyear2.setText(SYD[1]);

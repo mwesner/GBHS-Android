@@ -8,11 +8,11 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 
-public class GradesDialog {
+class GradesDialog {
 
-    private Activity mActivity;
+    private final Activity mActivity;
 
-    public GradesDialog(Activity context) {
+    GradesDialog(Activity context) {
         mActivity = context;
     }
 

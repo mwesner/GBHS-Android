@@ -13,11 +13,6 @@ import android.widget.ProgressBar;
 
 public class GuidanceFragment extends Fragment {
 
-    ProgressBar prog;
-    ListView lst_guidance;
-
-    String[] names;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,10 +23,10 @@ public class GuidanceFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        prog = (ProgressBar) view.findViewById(R.id.prog);
-        lst_guidance = (ListView) view.findViewById(R.id.lst_guidance);
+        ProgressBar prog = (ProgressBar) view.findViewById(R.id.prog);
+        ListView lst_guidance = (ListView) view.findViewById(R.id.lst_guidance);
 
-        names = getResources().getStringArray(R.array.guidance_names);
+        String[] names = getResources().getStringArray(R.array.guidance_names);
 
         ListAdapter guidanceAdapter = new OfficeAdapter
                 (getActivity(), 1, names);
@@ -39,6 +34,6 @@ public class GuidanceFragment extends Fragment {
         lst_guidance.setAdapter(guidanceAdapter);
 
         FadeAnimation f = new FadeAnimation();
-        f.start(lst_guidance, null, prog);
+        f.start(lst_guidance, prog);
     }
 }

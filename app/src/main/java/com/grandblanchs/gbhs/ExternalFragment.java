@@ -12,10 +12,10 @@ import android.widget.ProgressBar;
 
 public class ExternalFragment extends Fragment {
 
-    ListView lstExternal;
-    ProgressBar prog;
+    private ListView lstExternal;
+    private ProgressBar prog;
 
-    String[] external;
+    private String[] external;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -41,6 +41,6 @@ public class ExternalFragment extends Fragment {
 
         lstExternal.setAdapter(adapter);
         FadeAnimation f = new FadeAnimation();
-        f.start(lstExternal, null, prog);
+        f.start(lstExternal, prog);
     }
 }
