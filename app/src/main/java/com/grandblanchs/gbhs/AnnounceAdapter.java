@@ -15,9 +15,9 @@ class AnnounceAdapter extends BaseAdapter {
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_SEPARATOR = 1;
     private static final int TYPE_MAX_COUNT = TYPE_SEPARATOR + 1;
-    private static final ArrayList<String> mData = new ArrayList<>();
-    private static final TreeSet<Integer> mSeparatorsSet = new TreeSet<>();
 
+    private final ArrayList<String> mData = new ArrayList<>();
+    private final TreeSet<Integer> mSeparatorsSet = new TreeSet<>();
     private final LayoutInflater mInflater;
 
     public AnnounceAdapter(Context context) {

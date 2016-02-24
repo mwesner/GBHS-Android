@@ -60,6 +60,7 @@ public class AnnounceFragment extends Fragment {
         lstAnnounce.setFastScrollEnabled(true);
 
         if (savedInstanceState == null) {
+            swipeLayout.setRefreshing(true);
             new CheckNotifications().execute();
             new AnnounceScrape().execute();
         } else {
