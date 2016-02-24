@@ -244,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
         outState.putInt("prevCount", prevCount);
     }
 
-    public int getRandomHeaderLayout() {
+    private static int getRandomHeaderLayout() {
         //Randomize the header image.
         Random rand = new Random();
 

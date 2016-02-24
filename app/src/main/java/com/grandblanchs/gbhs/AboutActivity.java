@@ -1,5 +1,6 @@
 package com.grandblanchs.gbhs;
 
+import android.annotation.SuppressLint;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 public class AboutActivity extends AppCompatActivity {
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
