@@ -36,28 +36,27 @@ public class CalendarFragment extends Fragment {
     //Scrape iCal feed
     //Add events into a list that shows on date change
 
-    LinearLayout calendarLayout;
+    private LinearLayout calendarLayout;
 
-    CalendarView calendarView;
-    ListView lstInfo;
-    Button btnCal;
-    TextView txtError;
+    private CalendarView calendarView;
+    private ListView lstInfo;
+    private TextView txtError;
 
-    ProgressBar prog;
-    List<String> eventList = new ArrayList<>();
-    int eventCount;
+    private ProgressBar prog;
+    static final List<String> eventList = new ArrayList<>();
+    private int eventCount;
 
-    String[] calArray;
-    String[] eventDescription;
-    String[] eventTime;
+    private String[] calArray;
+    private String[] eventDescription;
+    private String[] eventTime;
 
-    String selectedDate;
+    private String selectedDate;
 
-    int calendarYear;
-    int calendarMonth;
-    int calendarDay;
+    private int calendarYear;
+    private int calendarMonth;
+    private int calendarDay;
 
-    Long calendarDate;
+    private Long calendarDate;
 
     private CalendarAdapter mAdapter;
 
@@ -76,7 +75,7 @@ public class CalendarFragment extends Fragment {
 
         calendarView = (CalendarView) view.findViewById(R.id.calendarView);
         lstInfo = (ListView) view.findViewById(R.id.lstInfo);
-        btnCal = (Button) view.findViewById(R.id.btnCal);
+        Button btnCal = (Button) view.findViewById(R.id.btnCal);
         prog = (ProgressBar) view.findViewById(R.id.progCalendar);
         txtError = (TextView) view.findViewById(R.id.txtError);
 
@@ -109,7 +108,7 @@ public class CalendarFragment extends Fragment {
                 setEvents(calendarYear, calendarMonth, calendarDay, false, false);
             } else {
                 FadeAnimation f = new FadeAnimation();
-                f.start(txtError, null, prog);
+                f.start(txtError, prog);
                 Crashlytics.log("calArray was null when restoring from savedInstanceState");
 
             }
@@ -124,14 +123,17 @@ public class CalendarFragment extends Fragment {
         outState.putStringArray("eventDescription", eventDescription);
         outState.putStringArray("eventTime", eventTime);
         outState.putString("selectedDate", selectedDate);
-        outState.putLong("calendarDate", calendarDate);
+
+        if (calendarDate != null) {
+            outState.putLong("calendarDate", calendarDate);
+        }
 
         outState.putInt("calendarYear", calendarYear);
         outState.putInt("calendarMonth", calendarMonth);
         outState.putInt("calendarDay", calendarDay);
     }
 
-    public void setEvents(int year, int month, int day, final boolean newCal, final boolean calVisible) {
+    private void setEvents(int year, int month, int day, final boolean newCal, final boolean calVisible) {
 
         if (newCal) {
             //Activity is new; today is selected.
@@ -165,7 +167,7 @@ public class CalendarFragment extends Fragment {
 
         if (getActivity() != null) {
             //Set the content of the ListView
-            mAdapter = new CalendarAdapter(getActivity(), eventList);
+            mAdapter = new CalendarAdapter(getActivity());
 
             getActivity().runOnUiThread(new Runnable() {
                 @Override
@@ -174,7 +176,7 @@ public class CalendarFragment extends Fragment {
 
                     if (!calVisible) {
                         FadeAnimation f = new FadeAnimation();
-                        f.start(calendarLayout, null, prog);
+                        f.start(calendarLayout, prog);
                     }
 
                 }
@@ -285,7 +287,7 @@ public class CalendarFragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
                         FadeAnimation f = new FadeAnimation();
-                        f.start(txtError, null, prog);
+                        f.start(txtError, prog);
                         Crashlytics.logException(e);
                     }
                 });

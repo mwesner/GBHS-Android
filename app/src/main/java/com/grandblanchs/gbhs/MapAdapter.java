@@ -8,10 +8,10 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 
-public class MapAdapter extends ArrayAdapter<String> {
-    String maptype[];
+class MapAdapter extends ArrayAdapter<String> {
+    private final String maptype[];
 
-    public MapAdapter(Context context, String[] type) {
+    MapAdapter(Context context, String[] type) {
         super(context, R.layout.item_map, R.id.txtmaptype, type);
         this.maptype = type;
     }

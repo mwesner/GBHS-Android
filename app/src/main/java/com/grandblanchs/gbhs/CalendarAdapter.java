@@ -9,13 +9,13 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class CalendarAdapter extends ArrayAdapter<String> {
+class CalendarAdapter extends ArrayAdapter<String> {
 
-    List<String> calendarlist;
+    private final List<String> calendarlist;
 
-    public CalendarAdapter(Context context, List<String> calendar) {
-        super(context, R.layout.item_calendar, calendar);
-        this.calendarlist = calendar;
+    CalendarAdapter(Context context) {
+        super(context, R.layout.item_calendar, CalendarFragment.eventList);
+        this.calendarlist = CalendarFragment.eventList;
     }
 
     @Override

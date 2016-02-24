@@ -16,23 +16,25 @@ import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class StaffAdapter extends BaseAdapter implements Filterable {
+class StaffAdapter extends BaseAdapter implements Filterable {
 
-    Context context;
+    private final Context context;
 
-    private ItemFilter mFilter = new ItemFilter();
-    private List<String> originalNames;
+    private final ItemFilter mFilter = new ItemFilter();
+    private final List<String> originalNames;
     private List<String> filteredNames;
-    private List<String> originalEmails;
+    private final List<String> originalEmails;
     private List<String> filteredEmails;
-    private List<String> originalPhones;
+    private final List<String> originalPhones;
     private List<String> filteredPhones;
 
 
-    public StaffAdapter(Context context, List<String> names, List<String> emails, List<String> phones) {
+    StaffAdapter(Context context, List<String> names, List<String> emails, List<String> phones) {
 
         this.context = context;
 
@@ -96,16 +98,20 @@ public class StaffAdapter extends BaseAdapter implements Filterable {
             }
         });
 
-        if (filteredEmails.get(position).equals("NONE")) {
-            holder.btn_email.setVisibility(View.INVISIBLE);
-        }else{
-            holder.btn_email.setVisibility(View.VISIBLE);
-        }
+        try {
+            if (filteredEmails.get(position).equals("NONE")) {
+                holder.btn_email.setVisibility(View.INVISIBLE);
+            } else {
+                holder.btn_email.setVisibility(View.VISIBLE);
+            }
 
-        if (filteredPhones.get(position).equals("NONE")) {
-            holder.btn_call.setVisibility(View.INVISIBLE);
-        }else{
-            holder.btn_call.setVisibility(View.VISIBLE);
+            if (filteredPhones.get(position).equals("NONE")) {
+                holder.btn_call.setVisibility(View.INVISIBLE);
+            } else {
+                holder.btn_call.setVisibility(View.VISIBLE);
+            }
+        }catch (IndexOutOfBoundsException e) {
+            //Prevents crash on screen rotation
         }
 
         holder.btn_call.setOnClickListener(new ImageButton.OnClickListener() {
@@ -121,12 +127,12 @@ public class StaffAdapter extends BaseAdapter implements Filterable {
         return mFilter;
     }
 
-    public void emailer(String a) {
+    private void emailer(String a) {
         Intent emailing = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", a, null));
         context.startActivity(emailing);
     }
 
-    public void caller(final String a, String b) {
+    private void caller(final String a, String b) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context)
                 .setTitle(b)
                 .setIcon(R.drawable.ic_action_call_dark)

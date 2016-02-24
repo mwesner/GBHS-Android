@@ -5,8 +5,7 @@
     android:fadingEdgeLength="4dp"
     android:padding="16dp"
     android:requiresFadingEdge="vertical"
-    android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
-    tools:context="com.grandblanchs.gbhs.Info">
+    android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
 
     <LinearLayout
         android:layout_width="match_parent"

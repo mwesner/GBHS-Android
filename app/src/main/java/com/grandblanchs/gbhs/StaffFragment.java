@@ -18,13 +18,7 @@ import java.util.List;
 public class StaffFragment extends Fragment {
 
     static TextView staffSearch;
-    ProgressBar prog;
-    ListView lst_staff;
-    StaffAdapter adapter;
-
-    List<String> staffNames;
-    List<String> staffEmails;
-    List<String> staffPhones;
+    private StaffAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,19 +29,19 @@ public class StaffFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        prog = (ProgressBar) view.findViewById(R.id.prog);
-        lst_staff = (ListView) view.findViewById(R.id.lst_staff);
+        ProgressBar prog = (ProgressBar) view.findViewById(R.id.prog);
+        ListView lst_staff = (ListView) view.findViewById(R.id.lst_staff);
         staffSearch = (TextView) view.findViewById(R.id.staffSearch);
 
-        staffNames = Arrays.asList(getResources().getStringArray(R.array.staff_names));
-        staffEmails = Arrays.asList(getResources().getStringArray(R.array.staff_emails));
-        staffPhones = Arrays.asList(getResources().getStringArray(R.array.staff_phones));
+        List<String> staffNames = Arrays.asList(getResources().getStringArray(R.array.staff_names));
+        List<String> staffEmails = Arrays.asList(getResources().getStringArray(R.array.staff_emails));
+        List<String> staffPhones = Arrays.asList(getResources().getStringArray(R.array.staff_phones));
         adapter = new StaffAdapter(getActivity(),
                 staffNames, staffEmails, staffPhones);
         lst_staff.setAdapter(adapter);
 
         FadeAnimation f = new FadeAnimation();
-        f.start(lst_staff, null, prog);
+        f.start(lst_staff, prog);
 
         staffSearch.addTextChangedListener(new TextWatcher() {
 

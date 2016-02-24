@@ -11,19 +11,19 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class OfficeDialog {
+class OfficeDialog {
 
-    Context context;
+    private final Context context;
 
-    Bitmap image;
+    private final Bitmap image;
 
-    String name;
-    String subtitle;
-    String email;
-    String phone;
-    String bio;
+    private final String name;
+    private final String subtitle;
+    private final String email;
+    private final String phone;
+    private final String bio;
 
-    public OfficeDialog(Context c, Bitmap img, String n,
+    OfficeDialog(Context c, Bitmap img, String n,
                         String s, String e, String p,
                         @Nullable String b) {
         context = c;

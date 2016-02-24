@@ -12,8 +12,6 @@ import android.widget.Button;
 
 public class CollegeFragment extends Fragment {
 
-    Button btnCollege;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -25,7 +23,7 @@ public class CollegeFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        btnCollege = (Button) view.findViewById(R.id.btnCollege);
+        Button btnCollege = (Button) view.findViewById(R.id.btnCollege);
 
         btnCollege.setOnClickListener(new View.OnClickListener() {
             @Override

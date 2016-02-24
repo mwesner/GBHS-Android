@@ -8,11 +8,11 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 
-public class FacebookDialog {
+class FacebookDialog {
 
-    private Activity mActivity;
+    private final Activity mActivity;
 
-    public FacebookDialog(Activity context) {
+    FacebookDialog(Activity context) {
         mActivity = context;
     }
 

@@ -25,21 +25,14 @@ public class SportsFragment extends Fragment
 {
     //Show season schedule for selected athletic event
 
-    Context context;
-    Resources res;
+    private Resources res;
 
-    ListView lvSport;
+    private String sportPicked, levelPicked, genderPicked;
 
-    String sportPicked, levelPicked, genderPicked;
+    private int place = 0;
+    private int sportPosition;
 
-    int place = 0;
-    int sportPosition;
-
-    ArrayAdapter myAdapter;
-
-    String baseUrl;
-    Calendar cal;
-    SimpleDateFormat sdf;
+    private ArrayAdapter<String> myAdapter;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState)
@@ -100,7 +93,7 @@ public class SportsFragment extends Fragment
     {
         super.onViewCreated(view, savedInstanceState);
 
-        context = getActivity().getApplicationContext();
+        Context context = getActivity().getApplicationContext();
         res = getActivity().getResources();
 
         //Get an Array of all sports, and convert it to an ArrayList
@@ -108,7 +101,7 @@ public class SportsFragment extends Fragment
                 new ArrayList<>(Arrays.asList(res.getStringArray(R.array.sports)));
 
         //Creating a ListView and setting it up
-        lvSport = (ListView) view.findViewById(R.id.lvSport);
+        ListView lvSport = (ListView) view.findViewById(R.id.lvSport);
         myAdapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, sportList);
         lvSport.setAdapter(myAdapter);
 
@@ -276,14 +269,13 @@ public class SportsFragment extends Fragment
     }
 
     //Start the ListView back at the sport selection
-    public void resetData()
+    private void resetData()
     {
         String[] sportList = (res.getStringArray(R.array.sports));
         place = 0;
         myAdapter.clear();
-        for (int i = 0; i < sportList.length; i ++)
-        {
-            myAdapter.add(sportList[i]);
+        for (String aSportList : sportList) {
+            myAdapter.add(aSportList);
         }
         myAdapter.notifyDataSetChanged();
     }
@@ -291,7 +283,7 @@ public class SportsFragment extends Fragment
     //Changes the data that is held in the Adapter for the ListView
     //Type 0 is Level, Type 1 is Gender
     //Case 0 is All, Case 1 is Varsity and Junior Varsity, Case 2 is Combined
-    public void changeData(int typeCode, int caseCode)
+    private void changeData(int typeCode, int caseCode)
     {
         myAdapter.clear();
         if (typeCode == 0)
@@ -323,9 +315,8 @@ public class SportsFragment extends Fragment
         myAdapter.notifyDataSetChanged();
     }
 
-    public void getSeasonSchedule()
+    private void getSeasonSchedule()
     {
-        /**SCHEDULE SCRAPER**/
         //Construct URL based on user selections
 
         /*URL structure:
@@ -333,11 +324,11 @@ public class SportsFragment extends Fragment
         */
 
         //Add the current date (MM-DD-YYYY).
-        cal = Calendar.getInstance();
-        sdf = new SimpleDateFormat("MM-dd-yyyy", Locale.US);
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy", Locale.US);
 
         //Get the base season event page.
-        baseUrl = getString(R.string.BaseURL) + "/" + sdf.format(cal.getTime());
+        String baseUrl = getString(R.string.BaseURL) + "/" + sdf.format(cal.getTime());
 
         //Add the user choices to the URL
         baseUrl += "/" + genderPicked;

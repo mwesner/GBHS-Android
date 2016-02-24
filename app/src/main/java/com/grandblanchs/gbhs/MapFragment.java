@@ -20,14 +20,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapFragment extends Fragment {
 
-    MapView mapView;
-    Button btnWest;
-    Button btnEast;
-    Spinner lstType;
-    GoogleMap map;
-    CameraUpdate cam;
+    private MapView mapView;
+    private Button btnWest;
+    private Button btnEast;
+    private Spinner lstType;
+    private GoogleMap map;
+    private CameraUpdate cam;
 
-    String[] maptype;
+    private String[] maptype;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class MapFragment extends Fragment {
         return v;
     }
 
-    public void showMap() {
+    private void showMap() {
         btnEast.setVisibility(View.VISIBLE);
         btnWest.setVisibility(View.VISIBLE);
         lstType.setVisibility(View.VISIBLE);

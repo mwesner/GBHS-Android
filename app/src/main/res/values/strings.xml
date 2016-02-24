@@ -35,7 +35,6 @@
 
     <!--Buttons-->
     <string name="CalendarWeb">Open 2015–2016 Calendar</string>
-    <string name="SportsSchedule">Open Schedule Star</string>
     <string name="East">East Campus</string>
     <string name="West">West Campus</string>
     <string name="LearnMore">Learn More</string>
@@ -60,7 +59,7 @@
     <string name="FacebookID">116000535113722</string>
 
     <!--Twitter-->
-    <string name="EmptyTimeline">Loading...</string>
+    <string name="EmptyTimeline">Loading…</string>
     <string name="TwitterUser">GrandBlancPride</string>
 
     <!--About-->

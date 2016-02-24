@@ -16,27 +16,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-public class OfficeAdapter extends ArrayAdapter<String> {
+class OfficeAdapter extends ArrayAdapter<String> {
 
 
-    int type; //0 is administration, 1 is guidance
+    private final int type; //0 is administration, 1 is guidance
 
-    Bitmap image;
+    private Bitmap image;
 
-    String[] name;
-    String[] subtitle;
-    String[] email;
-    String[] phone;
-    String[] bio;
+    private final String[] name;
+    private String[] subtitle;
+    private String[] email;
+    private String[] phone;
+    private String[] bio;
 
-    Resources res;
+    private Resources res;
 
     OfficeAdapter(Context context, int t, String[] names) {
         super(context, R.layout.item_office, names);
         type = t;
         name = names;
     }
-
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
@@ -97,7 +96,7 @@ public class OfficeAdapter extends ArrayAdapter<String> {
         return convertView;
     }
 
-    public void getInformation(int i, int pos) {
+    private void getInformation(int i, int pos) {
         image = getImage(4, i, pos);
         if (i == 0) { //Administration
             subtitle = res.getStringArray(R.array.admin_subtitles);
@@ -111,7 +110,7 @@ public class OfficeAdapter extends ArrayAdapter<String> {
         }
     }
 
-    public Bitmap getImage(int sampleSize, int type, int position) {
+    private Bitmap getImage(int sampleSize, int type, int position) {
         BitmapFactory.Options opts = new BitmapFactory.Options();
         opts.inSampleSize = sampleSize;
 
@@ -169,14 +168,14 @@ public class OfficeAdapter extends ArrayAdapter<String> {
         }
     }
 
-    public void phoneCall(String number) {
+    private void phoneCall(String number) {
         Uri dial = Uri.parse("tel:" + number);
         Intent call = new Intent(Intent.ACTION_DIAL, dial);
         getContext().startActivity(call);
     }
 
 
-    public void emailer(String a) {
+    private void emailer(String a) {
         Intent emailing = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", a, null));
         getContext().startActivity(emailing);
     }

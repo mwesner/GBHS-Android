@@ -22,22 +22,22 @@ import java.util.ArrayList;
 
 public class AnnounceFragment extends Fragment {
 
-    ScrollView scrNotification;
-    TextView txtNotification;
+    private ScrollView scrNotification;
+    private TextView txtNotification;
 
-    SwipeRefreshLayout swipeLayout;
+    private SwipeRefreshLayout swipeLayout;
 
-    CharSequence notification;
+    private CharSequence notification;
 
-    ProgressBar prog;
-    ListView lstAnnounce;
+    private ProgressBar prog;
+    private ListView lstAnnounce;
 
-    AnnounceAdapter adapter;
+    private AnnounceAdapter adapter;
 
-    Elements group;
+    private Elements group;
 
-    ArrayList<String> text = new ArrayList<>();
-    ArrayList<Integer> sort = new ArrayList<>();
+    private ArrayList<String> text = new ArrayList<>();
+    private ArrayList<Integer> sort = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -95,7 +95,7 @@ public class AnnounceFragment extends Fragment {
         });
     }
 
-    public void setNotification() {
+    private void setNotification() {
         getActivity().runOnUiThread(new Runnable() {
             public void run() {
                 txtNotification.setText(notification);
@@ -106,7 +106,7 @@ public class AnnounceFragment extends Fragment {
         });
     }
 
-    public void parseAnnouncements() {
+    private void parseAnnouncements() {
 
         if (group != null) {
             for (int i = 0; i < group.size(); i++) {
@@ -125,11 +125,11 @@ public class AnnounceFragment extends Fragment {
         }
     }
 
-    public void setAnnouncements() {
+    private void setAnnouncements() {
         lstAnnounce.setAdapter(adapter);
 
         FadeAnimation f = new FadeAnimation();
-        f.start(lstAnnounce, null, prog);
+        f.start(lstAnnounce, prog);
     }
 
     @Override
@@ -162,7 +162,7 @@ public class AnnounceFragment extends Fragment {
         }
     }
 
-    public class AnnounceScrape extends AsyncTask<Void, Void, Void> {
+    private class AnnounceScrape extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
             //Scrape the daily announcements into a list.
