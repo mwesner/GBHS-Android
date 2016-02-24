@@ -16,6 +16,8 @@ import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,16 +98,20 @@ class StaffAdapter extends BaseAdapter implements Filterable {
             }
         });
 
-        if (filteredEmails.get(position).equals("NONE")) {
-            holder.btn_email.setVisibility(View.INVISIBLE);
-        }else{
-            holder.btn_email.setVisibility(View.VISIBLE);
-        }
+        try {
+            if (filteredEmails.get(position).equals("NONE")) {
+                holder.btn_email.setVisibility(View.INVISIBLE);
+            } else {
+                holder.btn_email.setVisibility(View.VISIBLE);
+            }
 
-        if (filteredPhones.get(position).equals("NONE")) {
-            holder.btn_call.setVisibility(View.INVISIBLE);
-        }else{
-            holder.btn_call.setVisibility(View.VISIBLE);
+            if (filteredPhones.get(position).equals("NONE")) {
+                holder.btn_call.setVisibility(View.INVISIBLE);
+            } else {
+                holder.btn_call.setVisibility(View.VISIBLE);
+            }
+        }catch (IndexOutOfBoundsException e) {
+            //Prevents crash on screen rotation
         }
 
         holder.btn_call.setOnClickListener(new ImageButton.OnClickListener() {
