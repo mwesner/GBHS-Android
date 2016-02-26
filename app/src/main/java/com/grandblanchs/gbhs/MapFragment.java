@@ -9,22 +9,21 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapFragment extends Fragment {
+public class MapFragment extends Fragment implements OnMapReadyCallback {
 
-    private MapView mapView;
+    private SupportMapFragment mapFragment;
+
     private Button btnWest;
     private Button btnEast;
     private Spinner lstType;
-    private GoogleMap map;
     private CameraUpdate cam;
 
     private String[] maptype;
@@ -39,21 +38,14 @@ public class MapFragment extends Fragment {
         btnEast = (Button) v.findViewById(R.id.btnEast);
         lstType = (Spinner) v.findViewById(R.id.lstType);
 
-        // Gets the MapView from the XML layout and creates it
-        mapView = (MapView) v.findViewById(R.id.mapView);
-        mapView.onCreate(savedInstanceState);
+        mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map_fragment);
+        mapFragment.getMapAsync(this);
 
-        // Gets to GoogleMap from the MapView and does initialization
-        map = mapView.getMap();
-
-        // Needs to call MapsInitializer before doing any CameraUpdateFactory calls
-        if (MapsInitializer.initialize(getActivity()) == ConnectionResult.SUCCESS) {
-            showMap();
-        }
         return v;
     }
 
-    private void showMap() {
+    @Override
+    public void onMapReady(final GoogleMap map) {
         btnEast.setVisibility(View.VISIBLE);
         btnWest.setVisibility(View.VISIBLE);
         lstType.setVisibility(View.VISIBLE);
@@ -118,7 +110,7 @@ public class MapFragment extends Fragment {
 
     @Override
     public void onResume() {
-        mapView.onResume();
+        mapFragment.onResume();
         super.onResume();
     }
 }
