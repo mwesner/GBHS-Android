@@ -20,20 +20,20 @@ class GradesDialog {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity)
                 .setTitle(R.string.Grades)
-                .setIcon(R.drawable.icon_svue)
-                        //.setIcon(R.drawable.icon_jed) //TODO: Jupiter Ed
+                //.setIcon(R.drawable.icon_svue) //Student Vue
+                        .setIcon(R.drawable.icon_jed)
                 .setPositiveButton(R.string.openapp, new Dialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         PackageManager pm = mActivity.getPackageManager();
-                        Intent appStartIntent = pm.getLaunchIntentForPackage("com.FreeLance.StudentVUE");
-                        //Intent appStartIntent = pm.getLaunchIntentForPackage("com.jupitered.jupitered"); //TODO: Jupiter Ed
+                        //Intent appStartIntent = pm.getLaunchIntentForPackage("com.FreeLance.StudentVUE"); //Student Vue
+                        Intent appStartIntent = pm.getLaunchIntentForPackage("com.jupitered.jupitered");
                         if (appStartIntent != null) {
                             mActivity.startActivity(appStartIntent);
                         } else {
                             Intent intent = new Intent(Intent.ACTION_VIEW);
-                            intent.setData(Uri.parse("market://details?id=com.FreeLance.StudentVUE"));
-                            //intent.setData(Uri.parse("market://details?id=com.jupitered.jupitered")); //TODO: Jupiter Ed
+                            //intent.setData(Uri.parse("market://details?id=com.FreeLance.StudentVUE")); //student vue
+                            intent.setData(Uri.parse("market://details?id=com.jupitered.jupitered"));
                             mActivity.startActivity(intent);
                         }
                     }
@@ -41,8 +41,8 @@ class GradesDialog {
                 .setNegativeButton(R.string.openweb, new Dialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://studentvue.geneseeisd.org/GBCS/Login_Student_PXP.aspx"));
-                        //Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://login.jupitered.com/login")); //TODO: Jupiter Ed
+                        //Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://studentvue.geneseeisd.org/GBCS/Login_Student_PXP.aspx")); //student vue
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://login.jupitered.com/login"));
                         mActivity.startActivity(browserIntent);
                     }
                 });

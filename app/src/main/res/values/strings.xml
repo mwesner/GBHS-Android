@@ -53,7 +53,7 @@
     <string name="BaseURL">http://schedules.schedulestar.com/Grand-Blanc-High-School-Grand-Blanc-MI/season</string>
 
     <!--School website-->
-    <string name="SchoolURL">http://grandblanc.high.schoolfusion.us</string>
+    <string name="SchoolURL">http://hs.grandblancschools.org</string>
 
     <!--Facebook-->
     <string name="FacebookID">116000535113722</string>
@@ -63,13 +63,13 @@
     <string name="TwitterUser">GrandBlancPride</string>
 
     <!--About-->
-    <string name="Dev">Developed by <a href='http://grandblanc.career.schoolfusion.us'>Grand Blanc CTE</a></string>
+    <string name="Dev">Developed by <a href='http://www.grandblancschools.org/career-and-technical-education-6992c6f5'>Grand Blanc CTE</a></string>
     <string name="TeamLeader">Team Leader</string>
     <string name="TeamLeaderName">Michael Wesner</string>
     <string name="TeamLeaderSubtitle">AP Computer Science A Instructor</string>
 
-    <string name="SecondYearMembers">2014–2015 Members</string>
-    <string name="FirstYearMembers">2015–2016 Members</string>
+    <string name="SecondYearMembers">2015–2016 Members</string>
+    <string name="FirstYearMembers">2016–2017 Members</string>
 
     <string name="AppEmail">grandblanchsapp@gmail.com</string>
 

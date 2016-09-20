@@ -13,10 +13,10 @@
     <!--StudentVUE link-->
     <item
         android:id="@+id/Grades"
-        android:icon="@drawable/ic_action_svue"
+        android:icon="@drawable/ic_action_jed"
         android:title="@string/Grades"
         app:showAsAction="ifRoom" />
-    <!--android:icon="@drawable/ic_action_jed"--> <!--TODO: Jupiter Ed-->
+
 
     <!--Facebook-->
     <item
