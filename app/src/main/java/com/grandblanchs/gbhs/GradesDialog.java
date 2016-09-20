@@ -26,7 +26,7 @@ class GradesDialog {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         PackageManager pm = mActivity.getPackageManager();
-                        //Intent appStartIntent = pm.getLaunchIntentForPackage("com.FreeLance.StudentVUE"); //Student Vue
+                        //Intent appStartIntent = pm.getLaunchIntentForPackage("com.FreeLance.StudentVUE"); //Student Vues
                         Intent appStartIntent = pm.getLaunchIntentForPackage("com.jupitered.jupitered");
                         if (appStartIntent != null) {
                             mActivity.startActivity(appStartIntent);
