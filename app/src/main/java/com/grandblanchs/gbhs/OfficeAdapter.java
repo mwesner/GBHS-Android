@@ -22,7 +22,7 @@ class OfficeAdapter extends ArrayAdapter<String> {
     private final int type; //0 is administration, 1 is guidance
 
     private Bitmap image;
-
+//jaredtesterioni
     private final String[] name;
     private String[] subtitle;
     private String[] email;
