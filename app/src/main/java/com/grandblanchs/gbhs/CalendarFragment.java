@@ -86,7 +86,7 @@ public class CalendarFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent calIntent = new Intent(Intent.ACTION_VIEW, Uri.parse
-                        ("http://docs.google.com/gview?embedded=true&url=http://grandblanc.schoolfusion.us/modules/groups/homepagefiles/cms/105549/File/District%20Calendar%202015-2016.pdf"));
+                        ("http://hs.grandblancschools.org/calendar"));
                 startActivity(calIntent);
             }
         });

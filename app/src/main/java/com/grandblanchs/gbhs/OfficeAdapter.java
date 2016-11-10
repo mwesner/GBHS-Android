@@ -22,7 +22,7 @@ class OfficeAdapter extends ArrayAdapter<String> {
     private final int type; //0 is administration, 1 is guidance
 
     private Bitmap image;
-//jaredtesterioni
+
     private final String[] name;
     private String[] subtitle;
     private String[] email;
@@ -123,19 +123,25 @@ class OfficeAdapter extends ArrayAdapter<String> {
                             R.drawable.admin_hammond, opts);
                 case 1:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.admin_belcher, opts);
+                            R.drawable.admin_dohm, opts);
                 case 2:
                     return BitmapFactory.decodeResource(res,
                             R.drawable.admin_gz, opts);
                 case 3:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.admin_poelke, opts);
+                            R.drawable.admin_walroth, opts);
                 case 4:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.admin_mitchell, opts);
+                            R.drawable.admin_williams, opts);
                 case 5:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.admin_dohm, opts);
+                            R.drawable.admin_jackson, opts);
+                case 6:
+                    return BitmapFactory.decodeResource(res,
+                            R.drawable.admin_keilitz, opts);
+                case 7:
+                    return BitmapFactory.decodeResource(res,
+                            R.drawable.admin_roberts, opts);
             }
         } else if (type == 1) {
             switch (position) {
@@ -158,10 +164,7 @@ class OfficeAdapter extends ArrayAdapter<String> {
                             R.drawable.guidance_mol, opts);
                 case 5:
                     return BitmapFactory.decodeResource(res,
-                            R.drawable.guidance_wood, opts);
-                case 6:
-                    return BitmapFactory.decodeResource(res,
-                            R.drawable.guidance_clark, opts);
+                            R.drawable.guidance_vanover, opts);
             }
         } else {
             return null;

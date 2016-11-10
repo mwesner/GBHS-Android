@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="SecondYearDevs">
+    <string-array name="ThirdYearDevs">
         <item>Aaron Goodfellow</item>
         <item>Corey Rowe</item>
     </string-array>
 
-    <string-array name="FirstYearDevs">
+    <string-array name="SecondYearDevs">
         <item>Michael Olmsted</item>
         <item>Brad Kivett</item>
+    </string-array>
+
+    <string-array name="FirstYearDevs">
+        <item>Jared Fleischer</item>
+        <item>Jordon Trower</item>
     </string-array>
 
     <string-array name="maptype">
@@ -20,52 +25,57 @@
 
     <string-array name="admin_names">
         <item>Jennifer Hammond</item>
-        <item>Chris Belcher</item>
-        <item>Gary Goetzinger</item>
-        <item>Patricia Poelke</item>
-        <item>Jeremy Mitchell</item>
         <item>Jerrod Dohm</item>
+        <item>Gary Goetzinger</item>
+        <item>Allyson Walroth</item>
+        <item>Lamanzer Williams</item>
+        <item>Lori Jackson</item>
+        <item>Kevin Keilitz</item>
+        <item>Janet Roberts</item>
     </string-array>
 
     <string-array name="admin_subtitles">
         <item>Principal</item>
-        <item>Assistant Principal</item>
+        <item>Athletic Director/Assistant Principal</item>
         <item>Assistant Principal</item>
         <item>Assistant Principal</item>
         <item>Student Advisor</item>
-        <item>Athletic Director - Assistant Principal</item>
+        <item>Student Advisor - East Campus</item>
+        <item>Student Advisor - West Campus</item>
+        <item>College and Career Specialist/Student Advocate</item>
     </string-array>
 
     <string-array name="admin_emails">
         <item>jhammond@grandblancschools.org</item>
-        <item>cbelcher@grandblancschools.org</item>
-        <item>ggoetzin@grandblancschools.org</item>
-        <item>tpoelke@grandblancschools.org</item>
-        <item>jmitchel@grandblancschools.org</item>
         <item>jdohm@grandblancschools.org</item>
+        <item>ggoetzin@grandblancschools.org</item>
+        <item>awalroth@grandblancschools.org</item>
+        <item>lwilliam@grandblancschools.org</item>
+        <item>ljackson@grandblancschools.org</item>
+        <item>kkeilitz@grandblancschools.org</item>
+        <item>jroberts@grandblancschools.org</item>
     </string-array>
 
     <string-array name="admin_phones">
         <item>(810) 591–6637</item>
+        <item>(810) 591–4301</item>
+        <item>(810) 591–2667</item>
         <item>(810) 591–6659</item>
-        <item>(810) 591–6645</item>
         <item>(810) 591–6353</item>
         <item>(810) 591–6644</item>
-        <item>(810) 591–4301</item>
+        <item>(810) 591–6645</item>
+        <item>(810) 591–6035</item>
     </string-array>
 
     <string-array name="admin_bios">
         <item>As the principal of Grand Blanc High School, my responsibilities include supervising the overall building operations, overseeing curriculum development and improvement, evaluating and monitoring instructional staff by visiting classrooms on a daily basis, planning and executing professional development for staff, monitoring the building budget, developing and implementing the school improvement plan, overseeing the high school testing program, and supervising the career and technical education department. What I love most about my position is being around our students and staff. With a large campus, it is often difficult to get to know individual students but I visit classrooms regularly and enjoy seeing them learning, collaborating, and building relationships with their teachers and one another. \n\nI began my career in education over 20 years ago as a high school math teacher in Houston, Texas. I also taught middle school and high school math in Hamtramck and at Troy Athens High School. I served as an assistant principal at Troy High School for eight years prior to coming to Grand Blanc. My educational experiences include a bachelor\’s degree from Michigan State University, a master\’s degree from Wayne State University and an education specialist degree and doctorate of philosophy degree from Oakland University.</item>
-
-        <item>After serving Grand Blanc High School for ten years as a World History teacher and basketball coach I moved into administration.  The experiences I have had in the classroom and on the athletic field here at GBHS have helped mold me into the person and leader I am today. \n\nI am a proud graduate of Oakland University, where I received my Bachelors, Masters and Education Specialist degrees in education and leadership. My coursework has given me invaluable experiences in building curriculum, working with state standards, public speaking and school leadership––all skills and tools that I use daily as an AP. For the 2015–2016 school year, I will be responsible for students in grades 9–12 whose last names begin with O-Z but am always available to any student. I am looking forward to another great year here at GBHS and continue to believe we have one of the best high schools in the state of Michigan, and we should all be very proud to be bobcats!</item>
-
+        <item>I am eager to start a new year as Athletic Director/Assistant Principal at Grand Blanc High School. Prior to serving at Grand Blanc, I spent eleven years at Alanson Public Schools. During my time at Alanson I taught high school science, physical education, and health and served as the district\'s Athletic Director for both middle and high school sports. I am thrilled to be coming to a school district with such a rich academic and athletic tradition.\n\nI am originally from Owosso, Michigan. I attended Owosso High School and played football, wrestling, and baseball. I am a 2002 graduate of Alma College. While there I played one year of football and four years of baseball. I later attended Michigan State University where I obtained a Masters of Arts degree in education. In my spare time I enjoy spending time with my family. I always look forward to working with the students, staff, and parents of Grand Blanc High School and helping to continue the strong academic and athletic tradition.</item>
         <item>An assistant principal since 1999 at GBHS, I have a broad background in public school administration as a school administrator for thirty-plus years, including most areas of K-12 education and community college, as well as a five-year private business experience as an educational consultant. I have had the opportunity to be a teacher, coach, assistant principal, principal, athletic director, community education director, technology director, and school consultant. I have earned a Bachelor Degree from Alma College and a Masters Degree from Central Michigan University.\n\nDuring my tenure at GBHS, I have demonstrated the ability to be an effective educational leader in the areas of student achievement, strategic planning, school improvement, student attendance and behavior, staff development, and community/parent involvement. I build strong relationships with staff, students and parents. I am truly committed to the success of all students.</item>
-
-        <item>I am excited to start my third year at Grand Blanc High School.  I am a native of Southern California where I taught middle school social studies, worked with at–risk youth as a Title I Coordinator, and was a high school assistant principal. This community has been an amazing place to work and be a part of. I am always proud to say I serve the Grand Blanc Community.\n\nMy responsibilities for the 2015–2016 school year include attendance contracts, student discipline, class schedules, and supervision of instruction and counseling. Please feel free to call me whenever you have a question or concern. We are all here to help our students grow academically, emotionally, and professionally. I am looking forward to another great year at GBHS. Go Bobcats!</item>
-
-        <item>As the high school student adviser, I am responsible for promoting a positive school culture and working with students to ensure they are making good decisions socially and academically. I taught social studies, economics and world history for three years at the high school. I was rewarded tremendously as a classroom teacher, but am very excited to take on a leadership role in administration as the student advisor. Prior to transitioning to the education profession, I served as a Captain in the Army with the 82nd Airborne Division. I deployed to Afghanistan from 2007–2008, where I gained invaluable leadership experiences that served me well in the education field. I hold a Master\'s degree in Educational Leadership and a Bachelor\'s in Secondary Education from the University of Michigan-Flint, and a Bachelor\'s in Organizational Communication from Missouri State University. Grand Blanc Schools are premiere and I am so fortunate to serve the student and families of this community.</item>
-
-        <item>I am eager to start my first year as Athletic Director/Assistant Principal at Grand Blanc High School. I spent the last eleven years at Alanson Public Schools. During my time at Alanson I taught high school science, physical education, and health and served as the district\'s Athletic Director for both middle and high school sports. I am thrilled to be coming to a school district with such a rich academic and athletic tradition.\n\nI am originally from Owosso, Michigan. I attended Owosso High School and played football, wrestling, and baseball. I am a 2002 graduate of Alma College. While there I played one year of football and four years of baseball. I later attended Michigan State University where I obtained a Masters of Arts degree in education.\n\nIn my spare time I enjoy spending time with my family. I look forward to working with the students, staff, and parents of Grand Blanc High School and helping to continue the strong academic and athletic tradition.</item>
+        <item>I am very excited to be one of the assistant principals at Grand Blanc High School! I have great ties to this district, as I was with Grand Blanc for eleven years as both a teacher and a student advisor before moving into administration. I am a Bobcat through and through, and I am honored to be continuing my leadership here.\n\nMy responsibilities include attendance contracts, discipline, staff development, and supervision of curriculum and instruction. I commit to making sure that the education the students at Grand Blanc High School receive is exactly what I would want for my own children. I view discipline in the same way and will work with each child to problem solve and learn how to make better choices in the future. I also firmly believe in the power of communication. If you have concerns, questions, or suggestions, please take the time to express them to me. I value your experiences and feedback, and I would love to know what you need from me.</item>
+        <item>I am excited to begin as Assistant Principal here at Grand Blanc High School. Last year I served as Dean of students at a small charter school in Detroit, prior to that I spent three years at Ypsilanti Community Schools. During my time at Ypsilanti I was assistant principal/Athletic director at the high school and Dean of students at the middle school. I have over 15 years of experience in administration including a discipline and athletic background. I have coached football the last 15 years also been a track coach. I attended the University of Minnesota on a football scholarship from 1993-1997. \n\nI received my bachelor’s degree in Kinesiology from Eastern Michigan. I acquired a master’s degree from Concordia Chicago University in athletic administration and Leadership. Earlier this year I completed my second master’s degree in Educational Leadership with a principal certification and currently working on my Education Specialist degree, both of these at Grand Valley State University. I am truly blessed and honored to be at such a successful district with so many people that are great at what they do for students. \n\nI am originally from Greensboro Alabama where I was born. I moved to Ypsilanti Michigan when I was 4 years old, attended Willow Run high school and played basketball, football, and ran track. In my spare time I enjoy training football players, playing basketball, going to the bookstore, listening to music, and attending comedy shows. I am truly here to be a resource for the students of Grand Blanc high school and also the people that I work with.</item>
+        <item>Hello students, parents, and community members. My name is Lori Jackson. I have been in education for over 17 years. I hold a Bachelor of Science from the University of Michigan-Flint with a major in biology and minor in general science with a teaching certification. In addition I have a masters in educational leadership from Marygrove College and have attended the Aspiring Principal’s Program through Oakland Schools. \n\nThroughout my career I have taught high school science in Goodrich, Grand Blanc, Mt. Morris and Troy Athens. During my years at each school I enjoyed serving on various committees as well as helping to develop new programs to help students acclimate and succeed in high school. \n\nOutside of school I enjoy spending time with my husband and three children. We enjoy attending sporting events, traveling and spending time with our extended family. \n\nAs a member of the Grand Blanc community, I am committed to making a positive impact on our students’ academic and community achievements. </item>
+        <item>As the Student Advisor at West Campus I am responsible for our Center for Student Success (CSS) program and all 9th grade discipline and attendance issues.   I am looking forward to meeting this year\'s freshman class and helping them to successfully transition into Grand Blanc High School. \n\nWhen I am not at the high school, I enjoy spending as much time with my family as I can.  In the summer you can usually find us at our family cottage on Harsens Island either boating, jet skiing, or just sunbathing in Musamoot Bay.</item>
+        <item>I’m honored to work at Grand Blanc High School, serving the students, parents, staff and the Grand Blanc community.  My husband and I have been residents of Grand Blanc since 2002 and have 2 daughters in the district at the middle school and high school level. \n\nMy responsibilities at the high school include the oversight of the Grand Blanc Early College, Career and Technical Education programs, Career Resource Center, west campus discipline, 9th grade attendance and graduation planning.  In addition, I serve as the administrative liaison for the post-grad party, 2018 Class Sponsor and for the past 3 years I’ve served as the Summer School Supervisor. \n\nI have 14 years of experience in secondary education which includes 6 years of classroom instruction, 8 years of curriculum and state compliance and 5 years in an administrator capacity. \n\nI earned a Masters of Public Administration from the University of Michigan, Masters of Curriculum and Instruction from the University of Phoenix, and Bachelor of Business Administration from Detroit College of Business. \n\nI have dedicated my career to serving students, mentoring staff, collaborating with stakeholders, and supporting the surrounding community with a single focus in mind - ensuring that the students of Grand Blanc Community Schools receive the best educational experience possible.  I’ve found this to be extremely rewarding, both personally and professionally.  I look forward to assisting the students of Grand Blanc High School to actualize their own unique genius. \n\nGo Bobcats! </item>
     </string-array>
 
     <string-array name="guidance_names">
@@ -74,8 +84,7 @@
         <item>Pamela Hall</item>
         <item>Nicole Kernen</item>
         <item>Phyllis Mol</item>
-        <item>Courtney Wood</item>
-        <item>Kari Lynn Clark</item>
+        <item>Kendra Vanover</item>
     </string-array>
 
     <string-array name="guidance_subtitles">
@@ -84,8 +93,7 @@
         <item>9th Grade</item>
         <item>Ge-N</item>
         <item>A-Ga</item>
-        <item>Counselor Asst.</item>
-        <item>Secretary</item>
+        <item>Counseling Office Secretary</item>
     </string-array>
 
     <string-array name="guidance_emails">
@@ -94,8 +102,7 @@
         <item>phall@grandblancschools.org</item>
         <item>nkernen@grandblancschools.org</item>
         <item>pmol@grandblancschools.org</item>
-        <item>cwood@grandblancschools.org</item>
-        <item>kclark@grandblancschools.org</item>
+        <item>kvanover@grandblancschools.org</item>
     </string-array>
 
     <string-array name="guidance_phones">
@@ -112,7 +119,6 @@
         <item>Allswede, Stacey</item>
         <item>Applebee, Stephen</item>
         <item>Arakelyan, Natalya</item>
-        <item>Arbit, Michael</item>
         <item>Babiasz, Todd</item>
         <item>Bailey, Brad</item>
         <item>Baker, Tami</item>
@@ -121,7 +127,6 @@
         <item>Barnowsky, Nicholas</item>
         <item>Bas, Adriana</item>
         <item>Bauermeister, Marie</item>
-        <item>Belcher, Chris</item>
         <item>Belill, Valerie</item>
         <item>Benaway, Karen</item>
         <item>Bieda, Sara</item>
@@ -171,23 +176,25 @@
         <item>Goetzinger, Gary</item>
         <item>Goncz, Caleb</item>
         <item>Graves, Megan</item>
-        <item>Green, Al</item>
+        <item>Green, Alan</item>
         <item>Grzymkowski, Heather</item>
         <item>Gualdoni, Laura</item>
         <item>Guerra, Amy</item>
-        <item>Garey, Kolette</item>
+        <item>Guigear, Nate</item>
         <item>Hall, Pamela</item>
         <item>Hammond, Jennifer</item>
         <item>Hassenzahl, Beth</item>
-        <item>Heemsoth, Miranda</item>
         <item>Hentes, John</item>
+        <item>Histed, Craig</item>
         <item>Holt, Denny</item>
         <item>Howell, Kathleen</item>
         <item>Hubbs, Laura</item>
         <item>Hugo, Brian</item>
         <item>Hugo, Matt</item>
         <item>Hutchison, Cory</item>
+        <item>Jackson, Lori</item>
         <item>Jacobson, Amy</item>
+        <item>Jeffers, Ashley</item>
         <item>Johnson, Amy</item>
         <item>Johnson, Sarah</item>
         <item>Kehn, Bonnie</item>
@@ -198,43 +205,41 @@
         <item>King, Irving</item>
         <item>Kish, Kaitlyn</item>
         <item>Knapp, Don</item>
-        <item>Larose, Michael</item>
         <item>Lawrence, Jenalyn</item>
         <item>Lemaster, Thomas</item>
         <item>Li, Snow</item>
         <item>Londrigan, Aimee</item>
         <item>Lundy, Andrea</item>
+        <item>Lunn, Scott</item>
         <item>Mareski, Shannon</item>
         <item>Mather, Brenda</item>
-        <item>Melton, Hunter</item>
+        <item>McNair, Lyniece</item>
         <item>Melton, Marcie</item>
         <item>Meyer, Lindsay</item>
-        <item>Minier, Judith</item>
-        <item>Mitchell, Jeremy</item>
         <item>Mol, Phyllis</item>
         <item>Moore, Karen</item>
         <item>Moore, Patrick</item>
         <item>Morris, Krista</item>
-        <item>Newman, Maureen</item>
         <item>Mueller, Tina</item>
         <item>Naddeo, Sara</item>
+        <item>Newman, Maureen</item>
         <item>Newton, Dana</item>
         <item>Nicholson, James</item>
         <item>O\'Toole, Lia</item>
         <item>Ousnamer, Karen</item>
+        <item>Overmyer, Emily</item>
         <item>Padgett, David</item>
         <item>Paris, Michael</item>
         <item>Parish, Lindsay</item>
         <item>Pearce, Jill</item>
-        <item>Pearce, Matt</item>
+        <item>Pearce, Matthew</item>
         <item>Pendergrass, Erik</item>
-        <item>Peske, Nancy</item>
         <item>Piggott, Sally</item>
-        <item>Poelke, Trish</item>
         <item>Popadich, Nick</item>
         <item>Pottenger, Troy</item>
         <item>Powers, Suzanne</item>
         <item>Raab, Lisa</item>
+        <item>Ragland, Jeff</item>
         <item>Ralbusky, Elizabeth</item>
         <item>Read, Rachel</item>
         <item>Reed, Adam</item>
@@ -243,19 +248,21 @@
         <item>Roberts, Janet</item>
         <item>Robertson, Joan</item>
         <item>Russian, Tanya</item>
-        <item>Ryckaert, Justin</item>
         <item>Saffron, Danida</item>
         <item>Salem, John</item>
         <item>Schramm, Chuck</item>
+        <item>Schwegler, Shannon</item>
         <item>Schweitzer, Amy</item>
+        <item>Scott, Sarah</item>
         <item>Seeds, Rebecca</item>
-        <item>Seiter, Sarah</item>
+        <item>Sellers, Autumn</item>
+        <item>Sharkey, Becky</item>
         <item>Shaver, Dana</item>
         <item>Shaw, Susan</item>
         <item>Shebak, Bodhi</item>
-        <item>Shinabarger, Lucy</item>
         <item>Shuster, Michael</item>
         <item>Smith, Gary</item>
+        <item>Smith, Karen</item>
         <item>Stockton, Sarah (Choir)</item>
         <item>Stockton, Susan (Spanish)</item>
         <item>Stuck, James</item>
@@ -263,17 +270,17 @@
         <item>Taneyhill, Maryalice</item>
         <item>Taylor, Justin</item>
         <item>Thurlow, Leslie</item>
-        <item>Tosh, Karin</item>
+        <item>Thurlow, Scott</item>
         <item>Trombly, Craig</item>
         <item>Urbanik, Phil</item>
         <item>Vanitvelt, Marcie</item>
         <item>Vanover, Kendra</item>
         <item>Walroth, Allyson</item>
-        <item>Wesner, Michael</item>
+        <item>Wesner, Michael "The Beast"</item>
+        <item>Williams, Lamanzer</item>
         <item>Willing, Heather</item>
         <item>Wilson, Jessica</item>
         <item>Wiltse, Wesley</item>
-        <item>Wood, Courtney</item>
         <item>Wray, Peggy</item>
         <item>Wyatt, Mary</item>
         <item>Youngs, Jason</item>
@@ -286,16 +293,14 @@
         <item>sallswed@grandblancschools.org</item>
         <item>sapplebe@grandblancschools.org</item>
         <item>narakely@grandblancschools.org</item>
-        <item>marbit@grandblancschools.org</item>
         <item>tbabiasz@grandblancschools.org</item>
         <item>bbailey@grandblancschools.org</item>
-        <item>tbaker@grandblancschools.org</item>
+        <item>tbakeri@grandblancschools.org</item>
         <item>sbarker@grandblancschools.org</item>
         <item>kbarnes@grandblancschools.org</item>
-        <item>nbarnows@grandblancschools.org</item>
+        <item>nbarnowsk@grandblancschools.org</item>
         <item>abas@grandblancschools.org</item>
         <item>mbauerme@grandblancschools.org</item>
-        <item>cbelcher@grandblancschools.org</item>
         <item>vbelill@grandblancschools.org</item>
         <item>kbenaway@grandblancschools.org</item>
         <item>sbieda@grandblancschools.org</item>
@@ -311,8 +316,8 @@
         <item>abutzu@grandblancschools.org</item>
         <item>nbuxbaum@grandblancschools.org</item>
         <item>rcalo@grandblancschools.org</item>
-        <item>ccarmody@grandblancschools.org</item>
-        <item>carney@grandblancschools.org</item>
+        <item>cCarmody@grandblancschools.org</item>
+        <item>ccarney@grandblancschools.org</item>
         <item>kchurch@grandblancschools.org</item>
         <item>dclark@grandblancschools.org</item>
         <item>kclark@grandblancschools.org</item>
@@ -324,7 +329,7 @@
         <item>ccozad@grandblancschools.org</item>
         <item>lcuccia@grandblancschools.org</item>
         <item>jcushman@grandblancschools.org</item>
-        <item>mdavis2@grandblancschools.org</item>
+        <item>mdavis@grandblancschools.org</item>
         <item>jdearmon@grandblancschools.org</item>
         <item>cdecker@grandblancschools.org</item>
         <item>jdelaney@grandblancschools.org</item>
@@ -349,19 +354,21 @@
         <item>hgrzymko@grandblancschools.org</item>
         <item>lgualdon@grandblancschools.org</item>
         <item>aguerra@grandblancschools.org</item>
-        <item>kgarey@grandblancschools.org</item>
+        <item>nguigear@grandblancschools.org</item>
         <item>phall@grandblancschools.org</item>
         <item>jhammond@grandblancschools.org</item>
         <item>bhassenz@grandblancschools.org</item>
-        <item>mheemsot@grandblancschools.org</item>
         <item>jhentes@grandblancschools.org</item>
+        <item>chisted@grandblancschools.org</item>
         <item>dholt@grandblancschools.org</item>
         <item>khowell@grandblancschools.org</item>
         <item>lhubbs@grandblancschools.org</item>
         <item>bhugo@grandblancschools.org</item>
         <item>mhugo@grandblancschools.org</item>
         <item>chutchis@grandblancschools.org</item>
+        <item>ljackson@grandblancschools.org</item>
         <item>ajacobso@grandblancschools.org</item>
+        <item>ajeffers@grandblancschools.org</item>
         <item>ajohnson@grandblancschools.org</item>
         <item>sjohnson@grandblancschools.org</item>
         <item>bkehn@grandblancschools.org</item>
@@ -372,82 +379,82 @@
         <item>iking@grandblancschools.org</item>
         <item>kkish@grandblancschools.org</item>
         <item>dknapp@grandblancschools.org</item>
-        <item>mlarose@grandblancschools.org</item>
         <item>jlawrenc@grandblancschools.org</item>
         <item>tlemaste@grandblancschools.org</item>
         <item>sli@grandblancschools.org</item>
         <item>alondrig@grandblancschools.org</item>
         <item>alundy@grandblancschools.org</item>
+        <item>slunn@grandblancschools.org</item>
         <item>smareski@grandblancschools.org</item>
         <item>bmather@grandblancschools.org</item>
-        <item>hmelton@grandblancschools.org</item>
+        <item>llevi@grandblancschools.org</item>
         <item>mmelton@grandblancschools.org</item>
         <item>lmeyer@grandblancschools.org</item>
-        <item>jminier@grandblancschools.org</item>
-        <item>jmitchel@grandblancschools.org</item>
         <item>pmol@grandblancschools.org</item>
         <item>kmoore@grandblancschools.org</item>
         <item>pmoore@grandblancschools.org</item>
         <item>kmorris@grandblancschools.org</item>
-        <item>mnewman@grandblancschools.org</item>
         <item>tmueller@grandblancschools.org</item>
         <item>snaddeo@grandblancschools.org</item>
+        <item>mnewman@grandblancschools.org</item>
         <item>dnewton@grandblancschools.org</item>
         <item>jnichols@grandblancschools.org</item>
         <item>lotoole@grandblancschools.org</item>
         <item>kousname@grandblancschools.org</item>
+        <item>eovermye@grandblancschools.org</item>
         <item>dpadgett@grandblancschools.org</item>
         <item>mparis@grandblancschools.org</item>
         <item>lparish@grandblancschools.org</item>
         <item>jpearce@grandblancschools.org</item>
         <item>mpearce@grandblancschools.org</item>
         <item>ependerg@grandblancschools.org</item>
-        <item>npeske@grandblancschools.org</item>
         <item>spiggott@grandblancschools.org</item>
-        <item>ppoelke@grandblancschools.org</item>
         <item>npopadic@grandblancschools.org</item>
         <item>tpotteng@grandblancschools.org</item>
         <item>spowers@grandblancschools.org</item>
         <item>lraab@grandblancschools.org</item>
-        <item>eralbusky@grandblancschools.org</item>
+        <item>jragland@grandblancschools.org</item>
+        <item>eralbusk@grandblancschools.org</item>
         <item>rread@grandblancschools.org</item>
         <item>areed@grandblancschools.org</item>
         <item>kriek@grandblancschools.org</item>
         <item>nriek@grandblancschools.org</item>
-        <item>jrobert2@grandblancschools.org</item>
+        <item>jroberts2@grandblancschools.org</item>
         <item>jroberts@grandblancschools.org</item>
         <item>trussian@grandblancschools.org</item>
-        <item>jryckaer@grandblancschools.org</item>
         <item>dsaffron@grandblancschools.org</item>
         <item>jsalem@grandblancschools.org</item>
         <item>cschramm@grandblancschools.org</item>
+        <item>sschwegl@grandblancschools.org</item>
         <item>aschweit@grandblancschools.org</item>
+        <item>sscott@grandblancschools.org</item>
         <item>rseeds@grandblancschools.org</item>
-        <item>sseiter@grandblancschools.org</item>
+        <item>asellers@grandblancschools.org</item>
+        <item>bsharkey@grandblancschools.org</item>
         <item>dshaver@grandblancschools.org</item>
         <item>sshaw@grandblancschools.org</item>
         <item>bshebak@grandblancschools.org</item>
-        <item>lshinaba@grandblancschools.org</item>
         <item>mshuster@grandblancschools.org</item>
         <item>gsmith@grandblancschools.org</item>
+        <item>ksmith@grandblancschools.org</item>
         <item>sstockto@grandblancschools.org</item>
-        <item>sstockt2@grandblancschools.org</item>
+        <item>sstockto2@grandblancschools.org</item>
         <item>jstuck@grandblancschools.org</item>
         <item>rtait@grandblancschools.org</item>
         <item>mtaneyhi@grandblancschools.org</item>
         <item>jtaylor@grandblancschools.org</item>
         <item>lthurlow@grandblancschools.org</item>
-        <item>ktosh@grandblancschools.org</item>
+        <item>sthurlow@grandblancschools.org</item>
         <item>ctrombly@grandblancschools.org</item>
         <item>purbanik@grandblancschools.org</item>
         <item>mvanitve@grandblancschools.org</item>
         <item>kvanover@grandblancschools.org</item>
         <item>awalroth@grandblancschools.org</item>
         <item>mwesner@grandblancschools.org</item>
+        <item>lwilliam@grandblancschools.org</item>
         <item>hwilling@grandblancschools.org</item>
         <item>jwilson@grandblancschools.org</item>
         <item>wwiltse@grandblancschools.org</item>
-        <item>cwood@grandblancschools.org</item>
         <item>pwray@grandblancschools.org</item>
         <item>mwyatt@grandblancschools.org</item>
         <item>jyoungs@grandblancschools.org</item>
@@ -457,177 +464,176 @@
 
     <string-array name="staff_phones">
         <!--An entry of NONE indicates a staff member without a listed phone number.-->
-        <item>(810) 591–6505</item>
-        <item>(810) 591–6428</item>
-        <item>(810) 591–6443</item>
-        <item>(810) 591–6662</item>
-        <item>(810) 591–6487</item>
-        <item>(810) 591–6663</item>
-        <item>(810) 591–1679</item>
-        <item>(810) 591–1575</item>
-        <item>(810) 591–1572</item>
-        <item>(810) 591–6452</item>
-        <item>(810) 591–6466</item>
-        <item>(810) 591–6492</item>
-        <item>(810) 591–6659</item>
-        <item>(810) 591–6315</item>
-        <item>(810) 591–6665</item>
-        <item>(810) 591–1579</item>
-        <item>(810) 591–1675</item>
-        <item>(810) 591–6348</item>
-        <item>(810) 591–6455</item>
-        <item>(810) 591–6072</item>
-        <item>(810) 591–1606</item>
-        <item>(810) 591–6494</item>
-        <item>(810) 591–6671</item>
-        <item>(810) 591–6045</item>
-        <item>(810) 591–6429</item>
-        <item>(810) 591–6427</item>
-        <item>(810) 591–6066</item>
-        <item>(810) 591–1585</item>
+        <item>(810) 591-6505</item>
+        <item>(810) 591-6428</item>
         <item>NONE</item>
-        <item>(810) 591–6679</item>
-        <item>(810) 591–6438</item>
-        <item>(810) 591–1587</item>
-        <item>(810) 591–6045</item>
-        <item>(810) 591–6639</item>
-        <item>(810) 591–1579</item>
-        <item>(810) 591–6479</item>
-        <item>(810) 591–1602</item>
-        <item>(810) 591–6361</item>
-        <item>(810) 591–6060</item>
-        <item>(810) 591–1584</item>
+        <item>(810) 591-6487</item>
         <item>NONE</item>
-        <item>(810) 591–6108</item>
-        <item>(810) 591–1599</item>
-        <item>(810) 591–6468</item>
-        <item>(810) 591–4302</item>
-        <item>(810) 591–6475</item>
-        <item>(810) 591–4301</item>
-        <item>(810) 591–6493</item>
-        <item>(810) 591–6071</item>
-        <item>(810) 591–6467</item>
-        <item>(810) 591–1663</item>
-        <item>(810) 591–6102</item>
-        <item>(810) 591–6642</item>
+        <item>(810) 591-1679</item>
+        <item>(810) 591-1575</item>
+        <item>(810) 591-1572</item>
+        <item>(810) 591-6452</item>
+        <item>(810) 591-6466</item>
+        <item>(810) 591-6492</item>
+        <item>(810) 591-6315</item>
+        <item>(810) 591-6931</item>
+        <item>(810) 591-1579</item>
+        <item>(810)  591-1675</item>
+        <item>(810) 591-6482</item>
         <item>NONE</item>
-        <item>(810) 591–6652</item>
-        <item>(810) 591–6501</item>
-        <item>(810) 591–6929</item>
-        <item>(810) 591–6643</item>
-        <item>(810) 591–2668</item>
-        <item>(810) 591–6448</item>
-        <item>(810) 591–6645</item>
-        <item>(810) 591–6061</item>
-        <item>(810) 591–6697</item>
-        <item>(810) 591–6669</item>
-        <item>(810) 591–6495</item>
-        <item>(810) 591–1677</item>
-        <item>(810) 591–6503</item>
-        <item>(810) 591–6501</item>
-        <item>(810) 591–6649</item>
-        <item>(810) 591–6637</item>
-        <item>(810) 591–6483</item>
-        <item>(810) 591–1599</item>
-        <item>(810) 591–6651</item>
-        <item>(810) 591–6656</item>
-        <item>(810) 591–6664</item>
-        <item>(810) 591–1674</item>
-        <item>(810) 591–6437</item>
-        <item>(810) 591–6345</item>
-        <item>(810) 591–6102</item>
-        <item>(810) 591–1583</item>
-        <item>(810) 591–6475</item>
-        <item>(810) 591–6445</item>
-        <item>(810) 591–6635</item>
-        <item>(810) 591–6357</item>
-        <item>(810) 591–6040</item>
-        <item>(810) 591–6651</item>
-        <item>(810) 591–1678</item>
-        <item>(810) 591–6348</item>
-        <item>(810) 591–6511</item>
-        <item>(810) 591–6375</item>
-        <item>(810) 591–6481</item>
-        <item>(810) 591–6506</item>
-        <item>(810) 591–1589</item>
-        <item>(810) 591–1571</item>
-        <item>(810) 591–6475</item>
-        <item>(810) 591–6480</item>
-        <item>(810) 591–6464</item>
-        <item>(810) 591–6068</item>
-        <item>(810) 591–6688</item>
-        <item>(810) 591–6350</item>
-        <item>(810) 591–6434</item>
+        <item>(810) 591-6072</item>
+        <item>(810)  591-1606</item>
+        <item>(810) 591-6494</item>
+        <item>(810) 591-6671</item>
+        <item>(810) 591-6061</item>
+        <item>(810) 591-6429</item>
+        <item>(810) 591-6427</item>
+        <item>(810) 581-6066</item>
+        <item>(810)  591-1585</item>
+        <item>(810) 591-6679</item>
+        <item>(810) 591-6438</item>
+        <item>(810) 591-1587</item>
+        <item>(810) 591-6043</item>
+        <item>(810) 591-6639</item>
+        <item>(810) 591-6467</item>
+        <item>(810) 591-6500</item>
+        <item>(810) 591-6343</item>
+        <item>(810) 591-6361</item>
+        <item>(810) 591-6060</item>
+        <item>(810) 591-1584</item>
         <item>NONE</item>
-        <item>(810) 591–6644</item>
-        <item>(810) 591–6648</item>
-        <item>(810) 591–6351</item>
-        <item>(810) 591–6500</item>
-        <item>(810) 591–6666</item>
-        <item>(810) 591–6107</item>
-        <item>(810) 591–1672</item>
-        <item>(810) 591–6925</item>
-        <item>(810) 591–6448</item>
-        <item>(810) 591–1576</item>
-        <item>(810) 591–1581</item>
-        <item>(810) 591–1574</item>
-        <item>(810) 591–6346</item>
-        <item>(810) 591–6070</item>
-        <item>(810) 591–6067</item>
-        <item>(810) 591–6634</item>
-        <item>(810) 591–6376</item>
-        <item>(810) 591–6449</item>
-        <item>(810) 591–6042</item>
-        <item>(810) 591–4300</item>
-        <item>(810) 591–6353</item>
-        <item>(810) 591–6677</item>
-        <item>(810) 591–6332</item>
-        <item>(810) 591–1586</item>
-        <item>(810) 591–6497</item>
-        <item>(810) 591–1576</item>
-        <item>(810) 591–1680</item>
-        <item>(810) 591–6491</item>
-        <item>(810) 591–6041</item>
-        <item>(810) 591–6344</item>
-        <item>(810) 591–6035</item>
-        <item>(810) 591–6653</item>
-        <item>(810) 591–6507</item>
-        <item>(810) 591–6655</item>
-        <item>(810) 591–1588</item>
-        <item>(810) 591–6504</item>
-        <item>(810) 591–6502</item>
-        <item>(810) 591–6666</item>
-        <item>(810) 591–1678</item>
-        <item>(810) 591–6657</item>
-        <item>(810) 591–6069</item>
-        <item>(810) 591–6469</item>
-        <item>(810) 591–1567</item>
-        <item>(810) 591–6931</item>
-        <item>(810) 591–1582</item>
-        <item>(810) 591–6063</item>
-        <item>(810) 591–6444</item>
-        <item>(810) 591–6465</item>
-        <item>(810) 591–6047</item>
-        <item>(810) 591–6921</item>
-        <item>(810) 591–6468</item>
-        <item>(810) 591–6640</item>
-        <item>(810) 591–6484</item>
-        <item>(810) 591–6678</item>
-        <item>(810) 591–6430</item>
-        <item>(810) 591–6485</item>
-        <item>(810) 591–1676</item>
-        <item>(810) 591–6647</item>
-        <item>(810) 591–6044</item>
-        <item>(810) 591–1591</item>
-        <item>(810) 591–6380</item>
-        <item>(810) 591–1560</item>
-        <item>(810) 591–6663</item>
-        <item>(810) 591–6680</item>
-        <item>(810) 591–6638</item>
-        <item>(810) 591–6925</item>
-        <item>(810) 591–6641</item>
-        <item>(810) 591–6454</item>
-        <item>(810) 591–6478</item>
+        <item>NONE</item>
+        <item>(810) 591-6662</item>
+        <item>NONE</item>
+        <item>(810) 591-6468</item>
+        <item>(810) 591-4302</item>
+        <item>NONE</item>
+        <item>NONE</item>
+        <item>NONE</item>
+        <item>(810) 591-6071</item>
+        <item>NONE</item>
+        <item>(810) 591-6678</item>
+        <item>(810) 591-1663</item>
+        <item>NONE</item>
+        <item>NONE</item>
+        <item>NONE</item>
+        <item>(810) 591-6365</item>
+        <item>(810) 591-6643</item>
+        <item>(810) 591-2668</item>
+        <item>NONE</item>
+        <item>NONE</item>
+        <item>(810) 591-6949</item>
+        <item>(810) 591-6697</item>
+        <item>(810) 591-6669</item>
+        <item>(810) 591-6495</item>
+        <item>NONE</item>
+        <item>(810) 591-6503</item>
+        <item>(810) 591-1592</item>
+        <item>NONE</item>
+        <item>(810) 591-6638</item>
+        <item>(810) 591-6483</item>
+        <item>NONE</item>
+        <item>(810) 591-6656</item>
+        <item>(810) 591-6664</item>
+        <item>(810) 591-1674</item>
+        <item>NONE</item>
+        <item>NONE</item>
+        <item>(810) 591-6102</item>
+        <item>NONE</item>
+        <item>(810) 591-1583</item>
+        <item>NONE</item>
+        <item>(810) 591-6474</item>
+        <item>NONE</item>
+        <item>(810) 591-6635</item>
+        <item>NONE</item>
+        <item>(810) 591-6042</item>
+        <item>(810) 591-6651</item>
+        <item>(810) 591-6667</item>
+        <item>(810) 591-6486</item>
+        <item>(810) 591-1573</item>
+        <item>(810) 591-6698</item>
+        <item>NONE</item>
+        <item>(810) 591-1589</item>
+        <item>(810) 591-1571</item>
+        <item>(810) 591-1577</item>
+        <item>(810) 591-6480</item>
+        <item>(810) 591-6066</item>
+        <item>NONE</item>
+        <item>(810) 591-6068</item>
+        <item>(810) 591-6657</item>
+        <item>NONE</item>
+        <item>(810) 591-6434</item>
+        <item>NONE</item>
+        <item>NONE</item>
+        <item>(810) 591-6479</item>
+        <item>NONE</item>
+        <item>(810) 591-6430</item>
+        <item>NONE</item>
+        <item>(810) 591-6430</item>
+        <item>NONE</item>
+        <item>(810) 591-1603</item>
+        <item>(810) 591-1581</item>
+        <item>(810) 591-1581</item>
+        <item>NONE</item>
+        <item>(810) 591-6346</item>
+        <item>(810) 591-6070</item>
+        <item>(810) 591-6044</item>
+        <item>NONE</item>
+        <item>(810) 591-6376</item>
+        <item>(810) 591-6449</item>
+        <item>NONE</item>
+        <item>(810) 591-6677</item>
+        <item>(810)  591-6332</item>
+        <item>(810) 591-1586</item>
+        <item>(810) 591-6497</item>
+        <item>(810) 591-6040</item>
+        <item>(810) 591-1576</item>
+        <item>(810) 591-1680</item>
+        <item>(810) 591-6491</item>
+        <item>(810) 591-6041</item>
+        <item>(810) 591-6344</item>
+        <item>(810) 591-6035</item>
+        <item>(810) 591-6653</item>
+        <item>NONE</item>
+        <item>(810) 591-1588</item>
+        <item>(810) 591-6504</item>
+        <item>NONE</item>
+        <item>(810)  591-6666</item>
+        <item>(810) 591-6450</item>
+        <item>(810) 591-6688</item>
+        <item>NONE</item>
+        <item>(810) 591-6683</item>
+        <item>NONE</item>
+        <item>(810)  591-6069</item>
+        <item>(810)  591-6469</item>
+        <item>(810) 591-6108</item>
+        <item>(810) 591-1582</item>
+        <item>(810) 591-6063</item>
+        <item>NONE</item>
+        <item>(810) 591-6444</item>
+        <item>(810) 591-6465</item>
+        <item>(810) 591-6047</item>
+        <item>NONE</item>
+        <item>NONE</item>
+        <item>(810) 591-6640</item>
+        <item>NONE</item>
+        <item>NONE</item>
+        <item>NONE</item>
+        <item>(810) 591-6485</item>
+        <item>(810) 591-1676</item>
+        <item>(810) 591-6647</item>
+        <item>(810) 591-6659</item>
+        <item>(810) 591-6655</item>
+        <item>(810) 591-1591</item>
+        <item>NONE</item>
+        <item>NONE</item>
+        <item>(810) 591-1560</item>
+        <item>(810) 591-1560</item>
+        <item>(810) 591-6638</item>
+        <item>NONE</item>
+        <item>(810) 591-6441</item>
+        <item>NONE</item>
+        <item>NONE</item>
     </string-array>
 
     <string-array name="sports">
